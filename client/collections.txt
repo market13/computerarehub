@@ -1,0 +1,250 @@
+x1-single-channel-ram: (x1) Single Channel RAM
+x2-double-channel-ram: (x2) Double Channel RAM
+x4-quad-channel-ram: (x4) Quad Channel RAM
+10-core-processor: 10 Core Processor
+1000w-bronze-power-supply: 1000W 80+ Bronze Power Supply
+1000w-gold-power-supply: 1000W 80+ Gold Power Supply
+1000w-platinum-power-supply: 1000W 80+ Platinum Power Supply
+1000w-atx-3-0-power-supply: 1000W ATX 3.0 Power Supply
+1000w-power-supply: 1000W Power Supply
+1000w-sfx-power-supply: 1000W SFX Power Supply
+1000w-titanium-power-supply: 1000W Titanium Power Supply
+100hz-monitors: 100Hz Monitors
+1050w-atx-3-0-power-supply: 1050W ATX 3.0 Power Supply
+1050w-bronze-power-supply: 1050W Bronze Power Supply
+1050w-gold-power-supply: 1050W Gold Power Supply
+1050w-platinum-power-supply: 1050W Platinum Power Supply
+1050w-power-supply: 1050W Power Supply
+1080p-monitor: 1080P Monitor
+10gb-graphics-card: 10GB Graphics Card
+10tb-external-hard-disk: 10TB External Hard Disk
+10tb-hard-disk: 10TB Hard Disk
+10tb-internal-hard-disk: 10TB Internal Hard Disk
+12-core-processor: 12 Core Processor
+1200w-atx-3-0-power-supply: 1200W ATX 3.0 Power Supply
+1200w-gold-power-supply: 1200W Gold Power Supply
+1200w-platinum-power-supply: 1200W Platinum Power Supply
+1200w-power-supply: 1200W Power Supply
+120gb-2-5-inch-sata-ssd: 120GB 2.5 Inch SATA SSD
+120gb-external-ssd: 120GB External SSD
+120gb-gen3-ssd: 120GB Gen3 SSD
+120gb-laptop-ssd: 120GB Laptop SSD
+120gb-m-2-ssd: 120GB M.2 SSD
+120gb-nvme-ssd: 120GB NVMe SSD
+120gb-solid-state-drive-ssd: 120GB Solid State Drive ( SSD )
+120hz-monitors: 120Hz Monitors
+120mm-liquid-cooler: 120mm Liquid Cooler
+1250w-atx-3-0-power-supply: 1250W ATX 3.0 Power Supply
+1250w-gold-power-supply: 1250W Gold Power Supply
+1250w-power-supply: 1250W Power Supply
+128gb-2-5-inch-sata-ssd: 128GB 2.5 Inch SATA SSD
+128gb-external-ssd: 128GB External SSD
+128gb-gen3-ssd: 128GB Gen3 SSD
+128gb-laptop-ssd: 128GB Laptop SSD
+128gb-m-2-ssd: 128GB M.2 SSD
+128gb-nvme-ssd: 128GB NVMe SSD
+128gb-solid-state-drive-ssd: 128GB Solid State Drive ( SSD )
+12gb-graphic-cards: 12GB Graphic Cards
+12tb-external-hard-disk: 12TB External Hard Disk
+12tb-hard-disk: 12TB Hard Disk
+12tb-internal-hard-disk: 12TB Internal Hard Disk
+1300w-atx-3-0-power-supply: 1300W ATX 3.0 Power Supply
+1300w-gold-power-supply: 1300W Gold Power Supply
+1300w-platinum-power-supply: 1300W Platinum Power Supply
+1300w-power-supply: 1300W Power Supply
+1300w-titanium-power-supply: 1300W Titanium Power Supply
+14-core-processor: 14 Core Processor
+1440p-monitor-2k: 1440P Monitor ( 2K )
+144-hz-monitors: 144Hz Monitors
+14tb-external-hard-disk: 14TB External Hard Disk
+14tb-hard-disk: 14TB Hard Disk
+14tb-internal-hard-disk: 14TB Internal Hard Disk
+1500w-atx-3-0-power-supply: 1500W ATX 3.0 Power Supply
+1500w-gold-power-supply: 1500W Gold Power Supply
+1500w-platinum-power-supply: 1500W Platinum Power Supply
+1500w-power-supply: 1500W Power Supply
+1500w-titanium-power-supply: 1500W Titanium Power Supply
+16-core-processor: 16 Core Processor
+1600w-atx-3-0-power-supply: 1600W ATX 3.0 Power Supply
+1600w-platinum-power-supply: 1600W Platinum Power Supply
+1600w-power-supply: 1600W Power Supply
+1600w-titanium-power-supply: 1600W Titanium Power Supply
+160hz-monitors: 160Hz Monitors
+165hz-monitors: 165Hz Monitors
+16gb-ddr4-ram: 16GB DDR4 RAM
+16gb-ddr5-ram: 16GB DDR5 RAM
+16gb-graphic-cards: 16GB Graphic Cards
+16gb-laptop-ram: 16GB Laptop RAM
+16gb-ram: 16GB RAM
+16gb-ram-16gb-x-1: 16GB RAM - (16GB x 1)
+16gb-ram-8gb-x-2: 16GB RAM - (8GB x 2)
+16tb-external-hard-disk: 16TB External Hard Disk
+16tb-hard-disk: 16TB Hard Disk
+16tb-internal-hard-disk: 16TB Internal Hard Disk
+18-core-processor: 18 Core Processor
+180hz-monitors: 180Hz Monitors
+18tb-external-hard-disk: 18TB External Hard Disk
+18tb-hard-disk: 18TB Hard Disk
+18tb-internal-hard-disk: 18TB Internal Hard Disk
+1gb-graphic-cards: 1GB Graphic Cards
+1tb-2-5-inch-sata-ssd: 1TB 2.5 Inch SATA SSD
+1tb-external-hard-disk: 1TB External Hard Disk
+1tb-external-ssd: 1TB External SSD
+1tb-external-storage: 1TB External Storage
+1tb-gen3-ssd: 1TB Gen3 SSD
+1tb-gen4-ssd: 1TB Gen4 SSD
+1tb-gen5-ssd: 1TB Gen5 SSD
+1tb-hard-disk: 1TB Hard Disk
+1tb-internal-hard-disk-drive: 1TB Internal Hard Disk Drive (HDD)
+1tb-laptop-ssd: 1TB Laptop SSD
+1tb-m-2-ssd: 1TB M.2 SSD
+1tb-m-2-nvme-ssd: 1TB NVME SSD
+1tb-sata-ssd: 1TB SATA SSD
+1tb-solid-state-drive-ssd: 1TB Solid State Drive ( SSD )
+2-core-processor: 2 Core Processor
+2-5-inch-sata-ssd: 2.5 Inch SATA SSD
+20-core-processor: 20 Core Processor
+20-inch-monitors: 20 inch Monitors
+2000w-platinum-power-supply: 2000W Platinum Power Supply
+2000w-power-supply: 2000W Power Supply
+20gb-graphics-card: 20GB Graphics Card
+20tb-external-hard-disk: 20TB External Hard Disk
+20tb-hard-disk: 20TB Hard Disk
+20tb-internal-hard-disk: 20TB Internal Hard Disk
+2160p-monitor-4k: 2160P Monitor ( 4K )
+22-inch-monitors: 22 inch Monitors
+24-core-processor: 24 Core Processor
+24-inch-monitors: 24 inch Monitors
+240-hz-monitors: 240 Hz Monitors
+2400mhz-ram: 2400MHz RAM
+240gb-2-5-inch-sata-ssd: 240GB 2.5 Inch SATA SSD
+240gb-external-ssd: 240GB External SSD
+240gb-gen3-ssd: 240GB Gen3 SSD
+240gb-gen4-ssd: 240GB Gen4 SSD
+240gb-laptop-ssd: 240GB Laptop SSD
+240gb-m-2-ssd: 240GB M.2 SSD
+240gb-nvme-ssd: 240GB NVMe SSD
+240gb-solid-state-drive-ssd: 240GB Solid State Drive ( SSD )
+240mm-liquid-cooler: 240mm Liquid Cooler
+24gb-graphics-card: 24GB Graphics Card
+25-inch-monitors: 25 inch Monitors
+250gb-2-5-inch-sata-ssd: 250GB 2.5 Inch SATA SSD
+250gb-external-ssd: 250GB External SSD
+250gb-gen3-ssd: 250GB Gen3 SSD
+250gb-gen4-ssd: 250GB Gen4 SSD
+250gb-laptop-ssd: 250GB Laptop SSD
+250gb-m-2-ssd: 250GB M.2 SSD
+250gb-nvme-ssd: 250GB NVMe SSD
+250gb-solid-state-drive-ssd: 250GB Solid State Drive ( SSD )
+256gb-2-5-inch-sata-ssd: 256GB 2.5 Inch SATA SSD
+256gb-external-ssd: 256GB External SSD
+256gb-gen3-ssd: 256GB Gen3 SSD
+256gb-gen4-ssd: 256GB Gen4 SSD
+256gb-laptop-ssd: 256GB Laptop SSD
+256gb-m-2-ssd: 256GB M.2 SSD
+256gb-nvme-ssd: 256GB NVMe SSD
+256gb-solid-state-drive-ssd: 256GB Solid State Drive ( SSD )
+27-inch-monitors: 27 inch Monitors
+28-inch-monitors: 28 inch Monitors
+280hz-monitors: 280Hz Monitors
+280mm-liquid-cooler: 280mm Liquid Cooler
+29-inch-monitors: 29 inch Monitors
+2gb-graphic-cards: 2GB Graphic Cards
+2tb-2-5-inch-sata-ssd: 2TB 2.5 Inch SATA SSD
+2tb-external-hard-disk: 2TB External Hard Disk
+2tb-external-ssd: 2TB External SSD
+2tb-gen3-ssd: 2TB Gen3 SSD
+2tb-gen4-ssd: 2TB Gen4 SSD
+2tb-gen5-ssd: 2TB Gen5 SSD
+2tb-hard-disk: 2TB Hard Disk
+2tb-internal-hard-disk-drive-hdd: 2TB Internal Hard Disk Drive (HDD)
+2tb-laptop-ssd: 2TB Laptop SSD
+2tb-m-2-ssd: 2TB M.2 SSD
+2tb-nvme-ssd: 2TB NVMe SSD
+2tb-solid-state-drive-ssd: 2TB Solid State Drive ( SSD )
+3000mhz-ram: 3000MHz RAM
+300hz-monitors: 300Hz Monitors
+32-core-processor: 32 Core Processor
+32-inch-monitors: 32 inch Monitors
+3200mhz-ram: 3200MHz RAM
+32gb-ddr4-ram: 32GB DDR4 RAM
+32gb-ddr5-ram: 32GB DDR5 RAM
+32gb-laptop-ram: 32GB Laptop RAM
+32gb-ram: 32GB RAM
+32gb-ram-16gb-x-2: 32GB RAM - (16GB x 2)
+32gb-ram-32gb-x-1: 32GB RAM - (32GB x 1)
+34-inch-monitors: 34 inch Monitors
+3600mhz-ram: 3600MHz RAM
+360hz-monitor: 360Hz Monitor
+360mm-liquid-cooler: 360mm Liquid Cooler
+39-inch-monitors: 39 inch Monitors
+3d-modelling-pc: 3D Modelling PC
+3dsmax-rendering-pc: 3DsMax Rendering PC
+4-core-processor: 4 Core Processor
+40-inch-and-above-monitors: 40 inch and Above Monitors
+400w-power-supply: 400W Power Supply
+420mm-liquid-cooler: 420mm Liquid Cooler
+450w-bronze-power-supply: 450W Bronze Power Supply
+450w-gold-power-supply: 450W Gold Power Supply
+450w-power-supply: 450W Power Supply
+450w-sfx-power-supply: 450W SFX Power Supply
+450w-white-power-supply: 450W White Power Supply
+4800mhz-ram: 4800MHz RAM
+480gb-2-5-inch-sata-ssd: 480GB 2.5 Inch SATA SSD
+480gb-external-ssd: 480GB External SSD
+480gb-gen3-ssd: 480GB Gen3 SSD
+480gb-gen4-ssd: 480GB Gen4 SSD
+480gb-laptop-ssd: 480GB Laptop SSD
+480gb-m-2-ssd: 480GB M.2 SSD
+480gb-nvme-ssd: 480GB NVMe SSD
+480gb-solid-state-drive-ssd: 480GB Solid State Drive ( SSD )
+480mm-liquid-cooler: 480mm Liquid Cooler
+48gb-ddr5-ram: 48GB DDR5 RAM
+48gb-graphics-card: 48GB Graphics Card
+48gb-ram: 48GB RAM
+4gb-ddr3-ram: 4GB DDR3 RAM
+4gb-ddr4-ram: 4GB DDR4 RAM
+4gb-graphic-cards: 4GB Graphic Cards
+4gb-laptop-ram: 4GB Laptop RAM
+4gb-ram: 4GB RAM
+4k-144hz-monitor: 4K 144Hz Monitor
+4tb-2-5-inch-sata-ssd: 4TB 2.5 Inch SATA SSD
+4tb-external-ssd: 4TB External SSD
+4tb-gen3-ssd: 4TB Gen3 SSD
+4tb-gen4-ssd: 4TB Gen4 SSD
+4tb-hard-disk: 4TB Hard Disk
+4tb-internal-hard-disk-drive-hdd: 4TB Internal Hard Disk Drive (HDD)
+4tb-laptop-ssd: 4TB Laptop SSD
+4tb-m-2-ssd: 4TB M.2 SSD
+4tb-nvme-ssd: 4TB NVMe SSD
+4tb-solid-state-drive-ssd: 4TB Solid State Drive ( SSD )
+500gb-2-5-inch-sata-ssd: 500GB 2.5 Inch SATA SSD
+500gb-external-ssd: 500GB External SSD
+500gb-gen3-ssd: 500GB Gen3 SSD
+500gb-gen4-ssd: 500GB Gen4 SSD
+500gb-hard-disk: 500GB Hard Disk
+500gb-internal-hard-disk: 500GB Internal Hard Disk
+500gb-laptop-ssd: 500GB Laptop SSD
+500gb-m-2-ssd: 500GB M.2 SSD
+500gb-nvme-ssd: 500GB NVMe SSD
+500gb-solid-state-drive-ssd: 500GB Solid State Drive ( SSD )
+500w-power-supply: 500W Power Supply
+512gb-2-5-inch-sata-ssd: 512GB 2.5 Inch SATA SSD
+512gb-external-ssd: 512GB External SSD
+512gb-gen3-ssd: 512GB Gen3 SSD
+512gb-gen4-ssd: 512GB Gen4 SSD
+512gb-laptop-ssd: 512GB Laptop SSD
+512gb-m-2-ssd: 512GB M.2 SSD
+512gb-nvme-ssd: 512GB NVMe SSD
+512gb-solid-state-drive-ssd: 512GB Solid State Drive ( SSD )
+5200mhz-ram: 5200MHz RAM
+540hz-monitors: 540Hz Monitors
+550w-bronze-power-supply: 550W Bronze Power Supply
+550w-gold-power-supply: 550W Gold Power Supply
+550w-power-supply: 550W Power Supply
+550w-sfx-power-supply: 550W SFX Power Supply
+550w-white-power-supply: 550W White Power Supply
+5600mhz-ram: 5600MHz RAM
+6-core-processor: 6 Core Processor
+60-hz-monitors: 60 Hz Monitors
+60-keyboard: 60% Keyboard

@@ -1,0 +1,59 @@
+[
+  {
+    "id": "starter-esports",
+    "name": "Apex Esports Starter",
+    "tier": "Budget 1080p Gaming",
+    "target": "1080p Ultra 144+ FPS in CS2, Valorant, Fortnite, GTA V",
+    "color_theme": "#06b6d4",
+    "cabinet_color": "Black",
+    "rgb_mode": "Cyberpunk Cyan",
+    "components": {
+      "case": 15469993295965,
+      "cpu": 9044110377053,
+      "motherboard": 15414154330205,
+      "gpu": 9043234750557,
+      "ram": 15474603819101,
+      "storage": 15464894922845,
+      "psu": 15460219519069,
+      "cooler": 15458811773021
+    }
+  },
+  {
+    "id": "pro-creator-gaming",
+    "name": "Phantom Stealth Studio",
+    "tier": "1440p High Performance",
+    "target": "1440p High FPS, 4K Video Editing & Unreal Engine 5",
+    "color_theme": "#a855f7",
+    "cabinet_color": "White",
+    "rgb_mode": "Neon Purple Pulse",
+    "components": {
+      "case": 15469992443997,
+      "cpu": 7998563942493,
+      "motherboard": 8242410913885,
+      "gpu": 8241275535453,
+      "ram": 15474591694941,
+      "storage": 15464873099357,
+      "psu": 15460199235677,
+      "cooler": 15398254084189
+    }
+  },
+  {
+    "id": "godlike-enthusiast",
+    "name": "TITAN Hyperion Overkill",
+    "tier": "Extreme 4K OLED Monster",
+    "target": "4K Max Ray-Tracing, Local LLM AI Training & 240Hz 4K",
+    "color_theme": "#ec4899",
+    "cabinet_color": "Black",
+    "rgb_mode": "Chroma RGB Wave",
+    "components": {
+      "case": 15459953508445,
+      "cpu": 7998417076317,
+      "motherboard": 8223038767197,
+      "gpu": 8230538838109,
+      "ram": 15474574655581,
+      "storage": 15464869822557,
+      "psu": 8234203480157,
+      "cooler": 15398253264989
+    }
+  }
+]
