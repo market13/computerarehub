@@ -7,7 +7,7 @@ export function checkCompatibility(build) {
   const warnings = [];
   const info = [];
 
-  const { cpu, motherboard, ram, gpu, storage, psu, case: cabinet, cooler } = build;
+  const { cpu, motherboard, ram, gpu, psu, case: cabinet, cooler } = build;
 
   // 1. CPU & Motherboard Socket Check
   if (cpu && motherboard) {
@@ -154,7 +154,6 @@ export function calculateWattage(build) {
 
 export function calculateGamingScores(build) {
   const gpu = build.gpu;
-  const cpu = build.cpu;
 
   let baseScore = 30; // Entry
 

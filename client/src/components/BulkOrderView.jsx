@@ -12,7 +12,6 @@ import {
   PhoneCall, 
   Mail, 
   MapPin, 
-  FileText, 
   Copy, 
   Check, 
   ArrowRight, 

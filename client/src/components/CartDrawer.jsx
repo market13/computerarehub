@@ -5,8 +5,6 @@ import {
   ShoppingBag, 
   ArrowRight, 
   ShieldCheck, 
-  Truck, 
-  MessageSquare,
   Box
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -16,12 +14,12 @@ export default function CartDrawer({
   onClose,
   build = {},
   onRemoveItem,
-  onClearCart
+  _onClearCart
 }) {
   if (!isOpen) return null;
 
   const items = Object.entries(build)
-    .filter(([_, item]) => item !== null)
+    .filter(([, item]) => item !== null)
     .map(([key, item]) => ({ slotKey: key, ...item }));
 
   const subtotal = items.reduce((sum, item) => sum + (item.price || 0), 0);

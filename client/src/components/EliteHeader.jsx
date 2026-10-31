@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { 
-  Search, 
   ShoppingCart, 
   Heart, 
   User, 
@@ -10,7 +9,6 @@ import {
   BadgePercent,
   Sparkles,
   Box,
-  MapPin,
   Building2
 } from 'lucide-react';
 
@@ -167,23 +165,22 @@ export default function EliteHeader({
   setActiveTab, 
   buildCount = 0, 
   totalPrice = 0,
-  onOpenPresets = () => {},
-  onResetBuild = () => {},
+  _onOpenPresets = () => {},
+  _onResetBuild = () => {},
   onOpenCart = () => {},
-  categories = [],
+  _categories = [],
   onCategorySelect = () => {},
   searchQuery = '',
   setSearchQuery = () => {},
   onSearchSubmit = () => {}
 }) {
   const [categoryDropdownOpen, setCategoryDropdownOpen] = useState(false);
-  const [componentsMenuOpen, setComponentsMenuOpen] = useState(false);
   const [pcBuildsMenuOpen, setPcBuildsMenuOpen] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState(null); // 'gaming' | 'streaming' | null
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileGamingOpen, setMobileGamingOpen] = useState(false);
   const [mobileStreamingOpen, setMobileStreamingOpen] = useState(false);
-  const [wishlistCount, setWishlistCount] = useState(0);
+  const [wishlistCount] = useState(0);
 
   const formattedPrice = totalPrice > 0 
     ? `Rs. ${totalPrice.toLocaleString('en-IN')}` 

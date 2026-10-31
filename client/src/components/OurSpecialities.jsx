@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, ArrowRight, Box, Cpu } from 'lucide-react';
+import { ArrowRight, Box } from 'lucide-react';
 
 const SPECIALITIES = [
   {

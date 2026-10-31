@@ -2,16 +2,12 @@ import React from 'react';
 import { 
   Sparkles, 
   Cpu, 
-  Zap, 
-  Flame, 
   ShieldCheck, 
   Layers, 
   ArrowRight, 
   Eye, 
   Palette,
-  CheckCircle2,
-  Gamepad2,
-  Monitor
+  Gamepad2
 } from 'lucide-react';
 import { THEMES } from '../utils/themePresets';
 

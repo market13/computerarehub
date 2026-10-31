@@ -7,8 +7,7 @@ import {
   Zap, 
   HardDrive, 
   Fan, 
-  Tv,
-  ArrowRight
+  Tv
 } from 'lucide-react';
 
 const CATEGORIES = [

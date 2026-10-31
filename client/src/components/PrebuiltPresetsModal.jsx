@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Sparkles, Check, Zap, Flame, Shield, ArrowRight } from 'lucide-react';
+import { X, Sparkles, ArrowRight } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export default function PrebuiltPresetsModal({

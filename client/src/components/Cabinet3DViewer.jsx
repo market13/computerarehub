@@ -267,7 +267,7 @@ export default function Cabinet3DViewer({
     rotatingFansRef.current = [];
     buildCabinetScene(scene, build, meshesRef, rotatingFansRef, currentTheme);
     applyRgbTheme(rgbTheme);
-  }, [build, currentTheme]);
+  }, [build, currentTheme, rgbTheme]);
 
   // Sync RGB lighting with site theme when changed
   useEffect(() => {

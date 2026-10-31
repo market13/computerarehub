@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ExternalLink, Check, ShoppingBag, ShieldCheck, Truck } from 'lucide-react';
+import { X, ExternalLink, Check, ShieldCheck, Truck } from 'lucide-react';
 
 const SPEC_KEY_LABELS = {
   form_factor: 'Form Factor',

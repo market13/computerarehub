@@ -4,13 +4,8 @@ import {
   ChevronRight, 
   Truck, 
   ShieldCheck, 
-  RotateCcw, 
-  MessageSquare, 
   Box, 
-  Zap, 
-  Flame, 
-  Sparkles,
-  ArrowRight
+  MessageSquare
 } from 'lucide-react';
 
 const SLIDES = [
