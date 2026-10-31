@@ -126828,6 +126828,338 @@
   ],
   "gaming_mouse": [
     {
+      "id": "mouse_ant_esports_gm320",
+      "title": "Ant Esports GM320 RGB Wired Optical Gaming Mouse (12,800 DPI, 8 Programmable Buttons)",
+      "vendor": "Ant Esports",
+      "price": 699,
+      "compare_at_price": 1499,
+      "category": "gaming_mouse",
+      "image": "/images/products/mouse/ant-esports-gm320-wired.png",
+      "cdn_image": "/images/products/mouse/ant-esports-gm320-wired.png",
+      "handle": "ant-esports-gm320-rgb-wired-optical-gaming-mouse",
+      "url": "#",
+      "description": "Ant Esports GM320 is equipped with a high-speed 12,800 DPI optical sensor, 8 programmable macro buttons, dynamic RGB lighting modes, and an ergonomic thumb rest for competitive gaming.",
+      "tags": [
+        "CATP_Ant Esports",
+        "CATQ_Mouse",
+        "Wired",
+        "RGB",
+        "Gaming",
+        "Ant Esports",
+        "In Stock"
+      ],
+      "specs": {
+        "vendor": "Ant Esports",
+        "dpi": "12,800 DPI",
+        "connectivity": "Braided USB Wired",
+        "in_stock": true,
+        "rgb": true
+      },
+      "in_stock": true
+    },
+    {
+      "id": "mouse_zebronics_alex",
+      "title": "Zebronics Zeb-Alex USB Wired Optical Mouse (1200 DPI, Compact & Light, Plug & Play)",
+      "vendor": "Zebronics",
+      "price": 199,
+      "compare_at_price": 399,
+      "category": "gaming_mouse",
+      "image": "/images/products/mouse/zebronics-alex-wired.png",
+      "cdn_image": "/images/products/mouse/zebronics-alex-wired.png",
+      "handle": "zebronics-zeb-alex-usb-wired-optical-mouse",
+      "url": "#",
+      "description": "Zebronics Zeb-Alex is a dependable USB optical wired mouse with 1200 DPI tracking, comfortable palm shape, and silent scrolling for home and office computing.",
+      "tags": [
+        "CATP_Zebronics",
+        "CATQ_Mouse",
+        "Wired",
+        "Zebronics",
+        "In Stock"
+      ],
+      "specs": {
+        "vendor": "Zebronics",
+        "dpi": "1200 DPI",
+        "connectivity": "USB Wired",
+        "in_stock": true
+      },
+      "in_stock": true
+    },
+    {
+      "id": "mouse_acer_omr050",
+      "title": "Acer OMR050 USB Optical Wired Mouse (1200 DPI, Ambidextrous Design, Black)",
+      "vendor": "Acer",
+      "price": 299,
+      "compare_at_price": 599,
+      "category": "gaming_mouse",
+      "image": "/images/products/mouse/acer-omr050-wired.png",
+      "cdn_image": "/images/products/mouse/acer-omr050-wired.png",
+      "handle": "acer-omr050-usb-optical-wired-mouse",
+      "url": "#",
+      "description": "Acer OMR050 is an ambidextrous optical mouse featuring 1200 DPI sensitivity, smooth Teflon glide pads, and plug-and-play USB connectivity for laptops and desktops.",
+      "tags": [
+        "CATP_Acer",
+        "CATQ_Mouse",
+        "Wired",
+        "Acer",
+        "In Stock"
+      ],
+      "specs": {
+        "vendor": "Acer",
+        "dpi": "1200 DPI",
+        "connectivity": "USB Wired",
+        "in_stock": true
+      },
+      "in_stock": true
+    },
+    {
+      "id": "mouse_intex_corona",
+      "title": "Intex Corona USB Optical Wired Mouse (1000 DPI, Plug & Play, Lightweight)",
+      "vendor": "Intex",
+      "price": 189,
+      "compare_at_price": 349,
+      "category": "gaming_mouse",
+      "image": "/images/products/mouse/intex-corona-mouse.png",
+      "cdn_image": "/images/products/mouse/intex-corona-mouse.png",
+      "handle": "intex-corona-usb-optical-wired-mouse",
+      "url": "#",
+      "description": "Intex Corona USB mouse delivers reliable optical navigation with smooth scroll wheel feedback and durable construction suited for everyday office and school tasks.",
+      "tags": [
+        "CATP_Intex",
+        "CATQ_Mouse",
+        "Wired",
+        "Intex",
+        "In Stock"
+      ],
+      "specs": {
+        "vendor": "Intex",
+        "dpi": "1000 DPI",
+        "connectivity": "USB Wired",
+        "in_stock": true
+      },
+      "in_stock": true
+    },
+    {
+      "id": "mouse_geonix_gxm20",
+      "title": "Geonix GX-M20 USB Optical Wired Mouse (1200 DPI, Ergonomic Grip, Smooth Glides)",
+      "vendor": "Geonix",
+      "price": 199,
+      "compare_at_price": 399,
+      "category": "gaming_mouse",
+      "image": "/images/products/mouse/geonix-gxm20-wired.png",
+      "cdn_image": "/images/products/mouse/geonix-gxm20-wired.png",
+      "handle": "geonix-gx-m20-usb-optical-wired-mouse",
+      "url": "#",
+      "description": "Geonix GX-M20 is an ergonomic optical mouse designed for smooth movement, tactile clicking, and zero latency on any desktop or mousepad.",
+      "tags": [
+        "CATP_Geonix",
+        "CATQ_Mouse",
+        "Wired",
+        "Geonix",
+        "In Stock"
+      ],
+      "specs": {
+        "vendor": "Geonix",
+        "dpi": "1200 DPI",
+        "connectivity": "USB Wired",
+        "in_stock": true
+      },
+      "in_stock": true
+    },
+    {
+      "id": "mouse_prodot_op249s",
+      "title": "ProDot Total Control OP-249s USB Optical Wired Mouse (1000 DPI, 5 Million Click Life)",
+      "vendor": "ProDot",
+      "price": 199,
+      "compare_at_price": 350,
+      "category": "gaming_mouse",
+      "image": "/images/products/mouse/prodot-op249s-wired.png",
+      "cdn_image": "/images/products/mouse/prodot-op249s-wired.png",
+      "handle": "prodot-op-249s-total-control-wired-usb-mouse",
+      "url": "#",
+      "description": "ProDot OP-249s is proudly manufactured in India with high-quality ABS plastic, responsive optical tracking, and durable micro-switches rated for 5 million clicks.",
+      "tags": [
+        "CATP_ProDot",
+        "CATQ_Mouse",
+        "Wired",
+        "ProDot",
+        "In Stock"
+      ],
+      "specs": {
+        "vendor": "ProDot",
+        "dpi": "1000 DPI",
+        "connectivity": "USB Wired",
+        "in_stock": true
+      },
+      "in_stock": true
+    },
+    {
+      "id": "mouse_tvs_gold_companion",
+      "title": "TVS Electronics TVS Gold Companion USB Wired Optical Mouse (High Precision, Retro Beige Finish)",
+      "vendor": "TVS Gold",
+      "price": 399,
+      "compare_at_price": 699,
+      "category": "gaming_mouse",
+      "image": "/images/products/mouse/tvs-gold-companion-mouse.png",
+      "cdn_image": "/images/products/mouse/tvs-gold-companion-mouse.png",
+      "handle": "tvs-gold-companion-usb-wired-optical-mouse",
+      "url": "#",
+      "description": "The companion optical mouse for the legendary TVS Gold mechanical keyboard. Features a matching retro classic finish, optical tracking engine, and heavy-duty chassis.",
+      "tags": [
+        "CATP_TVS",
+        "CATQ_Mouse",
+        "Wired",
+        "TVS Gold",
+        "In Stock"
+      ],
+      "specs": {
+        "vendor": "TVS Gold",
+        "dpi": "1200 DPI",
+        "connectivity": "USB Wired",
+        "in_stock": true
+      },
+      "in_stock": true
+    },
+    {
+      "id": "mouse_tvs_champ",
+      "title": "TVS Electronics TVS Champ USB Optical Wired Mouse (Heavy Duty 1000 DPI, 5M Clicks)",
+      "vendor": "TVS Champ",
+      "price": 299,
+      "compare_at_price": 550,
+      "category": "gaming_mouse",
+      "image": "/images/products/mouse/tvs-champ-wired-mouse.png",
+      "cdn_image": "/images/products/mouse/tvs-champ-wired-mouse.png",
+      "handle": "tvs-champ-heavy-duty-usb-optical-mouse",
+      "url": "#",
+      "description": "The TVS Champ optical mouse is built for long-hour commercial and billing operations. Rated for 5 million clicks with high-durability microswitches and smooth rubberized scroll wheel.",
+      "tags": [
+        "CATP_TVS",
+        "CATQ_Mouse",
+        "Wired",
+        "TVS Champ",
+        "In Stock"
+      ],
+      "specs": {
+        "vendor": "TVS Champ",
+        "dpi": "1000 DPI",
+        "connectivity": "USB Wired",
+        "in_stock": true
+      },
+      "in_stock": true
+    },
+    {
+      "id": "mouse_hp_x500",
+      "title": "HP X500 Wired USB Optical Mouse (High Precision 1000 DPI, Contoured Grip)",
+      "vendor": "HP",
+      "price": 299,
+      "compare_at_price": 549,
+      "category": "gaming_mouse",
+      "image": "/images/products/mouse/hp-x500-wired.png",
+      "cdn_image": "/images/products/mouse/hp-x500-wired.png",
+      "handle": "hp-x500-wired-usb-optical-mouse",
+      "url": "#",
+      "description": "Designed for daily comfort and precision navigation. The HP X500 wired mouse connects via USB and delivers accurate optical movement across desk surfaces without requiring drivers.",
+      "tags": [
+        "CATP_HP",
+        "CATQ_Mouse",
+        "Wired",
+        "HP",
+        "In Stock"
+      ],
+      "specs": {
+        "vendor": "HP",
+        "dpi": "1000 DPI",
+        "connectivity": "USB Wired",
+        "in_stock": true
+      },
+      "in_stock": true
+    },
+    {
+      "id": "mouse_logitech_g102",
+      "title": "Logitech G102 Lightsync RGB Wired Gaming Mouse (8,000 DPI Gaming Sensor, 6 Programmable Buttons)",
+      "vendor": "Logitech",
+      "price": 1595,
+      "compare_at_price": 2295,
+      "category": "gaming_mouse",
+      "image": "/images/products/mouse/logitech-g102-wired.png",
+      "cdn_image": "/images/products/mouse/logitech-g102-wired.png",
+      "handle": "logitech-g102-lightsync-rgb-gaming-mouse",
+      "url": "#",
+      "description": "Logitech G102 Lightsync delivers gaming-grade 8,000 DPI sensor tracking, vibrant customizable RGB rainbow color wave illumination, and spring button tensioning for crisp click tactile response.",
+      "tags": [
+        "CATP_Logitech",
+        "CATQ_Mouse",
+        "Wired",
+        "RGB",
+        "Gaming",
+        "Logitech",
+        "In Stock"
+      ],
+      "specs": {
+        "vendor": "Logitech",
+        "dpi": "8,000 DPI",
+        "connectivity": "USB Wired",
+        "in_stock": true,
+        "rgb": true
+      },
+      "in_stock": true
+    },
+    {
+      "id": "mouse_logitech_b100",
+      "title": "Logitech B100 USB Optical Wired Mouse (800 DPI, Comfortable Grip, 3-Year Official Warranty)",
+      "vendor": "Logitech",
+      "price": 299,
+      "compare_at_price": 495,
+      "category": "gaming_mouse",
+      "image": "/images/products/mouse/logitech-b100-wired.png",
+      "cdn_image": "/images/products/mouse/logitech-b100-wired.png",
+      "handle": "logitech-b100-usb-optical-wired-mouse",
+      "url": "#",
+      "description": "Logitech B100 Optical USB Mouse is an office essential with built-in quality by Logitech. Features an ambidextrous shape, responsive 800 DPI tracking, and instant plug-and-play USB setup.",
+      "tags": [
+        "CATP_Logitech",
+        "CATQ_Mouse",
+        "Wired",
+        "Logitech",
+        "In Stock"
+      ],
+      "specs": {
+        "vendor": "Logitech",
+        "dpi": "800 DPI",
+        "connectivity": "USB Wired (1.8m)",
+        "in_stock": true,
+        "ergonomics": "Full-size Ambidextrous"
+      },
+      "in_stock": true
+    },
+    {
+      "id": "mouse_dell_ms116",
+      "title": "Dell MS116 USB Wired Optical Mouse (1000 DPI, Matte Black, Ambidextrous)",
+      "vendor": "Dell",
+      "price": 299,
+      "compare_at_price": 550,
+      "category": "gaming_mouse",
+      "image": "/images/products/mouse/dell-ms116-wired.png",
+      "cdn_image": "/images/products/mouse/dell-ms116-wired.png",
+      "handle": "dell-ms116-wired-optical-usb-mouse",
+      "url": "#",
+      "description": "The Dell Optical Mouse MS116 features optical LED tracking and wired connectivity, providing a stellar performance day after day. Improve your productivity at the office or at home with accurate 1000 DPI optical movement.",
+      "tags": [
+        "CATP_Dell",
+        "CATQ_Mouse",
+        "Wired",
+        "Dell",
+        "In Stock"
+      ],
+      "specs": {
+        "vendor": "Dell",
+        "dpi": "1000 DPI",
+        "connectivity": "USB Wired",
+        "in_stock": true,
+        "ergonomics": "Ambidextrous"
+      },
+      "in_stock": true
+    },
+    {
       "id": "gaming_mouse_7100287877213",
       "title": "COOLER MASTER MM311 Wireless Gaming Mouse (Black)",
       "vendor": "Cooler Master",

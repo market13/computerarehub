@@ -18,16 +18,20 @@ const GAMING_MENU_COLUMNS = [
     top: {
       title: 'Gaming Mouse',
       items: [
-        'Wired Gaming Mouse',
-        'Wireless Gaming Mouse',
-        'Zebronics Gaming Mouse',
-        'Razer Gaming Mouse',
-        'Logitech Gaming Mouse',
-        'Cooler Master Gaming Mouse',
-        'Redragon Gaming Mouse',
-        'CORSAIR Gaming Mouse',
+        'Wired Mice (All Brands)',
+        'Dell Wired Mouse',
+        'Logitech Optical Mouse',
+        'HP Optical Mouse',
+        'Zebronics Wired Mouse',
+        'ProDot Total Control Mouse',
+        'Geonix Optical Mouse',
+        'Intex Corona Mouse',
+        'Acer Desktop Mouse',
+        'TVS Champ Heavy Duty Mouse',
+        'TVS Gold Companion Mouse',
         'Ant Esports Gaming Mouse',
-        'CosmicByte Gaming Mouse'
+        'Razer Gaming Mouse',
+        'Wireless Gaming Mouse'
       ]
     },
     bottom: {
@@ -200,9 +204,13 @@ export default function EliteHeader({
 
     if (groupTitle === 'Gaming Mouse') {
       targetCategory = 'gaming_mouse';
-      if (item === 'Wired Gaming Mouse') filterQuery = 'Wired';
-      else if (item === 'Wireless Gaming Mouse') filterQuery = 'Wireless';
-      else filterQuery = item.replace(/Gaming Mouse/i, '').replace(/CosmicByte/i, 'Cosmic Byte').trim();
+      if (item === 'Wired Mice (All Brands)' || item === 'Wired Gaming Mouse') {
+        filterQuery = 'Wired';
+      } else if (item === 'Wireless Gaming Mouse') {
+        filterQuery = 'Wireless';
+      } else {
+        filterQuery = item.replace(/(Gaming|Wired|Optical|Desktop|Heavy Duty|Companion|Total Control)\s*Mouse/gi, '').replace(/\(All Brands\)/gi, '').replace(/CosmicByte/i, 'Cosmic Byte').trim();
+      }
     } else if (groupTitle === 'Gaming Keyboard') {
       targetCategory = 'gaming_keyboard';
       if (item === 'Wired Keyboards (All Brands)' || item === 'Wired Gaming Keyboard') {

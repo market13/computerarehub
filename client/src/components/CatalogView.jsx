@@ -9,7 +9,7 @@ import {
 const CATEGORY_TABS = [
   { key: 'all', label: 'All Products' },
   { key: 'gaming_pc', label: 'Pre-Built Gaming PCs' },
-  { key: 'gaming_mouse', label: 'Gaming Mice' },
+  { key: 'gaming_mouse', label: 'Mice (Wired & Optical)' },
   { key: 'gaming_keyboard', label: 'Keyboards (Wired & Mechanical)' },
   { key: 'gaming_headset', label: 'Gaming Headphones' },
   { key: 'gaming_mousepad', label: 'Gaming Mousepads' },
@@ -33,7 +33,7 @@ const CATEGORY_TABS = [
 const CATEGORY_TITLE_MAP = {
   all: 'ALL HARDWARE & GEAR',
   gaming_pc: 'PRE-BUILT GAMING PCS',
-  gaming_mouse: 'GAMING MICE',
+  gaming_mouse: 'MICE & OPTICAL (WIRED & GAMING)',
   gaming_keyboard: 'KEYBOARDS (WIRED & MECHANICAL)',
   gaming_headset: 'GAMING HEADPHONES',
   gaming_mousepad: 'GAMING MOUSEPADS',
