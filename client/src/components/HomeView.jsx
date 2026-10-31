@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 
 import EliteBannerHero from './EliteBannerHero';
-import EliteCategoriesGrid from './EliteCategoriesGrid';
+import ShopByCategory from './ShopByCategory';
 import OurSpecialities from './OurSpecialities';
 
 export default function HomeView({
@@ -41,8 +41,8 @@ export default function HomeView({
       {/* 1. Hero Carousel Banner & Service Assurance */}
       <EliteBannerHero onNavigate={onNavigate} />
 
-      {/* 2. Component Categories Grid */}
-      <EliteCategoriesGrid onSelectCategory={(cat) => onNavigate(`catalog-${cat}`)} />
+      {/* 2. SHOP BY CATEGORY (14 Modern Visual Category Cards) */}
+      <ShopByCategory onSelectCategory={(cat) => onNavigate(`catalog-${cat}`)} />
 
       {/* 3. OUR SPECIALITIES (Gaming, Rendering, Streaming, Editing, Game Dev, AI & ML) */}
       <OurSpecialities onNavigate={onNavigate} onOpenPresets={onOpenPresets} />

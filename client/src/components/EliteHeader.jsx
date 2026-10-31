@@ -44,16 +44,21 @@ const GAMING_MENU_COLUMNS = [
     top: {
       title: 'Gaming Keyboard',
       items: [
-        'Wired Gaming Keyboard',
-        'Wireless Gaming Keyboard',
-        'Zebronics Gaming Keyboard',
-        'Razer Gaming Keyboard',
-        'Logitech Gaming Keyboard',
-        'Cooler Master Gaming Keyboard',
-        'Redragon Gaming Keyboard',
-        'CORSAIR Gaming Keyboard',
+        'Wired Keyboards (All Brands)',
+        'TVS Gold Mechanical Keyboard',
+        'TVS Champ Wired Keyboard',
+        'Dell Wired Keyboard',
+        'HP Wired Keyboard',
+        'Logitech Wired Keyboard',
+        'Zebronics Wired Keyboard',
+        'ProDot Wired Keyboard',
+        'Geonix Wired Keyboard',
+        'Intex Wired Keyboard',
+        'Acer Wired Keyboard',
         'Ant Esports Gaming Keyboard',
-        'CosmicByte Gaming Keyboard'
+        'Razer Gaming Keyboard',
+        'CORSAIR Gaming Keyboard',
+        'Redragon Gaming Keyboard'
       ]
     },
     bottom: {
@@ -200,9 +205,13 @@ export default function EliteHeader({
       else filterQuery = item.replace(/Gaming Mouse/i, '').replace(/CosmicByte/i, 'Cosmic Byte').trim();
     } else if (groupTitle === 'Gaming Keyboard') {
       targetCategory = 'gaming_keyboard';
-      if (item === 'Wired Gaming Keyboard') filterQuery = 'Wired';
-      else if (item === 'Wireless Gaming Keyboard') filterQuery = 'Wireless';
-      else filterQuery = item.replace(/Gaming Keyboard/i, '').replace(/CosmicByte/i, 'Cosmic Byte').trim();
+      if (item === 'Wired Keyboards (All Brands)' || item === 'Wired Gaming Keyboard') {
+        filterQuery = 'Wired';
+      } else if (item === 'Wireless Gaming Keyboard') {
+        filterQuery = 'Wireless';
+      } else {
+        filterQuery = item.replace(/(Gaming|Wired|Mechanical)\s*Keyboard/gi, '').replace(/\(All Brands\)/gi, '').trim();
+      }
     } else if (groupTitle === 'Gaming Headphones') {
       targetCategory = 'gaming_headset';
       if (item === 'Wired Gaming Headphones') filterQuery = 'Wired';
