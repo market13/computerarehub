@@ -53,6 +53,15 @@ function formatSpecValue(key, val) {
   return String(val);
 }
 
+function getSafeUrl(url) {
+  if (!url || typeof url !== 'string') return '#';
+  const trimmed = url.trim();
+  if (trimmed.startsWith('https://') || trimmed.startsWith('http://') || trimmed === '#') {
+    return trimmed;
+  }
+  return '#';
+}
+
 export default function ProductDetailModal({ 
   product, 
   isOpen, 
@@ -60,9 +69,9 @@ export default function ProductDetailModal({
   onSelectProduct,
   isSelected 
 }) {
-  if (!isOpen || !product) return null;
-
   const [activeImageIdx, setActiveImageIdx] = useState(0);
+
+  if (!isOpen || !product) return null;
 
   const images = (product.images && product.images.length > 0) ? product.images : [product.image || product.cdn_image];
   const cdnImages = product.cdn_images || [];
@@ -230,7 +239,7 @@ export default function ProductDetailModal({
               </button>
 
               <a
-                href={product.url}
+                href={getSafeUrl(product.url)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-700 transition-colors"

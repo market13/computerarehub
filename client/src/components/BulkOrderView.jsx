@@ -42,6 +42,19 @@ const SUGGESTED_NOTES = [
   'Need bulk quotation for 10 custom deep-learning workstations with 64GB DDR5 and NVIDIA dual-GPU support.'
 ];
 
+function maskPhone(phone) {
+  if (!phone || typeof phone !== 'string') return '***';
+  const clean = phone.trim();
+  if (clean.length < 4) return '***';
+  return clean.slice(0, 3) + '****' + clean.slice(-3);
+}
+
+function maskEmail(email) {
+  if (!email || typeof email !== 'string' || !email.includes('@')) return '***';
+  const [user, domain] = email.trim().split('@');
+  return (user.length > 2 ? user.slice(0, 2) + '***' : '***') + '@' + domain;
+}
+
 export default function BulkOrderView({ onNavigate }) {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -112,9 +125,23 @@ export default function BulkOrderView({ onNavigate }) {
       };
 
       try {
-        const existing = JSON.parse(localStorage.getItem('computercare_bulk_inquiries') || '[]');
-        existing.unshift(inquiryRecord);
-        localStorage.setItem('computercare_bulk_inquiries', JSON.stringify(existing));
+        const sanitizedStorageRecord = {
+          refNumber,
+          fullName: formData.fullName.slice(0, 80),
+          companyName: formData.companyName.slice(0, 100),
+          maskedEmail: maskEmail(formData.email),
+          maskedPhone: maskPhone(formData.phone),
+          city: formData.city.slice(0, 80),
+          category: formData.category,
+          quantity: formData.quantity,
+          timeline: formData.timeline,
+          budgetRange: formData.budgetRange,
+          timestamp: inquiryRecord.timestamp
+        };
+        const rawExisting = localStorage.getItem('computercare_bulk_inquiries');
+        const existing = rawExisting ? JSON.parse(rawExisting) : [];
+        const updated = Array.isArray(existing) ? [sanitizedStorageRecord, ...existing].slice(0, 20) : [sanitizedStorageRecord];
+        localStorage.setItem('computercare_bulk_inquiries', JSON.stringify(updated));
       } catch (err) {
         console.warn('LocalStorage save failed:', err);
       }
@@ -304,7 +331,7 @@ export default function BulkOrderView({ onNavigate }) {
 
             <div className="flex items-center gap-2.5">
               <a
-                href={`https://wa.me/919810550222?text=Hello%20Computer%20Care%20B2B%20Team%2C%20I%20have%20submitted%20a%20bulk%20order%20inquiry%20(Ref%3A%20${submittedInquiry.refNumber})%20for%20${encodeURIComponent(submittedInquiry.quantity)}.`}
+                href={`https://wa.me/919810550222?text=Hello%20Computer%20Care%20B2B%20Team%2C%20I%20have%20submitted%20a%20bulk%20order%20inquiry%20(Ref%3A%20${encodeURIComponent(submittedInquiry.refNumber)})%20for%20${encodeURIComponent(submittedInquiry.quantity)}.`}
                 target="_blank"
                 rel="noreferrer"
                 className="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg font-bold text-xs flex items-center gap-1.5 transition-colors shadow-xs"
@@ -356,6 +383,7 @@ export default function BulkOrderView({ onNavigate }) {
                   </label>
                   <input
                     type="text"
+                    maxLength={80}
                     placeholder="e.g. Ramesh Sharma"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
@@ -376,6 +404,7 @@ export default function BulkOrderView({ onNavigate }) {
                   </label>
                   <input
                     type="text"
+                    maxLength={100}
                     placeholder="e.g. Apex Visuals Pvt Ltd / Self"
                     value={formData.companyName}
                     onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
@@ -390,6 +419,7 @@ export default function BulkOrderView({ onNavigate }) {
                   </label>
                   <input
                     type="email"
+                    maxLength={100}
                     placeholder="ramesh@company.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -410,6 +440,7 @@ export default function BulkOrderView({ onNavigate }) {
                   </label>
                   <input
                     type="tel"
+                    maxLength={15}
                     placeholder="+91 9876543210"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -429,6 +460,7 @@ export default function BulkOrderView({ onNavigate }) {
                   </label>
                   <input
                     type="text"
+                    maxLength={80}
                     placeholder="e.g. Mumbai, Maharashtra"
                     value={formData.city}
                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}
@@ -449,6 +481,7 @@ export default function BulkOrderView({ onNavigate }) {
                   </label>
                   <input
                     type="text"
+                    maxLength={15}
                     placeholder="e.g. 27AAAAA0000A1Z5"
                     value={formData.gstin}
                     onChange={(e) => setFormData({ ...formData, gstin: e.target.value.toUpperCase() })}
@@ -557,6 +590,7 @@ export default function BulkOrderView({ onNavigate }) {
 
               <textarea
                 rows={4}
+                maxLength={1500}
                 placeholder="Tell us what you are looking for (e.g., specific hardware parts, processor tiers, GPU requirements, monitor sizes, preferred brands, or custom configuration guidelines)..."
                 value={formData.needDescription}
                 onChange={(e) => setFormData({ ...formData, needDescription: e.target.value })}
