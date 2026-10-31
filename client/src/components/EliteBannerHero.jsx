@@ -5,7 +5,8 @@ import {
   Truck, 
   ShieldCheck, 
   Box, 
-  MessageSquare
+  MessageSquare,
+  ArrowRight
 } from 'lucide-react';
 
 const SLIDES = [
