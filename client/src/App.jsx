@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import EliteHeader from './components/EliteHeader';
+import Header from './components/Header';
 import HomeView from './components/HomeView';
 import PCBuilderView from './components/PCBuilderView';
 import CatalogView from './components/CatalogView';
@@ -7,9 +7,10 @@ import ComponentSelectorModal from './components/ComponentSelectorModal';
 import ProductDetailModal from './components/ProductDetailModal';
 import PrebuiltPresetsModal from './components/PrebuiltPresetsModal';
 import CartDrawer from './components/CartDrawer';
-import EliteFooter from './components/EliteFooter';
+import Footer from './components/Footer';
 import BulkOrderView from './components/BulkOrderView';
 import BulkOrderFloatingBadge from './components/BulkOrderFloatingBadge';
+import WhatsAppFloatingButton from './components/WhatsAppFloatingButton';
 
 const COMPONENT_SLOTS = [
   { key: 'case', label: 'PC Cabinet / Case' },
@@ -71,7 +72,7 @@ export default function App() {
         // Initialize with default high-end rig
         if (prodData.case && prodData.case.length > 0) {
           setBuild({
-            case: prodData.case[0] || null,
+            case: prodData.case.find(c => c.vendor === 'Cooler Master') || prodData.case[0] || null,
             cpu: prodData.cpu ? prodData.cpu[0] : null,
             motherboard: prodData.motherboard ? prodData.motherboard[0] : null,
             ram: prodData.ram ? prodData.ram[0] : null,
@@ -161,17 +162,17 @@ export default function App() {
   const activeSelectorSlot = COMPONENT_SLOTS.find(s => s.key === activeSelectorKey);
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-800 flex flex-col font-sans selection:bg-elite-red selection:text-white">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-800 flex flex-col font-sans selection:bg-brand-red selection:text-white w-full max-w-full overflow-x-clip">
       {/* Accessibility Skip Link */}
       <a 
         href="#main-content" 
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-elite-red text-white font-bold rounded-lg shadow-lg"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-brand-red text-white font-bold rounded-lg shadow-lg"
       >
         Skip to main content
       </a>
 
-      {/* EliteHubs Style Header */}
-      <EliteHeader
+      {/* Computer Care Style Header */}
+      <Header
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         buildCount={buildItems.length}
@@ -190,12 +191,12 @@ export default function App() {
       <main id="main-content" className="flex-1 max-w-[1536px] w-full mx-auto px-3 sm:px-5 lg:px-8 py-6">
         {loading ? (
           <div className="py-32 flex flex-col items-center justify-center text-center">
-            <div className="w-12 h-12 rounded-2xl border-4 border-elite-navy/20 border-t-elite-navy animate-spin mb-4" />
-            <h2 className="text-base font-display font-bold text-elite-navy uppercase tracking-wider">
+            <div className="w-12 h-12 rounded-2xl border-4 border-brand-navy/20 border-t-brand-navy animate-spin mb-4" />
+            <h2 className="text-base font-display font-bold text-brand-navy uppercase tracking-wider">
               LOADING COMPUTER CARE HARDWARE LAB
             </h2>
             <p className="text-xs text-slate-500 font-sans mt-1">
-              Synchronizing 3,800+ EliteHubs products and hardware catalog...
+              Synchronizing genuine Computer Care hardware catalog & custom PC builder...
             </p>
           </div>
         ) : activeTab === 'home' ? (
@@ -281,8 +282,11 @@ export default function App() {
       {/* 5. Persistent Floating Side Label: Bulk Order */}
       <BulkOrderFloatingBadge activeTab={activeTab} onNavigate={handleNavigate} />
 
-      {/* EliteHubs Style Footer */}
-      <EliteFooter onNavigate={handleNavigate} />
+      {/* 6. Floating Corner WhatsApp Button */}
+      <WhatsAppFloatingButton />
+
+      {/* Computer Care Style Footer */}
+      <Footer onNavigate={handleNavigate} />
     </div>
   );
 }

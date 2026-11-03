@@ -89,6 +89,7 @@ export default function CatalogView({
   const [selectedFanKind, setSelectedFanKind] = useState('ALL');
   const [sortBy, setSortBy] = useState('price_asc');
   const [pageNumber, setPageNumber] = useState(1);
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const itemsPerPage = 32;
 
   // Flatten all products or filter by active category
@@ -128,19 +129,20 @@ export default function CatalogView({
         return false;
       }
 
-      // Strict safety: In Cabinet section, strictly NEVER show cabinet fans or sub-₹2,000 fan items
+      // Safety: In Cabinet section, filter out loose fan accessories while displaying genuine budget cabinets (Intex, Geonix, etc.)
       if (selectedCategory === 'case') {
         const title = (p.title || "").toLowerCase();
+        const isGenuineCabinet = title.includes('cabinet') || title.includes('tower') || title.includes('chassis');
         if (
-          title.includes(' fan') || 
           title.includes('cooling fan') || 
-          title.includes('cabinet fan') || 
           title.includes('case fan') || 
+          title.includes('cabinet fan') || 
           title.includes('single pack') || 
           title.includes('triple pack') || 
-          title.includes('120mm') || 
-          title.includes('140mm') ||
-          p.price < 2000
+          title.includes('fan kit') ||
+          (title.includes('120mm') && !isGenuineCabinet) || 
+          (title.includes('140mm') && !isGenuineCabinet) ||
+          (!isGenuineCabinet && p.price < 2000)
         ) {
           return false;
         }
@@ -195,17 +197,17 @@ export default function CatalogView({
   return (
     <div className="w-full flex flex-col gap-6 pb-16">
       {/* Page Header */}
-      <div className="bg-white p-5 rounded-xl border border-elite-border shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-white p-5 rounded-xl border border-brand-border shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-[10px] font-mono uppercase tracking-wider font-bold px-2 py-0.5 rounded bg-elite-navy text-white">
+            <span className="text-[10px] font-mono uppercase tracking-wider font-bold px-2 py-0.5 rounded bg-brand-navy text-white">
               COMPUTER CARE HARDWARE CATALOG
             </span>
             <span className="text-xs text-slate-500 font-medium">
               {filteredProducts.length} Genuine Products Listed
             </span>
           </div>
-          <h1 className="text-xl sm:text-2xl font-black font-display text-elite-navy tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-black font-display text-brand-navy tracking-tight">
             {CATEGORY_TITLE_MAP[selectedCategory] || 'HARDWARE & GEAR STORE'}
           </h1>
         </div>
@@ -218,7 +220,7 @@ export default function CatalogView({
             placeholder="Search catalog by model or brand..."
             value={searchQuery}
             onChange={(e) => { setSearchQuery(e.target.value); setPageNumber(1); }}
-            className="w-full bg-slate-50 border border-slate-300 rounded-lg pl-9 pr-3 py-2 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-elite-blue"
+            className="w-full bg-slate-50 border border-slate-300 rounded-lg pl-9 pr-3 py-2 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brand-blue"
           />
           {searchQuery && (
             <button 
@@ -256,8 +258,8 @@ export default function CatalogView({
 
       {/* Specialized Cabinet Kinds Filter Strip if category is case */}
       {selectedCategory === 'case' && (
-        <div className="bg-white rounded-xl border border-elite-border p-3 flex items-center gap-2 overflow-x-auto scrollbar-none shadow-sm">
-          <span className="text-xs font-bold text-elite-navy uppercase font-display mr-1 whitespace-nowrap">
+        <div className="bg-white rounded-xl border border-brand-border p-3 flex items-center gap-2 overflow-x-auto scrollbar-none shadow-sm">
+          <span className="text-xs font-bold text-brand-navy uppercase font-display mr-1 whitespace-nowrap">
             Cabinet Styles:
           </span>
           {CABINET_KINDS.map(kind => (
@@ -266,7 +268,7 @@ export default function CatalogView({
               onClick={() => { setSelectedCabinetKind(kind.id); setPageNumber(1); }}
               className={`px-3 py-1.5 rounded-lg text-xs font-sans whitespace-nowrap transition-all border ${
                 selectedCabinetKind === kind.id
-                  ? 'bg-elite-blue text-white font-bold border-elite-blue shadow-sm'
+                  ? 'bg-brand-blue text-white font-bold border-brand-blue shadow-sm'
                   : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border-slate-200 font-medium'
               }`}
             >
@@ -278,8 +280,8 @@ export default function CatalogView({
 
       {/* Specialized Fan Kinds Filter Strip if category is case_fan */}
       {selectedCategory === 'case_fan' && (
-        <div className="bg-white rounded-xl border border-elite-border p-3 flex items-center gap-2 overflow-x-auto scrollbar-none shadow-sm">
-          <span className="text-xs font-bold text-elite-navy uppercase font-display mr-1 whitespace-nowrap">
+        <div className="bg-white rounded-xl border border-brand-border p-3 flex items-center gap-2 overflow-x-auto scrollbar-none shadow-sm">
+          <span className="text-xs font-bold text-brand-navy uppercase font-display mr-1 whitespace-nowrap">
             Fan Types:
           </span>
           {FAN_KINDS.map(kind => (
@@ -288,7 +290,7 @@ export default function CatalogView({
               onClick={() => { setSelectedFanKind(kind.id); setPageNumber(1); }}
               className={`px-3 py-1.5 rounded-lg text-xs font-sans whitespace-nowrap transition-all border ${
                 selectedFanKind === kind.id
-                  ? 'bg-elite-blue text-white font-bold border-elite-blue shadow-sm'
+                  ? 'bg-brand-blue text-white font-bold border-brand-blue shadow-sm'
                   : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border-slate-200 font-medium'
               }`}
             >
@@ -298,13 +300,36 @@ export default function CatalogView({
         </div>
       )}
 
+      {/* Mobile Horizontal Category Pills Strip */}
+      <div className="lg:hidden w-full flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+        {CATEGORY_TABS.map(tab => (
+          <button
+            key={tab.key}
+            onClick={() => { 
+              onSelectCategory(tab.key); 
+              setPageNumber(1); 
+              setSelectedBrand('ALL'); 
+              setSelectedCabinetKind('ALL'); 
+              setSelectedFanKind('ALL'); 
+            }}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors flex-shrink-0 cursor-pointer ${
+              selectedCategory === tab.key
+                ? 'bg-brand-blue text-white font-bold shadow-xs'
+                : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+            }`}
+          >
+            <span>{tab.label}</span>
+          </button>
+        ))}
+      </div>
+
       {/* Main Grid with Sidebar Filters */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start w-full min-w-0">
         {/* Left Filter Sidebar */}
-        <div className="lg:col-span-3 flex flex-col gap-4">
+        <div className={`lg:col-span-3 flex-col gap-4 w-full min-w-0 ${mobileFiltersOpen ? 'flex' : 'hidden lg:flex'}`}>
           {/* Categories Card */}
-          <div className="bg-white rounded-xl border border-elite-border p-4 shadow-sm">
-            <h3 className="font-display font-bold uppercase text-xs text-elite-navy border-b border-slate-100 pb-2 mb-2">
+          <div className="bg-white rounded-xl border border-brand-border p-4 shadow-sm">
+            <h3 className="font-display font-bold uppercase text-xs text-brand-navy border-b border-slate-100 pb-2 mb-2">
               Categories
             </h3>
             <div className="flex flex-col gap-1 text-xs">
@@ -320,7 +345,7 @@ export default function CatalogView({
                   }}
                   className={`text-left px-3 py-2 rounded-lg transition-colors font-medium flex items-center justify-between ${
                     selectedCategory === tab.key
-                      ? 'bg-elite-blue text-white font-bold'
+                      ? 'bg-brand-blue text-white font-bold'
                       : 'text-slate-700 hover:bg-slate-50'
                   }`}
                 >
@@ -335,8 +360,8 @@ export default function CatalogView({
 
           {/* Brands Filter Card */}
           {brands.length > 2 && (
-            <div className="bg-white rounded-xl border border-elite-border p-4 shadow-sm">
-              <h3 className="font-display font-bold uppercase text-xs text-elite-navy border-b border-slate-100 pb-2 mb-2">
+            <div className="bg-white rounded-xl border border-brand-border p-4 shadow-sm">
+              <h3 className="font-display font-bold uppercase text-xs text-brand-navy border-b border-slate-100 pb-2 mb-2">
                 Brands & Vendors
               </h3>
               <div className="max-h-56 overflow-y-auto flex flex-col gap-1 text-xs pr-1">
@@ -346,7 +371,7 @@ export default function CatalogView({
                     onClick={() => { setSelectedBrand(b); setPageNumber(1); }}
                     className={`text-left px-2.5 py-1.5 rounded transition-colors ${
                       selectedBrand === b 
-                        ? 'bg-slate-100 text-elite-blue font-bold' 
+                        ? 'bg-slate-100 text-brand-blue font-bold' 
                         : 'text-slate-600 hover:bg-slate-50'
                     }`}
                   >
@@ -359,41 +384,54 @@ export default function CatalogView({
         </div>
 
         {/* Right Products Section */}
-        <div className="lg:col-span-9 flex flex-col gap-4">
+        <div className="lg:col-span-9 flex flex-col gap-4 w-full min-w-0">
           {/* Toolbar */}
-          <div className="bg-white p-3 rounded-xl border border-elite-border shadow-sm flex items-center justify-between">
+          <div className="bg-white p-3 rounded-xl border border-brand-border shadow-xs flex flex-wrap items-center justify-between gap-2.5">
             <span className="text-xs text-slate-500 font-sans">
-              Showing <strong className="text-slate-800">{paginatedProducts.length}</strong> of <strong className="text-slate-800">{filteredProducts.length}</strong> {selectedCategory === 'case' ? 'cabinets' : 'products'}
+              Showing <strong className="text-slate-800">{paginatedProducts.length}</strong> of <strong className="text-slate-800">{filteredProducts.length}</strong> items
             </span>
 
             <div className="flex items-center gap-2">
-              <ArrowUpDown className="w-3.5 h-3.5 text-slate-400" />
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs text-slate-700 font-medium focus:outline-none"
+              <button
+                type="button"
+                onClick={() => setMobileFiltersOpen(!mobileFiltersOpen)}
+                className="lg:hidden px-2.5 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-semibold text-slate-700 hover:bg-slate-100 flex items-center gap-1.5 cursor-pointer"
               >
-                <option value="price_asc">Price: Low to High</option>
-                <option value="price_desc">Price: High to Low</option>
-                <option value="name">Name (A-Z)</option>
-              </select>
+                <span>{mobileFiltersOpen ? 'Hide Filters' : 'Filters'}</span>
+                {selectedBrand !== 'ALL' && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-blue" />
+                )}
+              </button>
+
+              <div className="flex items-center gap-1.5">
+                <ArrowUpDown className="w-3.5 h-3.5 text-slate-400" />
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs text-slate-700 font-medium focus:outline-none cursor-pointer"
+                >
+                  <option value="price_asc">Price: Low to High</option>
+                  <option value="price_desc">Price: High to Low</option>
+                  <option value="name">Name (A-Z)</option>
+                </select>
+              </div>
             </div>
           </div>
 
           {/* Products Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
             {paginatedProducts.map((p) => {
               const isSelected = build[p.category]?.id === p.id;
 
               return (
                 <div
                   key={p.id}
-                  className="bg-white rounded-xl border border-elite-border hover:border-elite-blue hover:shadow-elite-hover p-3.5 flex flex-col justify-between transition-all group"
+                  className="bg-white rounded-xl border border-brand-border hover:border-brand-blue hover:shadow-brand-hover p-2.5 sm:p-3.5 flex flex-col justify-between transition-all group"
                 >
                   <div>
                     {/* Image */}
                     <div 
-                      className="relative w-full h-44 bg-white rounded-lg overflow-hidden flex items-center justify-center p-2 mb-2.5 cursor-pointer"
+                      className="relative w-full h-32 sm:h-44 bg-white rounded-lg overflow-hidden flex items-center justify-center p-1.5 sm:p-2 mb-2 sm:mb-2.5 cursor-pointer"
                       onClick={() => onViewDetails(p)}
                     >
                       <img
@@ -413,14 +451,14 @@ export default function CatalogView({
                       </span>
 
                       {p.compare_at_price > p.price && (
-                        <span className="absolute top-1.5 right-1.5 text-[9px] font-mono font-bold px-1.5 py-0.2 rounded bg-elite-red text-white shadow-sm">
+                        <span className="absolute top-1.5 right-1.5 text-[9px] font-mono font-bold px-1.5 py-0.2 rounded bg-brand-red text-white shadow-sm">
                           {Math.round(((p.compare_at_price - p.price) / p.compare_at_price) * 100)}% OFF
                         </span>
                       )}
                     </div>
 
                     <div className="flex items-center gap-1.5 mb-1 flex-wrap">
-                      <span className="text-[10px] font-mono uppercase font-bold px-1.5 py-0.2 rounded bg-blue-50 text-elite-blue">
+                      <span className="text-[10px] font-mono uppercase font-bold px-1.5 py-0.2 rounded bg-blue-50 text-brand-blue">
                         {p.category}
                       </span>
                       {p.specs?.cabinet_style && (
@@ -431,7 +469,7 @@ export default function CatalogView({
                     </div>
 
                     <h3 
-                      className="text-xs font-semibold text-slate-800 line-clamp-2 hover:text-elite-blue cursor-pointer transition-colors"
+                      className="text-xs font-semibold text-slate-800 line-clamp-2 hover:text-brand-blue cursor-pointer transition-colors"
                       onClick={() => onViewDetails(p)}
                       title={p.title}
                     >
@@ -447,7 +485,7 @@ export default function CatalogView({
 
                   <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
                     <div>
-                      <div className="font-display font-bold text-sm text-elite-navy">
+                      <div className="font-display font-bold text-sm text-brand-navy">
                         ₹{p.price.toLocaleString('en-IN')}
                       </div>
                       {p.compare_at_price > p.price && (
@@ -460,7 +498,7 @@ export default function CatalogView({
                     <div className="flex items-center gap-1">
                       <button
                         onClick={() => onViewDetails(p)}
-                        className="p-1.5 rounded-lg text-slate-400 hover:text-elite-navy hover:bg-slate-100"
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-brand-navy hover:bg-slate-100"
                         title="View Specifications"
                       >
                         <Info className="w-3.5 h-3.5" />
@@ -471,7 +509,7 @@ export default function CatalogView({
                         className={`px-2.5 py-1.5 rounded-lg text-xs font-display font-bold uppercase tracking-wider transition-colors ${
                           isSelected
                             ? 'bg-emerald-600 text-white'
-                            : 'bg-elite-navy hover:bg-elite-blue text-white'
+                            : 'bg-brand-navy hover:bg-brand-blue text-white'
                         }`}
                       >
                         {isSelected ? "In Rig" : "Add"}

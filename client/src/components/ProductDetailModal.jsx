@@ -78,11 +78,11 @@ export default function ProductDetailModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-sm animate-fadeIn">
-      <div className="relative w-full max-w-3xl max-h-[90vh] bg-white border border-elite-border rounded-2xl flex flex-col overflow-hidden shadow-2xl">
-        {/* Header (EliteHubs Navy) */}
-        <div className="p-4 sm:p-5 bg-elite-navy text-white flex items-center justify-between">
+      <div className="relative w-full max-w-3xl max-h-[90vh] bg-white border border-brand-border rounded-2xl flex flex-col overflow-hidden shadow-2xl">
+        {/* Header (Computer Care Navy) */}
+        <div className="p-4 sm:p-5 bg-brand-navy text-white flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono font-bold uppercase px-2 py-0.5 rounded bg-elite-red text-white">
+            <span className="text-xs font-mono font-bold uppercase px-2 py-0.5 rounded bg-brand-red text-white">
               {product.category}
             </span>
             <span className="text-xs font-medium text-slate-300">
@@ -125,7 +125,7 @@ export default function ProductDetailModal({
                     onClick={() => setActiveImageIdx(idx)}
                     className={`w-14 h-14 rounded-lg bg-white border p-1 flex-shrink-0 transition-all ${
                       activeImageIdx === idx 
-                        ? 'border-elite-blue ring-2 ring-elite-blue/30' 
+                        ? 'border-brand-blue ring-2 ring-brand-blue/30' 
                         : 'border-slate-200 opacity-70 hover:opacity-100'
                     }`}
                   >
@@ -155,7 +155,7 @@ export default function ProductDetailModal({
                 {product.title}
               </h2>
               <div className="flex items-baseline gap-3 mt-2">
-                <span className="text-2xl font-display font-black text-elite-navy">
+                <span className="text-2xl font-display font-black text-brand-navy">
                   ₹{product.price.toLocaleString('en-IN')}
                 </span>
                 {product.compare_at_price > product.price && (
@@ -164,7 +164,7 @@ export default function ProductDetailModal({
                   </span>
                 )}
                 {product.compare_at_price > product.price && (
-                  <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-rose-100 text-elite-red">
+                  <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-rose-100 text-brand-red">
                     {Math.round(((product.compare_at_price - product.price) / product.compare_at_price) * 100)}% OFF
                   </span>
                 )}
@@ -210,7 +210,7 @@ export default function ProductDetailModal({
                 <span>Brand Warranty</span>
               </span>
               <span className="flex items-center gap-1">
-                <Truck className="w-4 h-4 text-elite-blue" />
+                <Truck className="w-4 h-4 text-brand-blue" />
                 <span>Express Shipping</span>
               </span>
             </div>
@@ -225,7 +225,7 @@ export default function ProductDetailModal({
                 className={`flex-1 py-3 px-4 rounded-xl text-xs font-display font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all ${
                   isSelected
                     ? 'bg-emerald-600 text-white'
-                    : 'bg-elite-red hover:bg-elite-redHover text-white shadow-md'
+                    : 'bg-brand-red hover:bg-brand-redHover text-white shadow-md'
                 }`}
               >
                 {isSelected ? (
@@ -239,13 +239,13 @@ export default function ProductDetailModal({
               </button>
 
               <a
-                href={getSafeUrl(product.url)}
+                href={`https://wa.me/919810550222?text=${encodeURIComponent(`Hi Computer Care, I am interested in ${product.name} (Rs. ${product.price?.toLocaleString('en-IN')})`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-700 transition-colors"
-                title="View Official Product Page"
+                className="px-3 sm:px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-display font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors shadow-md"
+                title="Inquire on WhatsApp"
               >
-                <ExternalLink className="w-4 h-4" />
+                <span>WhatsApp Buy / Inquire</span>
               </a>
             </div>
           </div>

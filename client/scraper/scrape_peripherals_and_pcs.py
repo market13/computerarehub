@@ -121,7 +121,7 @@ def scrape_category(cat_key, config):
         for page in range(1, 4):
             if len(products) >= config['limit']:
                 break
-            url = f"https://elitehubs.com/collections/{coll}/products.json?limit=50&page={page}"
+            url = f"https://computercare.in/collections/{coll}/products.json?limit=50&page={page}"
             try:
                 req = urllib.request.Request(url, headers=HEADERS)
                 with urllib.request.urlopen(req, timeout=10) as response:
@@ -214,7 +214,7 @@ def scrape_category(cat_key, config):
                             'image': final_image,
                             'cdn_image': cdn_image,
                             'handle': p.get('handle', ''),
-                            'url': f"https://elitehubs.com/products/{p.get('handle', '')}",
+                            'url': f"https://computercare.in/products/{p.get('handle', '')}",
                             'description': clean_html(p.get('body_html', ''))[:200] + '...',
                             'tags': tags,
                             'specs': specs,

@@ -116,12 +116,12 @@ def download_image(url, target_path):
         return False
 
 def scrape_genuine_cabinets():
-    print("Scraping genuine PC Cabinets from EliteHubs...")
+    print("Scraping genuine PC Cabinets from Computer Care...")
     all_raw_cabinets = []
 
     # Fetch pages of pc-cabinet collection
     for page in range(1, 8):
-        url = f"https://elitehubs.com/collections/pc-cabinet/products.json?limit=250&page={page}"
+        url = f"https://computercare.in/collections/pc-cabinet/products.json?limit=250&page={page}"
         req = urllib.request.Request(url, headers=HEADERS)
         try:
             with urllib.request.urlopen(req, timeout=20) as resp:
@@ -206,7 +206,7 @@ def scrape_genuine_cabinets():
             "cdn_images": product_images,
             "specs": specs,
             "description": body[:500] if body else title,
-            "url": f"https://elitehubs.com/products/{p.get('handle', '')}"
+            "url": f"https://computercare.in/products/{p.get('handle', '')}"
         }
         genuine_cabinets.append(item)
 

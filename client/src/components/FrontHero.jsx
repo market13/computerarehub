@@ -31,7 +31,7 @@ export default function FrontHero({
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 shadow-sm">
           <span className="flex h-2 w-2 rounded-full animate-ping" style={{ backgroundColor: currentTheme.colors.primary }} />
           <span className="text-[11px] font-mono tracking-widest uppercase font-semibold text-slate-300">
-            NEXUS RIG LAB • POWERED BY ELITEHUBS HARDWARE
+            COMPUTER CARE LAB • GENUINE HARDWARE STORE
           </span>
         </div>
 

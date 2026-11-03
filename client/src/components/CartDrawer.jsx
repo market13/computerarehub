@@ -39,11 +39,11 @@ export default function CartDrawer({
   return (
     <div className="fixed inset-0 z-50 overflow-hidden bg-black/50 backdrop-blur-sm animate-fadeIn">
       <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col border-l border-elite-border">
+        <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col border-l border-brand-border">
           {/* Drawer Header */}
-          <div className="p-4 bg-elite-navy text-white flex items-center justify-between">
+          <div className="p-4 bg-brand-navy text-white flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <ShoppingBag className="w-5 h-5 text-elite-gold" />
+              <ShoppingBag className="w-5 h-5 text-brand-gold" />
               <h2 className="text-base font-bold font-display uppercase tracking-wider">
                 Your Hardware Cart ({items.length})
               </h2>
@@ -85,14 +85,14 @@ export default function CartDrawer({
                     <h4 className="text-xs font-semibold text-slate-800 line-clamp-1 mt-0.5">
                       {item.title}
                     </h4>
-                    <span className="text-xs font-bold font-display text-elite-navy block mt-1">
+                    <span className="text-xs font-bold font-display text-brand-navy block mt-1">
                       ₹{item.price.toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   <button
                     onClick={() => onRemoveItem(item.slotKey)}
-                    className="p-1.5 text-slate-400 hover:text-elite-red rounded"
+                    className="p-1.5 text-slate-400 hover:text-brand-red rounded"
                     title="Remove item"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -104,7 +104,7 @@ export default function CartDrawer({
 
           {/* Price & Checkout Footer */}
           {items.length > 0 && (
-            <div className="p-4 bg-slate-50 border-t border-elite-border flex flex-col gap-3">
+            <div className="p-4 bg-slate-50 border-t border-brand-border flex flex-col gap-3">
               <div className="space-y-1.5 text-xs text-slate-600 font-sans">
                 <div className="flex justify-between">
                   <span>Hardware Subtotal</span>
@@ -126,7 +126,7 @@ export default function CartDrawer({
                 </div>
                 <div className="flex justify-between text-sm font-bold text-slate-900 border-t border-slate-200 pt-2 font-display">
                   <span>Total Payable</span>
-                  <span className="text-elite-navy text-base">
+                  <span className="text-brand-navy text-base">
                     ₹{grandTotal.toLocaleString('en-IN')}
                   </span>
                 </div>
@@ -134,7 +134,7 @@ export default function CartDrawer({
 
               <button
                 onClick={handleCheckout}
-                className="w-full py-3 rounded-xl bg-elite-red hover:bg-elite-redHover text-white font-display font-bold uppercase tracking-wider text-xs shadow-md transition-all flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-xl bg-brand-red hover:bg-brand-redHover text-white font-display font-bold uppercase tracking-wider text-xs shadow-md transition-all flex items-center justify-center gap-2"
               >
                 <span>Proceed to Order</span>
                 <ArrowRight className="w-4 h-4" />

@@ -12,7 +12,7 @@ import {
   Building2
 } from 'lucide-react';
 
-// Exact Gaming Mega Menu matching EliteHubs real-world structure
+// Exact Gaming Mega Menu matching Computer Care real-world structure
 const GAMING_MENU_COLUMNS = [
   {
     top: {
@@ -122,7 +122,7 @@ const GAMING_MENU_COLUMNS = [
   }
 ];
 
-// Exact Streaming Mega Menu matching EliteHubs real-world structure
+// Exact Streaming Mega Menu matching Computer Care real-world structure
 const STREAMING_MENU_COLUMNS = [
   {
     title: 'Webcam',
@@ -169,7 +169,7 @@ const STREAMING_MENU_COLUMNS = [
   }
 ];
 
-export default function EliteHeader({ 
+export default function Header({ 
   activeTab, 
   setActiveTab, 
   buildCount = 0, 
@@ -273,23 +273,23 @@ export default function EliteHeader({
     <header className="w-full bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs select-none">
       {/* 1. TOP ANNOUNCEMENT BAR */}
       <div className="w-full border-b border-slate-200/80 bg-white text-slate-600 text-[11px] sm:text-[12px] font-sans py-1.5 px-3 sm:px-5 lg:px-8">
-        <div className="max-w-[1536px] w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-1.5">
+        <div className="max-w-[1536px] w-full mx-auto flex items-center justify-between gap-1.5">
           {/* Left Announcement & Quick Link */}
-          <div className="flex items-center flex-wrap justify-center md:justify-start gap-2 font-normal text-slate-700 tracking-tight">
-            <span>Your one stop destination for all your Computer needs!</span>
-            <span className="text-slate-300 hidden sm:inline">•</span>
+          <div className="flex items-center gap-2 font-normal text-slate-700 tracking-tight min-w-0">
+            <span className="hidden md:inline truncate">Your one stop destination for all your Computer needs!</span>
+            <span className="text-slate-300 hidden md:inline">•</span>
             <button
               onClick={() => setActiveTab('builder')}
-              className="inline-flex items-center gap-1.5 text-blue-700 hover:text-blue-900 font-bold hover:underline"
+              className="inline-flex items-center gap-1 text-blue-700 hover:text-blue-900 font-bold hover:underline cursor-pointer flex-shrink-0"
             >
               <Box className="w-3.5 h-3.5 text-blue-600" />
               <span>Build Custom PC</span>
-              <span className="text-[9px] bg-red-100 text-red-600 px-1.5 py-0.2 rounded font-mono font-bold">CONFIGURATOR</span>
+              <span className="text-[9px] bg-red-100 text-red-600 px-1.5 py-0.2 rounded font-mono font-bold hidden sm:inline">CONFIGURATOR</span>
             </button>
-            <span className="text-slate-300 hidden sm:inline">•</span>
+            <span className="text-slate-300">•</span>
             <button
               onClick={() => setActiveTab('bulk-order')}
-              className="inline-flex items-center gap-1.5 text-amber-700 hover:text-amber-900 font-bold hover:underline"
+              className="inline-flex items-center gap-1 text-amber-700 hover:text-amber-900 font-bold hover:underline cursor-pointer flex-shrink-0"
             >
               <Building2 className="w-3.5 h-3.5 text-amber-600" />
               <span>Bulk Order</span>
@@ -298,32 +298,30 @@ export default function EliteHeader({
           </div>
 
           {/* Right Contact Info */}
-          <div className="flex items-center flex-wrap justify-center gap-2.5 sm:gap-4 md:gap-6 text-slate-700 font-normal">
-            <span className="hover:text-blue-600 transition-colors cursor-pointer">
-              Email : <span className="text-slate-800">contact@computercare.in</span>
+          <div className="flex items-center gap-2.5 sm:gap-4 md:gap-6 text-slate-700 font-normal flex-shrink-0 text-[11px] sm:text-xs">
+            <a href="tel:9810550222" className="hover:text-blue-600 transition-colors flex items-center gap-1 font-medium">
+              <span>Helpline:</span>
+              <span className="text-slate-900 font-bold">+91 9810550222</span>
+            </a>
+            <span className="text-slate-300 hidden sm:inline">|</span>
+            <span className="hover:text-blue-600 transition-colors hidden sm:inline">
+              Email: <span className="text-slate-800">contact@computercare.in</span>
             </span>
-            <span className="hover:text-blue-600 transition-colors cursor-pointer">
-              Support : <span className="text-slate-800 font-medium">+91 9810550222</span>
-            </span>
-            <span className="hover:text-blue-600 transition-colors cursor-pointer">
-              PC Builds : <span className="text-slate-800 font-medium">+91 9810550222</span>
-            </span>
-            <span className="text-slate-300 hidden md:inline">|</span>
           </div>
         </div>
       </div>
 
       {/* 2. MAIN HEADER (Logo, Search Bar, Account / Wishlist / Cart) */}
-      <div className="max-w-[1536px] w-full mx-auto px-3 sm:px-5 lg:px-8 py-3 flex items-center justify-between gap-2.5 sm:gap-4 lg:gap-6">
+      <div className="max-w-[1536px] w-full mx-auto px-3 sm:px-5 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-4 lg:gap-6">
         {/* Logo: COMPUTER CARE */}
         <div 
           onClick={() => setActiveTab('home')}
-          className="flex items-center gap-2 cursor-pointer flex-shrink-0 group"
+          className="flex items-center gap-1.5 sm:gap-2 cursor-pointer flex-shrink-0 group"
           title="Computer Care Home"
         >
-          {/* Logo Geometric Graphic Mark matching EliteHubs EH / CC shape */}
+          {/* Logo Geometric Graphic Mark matching Computer Care EH / CC shape */}
           <div className="flex items-center">
-            <svg className="w-8 h-8 sm:w-9 sm:h-9" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-7 h-7 sm:w-9 sm:h-9" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               {/* Left yellow fold */}
               <path d="M6 10H17V17H12V23H17V30H6V10Z" fill="#F59E0B" />
               <path d="M14 6H20V12H14V6Z" fill="#D97706" />
@@ -332,17 +330,17 @@ export default function EliteHeader({
               <path d="M26 18H34V22H26V18Z" fill="#0F172A" />
             </svg>
             <div className="flex flex-col ml-1 sm:ml-1.5">
-              <span className="font-black font-display text-[18px] sm:text-[22px] tracking-tight text-slate-900 group-hover:text-blue-700 transition-colors leading-none uppercase">
+              <span className="font-black font-display text-[16px] sm:text-[20px] lg:text-[22px] tracking-tight text-slate-900 group-hover:text-blue-700 transition-colors leading-none uppercase">
                 COMPUTERCARE.COM
               </span>
-              <span className="text-[8px] sm:text-[9px] font-mono tracking-widest text-slate-400 uppercase font-semibold leading-none mt-1">
+              <span className="text-[7.5px] sm:text-[9px] font-mono tracking-widest text-slate-400 uppercase font-semibold leading-none mt-0.5 sm:mt-1">
                 GENUINE HARDWARE STORE
               </span>
             </div>
           </div>
         </div>
 
-        {/* Center Search Bar with All Categories dropdown and Blue Search button */}
+        {/* Center Search Bar with All Categories dropdown and Blue Search button (Screens >= lg) */}
         <div className="hidden lg:flex items-center flex-1 max-w-xl min-w-0 mx-2">
           <form 
             onSubmit={(e) => { e.preventDefault(); onSearchSubmit(); }}
@@ -355,10 +353,10 @@ export default function EliteHeader({
                   onCategorySelect(e.target.value);
                   if (activeTab !== 'catalog') setActiveTab('catalog');
                 }}
-                className="text-xs font-sans text-slate-800 bg-transparent py-2 pr-5 focus:outline-none cursor-pointer appearance-none font-medium max-w-[125px] xl:max-w-[145px] truncate"
+                className="text-xs font-sans text-slate-800 bg-transparent py-2 pr-5 focus:outline-none cursor-pointer appearance-none font-medium max-w-[115px] xl:max-w-[145px] truncate"
               >
                 <option value="all">All Categories</option>
-                <option value="case">PC Cabinets (1,390+)</option>
+                <option value="case">PC Cabinets (340+)</option>
                 <option value="case_fan">Cabinet Cooling Fans (130+)</option>
                 <option value="gpu">Graphics Cards (371+)</option>
                 <option value="cpu">Processors (327+)</option>
@@ -387,7 +385,7 @@ export default function EliteHeader({
             {/* Royal Blue Search Button */}
             <button
               type="submit"
-              className="bg-[#2b38d1] hover:bg-[#202bb8] text-white px-4 sm:px-6 h-full text-xs font-semibold transition-colors flex items-center justify-center tracking-wide flex-shrink-0"
+              className="bg-[#2b38d1] hover:bg-[#202bb8] text-white px-4 sm:px-6 h-full text-xs font-semibold transition-colors flex items-center justify-center tracking-wide flex-shrink-0 cursor-pointer"
             >
               Search
             </button>
@@ -488,7 +486,7 @@ export default function EliteHeader({
                 {buildCount}
               </span>
             </div>
-            <div className="text-left select-none flex-shrink-0">
+            <div className="text-left select-none flex-shrink-0 hidden sm:block">
               <span className="text-[10px] text-slate-500 block leading-tight">Your Cart</span>
               <span className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors block leading-tight font-sans">
                 {formattedPrice}
@@ -499,7 +497,7 @@ export default function EliteHeader({
           {/* Mobile hamburger menu trigger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-slate-700 hover:text-black rounded-lg"
+            className="lg:hidden p-1.5 text-slate-700 hover:text-black rounded-lg cursor-pointer"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -507,9 +505,31 @@ export default function EliteHeader({
         </div>
       </div>
 
-      {/* 3. BOTTOM NAVIGATION BAR (Browse All Categories, Links, Asus Promo) */}
+      {/* 2b. MOBILE SEARCH BAR (Visible on < lg, below logo row) */}
+      <div className="lg:hidden w-full px-3 sm:px-5 pb-2.5 pt-0.5 border-t border-slate-100">
+        <form 
+          onSubmit={(e) => { e.preventDefault(); onSearchSubmit(); }}
+          className="w-full h-[38px] flex items-center border border-slate-300 rounded-lg overflow-hidden bg-white shadow-2xs focus-within:border-blue-600 transition-colors"
+        >
+          <input
+            type="text"
+            placeholder="Search 4,300+ PC components, rigs..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="min-w-0 flex-1 px-3 py-1.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none"
+          />
+          <button
+            type="submit"
+            className="bg-[#2b38d1] hover:bg-[#202bb8] text-white px-3.5 h-full text-xs font-semibold flex items-center justify-center flex-shrink-0 cursor-pointer"
+          >
+            Search
+          </button>
+        </form>
+      </div>
+
+      {/* 3. BOTTOM NAVIGATION BAR (Desktop & Laptop >= lg) */}
       <nav 
-        className="w-full border-t border-b border-slate-200/90 bg-white relative"
+        className="hidden lg:block w-full border-t border-b border-slate-200/90 bg-white relative"
         onMouseLeave={() => setActiveMegaMenu(null)}
       >
         <div className="max-w-[1536px] w-full mx-auto px-3 sm:px-5 lg:px-8 flex items-center justify-between h-[44px]">
@@ -600,7 +620,7 @@ export default function EliteHeader({
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>PC Cabinets (Chassis)</span>
-                  <span className="text-[10px] text-slate-400 font-mono">1,390+</span>
+                  <span className="text-[10px] text-slate-400 font-mono">340+</span>
                 </button>
                 <button 
                   onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('case_fan'); }}
@@ -670,7 +690,7 @@ export default function EliteHeader({
           </div>
 
           {/* Center Links (Home, Gaming ⌵, Streaming ⌵, Components ⌵, PC Builds ⌵, Monitors ⌵, Custom PC Quote, Pre-Built PCs, Bulk Order) */}
-          <div className="hidden lg:flex items-center gap-3.5 xl:gap-6 text-[12px] xl:text-[13px] font-medium text-slate-700 whitespace-nowrap">
+          <div className="hidden lg:flex flex-1 items-center justify-center gap-2 xl:gap-5 text-[11px] xl:text-[13px] font-medium text-slate-700 whitespace-nowrap">
             {/* Home */}
             <button
               onClick={() => { setActiveTab('home'); setActiveMegaMenu(null); }}
@@ -842,23 +862,10 @@ export default function EliteHeader({
               </span>
             </button>
           </div>
-
-          {/* Far Right: Asus Graphic Cards Offer Banner */}
-          <div 
-            onClick={() => { setActiveTab('catalog'); onCategorySelect('gpu'); setSearchQuery('Asus'); setActiveMegaMenu(null); }}
-            className="hidden xl:flex items-center gap-1.5 text-slate-900 hover:text-red-600 transition-colors cursor-pointer group flex-shrink-0"
-          >
-            <div className="w-5 h-5 rounded-full bg-[#e11d48] text-white flex items-center justify-center">
-              <BadgePercent className="w-3.5 h-3.5" />
-            </div>
-            <span className="text-[13px] font-semibold tracking-tight group-hover:underline">
-              Asus Graphic Cards
-            </span>
-          </div>
         </div>
 
         {/* ========================================================================= */}
-        {/* GAMING MEGA MENU (Pixel-Matched to EliteHubs Screenshot) */}
+        {/* GAMING MEGA MENU (Pixel-Matched to Computer Care Screenshot) */}
         {/* ========================================================================= */}
         {activeMegaMenu === 'gaming' && (
           <div 
@@ -919,7 +926,7 @@ export default function EliteHeader({
         )}
 
         {/* ========================================================================= */}
-        {/* STREAMING MEGA MENU (Pixel-Matched to EliteHubs Screenshot) */}
+        {/* STREAMING MEGA MENU (Pixel-Matched to Computer Care Screenshot) */}
         {/* ========================================================================= */}
         {activeMegaMenu === 'streaming' && (
           <div 
@@ -955,169 +962,192 @@ export default function EliteHeader({
         )}
       </nav>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Off-Canvas Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white p-4 flex flex-col gap-3 shadow-lg">
-          {/* Mobile Search */}
-          <form 
-            onSubmit={(e) => { e.preventDefault(); onSearchSubmit(); setMobileMenuOpen(false); }}
-            className="flex items-center border border-slate-300 rounded-md overflow-hidden bg-white"
-          >
-            <input
-              type="text"
-              placeholder="Search for products ..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 px-3 py-2 text-xs text-slate-800 focus:outline-none"
-            />
-            <button type="submit" className="bg-[#2b38d1] text-white px-4 py-2 text-xs font-semibold">
-              Search
-            </button>
-          </form>
+        <div className="lg:hidden fixed inset-0 z-50 flex">
+          {/* Backdrop overlay */}
+          <div 
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
+            onClick={() => setMobileMenuOpen(false)}
+          />
 
-          {/* Navigation Links */}
-          <div className="flex flex-col gap-1 text-sm font-medium text-slate-800 pt-2 border-t border-slate-100">
-            <button
-              onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }}
-              className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded"
-            >
-              Home
-            </button>
-            <button
-              onClick={() => { setActiveTab('builder'); setMobileMenuOpen(false); }}
-              className="w-full text-left px-3 py-2.5 font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-md flex items-center justify-between shadow-xs my-1"
-            >
+          {/* Drawer content sliding from right */}
+          <div className="relative ml-auto w-full max-w-xs sm:max-w-sm bg-white h-full shadow-2xl flex flex-col z-10 overflow-y-auto">
+            {/* Drawer Header */}
+            <div className="p-4 bg-brand-navy text-white flex items-center justify-between border-b border-white/10 flex-shrink-0">
               <div className="flex items-center gap-2">
-                <Box className="w-4 h-4" />
-                <span>Custom PC Builder</span>
+                <Box className="w-4 h-4 text-amber-400" />
+                <span className="font-display font-black text-sm uppercase tracking-wide">
+                  COMPUTER CARE STORE
+                </span>
               </div>
-              <span className="text-[10px] bg-[#e11d48] text-white px-2 py-0.5 rounded font-mono font-bold">BUILDER</span>
-            </button>
-            <button
-              onClick={() => { setActiveTab('bulk-order'); setMobileMenuOpen(false); }}
-              className="w-full text-left px-3 py-2 font-bold text-slate-800 bg-amber-50/80 hover:bg-amber-100/90 rounded-md flex items-center justify-between border border-amber-200/60 my-1"
-            >
-              <div className="flex items-center gap-2 text-amber-900">
-                <Building2 className="w-4 h-4 text-amber-600" />
-                <span>Bulk Order & B2B Quotes</span>
-              </div>
-              <span className="text-[10px] bg-amber-500 text-white px-2 py-0.5 rounded font-mono font-bold">B2B</span>
-            </button>
-
-            {/* Mobile Gaming Accordion */}
-            <div className="border-b border-slate-100 pb-1">
               <button
                 type="button"
-                onClick={() => setMobileGamingOpen(!mobileGamingOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 text-left font-medium hover:bg-slate-50 rounded"
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 cursor-pointer"
+                aria-label="Close Navigation Menu"
               >
-                <span>Gaming</span>
-                <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${mobileGamingOpen ? 'rotate-180 text-blue-600' : ''}`} />
+                <X className="w-5 h-5" />
               </button>
-              {mobileGamingOpen && (
-                <div className="pl-4 pr-2 py-2 grid grid-cols-2 gap-3 bg-slate-50 rounded-lg text-xs">
-                  {GAMING_MENU_COLUMNS.map((col, idx) => (
-                    <div key={idx} className="flex flex-col gap-1">
-                      <span className="font-bold text-slate-900 mt-1">{col.top.title}</span>
-                      {col.top.items.slice(0, 4).map((it, i) => (
-                        <button
-                          key={i}
-                          type="button"
-                          onClick={() => handleMegaItemClick(it, col.top.title)}
-                          className="text-left text-slate-600 hover:text-blue-600 py-0.5 truncate"
-                        >
-                          {it}
-                        </button>
-                      ))}
-                      {col.bottom && (
-                        <>
-                          <span className="font-bold text-slate-900 mt-2">{col.bottom.title}</span>
-                          {col.bottom.items.slice(0, 3).map((it, i) => (
+            </div>
+
+            <div className="p-4 flex flex-col gap-3">
+              {/* Quick Configurator CTA */}
+              <button
+                onClick={() => { setActiveTab('builder'); setMobileMenuOpen(false); }}
+                className="w-full text-left px-3.5 py-2.5 font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-lg flex items-center justify-between shadow-xs cursor-pointer"
+              >
+                <div className="flex items-center gap-2">
+                  <Box className="w-4 h-4" />
+                  <span>Custom PC Builder</span>
+                </div>
+                <span className="text-[10px] bg-[#e11d48] text-white px-2 py-0.5 rounded font-mono font-bold">CONFIGURATOR</span>
+              </button>
+
+              {/* Bulk Order CTA */}
+              <button
+                onClick={() => { setActiveTab('bulk-order'); setMobileMenuOpen(false); }}
+                className="w-full text-left px-3.5 py-2.5 font-bold text-slate-900 bg-amber-50 hover:bg-amber-100 rounded-lg flex items-center justify-between border border-amber-300 cursor-pointer"
+              >
+                <div className="flex items-center gap-2 text-amber-900">
+                  <Building2 className="w-4 h-4 text-amber-600" />
+                  <span>Bulk Order & B2B Quotes</span>
+                </div>
+                <span className="text-[10px] bg-amber-500 text-white px-2 py-0.5 rounded font-mono font-bold">B2B</span>
+              </button>
+
+              {/* Pre-Built PCs CTA */}
+              <button
+                onClick={() => { setActiveTab('catalog'); onCategorySelect('gaming_pc'); setSearchQuery(''); setMobileMenuOpen(false); }}
+                className="w-full text-left px-3.5 py-2.5 rounded-lg border border-slate-200 hover:bg-slate-50 flex items-center justify-between font-bold text-slate-800 cursor-pointer"
+              >
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-amber-500" />
+                  <span>Pre-Built Gaming PCs</span>
+                </div>
+                <span className="text-[10px] bg-red-100 text-red-600 font-bold px-1.5 py-0.5 rounded font-mono">HOT</span>
+              </button>
+
+              {/* Navigation Links */}
+              <div className="flex flex-col gap-1 text-sm font-medium text-slate-800 pt-2 border-t border-slate-100">
+                <button
+                  onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }}
+                  className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded cursor-pointer"
+                >
+                  Home
+                </button>
+
+                {/* Mobile Gaming Accordion */}
+                <div className="border-b border-slate-100 pb-1">
+                  <button
+                    type="button"
+                    onClick={() => setMobileGamingOpen(!mobileGamingOpen)}
+                    className="w-full flex items-center justify-between px-3 py-2 text-left font-medium hover:bg-slate-50 rounded cursor-pointer"
+                  >
+                    <span>Gaming Hardware & Peripherals</span>
+                    <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${mobileGamingOpen ? 'rotate-180 text-blue-600' : ''}`} />
+                  </button>
+                  {mobileGamingOpen && (
+                    <div className="pl-4 pr-2 py-2 grid grid-cols-2 gap-3 bg-slate-50 rounded-lg text-xs">
+                      {GAMING_MENU_COLUMNS.map((col, idx) => (
+                        <div key={idx} className="flex flex-col gap-1">
+                          <span className="font-bold text-slate-900 mt-1">{col.top.title}</span>
+                          {col.top.items.slice(0, 4).map((it, i) => (
                             <button
                               key={i}
                               type="button"
-                              onClick={() => handleMegaItemClick(it, col.bottom.title)}
-                              className="text-left text-slate-600 hover:text-blue-600 py-0.5 truncate"
+                              onClick={() => handleMegaItemClick(it, col.top.title)}
+                              className="text-left text-slate-600 hover:text-blue-600 py-0.5 truncate cursor-pointer"
                             >
                               {it}
                             </button>
                           ))}
-                        </>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Mobile Streaming Accordion */}
-            <div className="border-b border-slate-100 pb-1">
-              <button
-                type="button"
-                onClick={() => setMobileStreamingOpen(!mobileStreamingOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 text-left font-medium hover:bg-slate-50 rounded"
-              >
-                <span>Streaming</span>
-                <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${mobileStreamingOpen ? 'rotate-180 text-blue-600' : ''}`} />
-              </button>
-              {mobileStreamingOpen && (
-                <div className="pl-4 pr-2 py-2 grid grid-cols-2 gap-3 bg-slate-50 rounded-lg text-xs">
-                  {STREAMING_MENU_COLUMNS.map((col, idx) => (
-                    <div key={idx} className="flex flex-col gap-1">
-                      <span className="font-bold text-slate-900 mt-1">{col.title}</span>
-                      {col.items.slice(0, 4).map((it, i) => (
-                        <button
-                          key={i}
-                          type="button"
-                          onClick={() => handleMegaItemClick(it, col.title)}
-                          className="text-left text-slate-600 hover:text-blue-600 py-0.5 truncate"
-                        >
-                          {it}
-                        </button>
+                        </div>
                       ))}
                     </div>
-                  ))}
+                  )}
                 </div>
-              )}
-            </div>
 
-            <button
-              onClick={() => { setActiveTab('catalog'); onCategorySelect('all'); setMobileMenuOpen(false); }}
-              className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded"
-            >
-              Components (All Hardware)
-            </button>
-            <button
-              onClick={() => { setActiveTab('catalog'); onCategorySelect('case'); setMobileMenuOpen(false); }}
-              className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded"
-            >
-              PC Cabinets (1,390+)
-            </button>
-            <button
-              onClick={() => { setActiveTab('catalog'); onCategorySelect('case_fan'); setMobileMenuOpen(false); }}
-              className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded"
-            >
-              Cabinet Fans (130+)
-            </button>
-            <button
-              onClick={() => { setActiveTab('catalog'); onCategorySelect('gpu'); setMobileMenuOpen(false); }}
-              className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded"
-            >
-              Graphics Cards (Asus, MSI, Zotac)
-            </button>
-            <button
-              onClick={() => { setActiveTab('catalog'); onCategorySelect('gaming_pc'); setSearchQuery(''); setMobileMenuOpen(false); }}
-              className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded flex items-center justify-between font-medium text-slate-800"
-            >
-              <span>Pre-Built PCs (Budget, Office & Gaming)</span>
-              <span className="text-[10px] bg-red-100 text-red-600 font-bold px-1.5 py-0.5 rounded font-mono">HOT</span>
-            </button>
-            <button
-              onClick={() => { setActiveTab('catalog'); onCategorySelect('monitor'); setMobileMenuOpen(false); }}
-              className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded"
-            >
-              Gaming Monitors
-            </button>
+                {/* Mobile Streaming Accordion */}
+                <div className="border-b border-slate-100 pb-1">
+                  <button
+                    type="button"
+                    onClick={() => setMobileStreamingOpen(!mobileStreamingOpen)}
+                    className="w-full flex items-center justify-between px-3 py-2 text-left font-medium hover:bg-slate-50 rounded cursor-pointer"
+                  >
+                    <span>Streaming Gear & Elgato</span>
+                    <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${mobileStreamingOpen ? 'rotate-180 text-blue-600' : ''}`} />
+                  </button>
+                  {mobileStreamingOpen && (
+                    <div className="pl-4 pr-2 py-2 grid grid-cols-2 gap-3 bg-slate-50 rounded-lg text-xs">
+                      {STREAMING_MENU_COLUMNS.map((col, idx) => (
+                        <div key={idx} className="flex flex-col gap-1">
+                          <span className="font-bold text-slate-900 mt-1">{col.title}</span>
+                          {col.items.slice(0, 4).map((it, i) => (
+                            <button
+                              key={i}
+                              type="button"
+                              onClick={() => handleMegaItemClick(it, col.title)}
+                              className="text-left text-slate-600 hover:text-blue-600 py-0.5 truncate cursor-pointer"
+                            >
+                              {it}
+                            </button>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <button
+                  onClick={() => { setActiveTab('catalog'); onCategorySelect('all'); setMobileMenuOpen(false); }}
+                  className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded cursor-pointer"
+                >
+                  Components (All 4,300+ Products)
+                </button>
+                <button
+                  onClick={() => { setActiveTab('catalog'); onCategorySelect('case'); setMobileMenuOpen(false); }}
+                  className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded cursor-pointer"
+                >
+                  PC Cabinets & Cases (340+)
+                </button>
+                <button
+                  onClick={() => { setActiveTab('catalog'); onCategorySelect('gpu'); setMobileMenuOpen(false); }}
+                  className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded cursor-pointer"
+                >
+                  Graphics Cards (RTX 40 / 50 & Radeon)
+                </button>
+                <button
+                  onClick={() => { setActiveTab('catalog'); onCategorySelect('monitor'); setMobileMenuOpen(false); }}
+                  className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded cursor-pointer"
+                >
+                  Gaming Monitors (High-Refresh)
+                </button>
+              </div>
+
+              {/* Direct Help in Drawer */}
+              <div className="pt-3 border-t border-slate-200 mt-2 flex flex-col gap-2">
+                <span className="text-[10px] font-mono uppercase text-slate-400 font-bold">
+                  Direct Store Helpline
+                </span>
+                <a
+                  href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20help%20with%20a%20PC%20build"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-2 bg-emerald-50 text-emerald-700 border border-emerald-300 rounded-lg text-xs font-bold flex items-center justify-between"
+                >
+                  <span>Chat on WhatsApp</span>
+                  <span className="font-mono text-[11px]">+91 9810550222</span>
+                </a>
+                <a
+                  href="tel:9810550222"
+                  className="px-3 py-2 bg-slate-50 text-slate-700 border border-slate-200 rounded-lg text-xs font-semibold flex items-center justify-between"
+                >
+                  <span>Call Support Desk</span>
+                  <span className="font-mono text-[11px]">+91 9810550222</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       )}

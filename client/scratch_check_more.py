@@ -10,7 +10,7 @@ possible = [
 ]
 
 for c in possible:
-    url = f'https://elitehubs.com/collections/{c}/products.json?limit=5'
+    url = f'https://computercare.in/collections/{c}/products.json?limit=5'
     req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
     try:
         with urllib.request.urlopen(req, timeout=5) as res:

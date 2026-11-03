@@ -23,12 +23,12 @@ const CATEGORIES = [
   { key: 'monitor', label: 'Monitors', icon: Tv, count: '276+ Screens', color: 'bg-teal-50 text-teal-600' },
 ];
 
-export default function EliteCategoriesGrid({ onSelectCategory }) {
+export default function CategoriesGrid({ onSelectCategory }) {
   return (
     <section className="w-full flex flex-col gap-4">
-      <div className="flex items-center justify-between border-b border-elite-border pb-2.5">
+      <div className="flex items-center justify-between border-b border-brand-border pb-2.5">
         <div>
-          <h2 className="text-lg sm:text-xl font-bold font-display uppercase tracking-tight text-elite-navy">
+          <h2 className="text-lg sm:text-xl font-bold font-display uppercase tracking-tight text-brand-navy">
             Featured Component Categories
           </h2>
           <p className="text-xs text-slate-500 font-sans">
@@ -44,12 +44,12 @@ export default function EliteCategoriesGrid({ onSelectCategory }) {
             <button
               key={cat.key}
               onClick={() => onSelectCategory(cat.key)}
-              className="bg-white border border-elite-border hover:border-elite-blue hover:shadow-elite-hover rounded-xl p-3 flex flex-col items-center text-center transition-all group"
+              className="bg-white border border-brand-border hover:border-brand-blue hover:shadow-brand-hover rounded-xl p-3 flex flex-col items-center text-center transition-all group"
             >
               <div className={`w-12 h-12 rounded-full ${cat.color} flex items-center justify-center mb-2 group-hover:scale-110 transition-transform`}>
                 <Icon className="w-6 h-6" />
               </div>
-              <span className="text-xs font-bold text-slate-800 font-display group-hover:text-elite-blue transition-colors line-clamp-1">
+              <span className="text-xs font-bold text-slate-800 font-display group-hover:text-brand-blue transition-colors line-clamp-1">
                 {cat.label}
               </span>
               <span className="text-[10px] text-slate-400 font-mono mt-0.5">

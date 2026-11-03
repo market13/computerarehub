@@ -18,7 +18,7 @@ for cat, handles in endpoints.items():
     total = 0
     sample_title = ""
     for h in handles:
-        url = f'https://elitehubs.com/collections/{h}/products.json?limit=20'
+        url = f'https://computercare.in/collections/{h}/products.json?limit=20'
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         try:
             with urllib.request.urlopen(req, timeout=8) as res:

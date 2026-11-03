@@ -14,7 +14,7 @@ import {
   Gamepad2
 } from 'lucide-react';
 
-import EliteBannerHero from './EliteBannerHero';
+import BannerHero from './BannerHero';
 import ShopByCategory from './ShopByCategory';
 import OurSpecialities from './OurSpecialities';
 
@@ -39,7 +39,7 @@ export default function HomeView({
   return (
     <div className="w-full flex flex-col gap-10 pb-16">
       {/* 1. Hero Carousel Banner & Service Assurance */}
-      <EliteBannerHero onNavigate={onNavigate} />
+      <BannerHero onNavigate={onNavigate} />
 
       {/* 2. SHOP BY CATEGORY (14 Modern Visual Category Cards) */}
       <ShopByCategory onSelectCategory={(cat) => onNavigate(`catalog-${cat}`)} />
@@ -48,16 +48,16 @@ export default function HomeView({
       <OurSpecialities onNavigate={onNavigate} onOpenPresets={onOpenPresets} />
 
       {/* 4. Featured Custom PC Builder Showcase */}
-      <section className="w-full bg-white border border-elite-border rounded-2xl p-6 sm:p-8 shadow-xs">
+      <section className="w-full bg-white border border-brand-border rounded-2xl p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           {/* Left Info */}
           <div className="lg:w-1/2 flex flex-col gap-4 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-elite-blue/10 text-elite-blue font-mono text-xs font-bold w-fit">
-              <span className="w-2 h-2 rounded-full bg-elite-blue animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue font-mono text-xs font-bold w-fit">
+              <span className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
               <span>CUSTOM PC CONFIGURATOR</span>
             </div>
 
-            <h2 className="text-2xl sm:text-4xl font-display font-black text-elite-navy tracking-tight uppercase leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-display font-black text-brand-navy tracking-tight uppercase leading-tight">
               Build Your Custom PC With Zero Bottlenecks
             </h2>
 
@@ -87,7 +87,7 @@ export default function HomeView({
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <button
                 onClick={() => onNavigate('builder')}
-                className="bg-elite-red hover:bg-elite-redHover text-white px-6 py-3 rounded-xl font-display font-bold uppercase tracking-wider text-xs sm:text-sm shadow-md transition-transform hover:scale-105 flex items-center gap-2"
+                className="bg-brand-red hover:bg-brand-redHover text-white px-6 py-3 rounded-xl font-display font-bold uppercase tracking-wider text-xs sm:text-sm shadow-md transition-transform hover:scale-105 flex items-center gap-2"
               >
                 <Box className="w-4 h-4" />
                 <span>Launch PC Builder</span>
@@ -96,7 +96,7 @@ export default function HomeView({
 
               <button
                 onClick={onOpenPresets}
-                className="px-5 py-3 rounded-xl font-display font-bold uppercase text-xs text-elite-navy bg-slate-100 hover:bg-slate-200 transition-colors"
+                className="px-5 py-3 rounded-xl font-display font-bold uppercase text-xs text-brand-navy bg-slate-100 hover:bg-slate-200 transition-colors"
               >
                 Browse Pre-Configured Rigs
               </button>
@@ -167,7 +167,7 @@ export default function HomeView({
 
             <button
               onClick={() => onNavigate('builder')}
-              className="w-full mt-1 bg-elite-navy hover:bg-slate-900 text-white py-2.5 rounded-xl font-display font-bold uppercase tracking-wider text-xs transition-colors flex items-center justify-center gap-2"
+              className="w-full mt-1 bg-brand-navy hover:bg-slate-900 text-white py-2.5 rounded-xl font-display font-bold uppercase tracking-wider text-xs transition-colors flex items-center justify-center gap-2"
             >
               <span>Configure Your Custom Hardware</span>
               <ArrowRight className="w-4 h-4" />
@@ -176,13 +176,13 @@ export default function HomeView({
         </div>
       </section>
 
-      {/* 4. Trending Hardware Deals (EliteHubs real products with local images) */}
+      {/* 4. Trending Hardware Deals (Computer Care real products with local images) */}
       <section className="w-full flex flex-col gap-5">
-        <div className="flex items-center justify-between border-b border-elite-border pb-3">
+        <div className="flex items-center justify-between border-b border-brand-border pb-3">
           <div>
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-elite-red" />
-              <h2 className="text-xl sm:text-2xl font-bold font-display uppercase tracking-tight text-elite-navy">
+              <span className="w-2.5 h-2.5 rounded-full bg-brand-red" />
+              <h2 className="text-xl sm:text-2xl font-bold font-display uppercase tracking-tight text-brand-navy">
                 Trending Hardware & Best Sellers
               </h2>
             </div>
@@ -193,7 +193,7 @@ export default function HomeView({
 
           <button
             onClick={() => onNavigate('catalog')}
-            className="flex items-center gap-1 text-xs font-bold font-display uppercase tracking-wider text-elite-blue hover:text-elite-blueLight"
+            className="flex items-center gap-1 text-xs font-bold font-display uppercase tracking-wider text-brand-blue hover:text-brand-blueLight"
           >
             <span>View All (2,900+)</span>
             <ChevronRight className="w-4 h-4" />
@@ -208,7 +208,7 @@ export default function HomeView({
             return (
               <div
                 key={p.id}
-                className="bg-white rounded-xl border border-elite-border hover:border-elite-blue hover:shadow-elite-hover p-4 flex flex-col justify-between transition-all group"
+                className="bg-white rounded-xl border border-brand-border hover:border-brand-blue hover:shadow-brand-hover p-4 flex flex-col justify-between transition-all group"
               >
                 <div>
                   {/* Thumbnail Image Container */}
@@ -235,14 +235,14 @@ export default function HomeView({
 
                     {/* Discount Pill */}
                     {p.compare_at_price > p.price && (
-                      <span className="absolute top-2 right-2 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-elite-red text-white shadow-sm">
+                      <span className="absolute top-2 right-2 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-brand-red text-white shadow-sm">
                         {Math.round(((p.compare_at_price - p.price) / p.compare_at_price) * 100)}% OFF
                       </span>
                     )}
                   </div>
 
                   <div className="flex items-center gap-1.5 mb-1.5">
-                    <span className="text-[10px] font-mono uppercase font-bold px-1.5 py-0.2 rounded bg-blue-50 text-elite-blue">
+                    <span className="text-[10px] font-mono uppercase font-bold px-1.5 py-0.2 rounded bg-blue-50 text-brand-blue">
                       {p.category}
                     </span>
                     <span className="text-[10px] text-emerald-600 font-semibold">
@@ -251,7 +251,7 @@ export default function HomeView({
                   </div>
 
                   <h3 
-                    className="text-xs sm:text-sm font-semibold text-slate-900 line-clamp-2 hover:text-elite-blue cursor-pointer transition-colors"
+                    className="text-xs sm:text-sm font-semibold text-slate-900 line-clamp-2 hover:text-brand-blue cursor-pointer transition-colors"
                     onClick={() => onViewDetails(p)}
                     title={p.title}
                   >
@@ -261,7 +261,7 @@ export default function HomeView({
 
                 <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
                   <div>
-                    <div className="font-display font-bold text-base text-elite-navy">
+                    <div className="font-display font-bold text-base text-brand-navy">
                       ₹{p.price.toLocaleString('en-IN')}
                     </div>
                     {p.compare_at_price > p.price && (
@@ -274,7 +274,7 @@ export default function HomeView({
                   <div className="flex items-center gap-1">
                     <button
                       onClick={() => onViewDetails(p)}
-                      className="p-1.5 rounded-lg text-slate-400 hover:text-elite-navy hover:bg-slate-100"
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-brand-navy hover:bg-slate-100"
                       title="View Technical Specs"
                     >
                       <Info className="w-4 h-4" />
@@ -285,7 +285,7 @@ export default function HomeView({
                       className={`px-3 py-1.5 rounded-lg text-xs font-display font-bold uppercase tracking-wider transition-colors ${
                         isSelected
                           ? 'bg-emerald-600 text-white'
-                          : 'bg-elite-navy hover:bg-elite-blue text-white shadow-sm'
+                          : 'bg-brand-navy hover:bg-brand-blue text-white shadow-sm'
                       }`}
                     >
                       {isSelected ? "In Rig" : "Add to Build"}

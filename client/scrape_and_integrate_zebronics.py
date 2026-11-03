@@ -66,8 +66,8 @@ def determine_category(prod):
         
     return 'case' # fallback
 
-print("Fetching Zebronics collection from EliteHubs...")
-url = "https://elitehubs.com/collections/zebronics/products.json?limit=250"
+print("Fetching Zebronics collection from Computer Care...")
+url = "https://computercare.in/collections/zebronics/products.json?limit=250"
 req = urllib.request.Request(url, headers=HEADERS)
 with urllib.request.urlopen(req, timeout=12) as resp:
     data = json.loads(resp.read().decode('utf-8'))
@@ -212,7 +212,7 @@ for p in raw_products:
         'image': final_image,
         'cdn_image': cdn_image,
         'handle': p.get('handle', ''),
-        'url': f"https://elitehubs.com/products/{p.get('handle', '')}",
+        'url': f"https://computercare.in/products/{p.get('handle', '')}",
         'description': clean_html(p.get('body_html', ''))[:200] + '...',
         'tags': p.get('tags', []) + ['Zebronics', 'Gaming'],
         'specs': specs

@@ -67,7 +67,7 @@ export default function Navbar({
                 {currentTheme.badge} RIG
               </span>
             </div>
-            <p className="text-[10px] font-mono text-slate-400">EliteHubs Powered</p>
+            <p className="text-[10px] font-mono text-slate-400">Computer Care Powered</p>
           </div>
         </div>
 
@@ -194,12 +194,12 @@ export default function Navbar({
           </button>
 
           <a
-            href="https://elitehubs.com"
+            href="https://computercare.com"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-all"
           >
-            <span>EliteHubs</span>
+            <span>Computer Care</span>
             <ExternalLink className="w-3 h-3 text-slate-400" />
           </a>
         </div>

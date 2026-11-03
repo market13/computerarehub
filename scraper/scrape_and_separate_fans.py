@@ -107,13 +107,13 @@ def main():
     print(f"Cleaned cases count (Zero fans): {len(cleaned_cases)}")
     print(f"Fans extracted from cases: {len(separated_fans)}")
     
-    # Now scrape all additional fans directly from EliteHubs products API
-    print("Scraping all dedicated cabinet fans from EliteHubs...")
+    # Now scrape all additional fans directly from Computer Care products API
+    print("Scraping all dedicated cabinet fans from Computer Care...")
     scraped_fans = []
     seen_ids = {f["id"] for f in separated_fans}
     
     for page in range(1, 16):
-        url = f"https://elitehubs.com/products.json?limit=250&page={page}"
+        url = f"https://computercare.in/products.json?limit=250&page={page}"
         try:
             req = urllib.request.Request(url, headers=HEADERS)
             with urllib.request.urlopen(req, timeout=12) as resp:
@@ -147,7 +147,7 @@ def main():
                             "images": images,
                             "description": re.sub('<[^<]+?>', '', p.get("body_html", "") or "")[:240],
                             "specs": extract_fan_specs(p["title"], p.get("body_html", "")),
-                            "elitehubs_url": f"https://elitehubs.com/products/{p['handle']}"
+                            "product_url": f"https://computercare.in/products/{p['handle']}"
                         }
                         scraped_fans.append(fan_item)
                         seen_ids.add(p["id"])
@@ -156,7 +156,7 @@ def main():
             break
         time.sleep(0.3)
         
-    print(f"Scraped {len(scraped_fans)} additional fans from EliteHubs!")
+    print(f"Scraped {len(scraped_fans)} additional fans from Computer Care!")
     all_fans = separated_fans + scraped_fans
     print(f"Total Dedicated Cabinet Fans: {len(all_fans)}")
     

@@ -2,7 +2,7 @@ import urllib.request
 import json
 import re
 
-url = "https://elitehubs.com/collections/pc-cabinet/products.json?limit=100"
+url = "https://computercare.in/collections/pc-cabinet/products.json?limit=100"
 req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
 try:
     with urllib.request.urlopen(req) as resp:

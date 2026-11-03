@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const clientDir = path.join(__dirname, '..');
 
 async function testHeader() {
-  console.log('=== VERIFYING NEW COMPUTER CARE HEADER (ELITEHUBS THEME) ===');
+  console.log('=== VERIFYING NEW COMPUTER CARE HEADER (computercare THEME) ===');
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const page = await context.newPage();

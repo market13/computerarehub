@@ -34,12 +34,12 @@ export default function PrebuiltPresetsModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-sm animate-fadeIn">
-      <div className="relative w-full max-w-4xl max-h-[85vh] bg-white border border-elite-border rounded-2xl flex flex-col overflow-hidden shadow-2xl">
+      <div className="relative w-full max-w-4xl max-h-[85vh] bg-white border border-brand-border rounded-2xl flex flex-col overflow-hidden shadow-2xl">
         {/* Modal Header */}
-        <div className="p-4 sm:p-5 bg-elite-navy text-white flex items-center justify-between">
+        <div className="p-4 sm:p-5 bg-brand-navy text-white flex items-center justify-between">
           <div>
             <div className="flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-elite-gold" />
+              <Sparkles className="w-5 h-5 text-brand-gold" />
               <h2 className="text-base sm:text-lg font-bold font-display uppercase tracking-wider">
                 Battle-Tested Gaming Rig Presets
               </h2>
@@ -74,11 +74,11 @@ export default function PrebuiltPresetsModal({
             return (
               <div
                 key={preset.id}
-                className="rounded-xl border border-elite-border bg-white p-5 flex flex-col justify-between transition-all group hover:border-elite-blue hover:shadow-elite-hover"
+                className="rounded-xl border border-brand-border bg-white p-5 flex flex-col justify-between transition-all group hover:border-brand-blue hover:shadow-brand-hover"
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded font-bold bg-blue-50 text-elite-blue border border-blue-200">
+                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded font-bold bg-blue-50 text-brand-blue border border-blue-200">
                       {preset.tier}
                     </span>
                     <span className="text-[11px] font-medium text-slate-500">
@@ -86,7 +86,7 @@ export default function PrebuiltPresetsModal({
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold text-slate-900 font-display mb-1.5 group-hover:text-elite-blue transition-colors">
+                  <h3 className="text-base font-bold text-slate-900 font-display mb-1.5 group-hover:text-brand-blue transition-colors">
                     {preset.name}
                   </h3>
 
@@ -104,14 +104,14 @@ export default function PrebuiltPresetsModal({
                 <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between">
                   <div>
                     <span className="text-[10px] font-mono text-slate-400 block uppercase">Estimated Total</span>
-                    <span className="font-display font-black text-lg text-elite-navy">
+                    <span className="font-display font-black text-lg text-brand-navy">
                       ₹{total.toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   <button
                     onClick={() => handleSelectPreset(preset)}
-                    className="px-4 py-2 rounded-xl text-xs font-display font-bold uppercase tracking-wider text-white bg-elite-red hover:bg-elite-redHover flex items-center gap-1.5 transition-all shadow-md"
+                    className="px-4 py-2 rounded-xl text-xs font-display font-bold uppercase tracking-wider text-white bg-brand-red hover:bg-brand-redHover flex items-center gap-1.5 transition-all shadow-md"
                   >
                     <span>Load Rig</span>
                     <ArrowRight className="w-3.5 h-3.5" />

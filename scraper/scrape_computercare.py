@@ -65,12 +65,12 @@ def download_image(url, target_path):
         # print(f"Error downloading {url}: {e}")
         return False
 
-def scrape_elitehubs(max_pages=20, max_images_per_cat=60):
-    print("Starting EliteHubs catalog scrape...")
+def scrape_computercare(max_pages=20, max_images_per_cat=60):
+    print("Starting Computer Care catalog scrape...")
     all_raw_products = []
 
     for page in range(1, max_pages + 1):
-        url = f"https://elitehubs.com/products.json?limit=250&page={page}"
+        url = f"https://computercare.in/products.json?limit=250&page={page}"
         req = urllib.request.Request(url, headers=HEADERS)
         try:
             with urllib.request.urlopen(req, timeout=20) as resp:
@@ -213,7 +213,7 @@ def scrape_elitehubs(max_pages=20, max_images_per_cat=60):
             "cdn_images": product_images,
             "specs": specs,
             "description": body[:500] if body else title,
-            "url": f"https://elitehubs.com/products/{p.get('handle', '')}"
+            "url": f"https://computercare.in/products/{p.get('handle', '')}"
         }
 
         categorized[cat].append(prod_item)
@@ -321,4 +321,4 @@ def generate_presets(cat):
     print(f"Saved build presets to {preset_path}")
 
 if __name__ == "__main__":
-    scrape_elitehubs(max_pages=15, max_images_per_cat=40)
+    scrape_computercare(max_pages=15, max_images_per_cat=40)

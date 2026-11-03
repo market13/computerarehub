@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const clientDir = path.join(__dirname, '..');
 
 async function runAudit() {
-  console.log('=== RUNNING COMPUTER CARE (ELITEHUBS THEMED) E2E AUDIT ===');
+  console.log('=== RUNNING COMPUTER CARE (computercare THEMED) E2E AUDIT ===');
   const browser = await chromium.launch({ headless: true });
 
   const consoleErrors = [];
@@ -69,7 +69,7 @@ async function runAudit() {
   }
 
   // 4. Navigate to Component Catalog
-  console.log('\n--- 4. Testing EliteHubs Components Catalog ---');
+  console.log('\n--- 4. Testing Computer Care Components Catalog ---');
   const componentsBtn = await page.$('button:has-text("Components")') || await page.$('button:has-text("Component Store")');
   if (componentsBtn) await componentsBtn.click();
   await page.waitForTimeout(1000);

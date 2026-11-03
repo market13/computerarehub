@@ -93,19 +93,20 @@ export default function ComponentSelectorModal({
         return false;
       }
 
-      // CRITICAL RULE: In Cabinet section, strictly NEVER show cabinet fans or fan accessories!
+      // Safety: In Cabinet section, filter out loose fan accessories while displaying genuine budget cabinets (Intex, Geonix, etc.)
       if (categoryKey === 'case') {
         const title = (p.title || "").toLowerCase();
+        const isGenuineCabinet = title.includes('cabinet') || title.includes('tower') || title.includes('chassis');
         if (
-          title.includes(' fan') || 
           title.includes('cooling fan') || 
-          title.includes('cabinet fan') || 
           title.includes('case fan') || 
+          title.includes('cabinet fan') || 
           title.includes('single pack') || 
           title.includes('triple pack') || 
-          title.includes('120mm') || 
-          title.includes('140mm') ||
-          p.price < 2000
+          title.includes('fan kit') ||
+          (title.includes('120mm') && !isGenuineCabinet) || 
+          (title.includes('140mm') && !isGenuineCabinet) ||
+          (!isGenuineCabinet && p.price < 2000)
         ) {
           return false;
         }
@@ -171,9 +172,9 @@ export default function ComponentSelectorModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-sm animate-fadeIn">
-      <div className="relative w-full max-w-5xl h-[88vh] bg-white border border-elite-border rounded-2xl flex flex-col overflow-hidden shadow-2xl">
+      <div className="relative w-full max-w-5xl h-[88vh] bg-white border border-brand-border rounded-2xl flex flex-col overflow-hidden shadow-2xl">
         {/* Modal Header (Navy Blue) */}
-        <div className="p-4 sm:p-5 bg-elite-navy text-white flex items-center justify-between">
+        <div className="p-4 sm:p-5 bg-brand-navy text-white flex items-center justify-between">
           <div>
             <div className="flex items-center gap-2">
               <h2 className="text-base sm:text-lg font-bold font-display uppercase tracking-wider">
@@ -199,8 +200,8 @@ export default function ComponentSelectorModal({
 
         {/* Specialized Cabinet Kind Filter Strip (if category is case) */}
         {categoryKey === 'case' && (
-          <div className="bg-slate-100 border-b border-elite-border px-4 py-2 flex items-center gap-1.5 overflow-x-auto scrollbar-none">
-            <span className="text-[11px] font-bold text-elite-navy uppercase font-display mr-1 whitespace-nowrap">
+          <div className="bg-slate-100 border-b border-brand-border px-4 py-2 flex items-center gap-1.5 overflow-x-auto scrollbar-none">
+            <span className="text-[11px] font-bold text-brand-navy uppercase font-display mr-1 whitespace-nowrap">
               Cabinet Types:
             </span>
             {CABINET_KINDS.map(kind => (
@@ -209,7 +210,7 @@ export default function ComponentSelectorModal({
                 onClick={() => setSelectedCabinetKind(kind.id)}
                 className={`px-3 py-1 rounded-lg text-xs font-sans whitespace-nowrap transition-all border ${
                   selectedCabinetKind === kind.id
-                    ? 'bg-elite-blue text-white font-bold border-elite-blue shadow-sm'
+                    ? 'bg-brand-blue text-white font-bold border-brand-blue shadow-sm'
                     : 'bg-white text-slate-700 hover:bg-slate-200 border-slate-200 font-medium'
                 }`}
               >
@@ -221,8 +222,8 @@ export default function ComponentSelectorModal({
 
         {/* Specialized Fan Kind Filter Strip (if category is case_fan) */}
         {categoryKey === 'case_fan' && (
-          <div className="bg-slate-100 border-b border-elite-border px-4 py-2 flex items-center gap-1.5 overflow-x-auto scrollbar-none">
-            <span className="text-[11px] font-bold text-elite-navy uppercase font-display mr-1 whitespace-nowrap">
+          <div className="bg-slate-100 border-b border-brand-border px-4 py-2 flex items-center gap-1.5 overflow-x-auto scrollbar-none">
+            <span className="text-[11px] font-bold text-brand-navy uppercase font-display mr-1 whitespace-nowrap">
               Fan Types:
             </span>
             {FAN_KINDS.map(kind => (
@@ -231,7 +232,7 @@ export default function ComponentSelectorModal({
                 onClick={() => setSelectedFanKind(kind.id)}
                 className={`px-3 py-1 rounded-lg text-xs font-sans whitespace-nowrap transition-all border ${
                   selectedFanKind === kind.id
-                    ? 'bg-elite-blue text-white font-bold border-elite-blue shadow-sm'
+                    ? 'bg-brand-blue text-white font-bold border-brand-blue shadow-sm'
                     : 'bg-white text-slate-700 hover:bg-slate-200 border-slate-200 font-medium'
                 }`}
               >
@@ -242,7 +243,7 @@ export default function ComponentSelectorModal({
         )}
 
         {/* Filter & Search Bar */}
-        <div className="p-3 sm:p-4 border-b border-elite-border bg-slate-50 flex flex-wrap items-center gap-2.5">
+        <div className="p-3 sm:p-4 border-b border-brand-border bg-slate-50 flex flex-wrap items-center gap-2.5">
           {/* Search Input */}
           <div className="relative flex-1 min-w-[220px]">
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
@@ -251,7 +252,7 @@ export default function ComponentSelectorModal({
               placeholder={`Search ${categoryLabel} by name, brand or model (e.g. O11, 4000D, Lancool)...`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white border border-slate-300 rounded-lg pl-9 pr-8 py-2 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-elite-blue transition-colors"
+              className="w-full bg-white border border-slate-300 rounded-lg pl-9 pr-8 py-2 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brand-blue transition-colors"
             />
             {searchQuery && (
               <button 
@@ -268,7 +269,7 @@ export default function ComponentSelectorModal({
             <select
               value={selectedBrand}
               onChange={(e) => setSelectedBrand(e.target.value)}
-              className="bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-700 focus:outline-none focus:border-elite-blue cursor-pointer font-medium"
+              className="bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-700 focus:outline-none focus:border-brand-blue cursor-pointer font-medium"
             >
               <option value="ALL">All Brands ({brands.length - 1})</option>
               {brands.filter(b => b !== 'ALL').map(b => (
@@ -282,7 +283,7 @@ export default function ComponentSelectorModal({
             <select
               value={selectedSubfilter}
               onChange={(e) => setSelectedSubfilter(e.target.value)}
-              className="bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-700 focus:outline-none focus:border-elite-blue cursor-pointer font-medium"
+              className="bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-700 focus:outline-none focus:border-brand-blue cursor-pointer font-medium"
             >
               <option value="ALL">All Specs</option>
               {subfilterOptions.filter(s => s !== 'ALL').map(s => (
@@ -297,7 +298,7 @@ export default function ComponentSelectorModal({
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-700 focus:outline-none focus:border-elite-blue cursor-pointer font-medium"
+              className="bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-700 focus:outline-none focus:border-brand-blue cursor-pointer font-medium"
             >
               <option value="price_asc">Price: Low to High</option>
               <option value="price_desc">Price: High to Low</option>
@@ -317,7 +318,7 @@ export default function ComponentSelectorModal({
               </p>
               <button
                 onClick={() => { setSearchQuery(''); setSelectedBrand('ALL'); setSelectedCabinetKind('ALL'); setSelectedSubfilter('ALL'); }}
-                className="mt-4 px-4 py-2 rounded-lg text-xs font-bold font-display uppercase tracking-wider bg-elite-navy text-white"
+                className="mt-4 px-4 py-2 rounded-lg text-xs font-bold font-display uppercase tracking-wider bg-brand-navy text-white"
               >
                 Reset Filters
               </button>
@@ -331,8 +332,8 @@ export default function ComponentSelectorModal({
                   key={p.id}
                   className={`rounded-xl border p-3.5 flex flex-col justify-between transition-all duration-200 ${
                     isSelected
-                      ? 'bg-blue-50/50 border-elite-blue shadow-md ring-2 ring-elite-blue/30'
-                      : 'bg-white border-elite-border hover:border-elite-blue hover:shadow-elite-hover'
+                      ? 'bg-blue-50/50 border-brand-blue shadow-md ring-2 ring-brand-blue/30'
+                      : 'bg-white border-brand-border hover:border-brand-blue hover:shadow-brand-hover'
                   }`}
                 >
                   <div>
@@ -360,7 +361,7 @@ export default function ComponentSelectorModal({
 
                       {/* Discount pill */}
                       {p.compare_at_price > p.price && (
-                        <span className="absolute top-2 right-2 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-elite-red text-white shadow-sm">
+                        <span className="absolute top-2 right-2 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-brand-red text-white shadow-sm">
                           {Math.round(((p.compare_at_price - p.price) / p.compare_at_price) * 100)}% OFF
                         </span>
                       )}
@@ -368,7 +369,7 @@ export default function ComponentSelectorModal({
 
                     {/* Title */}
                     <h3 
-                      className="text-xs sm:text-sm font-semibold text-slate-800 line-clamp-2 hover:text-elite-blue cursor-pointer transition-colors"
+                      className="text-xs sm:text-sm font-semibold text-slate-800 line-clamp-2 hover:text-brand-blue cursor-pointer transition-colors"
                       onClick={() => onViewDetails(p)}
                       title={p.title}
                     >
@@ -378,7 +379,7 @@ export default function ComponentSelectorModal({
                     {/* Cabinet Specs Tags */}
                     <div className="flex flex-wrap items-center gap-1.5 mt-2">
                       {p.specs?.cabinet_style && (
-                        <span className="text-[10px] font-sans font-semibold px-2 py-0.5 rounded bg-blue-50 text-elite-blue border border-blue-200">
+                        <span className="text-[10px] font-sans font-semibold px-2 py-0.5 rounded bg-blue-50 text-brand-blue border border-blue-200">
                           {p.specs.cabinet_style}
                         </span>
                       )}
@@ -403,7 +404,7 @@ export default function ComponentSelectorModal({
                   {/* Price & Select Button */}
                   <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between">
                     <div>
-                      <div className="font-display font-bold text-base text-elite-navy">
+                      <div className="font-display font-bold text-base text-brand-navy">
                         ₹{p.price.toLocaleString('en-IN')}
                       </div>
                       {p.compare_at_price > p.price && (
@@ -416,7 +417,7 @@ export default function ComponentSelectorModal({
                     <div className="flex items-center gap-1.5">
                       <button
                         onClick={() => onViewDetails(p)}
-                        className="p-1.5 rounded-lg text-slate-400 hover:text-elite-navy hover:bg-slate-100 transition-colors"
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-brand-navy hover:bg-slate-100 transition-colors"
                         title="View Full Specifications"
                       >
                         <Info className="w-4 h-4" />
@@ -430,7 +431,7 @@ export default function ComponentSelectorModal({
                         className={`px-3.5 py-1.5 rounded-lg text-xs font-display font-bold uppercase tracking-wider flex items-center gap-1 transition-all ${
                           isSelected
                             ? 'bg-emerald-600 text-white'
-                            : 'bg-elite-red hover:bg-elite-redHover text-white shadow-sm'
+                            : 'bg-brand-red hover:bg-brand-redHover text-white shadow-sm'
                         }`}
                       >
                         {isSelected ? (

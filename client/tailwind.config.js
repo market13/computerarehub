@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        elite: {
+        brand: {
           navy: '#1b2269',
           navyDark: '#121748',
           blue: '#2B38D1',
@@ -32,8 +32,8 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
-        'elite': '0 2px 10px rgba(27, 34, 105, 0.08)',
-        'elite-hover': '0 8px 24px rgba(27, 34, 105, 0.14)',
+        'brand': '0 2px 10px rgba(27, 34, 105, 0.08)',
+        'brand-hover': '0 8px 24px rgba(27, 34, 105, 0.14)',
         'card': '0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)',
       }
     },

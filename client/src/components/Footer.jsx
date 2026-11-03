@@ -11,20 +11,20 @@ import {
   ExternalLink
 } from 'lucide-react';
 
-export default function EliteFooter({ onNavigate }) {
+export default function Footer({ onNavigate }) {
   return (
-    <footer className="w-full bg-elite-navyDark text-slate-300 font-sans border-t border-slate-800 pt-12 pb-8">
+    <footer className="w-full bg-brand-navyDark text-slate-300 font-sans border-t border-slate-800 pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
         {/* Top 4-Column Footer Links */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Col 1: About Computer Care */}
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-elite-red flex items-center justify-center text-white font-bold">
+              <div className="w-8 h-8 rounded-lg bg-brand-red flex items-center justify-center text-white font-bold">
                 <Cpu className="w-5 h-5" />
               </div>
               <span className="font-display font-black text-xl text-white tracking-tight">
-                COMPUTER <span className="text-elite-red">CARE</span>
+                COMPUTER <span className="text-brand-red">CARE</span>
               </span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed font-sans">
@@ -103,7 +103,7 @@ export default function EliteFooter({ onNavigate }) {
             </h4>
             <div className="flex flex-col gap-2.5 text-xs text-slate-400">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-elite-red flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-brand-red flex-shrink-0 mt-0.5" />
                 <span>G 23 Shiva Tower, Ghaziabad, Uttar Pradesh - 201009</span>
               </div>
               <div className="flex items-center gap-2">

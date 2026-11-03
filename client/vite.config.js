@@ -14,7 +14,10 @@ const SECURITY_HEADERS = {
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: '127.0.0.1',
+    host: '0.0.0.0',
+    port: 5173,
+    cors: true,
+    allowedHosts: true,
     fs: {
       strict: true,
       allow: ['.']

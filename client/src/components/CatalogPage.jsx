@@ -89,7 +89,7 @@ export default function CatalogPage({
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="text-xs font-mono uppercase px-2.5 py-1 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-              EliteHubs Inventory
+              Computer Care Inventory
             </span>
             <span className="text-xs font-mono text-slate-400">
               {filteredProducts.length} Items Listed

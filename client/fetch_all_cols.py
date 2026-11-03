@@ -3,7 +3,7 @@ import json
 
 all_cols = []
 for page in range(1, 10):
-    url = f'https://elitehubs.com/collections.json?limit=250&page={page}'
+    url = f'https://computercare.in/collections.json?limit=250&page={page}'
     req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
     try:
         with urllib.request.urlopen(req, timeout=10) as res:

@@ -7,7 +7,7 @@ def check_pages():
     total_products = 0
     type_counts = {}
     while True:
-        url = f"https://elitehubs.com/products.json?limit=250&page={page}"
+        url = f"https://computercare.in/products.json?limit=250&page={page}"
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
         try:
             with urllib.request.urlopen(req) as resp:
