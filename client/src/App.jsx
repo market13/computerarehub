@@ -166,21 +166,40 @@ export default function App() {
 
   const handleNavigate = (dest) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (dest === 'builder') {
-      setActiveTab('builder');
-    } else if (dest === 'bulk-order') {
-      setActiveTab('bulk-order');
-    } else if (dest === 'catalog') {
-      setSelectedCatalogCategory('all');
-      setActiveTab('catalog');
-    } else if (dest === 'presets') {
-      setIsPresetsOpen(true);
-    } else if (dest.startsWith('catalog-')) {
-      const cat = dest.replace('catalog-', '');
-      setSelectedCatalogCategory(cat);
-      setActiveTab('catalog');
+
+    const applyNav = () => {
+      if (dest === 'admin') {
+        window.location.hash = 'admin';
+        setActiveTab('admin');
+      } else if (dest === 'builder') {
+        window.location.hash = 'builder';
+        setActiveTab('builder');
+      } else if (dest === 'bulk-order') {
+        window.location.hash = 'bulk-order';
+        setActiveTab('bulk-order');
+      } else if (dest === 'catalog') {
+        setSelectedCatalogCategory('all');
+        window.location.hash = 'catalog';
+        setActiveTab('catalog');
+      } else if (dest === 'presets') {
+        setIsPresetsOpen(true);
+      } else if (dest.startsWith('catalog-')) {
+        const cat = dest.replace('catalog-', '');
+        setSelectedCatalogCategory(cat);
+        window.location.hash = 'catalog';
+        setActiveTab('catalog');
+      } else {
+        window.location.hash = dest === 'home' ? '' : dest;
+        setActiveTab(dest);
+      }
+    };
+
+    if (typeof document !== 'undefined' && document.startViewTransition) {
+      document.startViewTransition(() => {
+        applyNav();
+      });
     } else {
-      setActiveTab(dest);
+      applyNav();
     }
   };
 
@@ -216,6 +235,7 @@ export default function App() {
 
       {/* Main Content Area */}
       <main id="main-content" className="flex-1 max-w-[1536px] w-full mx-auto px-3 sm:px-5 lg:px-8 py-6">
+        <div key={activeTab} className="animate-tab-enter w-full">
         {loading ? (
           <div className="py-32 flex flex-col items-center justify-center text-center">
             <div className="w-12 h-12 rounded-2xl border-4 border-brand-navy/20 border-t-brand-navy animate-spin mb-4" />
@@ -265,6 +285,7 @@ export default function App() {
             setSearchQuery={setSearchQuery}
           />
         )}
+      </div>
       </main>
 
       {/* Modals & Drawers */}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   X,
   ShieldCheck,
@@ -16,7 +16,8 @@ import {
 export default function AdminLoginModal({
   isOpen,
   onClose,
-  onSuccessAdminLogin
+  onSuccessAdminLogin,
+  onLogout
 }) {
   const [activeTab, setActiveTab] = useState('admin'); // 'admin' | 'customer'
   const [username, setUsername] = useState('admin');
@@ -24,6 +25,25 @@ export default function AdminLoginModal({
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+
+  // Sync admin state when modal opens
+  useEffect(() => {
+    if (isOpen && typeof window !== 'undefined') {
+      setIsAdminLoggedIn(localStorage.getItem('computercare_admin_auth') === 'true');
+    }
+  }, [isOpen]);
+
+  // Support closing on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   // Customer form state
   const [customerEmail, setCustomerEmail] = useState('');
@@ -31,8 +51,6 @@ export default function AdminLoginModal({
   const [customerMsg, setCustomerMsg] = useState('');
 
   if (!isOpen) return null;
-
-  const isAlreadyAdmin = typeof window !== 'undefined' && localStorage.getItem('computercare_admin_auth') === 'true';
 
   const handleAdminSubmit = (e) => {
     e.preventDefault();
@@ -49,6 +67,7 @@ export default function AdminLoginModal({
 
       if (isUserValid && isPassValid) {
         localStorage.setItem('computercare_admin_auth', 'true');
+        setIsAdminLoggedIn(true);
         setIsLoading(false);
         onClose();
         onSuccessAdminLogin();
@@ -56,19 +75,24 @@ export default function AdminLoginModal({
         setIsLoading(false);
         setError('Invalid username or password. (Demo: admin / admin123)');
       }
-    }, 400);
+    }, 300);
   };
 
   const handleOneClickDemo = () => {
     localStorage.setItem('computercare_admin_auth', 'true');
+    setIsAdminLoggedIn(true);
     onClose();
     onSuccessAdminLogin();
   };
 
   const handleLogoutAdmin = () => {
     localStorage.removeItem('computercare_admin_auth');
+    setIsAdminLoggedIn(false);
     setError('');
     setPassword('');
+    if (onLogout) {
+      onLogout();
+    }
   };
 
   const handleCustomerSubmit = (e) => {
@@ -84,9 +108,12 @@ export default function AdminLoginModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn"
+      onClick={onClose}
+    >
       <div 
-        className="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-brand-border overflow-hidden flex flex-col relative"
+        className="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-brand-border overflow-hidden flex flex-col relative animate-modal-pop"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Header */}
@@ -149,7 +176,7 @@ export default function AdminLoginModal({
           {/* TAB 1: ADMIN LOGIN */}
           {activeTab === 'admin' && (
             <div>
-              {isAlreadyAdmin ? (
+              {isAdminLoggedIn ? (
                 <div className="space-y-4">
                   <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />

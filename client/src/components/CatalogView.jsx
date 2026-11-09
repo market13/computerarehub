@@ -419,14 +419,14 @@ export default function CatalogView({
           </div>
 
           {/* Products Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+          <div key={`${selectedCategory}-${selectedBrand}-${selectedCabinetKind}-${selectedFanKind}-${pageNumber}`} className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 animate-product-grid">
             {paginatedProducts.map((p) => {
               const isSelected = build[p.category]?.id === p.id;
 
               return (
                 <div
                   key={p.id}
-                  className="bg-white rounded-xl border border-brand-border hover:border-brand-blue hover:shadow-brand-hover p-2.5 sm:p-3.5 flex flex-col justify-between transition-all group"
+                  className="bg-white rounded-xl border border-brand-border hover:border-brand-blue p-2.5 sm:p-3.5 flex flex-col justify-between group product-card-hover"
                 >
                   <div>
                     {/* Image */}
@@ -442,7 +442,7 @@ export default function CatalogView({
                             e.target.src = p.cdn_image;
                           }
                         }}
-                        className="w-full h-full object-contain group-hover:scale-105 transition-transform"
+                        className="w-full h-full object-contain product-image-hover"
                         loading="lazy"
                       />
 

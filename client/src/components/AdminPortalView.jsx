@@ -285,6 +285,8 @@ export default function AdminPortalView({
   const handleLogout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem('computercare_admin_auth');
+    window.location.hash = '';
+    onNavigate('home');
   };
 
   // Flatten catalog products

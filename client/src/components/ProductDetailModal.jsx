@@ -78,7 +78,7 @@ export default function ProductDetailModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-sm animate-fadeIn">
-      <div className="relative w-full max-w-3xl max-h-[90vh] bg-white border border-brand-border rounded-2xl flex flex-col overflow-hidden shadow-2xl">
+      <div className="relative w-full max-w-3xl max-h-[90vh] bg-white border border-brand-border rounded-2xl flex flex-col overflow-hidden shadow-2xl animate-modal-pop">
         {/* Header (Computer Care Navy) */}
         <div className="p-4 sm:p-5 bg-brand-navy text-white flex items-center justify-between">
           <div className="flex items-center gap-2">

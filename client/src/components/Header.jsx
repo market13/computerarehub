@@ -1173,8 +1173,16 @@ export default function Header({
         isOpen={isAuthModalOpen}
         onClose={() => setIsAuthModalOpen(false)}
         onSuccessAdminLogin={() => {
+          setIsAdminActive(true);
           setActiveTab('admin');
           window.location.hash = 'admin';
+        }}
+        onLogout={() => {
+          setIsAdminActive(false);
+          if (activeTab === 'admin') {
+            setActiveTab('home');
+            window.location.hash = '';
+          }
         }}
       />
     </header>
