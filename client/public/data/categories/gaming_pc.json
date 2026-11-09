@@ -1,0 +1,113 @@
+[
+  {
+    "id": "gaming_pc_care_i3_3rdgen_zebronics_19in_9999",
+    "title": "Computer Care Complete PC Setup (Intel Core i3 3rd Gen / 8GB RAM / 256GB SSD / Zebronics 19-inch HD Monitor) Full Desktop Pre-Built Combo",
+    "vendor": "Computer Care",
+    "price": 9999,
+    "compare_at_price": 16999,
+    "category": "gaming_pc",
+    "available": true,
+    "sku": "CC-PC-I3-3RDGEN-8GB-256SSD-ZEB19",
+    "image": "/images/products/gaming_pc/computercare-i3-3rdgen-zebronics-19inch-combo.jpg",
+    "cdn_image": "/images/products/gaming_pc/computercare-i3-3rdgen-zebronics-19inch-combo.jpg",
+    "images": [
+      "/images/products/gaming_pc/computercare-i3-3rdgen-zebronics-19inch-combo.jpg",
+      "/images/products/case/intex-it-308-cabinet.jpg"
+    ],
+    "handle": "computer-care-complete-pc-setup-intel-i3-3rdgen-8gb-ram-256gb-ssd-zebronics-19in-monitor",
+    "url": "/catalog/gaming_pc/intel-i3-3rdgen-zebronics-19in-combo",
+    "description": "Complete Plug & Play Desktop Computer Setup with Zebronics 19-inch HD Monitor:\n\n• Processor: Intel Core i3 3rd Generation (i3-3220 / i3-3240, 3.30 GHz, Dual Core / 4 Threads)\n• Memory (RAM): 8GB DDR3 1600MHz High-Speed Memory\n• Storage: 256GB Solid State Drive (SSD) for lightning-fast 5-second Windows boot and instant app loading\n• Monitor: Zebronics 19-inch (18.5\" / 19\" HD LED Wide Display, Crisp 1366x768 Resolution, HDMI & VGA inputs, Wall-Mountable)\n• Motherboard: Intel H61 Express Micro-ATX Motherboard with Gigabit Ethernet LAN, USB 2.0 & HD 6-Channel Audio\n• Graphics: Integrated Intel HD Graphics 2500 (Supports 1080p Full HD video playback and dual monitor display)\n• Cabinet: Sleek Matte Black Desktop Cabinet with front high-speed USB ports and 3.5mm headphone/mic jacks\n• Power Supply: Energy-efficient 450W SMPS with automatic surge protection\n• Operating System: Windows 10/11 Compatible (Clean install, lifetime activation support, zero bloatware)\n• Package Contents: 1x CPU Tower, 1x Zebronics 19-inch HD Monitor, 2x Power Cords, 1x Display Cable, Warranty Card\n• Ideal For: School & College Studies, Tally Prime / Busy / Excel Accounting, Online Classes & Video Conferencing, Internet Browsing, Home Media, and Office Multitasking\n• Warranty: 1 Year Comprehensive Hardware Warranty with Dedicated Support from Computer Care Ghaziabad (Shiva Tower, UP - 201009)",
+    "tags": [
+      "CATQ_PC Build",
+      "Pre-Built PC",
+      "Budget PC",
+      "10k PC",
+      "Complete PC Setup",
+      "PC with Monitor",
+      "Zebronics Monitor",
+      "Intel Core i3 3rd Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "Computer Care Exclusive"
+    ],
+    "specs": {
+      "vendor": "Computer Care",
+      "processor": "Intel Core i3 3rd Gen (3.30 GHz)",
+      "ram": "8GB DDR3",
+      "storage": "256GB Fast SSD",
+      "monitor": "Zebronics 19-inch HD LED",
+      "motherboard": "Intel H61 Express",
+      "in_stock": true,
+      "pc_tier": "Complete Desktop Setup (PC + 19\" Monitor at ₹9,999)"
+    },
+    "in_stock": true
+  },
+  {
+    "id": "gaming_pc_care_budget_10k_i5",
+    "title": "Computer Care Smart Budget PC (Intel Core i5 / 8GB RAM / 256GB SSD / 450W SMPS / Zebronics Compact Tower) Pre-Built Desktop for Office, Home and Study",
+    "vendor": "Computer Care",
+    "price": 9999,
+    "compare_at_price": 14999,
+    "category": "gaming_pc",
+    "image": "/images/products/case/zeb_case_7815840890973_zebronics-zium-matx-mid-t.jpg",
+    "cdn_image": "/images/products/case/zeb_case_7815840890973_zebronics-zium-matx-mid-t.jpg",
+    "images": [
+      "/images/products/case/zeb_case_7815840890973_zebronics-zium-matx-mid-t.jpg"
+    ],
+    "handle": "computer-care-smart-budget-pc-intel-i5-8gb-ram-256gb-ssd-zebronics",
+    "url": "#",
+    "description": "Specifications:\n\n• Processor: Intel Core i5 Quad Core Processor\n• Motherboard: Intel H61 / H81 Fast Micro-ATX Motherboard\n• RAM: 8GB DDR3/DDR4 High-Speed RAM\n• Storage: 256GB Solid State Drive (SSD) for instant Windows and app booting\n• Cabinet: Zebronics Zium Stylish Compact Cabinet with Front High-Speed USB and HD Audio\n• Power Supply: 450W Reliable Energy-Efficient SMPS\n• Operating System: Windows 10/11 Compatible (Ready to use)\n• Warranty: 1 Year Hardware Warranty with Dedicated Support from Computer Care Ghaziabad.\n• Ideal for: Work From Home, School and Online Classes, Office Tally / Excel Accounting, Web Browsing, and Everyday Multitasking.",
+    "tags": [
+      "CATQ_PC Build",
+      "Pre-Built PC",
+      "Budget PC",
+      "10k PC",
+      "PC18_Budget PC",
+      "PC18_Office PC",
+      "PC1_Intel i5",
+      "PC3_8GB RAM",
+      "PC6_256GB SSD",
+      "PC10_Zebronics Cabinets",
+      "Computer Care Exclusive"
+    ],
+    "specs": {
+      "vendor": "Computer Care",
+      "in_stock": true,
+      "pc_tier": "Budget Office & Student PC (Around 10K)"
+    },
+    "in_stock": true
+  },
+  {
+    "id": "gaming_pc_care_student_rgb_11k",
+    "title": "Computer Care Starter Gaming and Creator PC (Intel Core i5 / 16GB RAM / 512GB High-Speed SSD / Zebronics Robust ARGB Cabinet) Pre-Built Desktop",
+    "vendor": "Computer Care",
+    "price": 11999,
+    "compare_at_price": 17999,
+    "category": "gaming_pc",
+    "image": "/images/products/case/zeb_case_7818024714333_zebronics-robust-argb-mat.jpg",
+    "cdn_image": "/images/products/case/zeb_case_7818024714333_zebronics-robust-argb-mat.jpg",
+    "images": [
+      "/images/products/case/zeb_case_7818024714333_zebronics-robust-argb-mat.jpg"
+    ],
+    "handle": "computer-care-starter-gaming-creator-pc-intel-i5-16gb-ram-512gb-ssd-zebronics",
+    "url": "#",
+    "description": "Specifications:\n\n• Processor: Intel Core i5 Quad/Hexa-Core Processor\n• Motherboard: Intel H81/B85 Gaming Motherboard\n• RAM: 16GB High-Speed Dual-Channel RAM\n• Storage: 512GB Ultra-Fast SSD\n• Cabinet: Zebronics Robust ARGB Gaming Chassis with Glass Window and Vivid Multi-Color Fans\n• Power Supply: 450W Bronze PSU\n• Operating System: Windows 11 Compatible (Ready to use)\n• Warranty: 1 Year Comprehensive Hardware Warranty from Computer Care Ghaziabad.\n• Ideal for: Coding, Video and Photo Editing, Students, and Casual Esports Gaming (CS:GO, Valorant, GTA V, Minecraft).",
+    "tags": [
+      "CATQ_PC Build",
+      "Pre-Built PC",
+      "Budget PC",
+      "PC18_Esports Gaming PC",
+      "PC1_Intel i5",
+      "PC3_16GB RAM",
+      "PC6_512GB SSD",
+      "PC10_Zebronics Cabinets",
+      "Computer Care Exclusive"
+    ],
+    "specs": {
+      "vendor": "Computer Care",
+      "in_stock": true,
+      "pc_tier": "Student and Casual Gaming PC"
+    },
+    "in_stock": true
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "id": 980804,
+    "title": "Lapcare Whirlwind 120mm ARGB Cabinet Cooling Fan (Pack of 3)",
+    "handle": "lapcare-whirlwind-120mm-argb-cabinet-fans-3pack",
+    "vendor": "Lapcare",
+    "category": "case_fan",
+    "product_type": "Case Fan",
+    "price": 1099,
+    "compare_at_price": 1699,
+    "available": true,
+    "sku": "LPC-FAN-WW120-3PK",
+    "image": "/images/shop_by_category/air_cooler.png",
+    "cdn_image": "/images/shop_by_category/air_cooler.png",
+    "images": [
+      "/images/shop_by_category/air_cooler.png"
+    ],
+    "specs": {
+      "fan_size": "120mm",
+      "rgb_type": "Addressable RGB",
+      "speed_rpm": 1200,
+      "airflow_cfm": 45.2,
+      "noise_dba": 22
+    },
+    "description": "Triple-pack of 120mm hydraulic bearing ARGB fans with anti-vibration rubber pads for whisper-quiet cabinet airflow.",
+    "url": "/catalog/case_fan/lapcare-whirlwind-3pack"
+  },
+  {
+    "id": 940104,
+    "title": "Zebronics ZEB-Rainbow 120mm RGB Cabinet Fan (Pack of 3)",
+    "handle": "zebronics-zeb-rainbow-120mm-rgb-cabinet-fan-3pack",
+    "vendor": "Zebronics",
+    "category": "case_fan",
+    "product_type": "Case Fan",
+    "price": 899,
+    "compare_at_price": 1399,
+    "available": true,
+    "sku": "ZEB-FAN-RAINBOW-3PK",
+    "image": "/images/shop_by_category/air_cooler.png",
+    "cdn_image": "/images/shop_by_category/air_cooler.png",
+    "images": [
+      "/images/shop_by_category/air_cooler.png"
+    ],
+    "specs": {
+      "fan_size": "120mm",
+      "rgb_type": "Multi-color Rainbow RGB",
+      "speed_rpm": 1200,
+      "airflow_cfm": 40,
+      "noise_dba": 21
+    },
+    "description": "Low-noise 120mm RGB case fans with hydraulic bearing and vibrant outer ring illumination.",
+    "url": "/catalog/case_fan/zebronics-rainbow-3pack"
+  },
+  {
+    "id": 930101,
+    "title": "Ant Esports Superflow 120 Auto RGB 120mm Case Fan (Pack of 3)",
+    "handle": "ant-esports-superflow-120-auto-rgb-3pack",
+    "vendor": "Ant Esports",
+    "category": "case_fan",
+    "product_type": "Case Fan",
+    "price": 1199,
+    "compare_at_price": 1899,
+    "available": true,
+    "sku": "ANT-FAN-SF120-3PK",
+    "image": "/images/shop_by_category/air_cooler.png",
+    "cdn_image": "/images/shop_by_category/air_cooler.png",
+    "images": [
+      "/images/shop_by_category/air_cooler.png"
+    ],
+    "specs": {
+      "fan_size": "120mm",
+      "rgb_type": "Auto RGB",
+      "speed_rpm": 1200,
+      "airflow_cfm": 48.5,
+      "noise_dba": 20
+    },
+    "description": "High static-pressure 120mm cabinet fans with auto-flowing RGB lighting and anti-vibration mounts.",
+    "url": "/catalog/case_fan/ant-esports-superflow-3pack"
+  },
+  {
+    "id": 930102,
+    "title": "Ant Esports Royal Flow 120 ARGB Case Fan (Pack of 3 with Controller)",
+    "handle": "ant-esports-royal-flow-120-argb-3pack",
+    "vendor": "Ant Esports",
+    "category": "case_fan",
+    "product_type": "Case Fan",
+    "price": 1699,
+    "compare_at_price": 2499,
+    "available": true,
+    "sku": "ANT-FAN-RF120-3PK",
+    "image": "/images/shop_by_category/air_cooler.png",
+    "cdn_image": "/images/shop_by_category/air_cooler.png",
+    "images": [
+      "/images/shop_by_category/air_cooler.png"
+    ],
+    "specs": {
+      "fan_size": "120mm",
+      "rgb_type": "Addressable RGB (5V 3-Pin)",
+      "speed_rpm": 1300,
+      "airflow_cfm": 52,
+      "noise_dba": 22
+    },
+    "description": "Synchronizable 5V ARGB 3-pack cooling fans with dedicated remote controller hub.",
+    "url": "/catalog/case_fan/ant-esports-royal-flow"
+  }
+]

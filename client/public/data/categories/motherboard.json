@@ -1,0 +1,485 @@
+[
+  {
+    "id": 8145907646557,
+    "title": "ASUS ROG STRIX B650-A Gaming Wifi6e DDR5 AMD Motherboard",
+    "handle": "asus-rog-strix-b650-a-gaming-wifi6e-ddr5-amd-motherboard",
+    "vendor": "Acer",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 30948,
+    "compare_at_price": 34000,
+    "available": true,
+    "sku": "ROG-STRIX-B650-A-GAMING-WIFI",
+    "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_30_c573c15a-97ea-48d0-b7a2-dd5b019a8a8e.png?v=1780387553",
+    "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_30_c573c15a-97ea-48d0-b7a2-dd5b019a8a8e.png?v=1780387553",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_30_c573c15a-97ea-48d0-b7a2-dd5b019a8a8e.png?v=1780387553",
+      "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_23_11c7a9a9-2ef6-4c7d-ae4d-efc9bebb37a4.png?v=1780387866",
+      "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_25_819b90a5-6d6b-4a87-9138-2c7189ac01d6.png?v=1780387821",
+      "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_27_91719512-c011-49ac-b21a-770d80192dc7.png?v=1780387764"
+    ],
+    "cdn_images": [
+      "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_30_c573c15a-97ea-48d0-b7a2-dd5b019a8a8e.png?v=1780387553",
+      "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_23_11c7a9a9-2ef6-4c7d-ae4d-efc9bebb37a4.png?v=1780387866",
+      "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_25_819b90a5-6d6b-4a87-9138-2c7189ac01d6.png?v=1780387821",
+      "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_27_91719512-c011-49ac-b21a-770d80192dc7.png?v=1780387764"
+    ],
+    "specs": {
+      "socket": "AM5",
+      "form_factor": "ATX",
+      "ram_type": "DDR5",
+      "ram_slots": 4,
+      "has_wifi": true
+    },
+    "description": "Features of ASUS ROG STRIX B650-A Gaming Wifi6e DDR5 AMD Motherboard The ROG Strix B650-A Gaming WiFi comes equipped with potent performance and thermal prowess in a fresh-looking package. Robust power delivery designed to handle the latest AMD Ryzen 7000 Series processors is cooled with thick metal heatsinks that stand out against a black PCB. A PCIe 5.0 M.2 slot, speedy DDR5 memory support, and the latest WiFi 6E networking fleshes out the futuristic feature set. This platform delivers the pow",
+    "url": "https://computercare.in/products/asus-rog-strix-b650-a-gaming-wifi6e-ddr5-amd-motherboard"
+  },
+  {
+    "id": 980101,
+    "title": "Lapcare H61 Micro-ATX Motherboard (LGA 1155 / DDR3)",
+    "handle": "lapcare-h61-micro-atx-motherboard",
+    "vendor": "Lapcare",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 2499,
+    "compare_at_price": 3499,
+    "available": true,
+    "sku": "LPC-MB-H61-D3",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "LGA1155",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR3",
+      "ram_slots": 2,
+      "max_ram": 16,
+      "m2_slots": 1,
+      "chipset": "Intel H61"
+    },
+    "description": "Reliable budget LGA1155 motherboard by Lapcare supporting 2nd/3rd Gen Intel Core i3/i5/i7, dual-channel DDR3, SATA 3Gb/s, NVMe M.2 slot, and HDMI/VGA outputs.",
+    "url": "/catalog/motherboard/lapcare-h61"
+  },
+  {
+    "id": 980102,
+    "title": "Lapcare H81 Micro-ATX Motherboard (LGA 1150 / DDR3)",
+    "handle": "lapcare-h81-micro-atx-motherboard",
+    "vendor": "Lapcare",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 2799,
+    "compare_at_price": 3999,
+    "available": true,
+    "sku": "LPC-MB-H81-D3",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "LGA1150",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR3",
+      "ram_slots": 2,
+      "max_ram": 16,
+      "m2_slots": 1,
+      "chipset": "Intel H81"
+    },
+    "description": "High-stability 4th Gen Intel LGA1150 motherboard by Lapcare with high-speed USB 3.0, PCIe x16 slot, M.2 NVMe support, and solid capacitors.",
+    "url": "/catalog/motherboard/lapcare-h81"
+  },
+  {
+    "id": 980103,
+    "title": "Lapcare H110 Micro-ATX Motherboard (LGA 1151 / DDR4)",
+    "handle": "lapcare-h110-micro-atx-motherboard",
+    "vendor": "Lapcare",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 3299,
+    "compare_at_price": 4599,
+    "available": true,
+    "sku": "LPC-MB-H110-D4",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "LGA1151",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR4",
+      "ram_slots": 2,
+      "max_ram": 32,
+      "m2_slots": 1,
+      "chipset": "Intel H110"
+    },
+    "description": "Lapcare LGA1151 Micro-ATX motherboard supporting 6th and 7th Gen Intel Core processors, DDR4 2400/2666MHz memory, and ultra M.2 slot.",
+    "url": "/catalog/motherboard/lapcare-h110"
+  },
+  {
+    "id": 980104,
+    "title": "Lapcare H310 Micro-ATX Motherboard (LGA 1151 v2 / DDR4)",
+    "handle": "lapcare-h310-micro-atx-motherboard",
+    "vendor": "Lapcare",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 3699,
+    "compare_at_price": 4999,
+    "available": true,
+    "sku": "LPC-MB-H310-D4",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "LGA1151",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR4",
+      "ram_slots": 2,
+      "max_ram": 32,
+      "m2_slots": 1,
+      "chipset": "Intel H310"
+    },
+    "description": "Reliable Lapcare H310 motherboard engineered for 8th and 9th Gen Intel Core CPUs with DDR4 support, PCIe 3.0, and Realtek Gigabit LAN.",
+    "url": "/catalog/motherboard/lapcare-h310"
+  },
+  {
+    "id": 980105,
+    "title": "Lapcare H510 Micro-ATX Motherboard (LGA 1200 / DDR4)",
+    "handle": "lapcare-h510-micro-atx-motherboard",
+    "vendor": "Lapcare",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 4499,
+    "compare_at_price": 5999,
+    "available": true,
+    "sku": "LPC-MB-H510-D4",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "LGA1200",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR4",
+      "ram_slots": 2,
+      "max_ram": 64,
+      "m2_slots": 1,
+      "chipset": "Intel H510"
+    },
+    "description": "Mainstream 10th & 11th Gen Intel LGA1200 motherboard with PCIe Gen 4.0 support, dual DDR4 3200MHz slots, and ultra-durable VRM design.",
+    "url": "/catalog/motherboard/lapcare-h510"
+  },
+  {
+    "id": 980106,
+    "title": "Lapcare H610 Micro-ATX Motherboard (LGA 1700 / DDR4)",
+    "handle": "lapcare-h610-micro-atx-motherboard",
+    "vendor": "Lapcare",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 5499,
+    "compare_at_price": 6999,
+    "available": true,
+    "sku": "LPC-MB-H610-D4",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "LGA1700",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR4",
+      "ram_slots": 2,
+      "max_ram": 64,
+      "m2_slots": 1,
+      "chipset": "Intel H610"
+    },
+    "description": "Next-gen LGA1700 motherboard by Lapcare supporting 12th, 13th, and 14th Gen Intel Core processors, PCIe 4.0, NVMe M.2, and dual DDR4 memory.",
+    "url": "/catalog/motherboard/lapcare-h610"
+  },
+  {
+    "id": 980107,
+    "title": "Lapcare B450 Micro-ATX AMD Motherboard (Socket AM4 / DDR4)",
+    "handle": "lapcare-b450-micro-atx-amd-motherboard",
+    "vendor": "Lapcare",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 4999,
+    "compare_at_price": 6499,
+    "available": true,
+    "sku": "LPC-MB-B450-AM4",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "AM4",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR4",
+      "ram_slots": 2,
+      "max_ram": 64,
+      "m2_slots": 1,
+      "chipset": "AMD B450"
+    },
+    "description": "Lapcare AM4 motherboard supporting AMD Ryzen 3000, 4000, and 5000 series desktop processors, overclocking headroom, and fast NVMe SSD storage.",
+    "url": "/catalog/motherboard/lapcare-b450"
+  },
+  {
+    "id": 970101,
+    "title": "Consistent H61 LGA 1155 Micro-ATX Motherboard (DDR3)",
+    "handle": "consistent-h61-lga1155-motherboard",
+    "vendor": "Consistent",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 2499,
+    "compare_at_price": 3399,
+    "available": true,
+    "sku": "CST-MB-H61",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "LGA1155",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR3",
+      "ram_slots": 2,
+      "max_ram": 16,
+      "m2_slots": 1,
+      "chipset": "Intel H61"
+    },
+    "description": "Reliable LGA1155 motherboard with NVMe M.2 slot, HDMI/VGA display outputs, and dual-channel DDR3 support.",
+    "url": "/catalog/motherboard/consistent-h61"
+  },
+  {
+    "id": 970102,
+    "title": "Consistent H81 LGA 1150 Micro-ATX Motherboard (DDR3)",
+    "handle": "consistent-h81-lga1150-motherboard",
+    "vendor": "Consistent",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 2799,
+    "compare_at_price": 3799,
+    "available": true,
+    "sku": "CST-MB-H81",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "LGA1150",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR3",
+      "ram_slots": 2,
+      "max_ram": 16,
+      "m2_slots": 1,
+      "chipset": "Intel H81"
+    },
+    "description": "Consistent H81 desktop board featuring USB 3.0, high-definition audio, and robust Japanese capacitors.",
+    "url": "/catalog/motherboard/consistent-h81"
+  },
+  {
+    "id": 970103,
+    "title": "Consistent H510 LGA 1200 Micro-ATX Motherboard (DDR4)",
+    "handle": "consistent-h510-lga1200-motherboard",
+    "vendor": "Consistent",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 4399,
+    "compare_at_price": 5899,
+    "available": true,
+    "sku": "CST-MB-H510",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "LGA1200",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR4",
+      "ram_slots": 2,
+      "max_ram": 64,
+      "m2_slots": 1,
+      "chipset": "Intel H510"
+    },
+    "description": "Proven LGA1200 motherboard for 10th & 11th Gen Core processors with DDR4 3200MHz and NVMe Gen3 support.",
+    "url": "/catalog/motherboard/consistent-h510"
+  },
+  {
+    "id": 970104,
+    "title": "Consistent H610 LGA 1700 Micro-ATX Motherboard (DDR4)",
+    "handle": "consistent-h610-lga1700-motherboard",
+    "vendor": "Consistent",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 5399,
+    "compare_at_price": 6899,
+    "available": true,
+    "sku": "CST-MB-H610",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "LGA1700",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR4",
+      "ram_slots": 2,
+      "max_ram": 64,
+      "m2_slots": 1,
+      "chipset": "Intel H610"
+    },
+    "description": "Consistent LGA1700 motherboard for 12th, 13th, and 14th Gen Intel Core CPUs with PCIe 4.0 x16 slot.",
+    "url": "/catalog/motherboard/consistent-h610"
+  },
+  {
+    "id": 970105,
+    "title": "Consistent B450 Micro-ATX AMD AM4 Motherboard (DDR4)",
+    "handle": "consistent-b450-am4-motherboard",
+    "vendor": "Consistent",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 4899,
+    "compare_at_price": 6299,
+    "available": true,
+    "sku": "CST-MB-B450",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "AM4",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR4",
+      "ram_slots": 2,
+      "max_ram": 64,
+      "m2_slots": 1,
+      "chipset": "AMD B450"
+    },
+    "description": "Feature-packed AMD AM4 motherboard supporting Ryzen 3000/4000/5000 series with M.2 NVMe slot.",
+    "url": "/catalog/motherboard/consistent-b450"
+  },
+  {
+    "id": 950101,
+    "title": "Geonix H61 LGA 1155 Micro-ATX Motherboard (DDR3)",
+    "handle": "geonix-h61-lga1155-motherboard",
+    "vendor": "Geonix",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 2499,
+    "compare_at_price": 3399,
+    "available": true,
+    "sku": "GNX-MB-H61",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "LGA1155",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR3",
+      "ram_slots": 2,
+      "max_ram": 16,
+      "m2_slots": 1,
+      "chipset": "Intel H61"
+    },
+    "description": "Solid LGA1155 board with M.2 NVMe slot and dual DDR3 RAM slots.",
+    "url": "/catalog/motherboard/geonix-h61"
+  },
+  {
+    "id": 950102,
+    "title": "Geonix H81 LGA 1150 Micro-ATX Motherboard (DDR3)",
+    "handle": "geonix-h81-lga1150-motherboard",
+    "vendor": "Geonix",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 2799,
+    "compare_at_price": 3799,
+    "available": true,
+    "sku": "GNX-MB-H81",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "LGA1150",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR3",
+      "ram_slots": 2,
+      "max_ram": 16,
+      "m2_slots": 1,
+      "chipset": "Intel H81"
+    },
+    "description": "Geonix H81 motherboard with Gigabit LAN and fast USB 3.0 ports.",
+    "url": "/catalog/motherboard/geonix-h81"
+  },
+  {
+    "id": 940101,
+    "title": "Zebronics ZEB-H61 Micro-ATX Motherboard (LGA 1155 / DDR3)",
+    "handle": "zebronics-zeb-h61-micro-atx-motherboard",
+    "vendor": "Zebronics",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 2499,
+    "compare_at_price": 3499,
+    "available": true,
+    "sku": "ZEB-MB-H61",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "LGA1155",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR3",
+      "ram_slots": 2,
+      "max_ram": 16,
+      "m2_slots": 1,
+      "chipset": "Intel H61"
+    },
+    "description": "Zebronics H61 motherboard with M.2 NVMe slot, PCIe x16, and dual DDR3 memory support.",
+    "url": "/catalog/motherboard/zebronics-h61"
+  },
+  {
+    "id": 940102,
+    "title": "Zebronics ZEB-H81 Micro-ATX Motherboard (LGA 1150 / DDR3)",
+    "handle": "zebronics-zeb-h81-micro-atx-motherboard",
+    "vendor": "Zebronics",
+    "category": "motherboard",
+    "product_type": "Motherboard",
+    "price": 2799,
+    "compare_at_price": 3899,
+    "available": true,
+    "sku": "ZEB-MB-H81",
+    "image": "/images/shop_by_category/motherboard.png",
+    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "images": [
+      "/images/shop_by_category/motherboard.png"
+    ],
+    "specs": {
+      "socket": "LGA1150",
+      "form_factor": "Micro-ATX",
+      "ram_type": "DDR3",
+      "ram_slots": 2,
+      "max_ram": 16,
+      "m2_slots": 1,
+      "chipset": "Intel H81"
+    },
+    "description": "4th Gen Intel LGA1150 motherboard by Zebronics with USB 3.0 and NVMe M.2 expansion.",
+    "url": "/catalog/motherboard/zebronics-h81"
+  }
+]

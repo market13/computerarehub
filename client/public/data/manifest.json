@@ -1,0 +1,1476 @@
+{
+  "version": "1.2.0-6d6a5f7583",
+  "buildHash": "6d6a5f7583",
+  "updatedAt": "2026-11-09T09:03:56.579Z",
+  "totalProducts": 582,
+  "categories": [
+    "case",
+    "cpu",
+    "motherboard",
+    "gpu",
+    "ram",
+    "storage",
+    "psu",
+    "cooler",
+    "monitor",
+    "case_fan",
+    "gaming_mouse",
+    "gaming_keyboard",
+    "gaming_headset",
+    "gaming_mousepad",
+    "gaming_chair",
+    "gaming_controller",
+    "webcam",
+    "microphone",
+    "gaming_pc"
+  ],
+  "categoryCounts": {
+    "case": 188,
+    "cpu": 12,
+    "motherboard": 17,
+    "gpu": 15,
+    "ram": 26,
+    "storage": 24,
+    "psu": 26,
+    "cooler": 32,
+    "monitor": 78,
+    "case_fan": 4,
+    "gaming_mouse": 27,
+    "gaming_keyboard": 44,
+    "gaming_headset": 24,
+    "gaming_mousepad": 14,
+    "gaming_chair": 3,
+    "gaming_controller": 24,
+    "webcam": 18,
+    "microphone": 3,
+    "gaming_pc": 3
+  },
+  "categoryFiles": {
+    "case": "/data/categories/case.json",
+    "cpu": "/data/categories/cpu.json",
+    "motherboard": "/data/categories/motherboard.json",
+    "gpu": "/data/categories/gpu.json",
+    "ram": "/data/categories/ram.json",
+    "storage": "/data/categories/storage.json",
+    "psu": "/data/categories/psu.json",
+    "cooler": "/data/categories/cooler.json",
+    "monitor": "/data/categories/monitor.json",
+    "case_fan": "/data/categories/case_fan.json",
+    "gaming_mouse": "/data/categories/gaming_mouse.json",
+    "gaming_keyboard": "/data/categories/gaming_keyboard.json",
+    "gaming_headset": "/data/categories/gaming_headset.json",
+    "gaming_mousepad": "/data/categories/gaming_mousepad.json",
+    "gaming_chair": "/data/categories/gaming_chair.json",
+    "gaming_controller": "/data/categories/gaming_controller.json",
+    "webcam": "/data/categories/webcam.json",
+    "microphone": "/data/categories/microphone.json",
+    "gaming_pc": "/data/categories/gaming_pc.json"
+  },
+  "initialBuild": {
+    "cpu": {
+      "id": 980201,
+      "title": "Lapcare Intel Core i3 3220 3.3GHz Dual-Core Desktop Processor",
+      "handle": "lapcare-intel-core-i3-3220-processor",
+      "vendor": "Lapcare",
+      "category": "cpu",
+      "product_type": "Processor",
+      "price": 1199,
+      "compare_at_price": 1899,
+      "available": true,
+      "sku": "LPC-CPU-I3-3220",
+      "image": "/images/shop_by_category/processor.png",
+      "cdn_image": "/images/shop_by_category/processor.png",
+      "images": [
+        "/images/shop_by_category/processor.png"
+      ],
+      "specs": {
+        "socket": "LGA1155",
+        "cores": 2,
+        "threads": 4,
+        "base_clock": "3.3 GHz",
+        "boost_clock": "3.3 GHz",
+        "tdp": 55,
+        "igpu": true
+      },
+      "description": "Essential dual-core budget desktop processor for home, school, and office computing, fully compatible with LGA1155 H61 motherboards.",
+      "url": "/catalog/cpu/lapcare-i3-3220"
+    },
+    "motherboard": {
+      "id": 980101,
+      "title": "Lapcare H61 Micro-ATX Motherboard (LGA 1155 / DDR3)",
+      "handle": "lapcare-h61-micro-atx-motherboard",
+      "vendor": "Lapcare",
+      "category": "motherboard",
+      "product_type": "Motherboard",
+      "price": 2499,
+      "compare_at_price": 3499,
+      "available": true,
+      "sku": "LPC-MB-H61-D3",
+      "image": "/images/shop_by_category/motherboard.png",
+      "cdn_image": "/images/shop_by_category/motherboard.png",
+      "images": [
+        "/images/shop_by_category/motherboard.png"
+      ],
+      "specs": {
+        "socket": "LGA1155",
+        "form_factor": "Micro-ATX",
+        "ram_type": "DDR3",
+        "ram_slots": 2,
+        "max_ram": 16,
+        "m2_slots": 1,
+        "chipset": "Intel H61"
+      },
+      "description": "Reliable budget LGA1155 motherboard by Lapcare supporting 2nd/3rd Gen Intel Core i3/i5/i7, dual-channel DDR3, SATA 3Gb/s, NVMe M.2 slot, and HDMI/VGA outputs.",
+      "url": "/catalog/motherboard/lapcare-h61"
+    },
+    "ram": {
+      "id": 980401,
+      "title": "Lapcare 4GB DDR3 1600MHz Desktop RAM",
+      "handle": "lapcare-4gb-ddr3-1600mhz-desktop-ram",
+      "vendor": "Lapcare",
+      "category": "ram",
+      "product_type": "Ram",
+      "price": 699,
+      "compare_at_price": 1199,
+      "available": true,
+      "sku": "LPC-RAM-4G-D3",
+      "image": "/images/shop_by_category/ram.png",
+      "cdn_image": "/images/shop_by_category/ram.png",
+      "images": [
+        "/images/shop_by_category/ram.png"
+      ],
+      "specs": {
+        "ram_type": "DDR3",
+        "capacity_gb": 4,
+        "speed_mhz": 1600,
+        "modules": "1x4GB",
+        "voltage": "1.5V"
+      },
+      "description": "Tested high-compatibility 4GB DDR3 memory module for H61 and H81 desktop platforms.",
+      "url": "/catalog/ram/lapcare-4gb-ddr3"
+    },
+    "case": {
+      "id": 9901002001,
+      "title": "GEONIX GX-C100 Micro-ATX Compact Tower Cabinet (Black)",
+      "handle": "geonix-gx-c100-micro-atx-cabinet-black",
+      "vendor": "Geonix",
+      "category": "case",
+      "product_type": "PC Cabinet",
+      "price": 1049,
+      "compare_at_price": 1499,
+      "available": true,
+      "sku": "GEONIX-CAS-GXC100-BLK",
+      "image": "/images/products/case/geonix-gx-c100-cabinet.jpg",
+      "cdn_image": "/images/products/case/geonix-gx-c100-cabinet.jpg",
+      "images": [
+        "/images/products/case/geonix-gx-c100-cabinet.jpg"
+      ],
+      "cdn_images": [
+        "/images/products/case/geonix-gx-c100-cabinet.jpg"
+      ],
+      "specs": {
+        "form_factor": "Micro-ATX Mini Tower",
+        "cabinet_style": "Compact Study / Business",
+        "color": "Black",
+        "supported_motherboards": [
+          "Micro-ATX",
+          "Mini-ITX"
+        ],
+        "max_gpu_length": 260,
+        "side_panel": "SPCC Steel Panel",
+        "included_fans": "Rear 80mm Fan Mount"
+      },
+      "description": "Dependable Grade-A SPCC steel cabinet with a sleek minimalist front profile, dual front USB and HD Audio ports, engineered for students, accounting workstations, and everyday home PCs.",
+      "url": "/catalog/case/geonix-gx-c100"
+    },
+    "gpu": {
+      "id": 980301,
+      "title": "Lapcare NVIDIA GeForce GT 710 2GB DDR3 Graphics Card",
+      "handle": "lapcare-nvidia-geforce-gt-710-2gb",
+      "vendor": "Lapcare",
+      "category": "gpu",
+      "product_type": "Graphic Card",
+      "price": 2499,
+      "compare_at_price": 3499,
+      "available": true,
+      "sku": "LPC-GPU-GT710-2G",
+      "image": "/images/shop_by_category/graphic_card.png",
+      "cdn_image": "/images/shop_by_category/graphic_card.png",
+      "images": [
+        "/images/shop_by_category/graphic_card.png"
+      ],
+      "specs": {
+        "chipset": "GeForce GT 710",
+        "vram": "2GB",
+        "memory_type": "DDR3",
+        "tdp": 19,
+        "recommended_psu": 300,
+        "length_mm": 145,
+        "ports": [
+          "HDMI",
+          "DVI",
+          "VGA"
+        ]
+      },
+      "description": "Compact, silent multi-display graphics card supporting HDMI, DVI, and VGA output for home theatre, trading, and office productivity.",
+      "url": "/catalog/gpu/lapcare-gt-710"
+    },
+    "psu": {
+      "id": 8051122634845,
+      "title": "ANT ESPORTS FG550 V2 550W 80+ Gold ATX 2.0 Fully Modular Power Supply",
+      "handle": "ant-esports-fg550-v2-550w-80-gold-atx-2-0-fully-modular-power-supply",
+      "vendor": "Ant Esports",
+      "category": "psu",
+      "product_type": "Power Supply Unit",
+      "price": 4405,
+      "compare_at_price": 6799,
+      "available": true,
+      "sku": "ant-esports-fg550-v2-2.0-fully-modular-smps",
+      "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/fg550-v2-image.jpg?v=1767961926",
+      "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/fg550-v2-image.jpg?v=1767961926",
+      "images": [
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/fg550-v2-image.jpg?v=1767961926"
+      ],
+      "cdn_images": [
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/fg550-v2-image.jpg?v=1767961926"
+      ],
+      "specs": {
+        "wattage": 550,
+        "efficiency": "80 Plus Gold",
+        "modular": "Full Modular"
+      },
+      "description": "Features of ANT ESPORTS FG550 V2 550W 80+ Gold ATX 2.0 Fully Modular Power Supply Silent 120mm fan – The 120mm fan spins consistently yet quietly to keep the unit cool even under full load &amp; is rated for 100,000 hours of lifespan! Modern Connectors – Comes with all the cables for a modern high end system including a dual 4 pin CPU connector. High Quality Components – The FG550 V2 is made with high quality components for reliable and consistent performance The PSU comes with 3 years warranty.",
+      "url": "https://computercare.in/products/ant-esports-fg550-v2-550w-80-gold-atx-2-0-fully-modular-power-supply"
+    },
+    "cooler": {
+      "id": 7975801421917,
+      "title": "ANT ESPORTS V4 Digital ARGB 92mm CPU Air Cooler ( Black ) ( With LCD Display )",
+      "handle": "ant-esports-v4-digital-argb-120mm-cpu-air-cooler-black-with-lcd-display",
+      "vendor": "Ant Esports",
+      "category": "cooler",
+      "product_type": "Air Cooler",
+      "price": 2305,
+      "compare_at_price": 3599,
+      "available": false,
+      "sku": "antesports-v4-digital-argb-temperature-display-black",
+      "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/v4-digital-argb-black-1-550x550.jpg?v=1758367663",
+      "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/v4-digital-argb-black-1-550x550.jpg?v=1758367663",
+      "images": [
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/v4-digital-argb-black-1-550x550.jpg?v=1758367663",
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/v4-digital-argb-black-2-550x550.jpg?v=1758367681",
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/v4-digital-argb-black-4-550x550.jpg?v=1758367707"
+      ],
+      "cdn_images": [
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/v4-digital-argb-black-1-550x550.jpg?v=1758367663",
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/v4-digital-argb-black-2-550x550.jpg?v=1758367681",
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/v4-digital-argb-black-4-550x550.jpg?v=1758367707"
+      ],
+      "specs": {
+        "cooler_type": "Air Cooler",
+        "radiator_size": null,
+        "is_rgb": true,
+        "tdp_rating": 180
+      },
+      "description": "Features of ANT ESPORTS V4 Digital ARGB 92mm CPU Air Cooler ( Black ) ( With LCD Display ) Efficient Tower Cooling – Four 6 mm direct-contact copper heatpipes and a dense aluminum fin stack deliver reliable thermal performance for gaming and productivity builds. Top-Plate Digital ARGB – Addressable RGB lighting integrated into the top cover (not the fan) for a subtle glow; works with 5 V 3-pin ARGB motherboard headers. 120 mm PWM Fan – Black, non-LED fan operates from 600 – 1,800 RPM with airflo",
+      "url": "https://computercare.in/products/ant-esports-v4-digital-argb-120mm-cpu-air-cooler-black-with-lcd-display"
+    },
+    "storage": {
+      "id": 8127302107229,
+      "title": "ACER Predator GM7 1TB M.2 NVME Gen4 Solid State Drive (SSD)",
+      "handle": "acer-predator-gm7-1tb-m-2-nvme-gen4-solid-state-drive-ssd",
+      "vendor": "Acer",
+      "category": "storage",
+      "product_type": "",
+      "price": 18198,
+      "compare_at_price": 28999,
+      "available": false,
+      "sku": "acer-predator-gm7-1tb-ssd",
+      "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-118-image.webp?v=1777548199",
+      "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-118-image.webp?v=1777548199",
+      "images": [
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-118-image.webp?v=1777548199",
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-118-image-1.webp?v=1777548215"
+      ],
+      "cdn_images": [
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-118-image.webp?v=1777548199",
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-118-image-1.webp?v=1777548215"
+      ],
+      "specs": {
+        "storage_type": "NVMe M.2 SSD",
+        "capacity": "1TB",
+        "read_speed": "7000+ MB/s"
+      },
+      "description": "Features of ACER Predator GM7 1TB M.2 NVME Gen4 Solid State Drive (SSD) Predator GM7 PCIe 4.0 SSD 7200 MB/s Read and 6300 MB/s Write, All You Need for Top Performance Sequential read speed up to 7200 MB/s Power-saving controller NVMe 2.0 Predator GM7 PCIe 4.0 Is All You Need for Next-level Performance Predator GM7 PCIe 4.0 hits a blazing 7200 MB/s read speed. With the latest PCIe Gen4 controller technology, it consumes less power (5.67 W max which means less temperature– even under a heavy workl",
+      "url": "https://computercare.in/products/acer-predator-gm7-1tb-m-2-nvme-gen4-solid-state-drive-ssd"
+    },
+    "case_fan": {
+      "id": 980804,
+      "title": "Lapcare Whirlwind 120mm ARGB Cabinet Cooling Fan (Pack of 3)",
+      "handle": "lapcare-whirlwind-120mm-argb-cabinet-fans-3pack",
+      "vendor": "Lapcare",
+      "category": "case_fan",
+      "product_type": "Case Fan",
+      "price": 1099,
+      "compare_at_price": 1699,
+      "available": true,
+      "sku": "LPC-FAN-WW120-3PK",
+      "image": "/images/shop_by_category/air_cooler.png",
+      "cdn_image": "/images/shop_by_category/air_cooler.png",
+      "images": [
+        "/images/shop_by_category/air_cooler.png"
+      ],
+      "specs": {
+        "fan_size": "120mm",
+        "rgb_type": "Addressable RGB",
+        "speed_rpm": 1200,
+        "airflow_cfm": 45.2,
+        "noise_dba": 22
+      },
+      "description": "Triple-pack of 120mm hydraulic bearing ARGB fans with anti-vibration rubber pads for whisper-quiet cabinet airflow.",
+      "url": "/catalog/case_fan/lapcare-whirlwind-3pack"
+    },
+    "monitor": {
+      "id": 15466709188701,
+      "title": "SAMSUNG Odyssey G8 LS32HG800SW 32 Inch 4K UDH 240Hz OLED Panel 99%SRGB 0.03MS Adaptive Sync Gaming Monitor",
+      "handle": "samsung-odyssey-g8-ls32hg800sw-32-inch-4k-udh-240hz-oled-panel-99-srgb-0-03ms-adaptive-sync-gaming-monitor",
+      "vendor": "Samsung",
+      "category": "monitor",
+      "product_type": "Gaming Monitor",
+      "price": 99999,
+      "compare_at_price": 115999,
+      "available": true,
+      "sku": "LS32HG800SW",
+      "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187925.png?v=1792219351",
+      "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187925.png?v=1792219351",
+      "images": [
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187925.png?v=1792219351",
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187892.jpg?v=1792219455",
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187894.png?v=1792219371",
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187902.avif?v=1792219594"
+      ],
+      "cdn_images": [
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187925.png?v=1792219351",
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187892.jpg?v=1792219455",
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187894.png?v=1792219371",
+        "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187902.avif?v=1792219594"
+      ],
+      "specs": {
+        "size": "32\"",
+        "refresh_rate": "240Hz",
+        "resolution": "4K UHD",
+        "panel_type": "OLED"
+      },
+      "description": "Features of SAMSUNG Odyssey G8 LS32HG800SW 32 Inch 4K UDH 240Hz OLED Panel 99%SRGB 0.03MS Adaptive Sync Gaming Monitor QD-OLED in 4K The Samsung Odyssey OLED G8 delivers crystal-clear 4K visuals thanks to its QD-OLED screen. With pixel densities of 166 PPI (27\") and 140 PPI (32\"), game worlds come to life with unparalleled clarity. Glare Free Keep your screen clear of reflections from external light sources with Samsung's Glare Free Technology. The Odyssey OLED G8 uses a Glare Free film that is ",
+      "url": "https://computercare.in/products/samsung-odyssey-g8-ls32hg800sw-32-inch-4k-udh-240hz-oled-panel-99-srgb-0-03ms-adaptive-sync-gaming-monitor"
+    }
+  },
+  "homeFeatured": {
+    "cpu": [
+      {
+        "id": 980201,
+        "title": "Lapcare Intel Core i3 3220 3.3GHz Dual-Core Desktop Processor",
+        "handle": "lapcare-intel-core-i3-3220-processor",
+        "vendor": "Lapcare",
+        "category": "cpu",
+        "product_type": "Processor",
+        "price": 1199,
+        "compare_at_price": 1899,
+        "available": true,
+        "sku": "LPC-CPU-I3-3220",
+        "image": "/images/shop_by_category/processor.png",
+        "cdn_image": "/images/shop_by_category/processor.png",
+        "images": [
+          "/images/shop_by_category/processor.png"
+        ],
+        "specs": {
+          "socket": "LGA1155",
+          "cores": 2,
+          "threads": 4,
+          "base_clock": "3.3 GHz",
+          "boost_clock": "3.3 GHz",
+          "tdp": 55,
+          "igpu": true
+        },
+        "description": "Essential dual-core budget desktop processor for home, school, and office computing, fully compatible with LGA1155 H61 motherboards.",
+        "url": "/catalog/cpu/lapcare-i3-3220"
+      },
+      {
+        "id": 980202,
+        "title": "Lapcare Intel Core i5 3470 3.2GHz Quad-Core Desktop Processor",
+        "handle": "lapcare-intel-core-i5-3470-processor",
+        "vendor": "Lapcare",
+        "category": "cpu",
+        "product_type": "Processor",
+        "price": 1899,
+        "compare_at_price": 2999,
+        "available": true,
+        "sku": "LPC-CPU-I5-3470",
+        "image": "/images/shop_by_category/processor.png",
+        "cdn_image": "/images/shop_by_category/processor.png",
+        "images": [
+          "/images/shop_by_category/processor.png"
+        ],
+        "specs": {
+          "socket": "LGA1155",
+          "cores": 4,
+          "threads": 4,
+          "base_clock": "3.2 GHz",
+          "boost_clock": "3.6 GHz",
+          "tdp": 77,
+          "igpu": true
+        },
+        "description": "Versatile quad-core processor delivering smooth multitasking and office productivity on LGA1155 socket systems.",
+        "url": "/catalog/cpu/lapcare-i5-3470"
+      },
+      {
+        "id": 980203,
+        "title": "Lapcare Intel Core i5 4590 3.3GHz Quad-Core Desktop Processor",
+        "handle": "lapcare-intel-core-i5-4590-processor",
+        "vendor": "Lapcare",
+        "category": "cpu",
+        "product_type": "Processor",
+        "price": 2499,
+        "compare_at_price": 3699,
+        "available": true,
+        "sku": "LPC-CPU-I5-4590",
+        "image": "/images/shop_by_category/processor.png",
+        "cdn_image": "/images/shop_by_category/processor.png",
+        "images": [
+          "/images/shop_by_category/processor.png"
+        ],
+        "specs": {
+          "socket": "LGA1150",
+          "cores": 4,
+          "threads": 4,
+          "base_clock": "3.3 GHz",
+          "boost_clock": "3.7 GHz",
+          "tdp": 84,
+          "igpu": true
+        },
+        "description": "Fast 4th generation quad-core processor engineered for LGA1150 H81 motherboard platforms with integrated HD Graphics.",
+        "url": "/catalog/cpu/lapcare-i5-4590"
+      },
+      {
+        "id": 980204,
+        "title": "Lapcare Intel Core i7 4790 3.6GHz Quad-Core 8-Thread Desktop Processor",
+        "handle": "lapcare-intel-core-i7-4790-processor",
+        "vendor": "Lapcare",
+        "category": "cpu",
+        "product_type": "Processor",
+        "price": 3999,
+        "compare_at_price": 5499,
+        "available": true,
+        "sku": "LPC-CPU-I7-4790",
+        "image": "/images/shop_by_category/processor.png",
+        "cdn_image": "/images/shop_by_category/processor.png",
+        "images": [
+          "/images/shop_by_category/processor.png"
+        ],
+        "specs": {
+          "socket": "LGA1150",
+          "cores": 4,
+          "threads": 8,
+          "base_clock": "3.6 GHz",
+          "boost_clock": "4.0 GHz",
+          "tdp": 84,
+          "igpu": true
+        },
+        "description": "High-performance 8-thread processor providing peak responsiveness for workstation workloads and budget gaming setups on LGA1150.",
+        "url": "/catalog/cpu/lapcare-i7-4790"
+      }
+    ],
+    "gpu": [
+      {
+        "id": 980301,
+        "title": "Lapcare NVIDIA GeForce GT 710 2GB DDR3 Graphics Card",
+        "handle": "lapcare-nvidia-geforce-gt-710-2gb",
+        "vendor": "Lapcare",
+        "category": "gpu",
+        "product_type": "Graphic Card",
+        "price": 2499,
+        "compare_at_price": 3499,
+        "available": true,
+        "sku": "LPC-GPU-GT710-2G",
+        "image": "/images/shop_by_category/graphic_card.png",
+        "cdn_image": "/images/shop_by_category/graphic_card.png",
+        "images": [
+          "/images/shop_by_category/graphic_card.png"
+        ],
+        "specs": {
+          "chipset": "GeForce GT 710",
+          "vram": "2GB",
+          "memory_type": "DDR3",
+          "tdp": 19,
+          "recommended_psu": 300,
+          "length_mm": 145,
+          "ports": [
+            "HDMI",
+            "DVI",
+            "VGA"
+          ]
+        },
+        "description": "Compact, silent multi-display graphics card supporting HDMI, DVI, and VGA output for home theatre, trading, and office productivity.",
+        "url": "/catalog/gpu/lapcare-gt-710"
+      },
+      {
+        "id": 980302,
+        "title": "Lapcare NVIDIA GeForce GT 730 4GB DDR3 Graphics Card",
+        "handle": "lapcare-nvidia-geforce-gt-730-4gb",
+        "vendor": "Lapcare",
+        "category": "gpu",
+        "product_type": "Graphic Card",
+        "price": 3399,
+        "compare_at_price": 4599,
+        "available": true,
+        "sku": "LPC-GPU-GT730-4G",
+        "image": "/images/shop_by_category/graphic_card.png",
+        "cdn_image": "/images/shop_by_category/graphic_card.png",
+        "images": [
+          "/images/shop_by_category/graphic_card.png"
+        ],
+        "specs": {
+          "chipset": "GeForce GT 730",
+          "vram": "4GB",
+          "memory_type": "DDR3",
+          "tdp": 38,
+          "recommended_psu": 300,
+          "length_mm": 150,
+          "ports": [
+            "HDMI",
+            "DVI",
+            "VGA"
+          ]
+        },
+        "description": "Dedicated 4GB VRAM graphics card by Lapcare offering smooth HD video playback, Photoshop acceleration, and dual-monitor multitasking.",
+        "url": "/catalog/gpu/lapcare-gt-730"
+      },
+      {
+        "id": 980303,
+        "title": "Lapcare NVIDIA GeForce GT 1030 4GB DDR4 Graphics Card",
+        "handle": "lapcare-nvidia-geforce-gt-1030-4gb",
+        "vendor": "Lapcare",
+        "category": "gpu",
+        "product_type": "Graphic Card",
+        "price": 5499,
+        "compare_at_price": 6999,
+        "available": true,
+        "sku": "LPC-GPU-GT1030-4G",
+        "image": "/images/shop_by_category/graphic_card.png",
+        "cdn_image": "/images/shop_by_category/graphic_card.png",
+        "images": [
+          "/images/shop_by_category/graphic_card.png"
+        ],
+        "specs": {
+          "chipset": "GeForce GT 1030",
+          "vram": "4GB",
+          "memory_type": "DDR4",
+          "tdp": 30,
+          "recommended_psu": 300,
+          "length_mm": 155,
+          "ports": [
+            "HDMI",
+            "DVI"
+          ]
+        },
+        "description": "Power-efficient Pascal architecture graphics card providing smooth 1080p esports gaming (CS2, Valorant, GTA V) with zero external power pins required.",
+        "url": "/catalog/gpu/lapcare-gt-1030"
+      },
+      {
+        "id": 980304,
+        "title": "Lapcare AMD Radeon RX 580 8GB GDDR5 Gaming Graphics Card",
+        "handle": "lapcare-amd-radeon-rx-580-8gb",
+        "vendor": "Lapcare",
+        "category": "gpu",
+        "product_type": "Graphic Card",
+        "price": 8999,
+        "compare_at_price": 11999,
+        "available": true,
+        "sku": "LPC-GPU-RX580-8G",
+        "image": "/images/shop_by_category/graphic_card.png",
+        "cdn_image": "/images/shop_by_category/graphic_card.png",
+        "images": [
+          "/images/shop_by_category/graphic_card.png"
+        ],
+        "specs": {
+          "chipset": "Radeon RX 580",
+          "vram": "8GB",
+          "memory_type": "GDDR5",
+          "tdp": 185,
+          "recommended_psu": 500,
+          "length_mm": 235,
+          "ports": [
+            "HDMI",
+            "DisplayPort",
+            "DVI"
+          ]
+        },
+        "description": "High-power 8GB GDDR5 dual-fan gaming graphics card delivering 60+ FPS high settings in modern AAA titles and video editing acceleration.",
+        "url": "/catalog/gpu/lapcare-rx-580"
+      }
+    ],
+    "motherboard": [
+      {
+        "id": 8145907646557,
+        "title": "ASUS ROG STRIX B650-A Gaming Wifi6e DDR5 AMD Motherboard",
+        "handle": "asus-rog-strix-b650-a-gaming-wifi6e-ddr5-amd-motherboard",
+        "vendor": "Acer",
+        "category": "motherboard",
+        "product_type": "Motherboard",
+        "price": 30948,
+        "compare_at_price": 34000,
+        "available": true,
+        "sku": "ROG-STRIX-B650-A-GAMING-WIFI",
+        "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_30_c573c15a-97ea-48d0-b7a2-dd5b019a8a8e.png?v=1780387553",
+        "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_30_c573c15a-97ea-48d0-b7a2-dd5b019a8a8e.png?v=1780387553",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_30_c573c15a-97ea-48d0-b7a2-dd5b019a8a8e.png?v=1780387553",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_23_11c7a9a9-2ef6-4c7d-ae4d-efc9bebb37a4.png?v=1780387866",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_25_819b90a5-6d6b-4a87-9138-2c7189ac01d6.png?v=1780387821",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_27_91719512-c011-49ac-b21a-770d80192dc7.png?v=1780387764"
+        ],
+        "cdn_images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_30_c573c15a-97ea-48d0-b7a2-dd5b019a8a8e.png?v=1780387553",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_23_11c7a9a9-2ef6-4c7d-ae4d-efc9bebb37a4.png?v=1780387866",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_25_819b90a5-6d6b-4a87-9138-2c7189ac01d6.png?v=1780387821",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/h732_27_91719512-c011-49ac-b21a-770d80192dc7.png?v=1780387764"
+        ],
+        "specs": {
+          "socket": "AM5",
+          "form_factor": "ATX",
+          "ram_type": "DDR5",
+          "ram_slots": 4,
+          "has_wifi": true
+        },
+        "description": "Features of ASUS ROG STRIX B650-A Gaming Wifi6e DDR5 AMD Motherboard The ROG Strix B650-A Gaming WiFi comes equipped with potent performance and thermal prowess in a fresh-looking package. Robust power delivery designed to handle the latest AMD Ryzen 7000 Series processors is cooled with thick metal heatsinks that stand out against a black PCB. A PCIe 5.0 M.2 slot, speedy DDR5 memory support, and the latest WiFi 6E networking fleshes out the futuristic feature set. This platform delivers the pow",
+        "url": "https://computercare.in/products/asus-rog-strix-b650-a-gaming-wifi6e-ddr5-amd-motherboard"
+      },
+      {
+        "id": 980101,
+        "title": "Lapcare H61 Micro-ATX Motherboard (LGA 1155 / DDR3)",
+        "handle": "lapcare-h61-micro-atx-motherboard",
+        "vendor": "Lapcare",
+        "category": "motherboard",
+        "product_type": "Motherboard",
+        "price": 2499,
+        "compare_at_price": 3499,
+        "available": true,
+        "sku": "LPC-MB-H61-D3",
+        "image": "/images/shop_by_category/motherboard.png",
+        "cdn_image": "/images/shop_by_category/motherboard.png",
+        "images": [
+          "/images/shop_by_category/motherboard.png"
+        ],
+        "specs": {
+          "socket": "LGA1155",
+          "form_factor": "Micro-ATX",
+          "ram_type": "DDR3",
+          "ram_slots": 2,
+          "max_ram": 16,
+          "m2_slots": 1,
+          "chipset": "Intel H61"
+        },
+        "description": "Reliable budget LGA1155 motherboard by Lapcare supporting 2nd/3rd Gen Intel Core i3/i5/i7, dual-channel DDR3, SATA 3Gb/s, NVMe M.2 slot, and HDMI/VGA outputs.",
+        "url": "/catalog/motherboard/lapcare-h61"
+      },
+      {
+        "id": 980102,
+        "title": "Lapcare H81 Micro-ATX Motherboard (LGA 1150 / DDR3)",
+        "handle": "lapcare-h81-micro-atx-motherboard",
+        "vendor": "Lapcare",
+        "category": "motherboard",
+        "product_type": "Motherboard",
+        "price": 2799,
+        "compare_at_price": 3999,
+        "available": true,
+        "sku": "LPC-MB-H81-D3",
+        "image": "/images/shop_by_category/motherboard.png",
+        "cdn_image": "/images/shop_by_category/motherboard.png",
+        "images": [
+          "/images/shop_by_category/motherboard.png"
+        ],
+        "specs": {
+          "socket": "LGA1150",
+          "form_factor": "Micro-ATX",
+          "ram_type": "DDR3",
+          "ram_slots": 2,
+          "max_ram": 16,
+          "m2_slots": 1,
+          "chipset": "Intel H81"
+        },
+        "description": "High-stability 4th Gen Intel LGA1150 motherboard by Lapcare with high-speed USB 3.0, PCIe x16 slot, M.2 NVMe support, and solid capacitors.",
+        "url": "/catalog/motherboard/lapcare-h81"
+      },
+      {
+        "id": 980103,
+        "title": "Lapcare H110 Micro-ATX Motherboard (LGA 1151 / DDR4)",
+        "handle": "lapcare-h110-micro-atx-motherboard",
+        "vendor": "Lapcare",
+        "category": "motherboard",
+        "product_type": "Motherboard",
+        "price": 3299,
+        "compare_at_price": 4599,
+        "available": true,
+        "sku": "LPC-MB-H110-D4",
+        "image": "/images/shop_by_category/motherboard.png",
+        "cdn_image": "/images/shop_by_category/motherboard.png",
+        "images": [
+          "/images/shop_by_category/motherboard.png"
+        ],
+        "specs": {
+          "socket": "LGA1151",
+          "form_factor": "Micro-ATX",
+          "ram_type": "DDR4",
+          "ram_slots": 2,
+          "max_ram": 32,
+          "m2_slots": 1,
+          "chipset": "Intel H110"
+        },
+        "description": "Lapcare LGA1151 Micro-ATX motherboard supporting 6th and 7th Gen Intel Core processors, DDR4 2400/2666MHz memory, and ultra M.2 slot.",
+        "url": "/catalog/motherboard/lapcare-h110"
+      }
+    ],
+    "ram": [
+      {
+        "id": 7662257307741,
+        "title": "ANT ESPORTS 690 Neo FP 8GB (8x1) 3200MHz DDR4 RAM",
+        "handle": "ant-esports-690-neo-fp-8gb-8x1-3200mhz-ddr4-ram",
+        "vendor": "Ant Esports",
+        "category": "ram",
+        "product_type": "Ram",
+        "price": 4299,
+        "compare_at_price": 4943,
+        "available": false,
+        "sku": "ant-esports-690-neo-fp-8gb-3200mhz-ddr4-ram",
+        "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/61mIt7z7tmL._SX679__result.jpg?v=1722589403",
+        "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/61mIt7z7tmL._SX679__result.jpg?v=1722589403",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/61mIt7z7tmL._SX679__result.jpg?v=1722589403"
+        ],
+        "cdn_images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/61mIt7z7tmL._SX679__result.jpg?v=1722589403"
+        ],
+        "specs": {
+          "ram_type": "DDR4",
+          "speed": "3200MHz",
+          "capacity_gb": 8,
+          "is_rgb": true
+        },
+        "description": "Features of ANT ESPORTS 690 Neo FP 8GB (8x1) 3200MHz DDR4 RAM High Quality – An all blacked out high quality PCB with gold plated contacts makes the 690 Neo FP the right UDIMM for your high performance gaming Desktop. Low Power Consumption – At just 1.2v the UDIMM consumes less power so you get a better battery life from your Desktop while reaping benefits of a faster memory. Optimized for Performance – Rated in at 3200Mhz at CL24 the UDIMM is enough to boost your FPS and bring down your load ti",
+        "url": "https://computercare.in/products/ant-esports-690-neo-fp-8gb-8x1-3200mhz-ddr4-ram"
+      },
+      {
+        "id": 7954562515037,
+        "title": "ACER Predator Hera RGB 96GB ( 48GB x 2 ) 6400MHz DDR5 RAM ( White ) ( CL32 )",
+        "handle": "acer-predator-hera-rgb-96gb-48gb-x-2-6400mhz-ddr5-ram-white-cl32",
+        "vendor": "Acer",
+        "category": "ram",
+        "product_type": "RAM",
+        "price": 51695,
+        "compare_at_price": 72999,
+        "available": false,
+        "sku": "acer-predator-hera-rgb-96gb-48gbx2-6000mhz-ddr5-cl32-white",
+        "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-659-image.jpg?v=1755342807",
+        "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-659-image.jpg?v=1755342807",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-659-image.jpg?v=1755342807"
+        ],
+        "cdn_images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-659-image.jpg?v=1755342807"
+        ],
+        "specs": {
+          "ram_type": "DDR5",
+          "speed": "6400MHz",
+          "capacity_gb": 96,
+          "is_rgb": true
+        },
+        "description": "Features of ACER Predator Hera RGB 96GB ( 48GB x 2 ) 6400MHz DDR5 RAM ( White ) ( CL32 ) Boost Your Game with Predator Hera, Lower Latency and High-performance Overclocking Speeds up to 6400 MT/s Intel XMP 3.0 &amp; AMD Expo Compatible Dynamic RGB Lighting Everything You Want in a Memory Upgrade Predator Hera DDR5 RGB memory reaches speeds up to 6400 MT/s while ensuring smoother operation without additional cooling. Ideal for high-performance gaming. Built with premium Hynix ICs, OC PMIC, and a ",
+        "url": "https://computercare.in/products/acer-predator-hera-rgb-96gb-48gb-x-2-6400mhz-ddr5-ram-white-cl32"
+      },
+      {
+        "id": 7954558943325,
+        "title": "ACER Predator Hera RGB 96GB ( 48GB x 2 ) 6400MHz DDR5 RAM ( Black ) ( CL32 )",
+        "handle": "acer-predator-hera-rgb-96gb-48gb-x-2-6400mhz-ddr5-ram-black-cl32",
+        "vendor": "Acer",
+        "category": "ram",
+        "product_type": "RAM",
+        "price": 38999,
+        "compare_at_price": 72999,
+        "available": false,
+        "sku": "acer-predator-hera-rgb-96gb-48gbx2-6000mhz-ddr5-cl32-black",
+        "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-658-image.jpg?v=1755341638",
+        "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-658-image.jpg?v=1755341638",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-658-image.jpg?v=1755341638"
+        ],
+        "cdn_images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-658-image.jpg?v=1755341638"
+        ],
+        "specs": {
+          "ram_type": "DDR5",
+          "speed": "6400MHz",
+          "capacity_gb": 96,
+          "is_rgb": true
+        },
+        "description": "Features of ACER Predator Hera RGB 96GB ( 48GB x 2 ) 6400MHz DDR5 RAM ( Black ) ( CL32 ) Boost Your Game with Predator Hera, Lower Latency and High-performance Overclocking Speeds up to 6400 MT/s Intel XMP 3.0 &amp; AMD Expo Compatible Dynamic RGB Lighting Everything You Want in a Memory Upgrade Predator Hera DDR5 RGB memory reaches speeds up to 6400 MT/s while ensuring smoother operation without additional cooling. Ideal for high-performance gaming. Built with premium Hynix ICs, OC PMIC, and a ",
+        "url": "https://computercare.in/products/acer-predator-hera-rgb-96gb-48gb-x-2-6400mhz-ddr5-ram-black-cl32"
+      },
+      {
+        "id": 7954549571677,
+        "title": "ACER Predator Hermes RGB 96GB ( 48GB x 2 ) 6000MHz DDR5 RAM ( White ) ( CL28 )",
+        "handle": "acer-predator-hermes-rgb-96gb-48gb-x-2-6000mhz-ddr5-ram-white-cl28",
+        "vendor": "Acer",
+        "category": "ram",
+        "product_type": "RAM",
+        "price": 38530,
+        "compare_at_price": 71999,
+        "available": false,
+        "sku": "acer-predator-hermes-rgb-96gb-48gbx2-6000mhz-white-cl28",
+        "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-679-image-1.jpg?v=1755339570",
+        "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-679-image-1.jpg?v=1755339570",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-679-image-1.jpg?v=1755339570"
+        ],
+        "cdn_images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-679-image-1.jpg?v=1755339570"
+        ],
+        "specs": {
+          "ram_type": "DDR5",
+          "speed": "6000MHz",
+          "capacity_gb": 96,
+          "is_rgb": true
+        },
+        "description": "Features of ACER Predator Hermes RGB 96GB ( 48GB x 2 ) 6000MHz DDR5 RAM ( White ) ( CL28 ) Up to 6000 MT/s, Supports XMP 3.0, On-die ECC Premium ICs Speeds up to 6000 MT/s Supports XMP 3.0 Boost Your System to the Max with Hermes DDR5 Memory To push the limits, Acer Predator Hermes RGB DDR5 offers high speeds up to 6000 MT/s, striking design, mesmerizing RGB Lighting, mind-blowing performance, empowering overclockers, enthusiasts, and gamers to stand out amid the competition. Low Latency, Less P",
+        "url": "https://computercare.in/products/acer-predator-hermes-rgb-96gb-48gb-x-2-6000mhz-ddr5-ram-white-cl28"
+      }
+    ],
+    "case": [
+      {
+        "id": 9901002001,
+        "title": "GEONIX GX-C100 Micro-ATX Compact Tower Cabinet (Black)",
+        "handle": "geonix-gx-c100-micro-atx-cabinet-black",
+        "vendor": "Geonix",
+        "category": "case",
+        "product_type": "PC Cabinet",
+        "price": 1049,
+        "compare_at_price": 1499,
+        "available": true,
+        "sku": "GEONIX-CAS-GXC100-BLK",
+        "image": "/images/products/case/geonix-gx-c100-cabinet.jpg",
+        "cdn_image": "/images/products/case/geonix-gx-c100-cabinet.jpg",
+        "images": [
+          "/images/products/case/geonix-gx-c100-cabinet.jpg"
+        ],
+        "cdn_images": [
+          "/images/products/case/geonix-gx-c100-cabinet.jpg"
+        ],
+        "specs": {
+          "form_factor": "Micro-ATX Mini Tower",
+          "cabinet_style": "Compact Study / Business",
+          "color": "Black",
+          "supported_motherboards": [
+            "Micro-ATX",
+            "Mini-ITX"
+          ],
+          "max_gpu_length": 260,
+          "side_panel": "SPCC Steel Panel",
+          "included_fans": "Rear 80mm Fan Mount"
+        },
+        "description": "Dependable Grade-A SPCC steel cabinet with a sleek minimalist front profile, dual front USB and HD Audio ports, engineered for students, accounting workstations, and everyday home PCs.",
+        "url": "/catalog/case/geonix-gx-c100"
+      },
+      {
+        "id": 9901002002,
+        "title": "GEONIX GX-Slim Dual-Orientation Desktop Cabinet (Black)",
+        "handle": "geonix-gx-slim-desktop-cabinet-black",
+        "vendor": "Geonix",
+        "category": "case",
+        "product_type": "PC Cabinet",
+        "price": 1199,
+        "compare_at_price": 1699,
+        "available": true,
+        "sku": "GEONIX-CAS-GXSLIM-BLK",
+        "image": "/images/products/case/geonix-gx-slim-cabinet.jpg",
+        "cdn_image": "/images/products/case/geonix-gx-slim-cabinet.jpg",
+        "images": [
+          "/images/products/case/geonix-gx-slim-cabinet.jpg"
+        ],
+        "cdn_images": [
+          "/images/products/case/geonix-gx-slim-cabinet.jpg"
+        ],
+        "specs": {
+          "form_factor": "Micro-ATX Slim Tower",
+          "cabinet_style": "Ultra-Slim 95mm (Dual Orientation)",
+          "color": "Black",
+          "supported_motherboards": [
+            "Micro-ATX",
+            "Mini-ITX"
+          ],
+          "max_gpu_length": 220,
+          "side_panel": "Perforated Air Exhaust Panel",
+          "included_fans": "Top 80mm Silent Exhaust Fan"
+        },
+        "description": "Space-saving 95mm slim PC cabinet designed to sit horizontally under a monitor or stand vertically on a desk. Perfect for compact office desks, retail billing counters, and classrooms.",
+        "url": "/catalog/case/geonix-gx-slim"
+      },
+      {
+        "id": 9901002003,
+        "title": "GEONIX GX-450 Business Desktop Cabinet with 450W SMPS (Black)",
+        "handle": "geonix-gx-450-cabinet-with-450w-smps-black",
+        "vendor": "Geonix",
+        "category": "case",
+        "product_type": "PC Cabinet",
+        "price": 1499,
+        "compare_at_price": 2249,
+        "available": true,
+        "sku": "GEONIX-CAS-GX450-SMPS",
+        "image": "/images/products/case/geonix-gx-450-smps-cabinet.jpg",
+        "cdn_image": "/images/products/case/geonix-gx-450-smps-cabinet.jpg",
+        "images": [
+          "/images/products/case/geonix-gx-450-smps-cabinet.jpg"
+        ],
+        "cdn_images": [
+          "/images/products/case/geonix-gx-450-smps-cabinet.jpg"
+        ],
+        "specs": {
+          "form_factor": "Micro-ATX Mini Tower",
+          "cabinet_style": "Complete Power-Pack Chassis",
+          "color": "Black",
+          "supported_motherboards": [
+            "Micro-ATX",
+            "Mini-ITX"
+          ],
+          "max_gpu_length": 270,
+          "side_panel": "Durable Coated Steel",
+          "included_fans": "Integrated 450W Silent Fan PSU"
+        },
+        "description": "High-value bundled combo featuring a durable Micro-ATX chassis with an integrated 450W power supply unit, multi-format drive cage, and comprehensive Geonix manufacturer warranty.",
+        "url": "/catalog/case/geonix-gx-450"
+      },
+      {
+        "id": 9901002004,
+        "title": "GEONIX Marvel RGB Micro-ATX Gaming Cabinet (Black)",
+        "handle": "geonix-marvel-rgb-micro-atx-gaming-cabinet-black",
+        "vendor": "Geonix",
+        "category": "case",
+        "product_type": "PC Cabinet",
+        "price": 1749,
+        "compare_at_price": 2599,
+        "available": true,
+        "sku": "GEONIX-CAS-MARVEL-RGB",
+        "image": "/images/products/case/geonix-marvel-rgb-cabinet.jpg",
+        "cdn_image": "/images/products/case/geonix-marvel-rgb-cabinet.jpg",
+        "images": [
+          "/images/products/case/geonix-marvel-rgb-cabinet.jpg"
+        ],
+        "cdn_images": [
+          "/images/products/case/geonix-marvel-rgb-cabinet.jpg"
+        ],
+        "specs": {
+          "form_factor": "Micro-ATX Mid Tower",
+          "cabinet_style": "Front Mesh & ARGB Lighting",
+          "color": "Black",
+          "supported_motherboards": [
+            "Micro-ATX",
+            "Mini-ITX"
+          ],
+          "max_gpu_length": 290,
+          "side_panel": "Full Acrylic View Window",
+          "included_fans": "1x 80mm Rear Fan Included"
+        },
+        "description": "Modern budget gaming chassis featuring dual addressable RGB front light lines, high-airflow front intake mesh, full acrylic transparent side window, and support for standard ATX power supplies.",
+        "url": "/catalog/case/geonix-marvel-rgb"
+      }
+    ],
+    "storage": [
+      {
+        "id": 8127302107229,
+        "title": "ACER Predator GM7 1TB M.2 NVME Gen4 Solid State Drive (SSD)",
+        "handle": "acer-predator-gm7-1tb-m-2-nvme-gen4-solid-state-drive-ssd",
+        "vendor": "Acer",
+        "category": "storage",
+        "product_type": "",
+        "price": 18198,
+        "compare_at_price": 28999,
+        "available": false,
+        "sku": "acer-predator-gm7-1tb-ssd",
+        "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-118-image.webp?v=1777548199",
+        "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-118-image.webp?v=1777548199",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-118-image.webp?v=1777548199",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-118-image-1.webp?v=1777548215"
+        ],
+        "cdn_images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-118-image.webp?v=1777548199",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/bl-9bwwr-118-image-1.webp?v=1777548215"
+        ],
+        "specs": {
+          "storage_type": "NVMe M.2 SSD",
+          "capacity": "1TB",
+          "read_speed": "7000+ MB/s"
+        },
+        "description": "Features of ACER Predator GM7 1TB M.2 NVME Gen4 Solid State Drive (SSD) Predator GM7 PCIe 4.0 SSD 7200 MB/s Read and 6300 MB/s Write, All You Need for Top Performance Sequential read speed up to 7200 MB/s Power-saving controller NVMe 2.0 Predator GM7 PCIe 4.0 Is All You Need for Next-level Performance Predator GM7 PCIe 4.0 hits a blazing 7200 MB/s read speed. With the latest PCIe Gen4 controller technology, it consumes less power (5.67 W max which means less temperature– even under a heavy workl",
+        "url": "https://computercare.in/products/acer-predator-gm7-1tb-m-2-nvme-gen4-solid-state-drive-ssd"
+      },
+      {
+        "id": 8127197839453,
+        "title": "SAMSUNG T7 4TB Gen2 External Solid State Drive (SSD) ( Gray )",
+        "handle": "samsung-t7-4tb-gen2-external-solid-state-drive-ssd-gray",
+        "vendor": "Samsung",
+        "category": "storage",
+        "product_type": "SSD",
+        "price": 110726,
+        "compare_at_price": 156499,
+        "available": false,
+        "sku": "samsung-t7-4tb-gray",
+        "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/mu-pc4t0t-ww-image-3.webp?v=1777543630",
+        "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/mu-pc4t0t-ww-image-3.webp?v=1777543630",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/mu-pc4t0t-ww-image-3.webp?v=1777543630",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/mu-pc4t0t-ww-image-2.webp?v=1777543630"
+        ],
+        "cdn_images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/mu-pc4t0t-ww-image-3.webp?v=1777543630",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/mu-pc4t0t-ww-image-2.webp?v=1777543630"
+        ],
+        "specs": {
+          "storage_type": "NVMe M.2 SSD",
+          "capacity": "4TB",
+          "read_speed": "3500 MB/s"
+        },
+        "description": "Features of SAMSUNG T7 4TB Gen2 External Solid State Drive (SSD) ( Gray ) Portable SSD T7 USB 3.2 4 TB (Titan Gray) Lightning-fast transfer speeds With up to 1,050MB/s transfer speed, the T7 puts you full speed ahead at work or play. Extensive compatibility Freely switch between devices during your workflow without disruption. Sleek and compact style Effortlessly transfer vast data with the light and compact T7. Transfer in a flash Featuring sequential read/write speeds of up to 1,050 MB/s and 1",
+        "url": "https://computercare.in/products/samsung-t7-4tb-gen2-external-solid-state-drive-ssd-gray"
+      },
+      {
+        "id": 8098028519517,
+        "title": "SAMSUNG 990 Pro 2TB M.2 NVMe Gen4 Solid State Drive ( SSD ) ( With Heatsink )",
+        "handle": "samsung-990-pro-2tb-m-2-nvme-gen4-solid-state-drive-ssd-with-heatsink",
+        "vendor": "Samsung",
+        "category": "storage",
+        "product_type": "SSD",
+        "price": 52999,
+        "compare_at_price": 39999,
+        "available": false,
+        "sku": "samsung-990-pro-2tb-m-2-nvme-gen4-ssd-with-heatsink",
+        "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/Samsung-2TB-990-PRO-PCIe-4.0-x4-M.2-Internal-SSD-with-Heatsink-1.webp?v=1774530909",
+        "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/Samsung-2TB-990-PRO-PCIe-4.0-x4-M.2-Internal-SSD-with-Heatsink-1.webp?v=1774530909",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/Samsung-2TB-990-PRO-PCIe-4.0-x4-M.2-Internal-SSD-with-Heatsink-1.webp?v=1774530909"
+        ],
+        "cdn_images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/Samsung-2TB-990-PRO-PCIe-4.0-x4-M.2-Internal-SSD-with-Heatsink-1.webp?v=1774530909"
+        ],
+        "specs": {
+          "storage_type": "NVMe M.2 SSD",
+          "capacity": "2TB",
+          "read_speed": "7000+ MB/s"
+        },
+        "description": "Fetures: of SAMSUNG 990 Pro 2TB M.2 NVMe Gen4 Solid State Drive ( SSD ) ( With Heatsink ) Application - Client PCs, Game Consoles Interface - PCIe Gen 4.0 x4, NVMe 2.0 Storage Memory - Samsung V-NAND 3-bit MLC Cache Memory - Samsung 2GB Low Power DDR4 SDRAM The Ultimate SSD Reach max performance of PCIe 4.0. Experience longer-lasting, opponent-blasting speed. The in-house controller's smart heat control delivers supreme power efficiency while maintaining ferocious speed and performance, to alway",
+        "url": "https://computercare.in/products/samsung-990-pro-2tb-m-2-nvme-gen4-solid-state-drive-ssd-with-heatsink"
+      },
+      {
+        "id": 8082098618461,
+        "title": "SAMSUNG T9 2TB Gen2 External Solid State Drive ( SSD )",
+        "handle": "samsung-t9-2tb-gen2-external-solid-state-drive-ssd",
+        "vendor": "Samsung",
+        "category": "storage",
+        "product_type": "SSD",
+        "price": 30975,
+        "compare_at_price": 45999,
+        "available": false,
+        "sku": "samsung-t9-2tb-gen2-external-ssd-black",
+        "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/mu-pg2t0b-ww-image-main.jpg?v=1772283114",
+        "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/mu-pg2t0b-ww-image-main.jpg?v=1772283114",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/mu-pg2t0b-ww-image-main.jpg?v=1772283114"
+        ],
+        "cdn_images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/mu-pg2t0b-ww-image-main.jpg?v=1772283114"
+        ],
+        "specs": {
+          "storage_type": "NVMe M.2 SSD",
+          "capacity": "2TB",
+          "read_speed": "3500 MB/s"
+        },
+        "description": "Features of SAMSUNG T9 2TB Gen2 External Solid State Drive ( SSD ) • Load, edit and transfer with sustained read and write speeds of up to 2,000MB/s. • Stay cool with its advanced thermal solution. • Whether you’re using a desktop or a gaming console, count on the T9 Portable SSD for compatibility. • With 2TB capacity, the T9 Portable SSD offers plenty of storage space making it a safe bet for capturing all your creative endeavors. Read/Write speeds up to 2,000 MB/s Race through projects with ou",
+        "url": "https://computercare.in/products/samsung-t9-2tb-gen2-external-solid-state-drive-ssd"
+      }
+    ],
+    "monitor": [
+      {
+        "id": 15466709188701,
+        "title": "SAMSUNG Odyssey G8 LS32HG800SW 32 Inch 4K UDH 240Hz OLED Panel 99%SRGB 0.03MS Adaptive Sync Gaming Monitor",
+        "handle": "samsung-odyssey-g8-ls32hg800sw-32-inch-4k-udh-240hz-oled-panel-99-srgb-0-03ms-adaptive-sync-gaming-monitor",
+        "vendor": "Samsung",
+        "category": "monitor",
+        "product_type": "Gaming Monitor",
+        "price": 99999,
+        "compare_at_price": 115999,
+        "available": true,
+        "sku": "LS32HG800SW",
+        "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187925.png?v=1792219351",
+        "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187925.png?v=1792219351",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187925.png?v=1792219351",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187892.jpg?v=1792219455",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187894.png?v=1792219371",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187902.avif?v=1792219594"
+        ],
+        "cdn_images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187925.png?v=1792219351",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187892.jpg?v=1792219455",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187894.png?v=1792219371",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/in-odyssey-oled-g8-g80sh-ls32hg800swxxl-553187902.avif?v=1792219594"
+        ],
+        "specs": {
+          "size": "32\"",
+          "refresh_rate": "240Hz",
+          "resolution": "4K UHD",
+          "panel_type": "OLED"
+        },
+        "description": "Features of SAMSUNG Odyssey G8 LS32HG800SW 32 Inch 4K UDH 240Hz OLED Panel 99%SRGB 0.03MS Adaptive Sync Gaming Monitor QD-OLED in 4K The Samsung Odyssey OLED G8 delivers crystal-clear 4K visuals thanks to its QD-OLED screen. With pixel densities of 166 PPI (27\") and 140 PPI (32\"), game worlds come to life with unparalleled clarity. Glare Free Keep your screen clear of reflections from external light sources with Samsung's Glare Free Technology. The Odyssey OLED G8 uses a Glare Free film that is ",
+        "url": "https://computercare.in/products/samsung-odyssey-g8-ls32hg800sw-32-inch-4k-udh-240hz-oled-panel-99-srgb-0-03ms-adaptive-sync-gaming-monitor"
+      },
+      {
+        "id": 15409414176861,
+        "title": "DELL SE2426HGS 24 Inch FHD 240Hz IPS Panel 99% SRGB 0.5MS AMD Freesync Gaming Monitor",
+        "handle": "dell-se2426hgs-24-inch-fhd-240hz-ips-panel-99-srgb-0-5ms-amd-freesync-gaming-monitor",
+        "vendor": "Dell",
+        "category": "monitor",
+        "product_type": "Gaming Monitor",
+        "price": 11999,
+        "compare_at_price": 18000,
+        "available": true,
+        "sku": "SE2426HGS",
+        "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2426hgs-image-main.webp?v=1791186370",
+        "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2426hgs-image-main.webp?v=1791186370",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2426hgs-image-main.webp?v=1791186370",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2426hgs-image-1.webp?v=1791186393",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2426hgs-image-5.webp?v=1791186408",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2426hgs-image-2.webp?v=1791186429"
+        ],
+        "cdn_images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2426hgs-image-main.webp?v=1791186370",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2426hgs-image-1.webp?v=1791186393",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2426hgs-image-5.webp?v=1791186408",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2426hgs-image-2.webp?v=1791186429"
+        ],
+        "specs": {
+          "size": "24\"",
+          "refresh_rate": "240Hz",
+          "resolution": "1080p FHD",
+          "panel_type": "VA"
+        },
+        "description": "Features of DELL SE2426HGS 24 Inch FHD 240Hz IPS Panel 99% SRGB 0.5MS AMD Freesync Gaming Monitor Customise your views for all your entertainment and gaming. This 60.45 cm (23.8 inch) FHD monitor features a high 240Hz refresh rate, fast IPS panel and is certified by TÜV Rheinland® for 3-star eye comfort. Smoother, tear-free performance Enjoy seamless, smooth motion while gaming or streaming content. This monitor delivers all the action with vibrant colours and without tearing or lag. Smooth moti",
+        "url": "https://computercare.in/products/dell-se2426hgs-24-inch-fhd-240hz-ips-panel-99-srgb-0-5ms-amd-freesync-gaming-monitor"
+      },
+      {
+        "id": 15409384816733,
+        "title": "DELL SE2726HGS 27 Inch FHD 240Hz IPS Panel 99% SRGB 0.5MS AMD Freesync Gaming Monitor",
+        "handle": "dell-se2726hgs-27-inch-fhd-240hz-ips-panel-99-srgb-0-5ms-amd-freesync-gaming-monitor",
+        "vendor": "Dell",
+        "category": "monitor",
+        "product_type": "Gaming Monitor",
+        "price": 15199,
+        "compare_at_price": 22000,
+        "available": true,
+        "sku": "SE2726HGS",
+        "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2726hgs-image-main.webp?v=1791185129",
+        "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2726hgs-image-main.webp?v=1791185129",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2726hgs-image-main.webp?v=1791185129",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2726hgs-image-1.webp?v=1791185197",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2726hgs-image-2.webp?v=1791185219",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2726hgs-image-3.webp?v=1791185252"
+        ],
+        "cdn_images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2726hgs-image-main.webp?v=1791185129",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2726hgs-image-1.webp?v=1791185197",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2726hgs-image-2.webp?v=1791185219",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/se2726hgs-image-3.webp?v=1791185252"
+        ],
+        "specs": {
+          "size": "27\"",
+          "refresh_rate": "240Hz",
+          "resolution": "1080p FHD",
+          "panel_type": "VA"
+        },
+        "description": "Features of DELL SE2726HGS 27 Inch FHD 240Hz IPS Panel 99% SRGB 0.5MS AMD Freesync Gaming Monitor Customise your views for all your entertainment and gaming. This 68.58 cm (27 inch) FHD monitor features a high 240Hz refresh rate, fast IPS panel and is certified by TÜV Rheinland® for 3-star eye comfort. Smoother, tear-free performance Enjoy seamless, smooth motion while gaming or streaming content. This monitor delivers all the action with vibrant colours and without tearing or lag. Smooth motion",
+        "url": "https://computercare.in/products/dell-se2726hgs-27-inch-fhd-240hz-ips-panel-99-srgb-0-5ms-amd-freesync-gaming-monitor"
+      },
+      {
+        "id": 8224172048477,
+        "title": "DELL Alienware AW2525HM 25 Inch FHD 320Hz IPS Panel 99% SRGB 0.5MS NVIDIA GSync Gaming Monitor",
+        "handle": "dell-alienware-aw2525hm-25-inch-fhd-320hz-ips-panel-99-srgb-0-5ms-nvidia-gsync-gaming-monitor",
+        "vendor": "Dell",
+        "category": "monitor",
+        "product_type": "Gaming Monitor",
+        "price": 19498,
+        "compare_at_price": 22632,
+        "available": true,
+        "sku": "AW2525HM",
+        "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/aw2525hm-image.webp?v=1788410755",
+        "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/aw2525hm-image.webp?v=1788410755",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/aw2525hm-image.webp?v=1788410755",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/aw2525hm-image-1.webp?v=1788410741",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/aw2525hm-image-5.webp?v=1788410347",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/aw2525hm-image-4.webp?v=1788410674"
+        ],
+        "cdn_images": [
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/aw2525hm-image.webp?v=1788410755",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/aw2525hm-image-1.webp?v=1788410741",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/aw2525hm-image-5.webp?v=1788410347",
+          "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/aw2525hm-image-4.webp?v=1788410674"
+        ],
+        "specs": {
+          "size": "25\"",
+          "refresh_rate": "320Hz",
+          "resolution": "1080p FHD",
+          "panel_type": "IPS"
+        },
+        "description": "Features of DELL Alienware AW2525HM 25 Inch FHD 320Hz IPS Panel 99% SRGB 0.5MS NVIDIA GSync Gaming Monitor Compete with serious speed Gain your competitive edge with a 320Hz refresh rate and 0.5ms grey to grey response time [1] , delivering ultra-smooth visuals and winner’s-circle-worthy color performance from every angle. Legendary performance Games feel effortlessly smooth with adaptive sync technologies like NVIDIA ® G-SYNC ® Compatible, AMD FreeSync™ Premium and VESA AdaptiveSync See every f",
+        "url": "https://computercare.in/products/dell-alienware-aw2525hm-25-inch-fhd-320hz-ips-panel-99-srgb-0-5ms-nvidia-gsync-gaming-monitor"
+      }
+    ],
+    "gaming_keyboard": [
+      {
+        "id": "kb_zebronics_dlk01_wired",
+        "title": "Zebronics Zeb-DLK01 USB Wired Multimedia Keyboard (104 UV Coated Keys, Rupee Key, Silent Actuation)",
+        "vendor": "Zebronics",
+        "price": 429,
+        "compare_at_price": 799,
+        "category": "gaming_keyboard",
+        "image": "/images/products/keyboard/zebronics-zeb-dlk01-wired.png",
+        "cdn_image": "/images/products/keyboard/zebronics-zeb-dlk01-wired.png",
+        "handle": "zebronics-zeb-dlk01-usb-wired-multimedia-keyboard",
+        "url": "#",
+        "description": "Zebronics Zeb-DLK01 is a reliable USB wired desktop keyboard featuring UV-coated keycaps for extended durability, comfortable key travel, and dedicated Indian Rupee currency key.",
+        "tags": [
+          "CATP_Zebronics",
+          "CATQ_Keyboard",
+          "KB2_Wired Keyboard",
+          "KB3_Full Size Keyboard",
+          "Wired",
+          "Zebronics",
+          "In Stock"
+        ],
+        "specs": {
+          "vendor": "Zebronics",
+          "in_stock": true,
+          "mechanical": false,
+          "wireless": false,
+          "layout": "Full Size 104-Key",
+          "interface": "USB Wired (1.5m)"
+        },
+        "in_stock": true
+      },
+      {
+        "id": "kb_ant_esports_km540_wired",
+        "title": "Ant Esports KM540 Rainbow Backlit Wired Gaming Keyboard (Aircraft Grade Frame, Anti-Ghosting)",
+        "vendor": "Ant Esports",
+        "price": 1299,
+        "compare_at_price": 2499,
+        "category": "gaming_keyboard",
+        "image": "/images/products/keyboard/ant-esports-km540-wired.png",
+        "cdn_image": "/images/products/keyboard/ant-esports-km540-wired.png",
+        "handle": "ant-esports-km540-rainbow-backlit-wired-gaming-keyboard",
+        "url": "#",
+        "description": "Ant Esports KM540 is built for gaming performance with vibrant multi-zone RGB rainbow backlighting, 19-key anti-ghosting, tactile double-injection keycaps, and durable braided USB cable.",
+        "tags": [
+          "CATP_Ant Esports",
+          "CATQ_Keyboard",
+          "KB2_Wired Keyboard",
+          "KB4_ARGB",
+          "Wired",
+          "Ant Esports",
+          "In Stock"
+        ],
+        "specs": {
+          "vendor": "Ant Esports",
+          "in_stock": true,
+          "mechanical": false,
+          "wireless": false,
+          "layout": "Full Size 104-Key Gaming",
+          "interface": "Braided USB Wired (1.8m)"
+        },
+        "in_stock": true
+      },
+      {
+        "id": "kb_acer_okb010_wired",
+        "title": "Acer OKB010 Standard USB Wired Desktop Keyboard (Ergonomic Tilt Legs, Matte Black Finish)",
+        "vendor": "Acer",
+        "price": 499,
+        "compare_at_price": 899,
+        "category": "gaming_keyboard",
+        "image": "/images/products/keyboard/acer-okb010-wired.png",
+        "cdn_image": "/images/products/keyboard/acer-okb010-wired.png",
+        "handle": "acer-okb010-standard-usb-wired-desktop-keyboard",
+        "url": "#",
+        "description": "Acer OKB010 delivers reliable everyday typing performance with full numeric keypad, UV coated keycaps for longevity, and ergonomic inclination for natural wrist comfort.",
+        "tags": [
+          "CATP_Acer",
+          "CATQ_Keyboard",
+          "KB2_Wired Keyboard",
+          "KB3_Full Size Keyboard",
+          "Wired",
+          "Acer",
+          "In Stock"
+        ],
+        "specs": {
+          "vendor": "Acer",
+          "in_stock": true,
+          "mechanical": false,
+          "wireless": false,
+          "layout": "Full Size 104-Key",
+          "interface": "USB Wired (1.5m)"
+        },
+        "in_stock": true
+      },
+      {
+        "id": "kb_geonix_gx_k100_wired",
+        "title": "Geonix GX-K100 Multimedia Wired USB Keyboard (Spill-Resistant, 10 Million Keystroke Lifespan)",
+        "vendor": "Geonix",
+        "price": 449,
+        "compare_at_price": 799,
+        "category": "gaming_keyboard",
+        "image": "/images/products/keyboard/geonix-gx-k100-wired.png",
+        "cdn_image": "/images/products/keyboard/geonix-gx-k100-wired.png",
+        "handle": "geonix-gx-k100-multimedia-wired-usb-keyboard",
+        "url": "#",
+        "description": "Geonix GX-K100 is engineered for high durability with tactile silicone key domes and quiet keystrokes. Features dedicated shortcut keys for browser, email, and volume management.",
+        "tags": [
+          "CATP_Geonix",
+          "CATQ_Keyboard",
+          "KB2_Wired Keyboard",
+          "KB3_Full Size Keyboard",
+          "Wired",
+          "Geonix",
+          "In Stock"
+        ],
+        "specs": {
+          "vendor": "Geonix",
+          "in_stock": true,
+          "mechanical": false,
+          "wireless": false,
+          "layout": "Full Size 104-Key Multimedia",
+          "interface": "USB Wired (1.5m)"
+        },
+        "in_stock": true
+      }
+    ],
+    "gaming_mouse": [
+      {
+        "id": "mouse_ant_esports_gm320",
+        "title": "Ant Esports GM320 RGB Wired Optical Gaming Mouse (12,800 DPI, 8 Programmable Buttons)",
+        "vendor": "Ant Esports",
+        "price": 699,
+        "compare_at_price": 1499,
+        "category": "gaming_mouse",
+        "image": "/images/products/mouse/ant-esports-gm320-wired.png",
+        "cdn_image": "/images/products/mouse/ant-esports-gm320-wired.png",
+        "handle": "ant-esports-gm320-rgb-wired-optical-gaming-mouse",
+        "url": "#",
+        "description": "Ant Esports GM320 is equipped with a high-speed 12,800 DPI optical sensor, 8 programmable macro buttons, dynamic RGB lighting modes, and an ergonomic thumb rest for competitive gaming.",
+        "tags": [
+          "CATP_Ant Esports",
+          "CATQ_Mouse",
+          "Wired",
+          "RGB",
+          "Gaming",
+          "Ant Esports",
+          "In Stock"
+        ],
+        "specs": {
+          "vendor": "Ant Esports",
+          "dpi": "12,800 DPI",
+          "connectivity": "Braided USB Wired",
+          "in_stock": true,
+          "rgb": true
+        },
+        "in_stock": true
+      },
+      {
+        "id": "mouse_zebronics_alex",
+        "title": "Zebronics Zeb-Alex USB Wired Optical Mouse (1200 DPI, Compact & Light, Plug & Play)",
+        "vendor": "Zebronics",
+        "price": 199,
+        "compare_at_price": 399,
+        "category": "gaming_mouse",
+        "image": "/images/products/mouse/zebronics-alex-wired.png",
+        "cdn_image": "/images/products/mouse/zebronics-alex-wired.png",
+        "handle": "zebronics-zeb-alex-usb-wired-optical-mouse",
+        "url": "#",
+        "description": "Zebronics Zeb-Alex is a dependable USB optical wired mouse with 1200 DPI tracking, comfortable palm shape, and silent scrolling for home and office computing.",
+        "tags": [
+          "CATP_Zebronics",
+          "CATQ_Mouse",
+          "Wired",
+          "Zebronics",
+          "In Stock"
+        ],
+        "specs": {
+          "vendor": "Zebronics",
+          "dpi": "1200 DPI",
+          "connectivity": "USB Wired",
+          "in_stock": true
+        },
+        "in_stock": true
+      },
+      {
+        "id": "mouse_acer_omr050",
+        "title": "Acer OMR050 USB Optical Wired Mouse (1200 DPI, Ambidextrous Design, Black)",
+        "vendor": "Acer",
+        "price": 299,
+        "compare_at_price": 599,
+        "category": "gaming_mouse",
+        "image": "/images/products/mouse/acer-omr050-wired.png",
+        "cdn_image": "/images/products/mouse/acer-omr050-wired.png",
+        "handle": "acer-omr050-usb-optical-wired-mouse",
+        "url": "#",
+        "description": "Acer OMR050 is an ambidextrous optical mouse featuring 1200 DPI sensitivity, smooth Teflon glide pads, and plug-and-play USB connectivity for laptops and desktops.",
+        "tags": [
+          "CATP_Acer",
+          "CATQ_Mouse",
+          "Wired",
+          "Acer",
+          "In Stock"
+        ],
+        "specs": {
+          "vendor": "Acer",
+          "dpi": "1200 DPI",
+          "connectivity": "USB Wired",
+          "in_stock": true
+        },
+        "in_stock": true
+      },
+      {
+        "id": "mouse_geonix_gxm20",
+        "title": "Geonix GX-M20 USB Optical Wired Mouse (1200 DPI, Ergonomic Grip, Smooth Glides)",
+        "vendor": "Geonix",
+        "price": 199,
+        "compare_at_price": 399,
+        "category": "gaming_mouse",
+        "image": "/images/products/mouse/geonix-gxm20-wired.png",
+        "cdn_image": "/images/products/mouse/geonix-gxm20-wired.png",
+        "handle": "geonix-gx-m20-usb-optical-wired-mouse",
+        "url": "#",
+        "description": "Geonix GX-M20 is an ergonomic optical mouse designed for smooth movement, tactile clicking, and zero latency on any desktop or mousepad.",
+        "tags": [
+          "CATP_Geonix",
+          "CATQ_Mouse",
+          "Wired",
+          "Geonix",
+          "In Stock"
+        ],
+        "specs": {
+          "vendor": "Geonix",
+          "dpi": "1200 DPI",
+          "connectivity": "USB Wired",
+          "in_stock": true
+        },
+        "in_stock": true
+      }
+    ]
+  }
+}

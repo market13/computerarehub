@@ -1,0 +1,338 @@
+[
+  {
+    "id": 980201,
+    "title": "Lapcare Intel Core i3 3220 3.3GHz Dual-Core Desktop Processor",
+    "handle": "lapcare-intel-core-i3-3220-processor",
+    "vendor": "Lapcare",
+    "category": "cpu",
+    "product_type": "Processor",
+    "price": 1199,
+    "compare_at_price": 1899,
+    "available": true,
+    "sku": "LPC-CPU-I3-3220",
+    "image": "/images/shop_by_category/processor.png",
+    "cdn_image": "/images/shop_by_category/processor.png",
+    "images": [
+      "/images/shop_by_category/processor.png"
+    ],
+    "specs": {
+      "socket": "LGA1155",
+      "cores": 2,
+      "threads": 4,
+      "base_clock": "3.3 GHz",
+      "boost_clock": "3.3 GHz",
+      "tdp": 55,
+      "igpu": true
+    },
+    "description": "Essential dual-core budget desktop processor for home, school, and office computing, fully compatible with LGA1155 H61 motherboards.",
+    "url": "/catalog/cpu/lapcare-i3-3220"
+  },
+  {
+    "id": 980202,
+    "title": "Lapcare Intel Core i5 3470 3.2GHz Quad-Core Desktop Processor",
+    "handle": "lapcare-intel-core-i5-3470-processor",
+    "vendor": "Lapcare",
+    "category": "cpu",
+    "product_type": "Processor",
+    "price": 1899,
+    "compare_at_price": 2999,
+    "available": true,
+    "sku": "LPC-CPU-I5-3470",
+    "image": "/images/shop_by_category/processor.png",
+    "cdn_image": "/images/shop_by_category/processor.png",
+    "images": [
+      "/images/shop_by_category/processor.png"
+    ],
+    "specs": {
+      "socket": "LGA1155",
+      "cores": 4,
+      "threads": 4,
+      "base_clock": "3.2 GHz",
+      "boost_clock": "3.6 GHz",
+      "tdp": 77,
+      "igpu": true
+    },
+    "description": "Versatile quad-core processor delivering smooth multitasking and office productivity on LGA1155 socket systems.",
+    "url": "/catalog/cpu/lapcare-i5-3470"
+  },
+  {
+    "id": 980203,
+    "title": "Lapcare Intel Core i5 4590 3.3GHz Quad-Core Desktop Processor",
+    "handle": "lapcare-intel-core-i5-4590-processor",
+    "vendor": "Lapcare",
+    "category": "cpu",
+    "product_type": "Processor",
+    "price": 2499,
+    "compare_at_price": 3699,
+    "available": true,
+    "sku": "LPC-CPU-I5-4590",
+    "image": "/images/shop_by_category/processor.png",
+    "cdn_image": "/images/shop_by_category/processor.png",
+    "images": [
+      "/images/shop_by_category/processor.png"
+    ],
+    "specs": {
+      "socket": "LGA1150",
+      "cores": 4,
+      "threads": 4,
+      "base_clock": "3.3 GHz",
+      "boost_clock": "3.7 GHz",
+      "tdp": 84,
+      "igpu": true
+    },
+    "description": "Fast 4th generation quad-core processor engineered for LGA1150 H81 motherboard platforms with integrated HD Graphics.",
+    "url": "/catalog/cpu/lapcare-i5-4590"
+  },
+  {
+    "id": 980204,
+    "title": "Lapcare Intel Core i7 4790 3.6GHz Quad-Core 8-Thread Desktop Processor",
+    "handle": "lapcare-intel-core-i7-4790-processor",
+    "vendor": "Lapcare",
+    "category": "cpu",
+    "product_type": "Processor",
+    "price": 3999,
+    "compare_at_price": 5499,
+    "available": true,
+    "sku": "LPC-CPU-I7-4790",
+    "image": "/images/shop_by_category/processor.png",
+    "cdn_image": "/images/shop_by_category/processor.png",
+    "images": [
+      "/images/shop_by_category/processor.png"
+    ],
+    "specs": {
+      "socket": "LGA1150",
+      "cores": 4,
+      "threads": 8,
+      "base_clock": "3.6 GHz",
+      "boost_clock": "4.0 GHz",
+      "tdp": 84,
+      "igpu": true
+    },
+    "description": "High-performance 8-thread processor providing peak responsiveness for workstation workloads and budget gaming setups on LGA1150.",
+    "url": "/catalog/cpu/lapcare-i7-4790"
+  },
+  {
+    "id": 980205,
+    "title": "Lapcare Intel Core i5 10400F 2.9GHz 6-Core 12-Thread Desktop Processor",
+    "handle": "lapcare-intel-core-i5-10400f-processor",
+    "vendor": "Lapcare",
+    "category": "cpu",
+    "product_type": "Processor",
+    "price": 7999,
+    "compare_at_price": 10999,
+    "available": true,
+    "sku": "LPC-CPU-I5-10400F",
+    "image": "/images/shop_by_category/processor.png",
+    "cdn_image": "/images/shop_by_category/processor.png",
+    "images": [
+      "/images/shop_by_category/processor.png"
+    ],
+    "specs": {
+      "socket": "LGA1200",
+      "cores": 6,
+      "threads": 12,
+      "base_clock": "2.9 GHz",
+      "boost_clock": "4.3 GHz",
+      "tdp": 65,
+      "igpu": false
+    },
+    "description": "Modern 6-core 12-thread desktop gaming processor for LGA1200 H510 motherboards, ideal for esports and high-efficiency workflows.",
+    "url": "/catalog/cpu/lapcare-i5-10400f"
+  },
+  {
+    "id": 970201,
+    "title": "Consistent Intel Core i3 3240 3.4GHz Dual-Core Desktop Processor",
+    "handle": "consistent-intel-core-i3-3240-processor",
+    "vendor": "Consistent",
+    "category": "cpu",
+    "product_type": "Processor",
+    "price": 1199,
+    "compare_at_price": 1799,
+    "available": true,
+    "sku": "CST-CPU-I3-3240",
+    "image": "/images/shop_by_category/processor.png",
+    "cdn_image": "/images/shop_by_category/processor.png",
+    "images": [
+      "/images/shop_by_category/processor.png"
+    ],
+    "specs": {
+      "socket": "LGA1155",
+      "cores": 2,
+      "threads": 4,
+      "base_clock": "3.4 GHz",
+      "boost_clock": "3.4 GHz",
+      "tdp": 55,
+      "igpu": true
+    },
+    "description": "Stable dual-core LGA1155 processor for budget home desktops and office administration.",
+    "url": "/catalog/cpu/consistent-i3-3240"
+  },
+  {
+    "id": 970202,
+    "title": "Consistent Intel Core i5 3470 3.2GHz Quad-Core Desktop Processor",
+    "handle": "consistent-intel-core-i5-3470-processor",
+    "vendor": "Consistent",
+    "category": "cpu",
+    "product_type": "Processor",
+    "price": 1899,
+    "compare_at_price": 2899,
+    "available": true,
+    "sku": "CST-CPU-I5-3470",
+    "image": "/images/shop_by_category/processor.png",
+    "cdn_image": "/images/shop_by_category/processor.png",
+    "images": [
+      "/images/shop_by_category/processor.png"
+    ],
+    "specs": {
+      "socket": "LGA1155",
+      "cores": 4,
+      "threads": 4,
+      "base_clock": "3.2 GHz",
+      "boost_clock": "3.6 GHz",
+      "tdp": 77,
+      "igpu": true
+    },
+    "description": "Workhorse 4-core processor compatible with all LGA1155 motherboards.",
+    "url": "/catalog/cpu/consistent-i5-3470"
+  },
+  {
+    "id": 970203,
+    "title": "Consistent Intel Core i5 10400F 2.9GHz 6-Core Desktop Processor",
+    "handle": "consistent-intel-core-i5-10400f-processor",
+    "vendor": "Consistent",
+    "category": "cpu",
+    "product_type": "Processor",
+    "price": 7899,
+    "compare_at_price": 10499,
+    "available": true,
+    "sku": "CST-CPU-I5-10400F",
+    "image": "/images/shop_by_category/processor.png",
+    "cdn_image": "/images/shop_by_category/processor.png",
+    "images": [
+      "/images/shop_by_category/processor.png"
+    ],
+    "specs": {
+      "socket": "LGA1200",
+      "cores": 6,
+      "threads": 12,
+      "base_clock": "2.9 GHz",
+      "boost_clock": "4.3 GHz",
+      "tdp": 65,
+      "igpu": false
+    },
+    "description": "High-efficiency 6-core 12-thread gaming processor for LGA1200 H510 motherboards.",
+    "url": "/catalog/cpu/consistent-i5-10400f"
+  },
+  {
+    "id": 970204,
+    "title": "Consistent Intel Core i5 12400F 2.5GHz 6-Core 12-Thread Processor",
+    "handle": "consistent-intel-core-i5-12400f-processor",
+    "vendor": "Consistent",
+    "category": "cpu",
+    "product_type": "Processor",
+    "price": 9999,
+    "compare_at_price": 13999,
+    "available": true,
+    "sku": "CST-CPU-I5-12400F",
+    "image": "/images/shop_by_category/processor.png",
+    "cdn_image": "/images/shop_by_category/processor.png",
+    "images": [
+      "/images/shop_by_category/processor.png"
+    ],
+    "specs": {
+      "socket": "LGA1700",
+      "cores": 6,
+      "threads": 12,
+      "base_clock": "2.5 GHz",
+      "boost_clock": "4.4 GHz",
+      "tdp": 65,
+      "igpu": false
+    },
+    "description": "Golden-standard Alder Lake gaming CPU with PCIe 5.0 and DDR4/DDR5 support on LGA1700.",
+    "url": "/catalog/cpu/consistent-i5-12400f"
+  },
+  {
+    "id": 910101,
+    "title": "HP Intel Core i5 12400 6-Core 12-Thread Desktop Processor",
+    "handle": "hp-intel-core-i5-12400-processor",
+    "vendor": "HP",
+    "category": "cpu",
+    "product_type": "Processor",
+    "price": 12499,
+    "compare_at_price": 16999,
+    "available": true,
+    "sku": "HP-CPU-I5-12400",
+    "image": "/images/shop_by_category/processor.png",
+    "cdn_image": "/images/shop_by_category/processor.png",
+    "images": [
+      "/images/shop_by_category/processor.png"
+    ],
+    "specs": {
+      "socket": "LGA1700",
+      "cores": 6,
+      "threads": 12,
+      "base_clock": "2.5 GHz",
+      "boost_clock": "4.4 GHz",
+      "tdp": 65,
+      "igpu": true
+    },
+    "description": "Performance 6-core processor with integrated UHD 730 Graphics for LGA1700 platforms.",
+    "url": "/catalog/cpu/hp-i5-12400"
+  },
+  {
+    "id": 900101,
+    "title": "Dell Intel Core i7 13700 16-Core 24-Thread Desktop Processor",
+    "handle": "dell-intel-core-i7-13700-processor",
+    "vendor": "Dell",
+    "category": "cpu",
+    "product_type": "Processor",
+    "price": 28999,
+    "compare_at_price": 37999,
+    "available": true,
+    "sku": "DEL-CPU-I7-13700",
+    "image": "/images/shop_by_category/processor.png",
+    "cdn_image": "/images/shop_by_category/processor.png",
+    "images": [
+      "/images/shop_by_category/processor.png"
+    ],
+    "specs": {
+      "socket": "LGA1700",
+      "cores": 16,
+      "threads": 24,
+      "base_clock": "2.1 GHz",
+      "boost_clock": "5.2 GHz",
+      "tdp": 65,
+      "igpu": true
+    },
+    "description": "Powerhouse 16-core hybrid processor (8 Performance + 8 Efficient cores) up to 5.2GHz.",
+    "url": "/catalog/cpu/dell-i7-13700"
+  },
+  {
+    "id": 890101,
+    "title": "Lenovo AMD Ryzen 7 7800X3D 8-Core 16-Thread Gaming Processor",
+    "handle": "lenovo-amd-ryzen-7-7800x3d-processor",
+    "vendor": "Lenovo",
+    "category": "cpu",
+    "product_type": "Processor",
+    "price": 38999,
+    "compare_at_price": 49999,
+    "available": true,
+    "sku": "LEN-CPU-R7-7800X3D",
+    "image": "/images/shop_by_category/processor.png",
+    "cdn_image": "/images/shop_by_category/processor.png",
+    "images": [
+      "/images/shop_by_category/processor.png"
+    ],
+    "specs": {
+      "socket": "AM5",
+      "cores": 8,
+      "threads": 16,
+      "base_clock": "4.2 GHz",
+      "boost_clock": "5.0 GHz",
+      "tdp": 120,
+      "igpu": true
+    },
+    "description": "The undisputed champion of gaming processors with revolutionary 96MB 3D V-Cache on AM5.",
+    "url": "/catalog/cpu/lenovo-r7-7800x3d"
+  }
+]

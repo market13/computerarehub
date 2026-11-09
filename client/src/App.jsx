@@ -83,45 +83,117 @@ export default function App() {
   const [isPresetsOpen, setIsPresetsOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // Fetch catalog & presets on mount with cache-busting
+  // On-demand category loading and manifest initialization with content hash caching
   useEffect(() => {
     async function loadData() {
       try {
-        const prodResp = await fetch('/data/products.json?v=' + Date.now(), { cache: 'no-store' });
-        const prodData = await prodResp.json();
-        setCatalog(prodData);
+        const manifestResp = await fetch('/data/manifest.json');
+        let hash = 'v1';
+        let initialCatalog = {};
 
-        const presetResp = await fetch('/data/presets.json?v=' + Date.now(), { cache: 'no-store' });
-        if (presetResp.ok) {
-          const presetData = await presetResp.json();
-          setPresets(presetData);
+        if (manifestResp.ok) {
+          const manifest = await manifestResp.json();
+          hash = manifest.buildHash || 'v1';
+
+          // Fast render: seed default compatible rig directly from manifest
+          if (manifest.initialBuild) {
+            setBuild(manifest.initialBuild);
+          }
+
+          // Core categories needed for home and builder
+          const coreCategories = ['cpu', 'motherboard', 'ram', 'gpu', 'case', 'psu', 'cooler', 'storage'];
+          await Promise.all(
+            coreCategories.map(async (catKey) => {
+              try {
+                const res = await fetch(`/data/categories/${catKey}.json?v=${hash}`);
+                if (res.ok) {
+                  initialCatalog[catKey] = await res.json();
+                }
+              } catch (catErr) {
+                console.warn(`Failed loading category ${catKey}`, catErr);
+              }
+            })
+          );
+
+          // If initial build wasn't in manifest, calculate from loaded categories
+          if (!manifest.initialBuild) {
+            const compatibleBuild = findCompatibleDefaultBuild(initialCatalog);
+            if (compatibleBuild) setBuild(compatibleBuild);
+          }
+
+          // Load remaining categories in background so catalog & search are fully populated
+          const remaining = (manifest.categories || []).filter(c => !coreCategories.includes(c));
+          Promise.all(
+            remaining.map(async (catKey) => {
+              try {
+                const res = await fetch(`/data/categories/${catKey}.json?v=${hash}`);
+                if (res.ok) {
+                  const items = await res.json();
+                  setCatalog(prev => ({ ...prev, [catKey]: items }));
+                }
+              } catch {
+                // ignore background load errors
+              }
+            })
+          );
+        } else {
+          // Fallback to products.json if manifest is missing
+          const prodResp = await fetch('/data/products.json');
+          if (prodResp.ok) {
+            initialCatalog = await prodResp.json();
+            const compatibleBuild = findCompatibleDefaultBuild(initialCatalog);
+            if (compatibleBuild) setBuild(compatibleBuild);
+          }
         }
 
-        // Initialize with guaranteed compatible rig
-        const compatibleBuild = findCompatibleDefaultBuild(prodData);
-        if (compatibleBuild) {
-          setBuild(compatibleBuild);
-        } else if (prodData.case && prodData.case.length > 0) {
-          setBuild({
-            case: prodData.case[0] || null,
-            cpu: prodData.cpu ? prodData.cpu[0] : null,
-            motherboard: prodData.motherboard ? prodData.motherboard[0] : null,
-            ram: prodData.ram ? prodData.ram[0] : null,
-            gpu: prodData.gpu ? prodData.gpu[0] : null,
-            cooler: prodData.cooler ? prodData.cooler[0] : null,
-            storage: prodData.storage ? prodData.storage[0] : null,
-            psu: prodData.psu ? prodData.psu[0] : null,
-            monitor: null
-          });
+        setCatalog(initialCatalog);
+
+        // Fetch presets (cached, no no-store or timestamp)
+        try {
+          const presetResp = await fetch(`/data/presets.json?v=${hash}`);
+          if (presetResp.ok) {
+            const presetData = await presetResp.json();
+            setPresets(presetData);
+          }
+        } catch {
+          // ignore
         }
       } catch (err) {
-        console.error("Failed to load products or presets", err);
+        console.error("Failed to load catalog manifest", err);
       } finally {
         setLoading(false);
       }
     }
     loadData();
   }, []);
+
+  // Ensure active selector category is loaded on demand
+  useEffect(() => {
+    if (activeSelectorKey && !catalog[activeSelectorKey]) {
+      fetch(`/data/categories/${activeSelectorKey}.json`)
+        .then(res => res.ok ? res.json() : [])
+        .then(items => {
+          if (items.length > 0) {
+            setCatalog(prev => ({ ...prev, [activeSelectorKey]: items }));
+          }
+        })
+        .catch(() => {});
+    }
+  }, [activeSelectorKey, catalog]);
+
+  // Ensure selected catalog category is loaded on demand
+  useEffect(() => {
+    if (selectedCatalogCategory && selectedCatalogCategory !== 'all' && !catalog[selectedCatalogCategory]) {
+      fetch(`/data/categories/${selectedCatalogCategory}.json`)
+        .then(res => res.ok ? res.json() : [])
+        .then(items => {
+          if (items.length > 0) {
+            setCatalog(prev => ({ ...prev, [selectedCatalogCategory]: items }));
+          }
+        })
+        .catch(() => {});
+    }
+  }, [selectedCatalogCategory, catalog]);
 
   const handleSelectComponent = (categoryKey, product) => {
     setBuild(prev => ({
