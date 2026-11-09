@@ -38,3 +38,9 @@ Thumbs.db
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 *.tsbuildinfo
+
+# Temporary scratch files and test screenshots
+client/*.png
+.agent/
+.agents/
+scratch_*.py
