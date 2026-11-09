@@ -99,7 +99,7 @@ const viewports = [
 
   // Mobile Catalog View
   await mPage.evaluate(() => {
-    const b = Array.from(document.querySelectorAll('button, a')).find(el => el.textContent.includes('Bulk Order'));
+    const _b = Array.from(document.querySelectorAll('button, a')).find(el => el.textContent.includes('Bulk Order'));
     // Navigate to catalog
   });
   await mPage.goto('http://localhost:5173');

@@ -1,5 +1,4 @@
 const fs = require('fs');
-const path = require('path');
 
 const productsPath = 'C:/Users/Hp/.gemini/antigravity/scratch/custom-pc-builder/client/public/data/products.json';
 const presetsPath = 'C:/Users/Hp/.gemini/antigravity/scratch/custom-pc-builder/client/public/data/presets.json';

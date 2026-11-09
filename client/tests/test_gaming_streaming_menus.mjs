@@ -98,7 +98,7 @@ async function testGamingAndStreamingMenus() {
     await razerMouseBtn.click();
     await page.waitForTimeout(1000);
 
-    const currentUrl = page.url();
+    const _currentUrl = page.url();
     const searchVal = await page.$eval('input[type="text"]', el => el.value).catch(() => '');
     console.log(`Search input populated with: "${searchVal}"`);
     console.log('✓ Successfully navigated to search view upon clicking mega-menu item!');

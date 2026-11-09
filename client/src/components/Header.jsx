@@ -7,7 +7,6 @@ import {
   Menu, 
   X, 
   ChevronDown, 
-  BadgePercent,
   Sparkles,
   Box,
   Building2

@@ -52,7 +52,9 @@ export default function App() {
   })();
 
   // Sync /catalog/:category route with selectedCatalogCategory
-  useEffect(() => {
+  const [prevPath, setPrevPath] = useState(location.pathname);
+  if (location.pathname !== prevPath) {
+    setPrevPath(location.pathname);
     const p = location.pathname;
     if (p.startsWith('/catalog/')) {
       const cat = p.replace('/catalog/', '').trim();
@@ -62,7 +64,7 @@ export default function App() {
     } else if (p === '/catalog') {
       setSelectedCatalogCategory('all');
     }
-  }, [location.pathname]);
+  }
 
   // Backward-compatibility: redirect legacy hash URLs (#builder, #catalog, etc.) to real paths
   useEffect(() => {

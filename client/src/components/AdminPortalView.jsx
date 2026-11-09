@@ -1,18 +1,14 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Package,
   ShoppingCart,
-  Users,
   TrendingUp,
   AlertTriangle,
   CheckCircle,
-  Clock,
   Search,
   Filter,
   Edit3,
-  Plus,
   Eye,
-  Truck,
   ArrowLeft,
   ShieldCheck,
   Lock,
@@ -20,15 +16,11 @@ import {
   MessageSquare,
   Building2,
   Tag,
-  RefreshCw,
   FileText,
-  Check,
   X,
   Phone,
   Mail,
   MapPin,
-  ExternalLink,
-  ChevronDown,
   DollarSign
 } from 'lucide-react';
 
@@ -132,7 +124,7 @@ const INITIAL_COUPONS = [
 export default function AdminPortalView({
   catalog = {},
   onNavigate,
-  onUpdateProduct
+  onUpdateProduct: _onUpdateProduct
 }) {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return localStorage.getItem('computercare_admin_auth') === 'true';
@@ -170,21 +162,7 @@ export default function AdminPortalView({
   const [orderStatusFilter, setOrderStatusFilter] = useState('all');
 
   // Quotations & Inquiries state
-  const [inquiries, setInquiries] = useState([]);
-  const [inquiryFilter, setInquiryFilter] = useState('all');
-
-  // Coupons state
-  const [coupons, setCoupons] = useState(() => {
-    try {
-      const saved = localStorage.getItem('computercare_admin_coupons');
-      return saved ? JSON.parse(saved) : INITIAL_COUPONS;
-    } catch {
-      return INITIAL_COUPONS;
-    }
-  });
-
-  // Load inquiries from localStorage (saved by ExpertConsultationForm & BulkOrderView)
-  useEffect(() => {
+  const [inquiries, setInquiries] = useState(() => {
     const loaded = [];
     try {
       const b2b = JSON.parse(localStorage.getItem('computercare_bulk_inquiries') || '[]');
@@ -267,9 +245,19 @@ export default function AdminPortalView({
         }
       );
     }
+    return loaded;
+  });
+  const [inquiryFilter, setInquiryFilter] = useState('all');
 
-    setInquiries(loaded);
-  }, []);
+  // Coupons state
+  const [coupons, setCoupons] = useState(() => {
+    try {
+      const saved = localStorage.getItem('computercare_admin_coupons');
+      return saved ? JSON.parse(saved) : INITIAL_COUPONS;
+    } catch {
+      return INITIAL_COUPONS;
+    }
+  });
 
   const handleLogin = (e) => {
     e.preventDefault();

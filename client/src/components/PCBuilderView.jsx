@@ -16,7 +16,6 @@ import {
   Share2,
   Check,
   Gamepad2,
-  ExternalLink,
   Plus,
   PhoneCall,
   ArrowRight

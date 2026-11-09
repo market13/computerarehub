@@ -5,19 +5,15 @@ import {
   AlertTriangle, 
   Share2, 
   ShoppingBag, 
-  Download, 
   Check, 
-  Gauge,
-  Flame,
-  Gamepad2,
-  Cpu
+  Gamepad2
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { checkCompatibility, calculateGamingScores } from '../utils/compatibility';
 
 export default function BuildSummarySidebar({ 
   build = {}, 
-  onOpenPresets 
+  onOpenPresets: _onOpenPresets 
 }) {
   const [copied, setCopied] = useState(false);
 

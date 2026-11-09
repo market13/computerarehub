@@ -2,14 +2,9 @@ import React, { useState, useMemo } from 'react';
 import { 
   X, 
   Search, 
-  Filter, 
   ArrowUpDown, 
   Check, 
   Info, 
-  ExternalLink,
-  ShieldCheck,
-  Zap,
-  CheckCircle2,
   Box
 } from 'lucide-react';
 

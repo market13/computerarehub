@@ -2,18 +2,9 @@ import React, { useState, useMemo } from 'react';
 import { 
   Search, 
   ArrowUpDown, 
-  Filter, 
   Info, 
   Plus, 
-  Check, 
-  ExternalLink,
-  Layers,
-  Cpu,
-  Box,
-  HardDrive,
-  Zap,
-  Fan,
-  Tv
+  Check 
 } from 'lucide-react';
 
 const CATEGORY_TABS = [
@@ -44,7 +35,7 @@ export default function CatalogPage({
   const allProducts = useMemo(() => {
     if (activeCat === 'all') {
       let merged = [];
-      Object.entries(catalog).forEach(([cat, list]) => {
+      Object.values(catalog).forEach((list) => {
         if (Array.isArray(list)) merged = merged.concat(list);
       });
       return merged;

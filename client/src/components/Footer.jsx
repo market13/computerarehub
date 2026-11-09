@@ -5,10 +5,7 @@ import {
   Mail, 
   MapPin, 
   ShieldCheck, 
-  Truck, 
-  CreditCard, 
-  MessageSquare,
-  ExternalLink
+  MessageSquare
 } from 'lucide-react';
 
 export default function Footer({ onNavigate }) {

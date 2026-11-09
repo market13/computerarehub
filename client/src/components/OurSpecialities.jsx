@@ -51,8 +51,8 @@ const SPECIALITIES = [
   }
 ];
 
-export default function OurSpecialities({ onNavigate = () => {}, onOpenPresets = () => {} }) {
-  const handleCardClick = (spec) => {
+export default function OurSpecialities({ onNavigate = () => {}, onOpenPresets: _onOpenPresets = () => {} }) {
+  const handleCardClick = (_spec) => {
     // Navigate to 3D PC builder or trigger prebuilt presets
     onNavigate('builder');
   };

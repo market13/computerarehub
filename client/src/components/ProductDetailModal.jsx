@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ExternalLink, Check, ShieldCheck, Truck } from 'lucide-react';
+import { X, Check, ShieldCheck, Truck } from 'lucide-react';
 
 const SPEC_KEY_LABELS = {
   form_factor: 'Form Factor',
@@ -51,15 +51,6 @@ function formatSpecValue(key, val) {
   }
 
   return String(val);
-}
-
-function getSafeUrl(url) {
-  if (!url || typeof url !== 'string') return '#';
-  const trimmed = url.trim();
-  if (trimmed.startsWith('https://') || trimmed.startsWith('http://') || trimmed === '#') {
-    return trimmed;
-  }
-  return '#';
 }
 
 export default function ProductDetailModal({ 

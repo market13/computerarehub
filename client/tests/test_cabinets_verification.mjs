@@ -23,7 +23,7 @@ async function verifyCabinets() {
   try {
     await page.waitForSelector('.animate-spin', { state: 'detached', timeout: 15000 });
     console.log('Products successfully loaded into store.');
-  } catch (e) {
+  } catch {
     console.log('No spinner or already done.');
   }
   await page.waitForTimeout(1000);

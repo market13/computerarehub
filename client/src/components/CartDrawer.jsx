@@ -20,6 +20,14 @@ import {
 import confetti from 'canvas-confetti';
 import { submitToNetlify } from '../utils/formSubmit';
 
+function generateOrderRef() {
+  return `CC-ORD-${Math.floor(100000 + Math.random() * 900000)}`;
+}
+
+function getOrderTimestamp() {
+  return new Date().toISOString();
+}
+
 export default function CartDrawer({
   isOpen,
   onClose,
@@ -40,8 +48,6 @@ export default function CartDrawer({
   const [submitError, setSubmitError] = useState(null);
   const [submittedOrder, setSubmittedOrder] = useState(null);
   const [copiedRef, setCopiedRef] = useState(false);
-
-  if (!isOpen) return null;
 
   const items = Object.entries(build)
     .filter(([, item]) => item !== null)
@@ -64,7 +70,7 @@ export default function CartDrawer({
     if (!customer.phone.trim()) {
       errs.phone = 'Please enter your 10-digit phone number';
     } else {
-      const clean = customer.phone.replace(/[\s\-\+\(\)]/g, '');
+      const clean = customer.phone.replace(/[^\d]/g, '');
       if (clean.length < 10) errs.phone = 'Please enter a valid 10-digit number';
     }
     if (!customer.city.trim()) errs.city = 'Please enter delivery city / address';
@@ -79,7 +85,7 @@ export default function CartDrawer({
     setIsSubmitting(true);
     setSubmitError(null);
 
-    const refNumber = `CC-ORD-${Math.floor(100000 + Math.random() * 900000)}`;
+    const refNumber = generateOrderRef();
     const itemsFormatted = items
       .map((i, idx) => `${idx + 1}. [${i.slotKey.toUpperCase()}] ${i.title} - ₹${i.price.toLocaleString('en-IN')}`)
       .join('\n');
@@ -97,7 +103,7 @@ export default function CartDrawer({
       shipping: shipping === 0 ? 'FREE' : `₹${shipping}`,
       total: `₹${grandTotal.toLocaleString('en-IN')}`,
       cartItems: itemsFormatted,
-      timestamp: new Date().toISOString()
+      timestamp: getOrderTimestamp()
     };
 
     try {
@@ -152,6 +158,8 @@ export default function CartDrawer({
     setSubmittedOrder(null);
     onClose();
   };
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden bg-black/50 backdrop-blur-sm animate-fadeIn">

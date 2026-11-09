@@ -162,7 +162,7 @@ export default function BulkOrderView({ onNavigate }) {
           spread: 70,
           origin: { y: 0.6 }
         });
-      } catch (cErr) {
+      } catch {
         // Confetti fallback
       }
       window.scrollTo({ top: 350, behavior: 'smooth' });
@@ -638,7 +638,25 @@ export default function BulkOrderView({ onNavigate }) {
               </div>
             </div>
 
-            {/* SUBMIT BUTTON */}
+            {/* SUBMIT BUTTON & ERROR BANNER */}
+            {submitError && (
+              <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-red-800 text-xs">
+                <div className="flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 text-red-600 flex-shrink-0" />
+                  <span>{submitError.message}</span>
+                </div>
+                <a
+                  href={`https://wa.me/919810550222?text=${encodeURIComponent(submitError.details)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg flex items-center gap-1.5 transition-colors flex-shrink-0"
+                >
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  <span>Send via WhatsApp instead</span>
+                </a>
+              </div>
+            )}
+
             <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-xs text-slate-500 text-center sm:text-left">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />

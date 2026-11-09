@@ -1,16 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import * as THREE from 'three';
 import { 
   Rotate3d, 
-  Eye, 
-  Sparkles, 
   Palette, 
-  ZoomIn, 
-  ZoomOut, 
-  Maximize2,
-  Sliders,
-  Layers,
-  Flame
+  Layers
 } from 'lucide-react';
 
 const RGB_THEMES = [
@@ -26,8 +19,8 @@ const RGB_THEMES = [
 export default function Cabinet3DViewer({ 
   build = {}, 
   currentTheme = null,
-  highlightComponent = null,
-  onComponentClick = () => {} 
+  highlightComponent: _highlightComponent = null,
+  onComponentClick: _onComponentClick = () => {} 
 }) {
   const containerRef = useRef(null);
   const [rgbTheme, setRgbTheme] = useState(RGB_THEMES[0]);
@@ -48,6 +41,22 @@ export default function Cabinet3DViewer({
   const isDraggingRef = useRef(false);
   const previousMousePositionRef = useRef({ x: 0, y: 0 });
   const cameraRotationRef = useRef({ theta: Math.PI / 4, phi: Math.PI / 6, radius: 14 });
+
+  const rgbThemeRef = useRef(rgbTheme);
+  const autoRotateRef = useRef(autoRotate);
+  const buildRef = useRef(build);
+
+  useEffect(() => {
+    rgbThemeRef.current = rgbTheme;
+  }, [rgbTheme]);
+
+  useEffect(() => {
+    autoRotateRef.current = autoRotate;
+  }, [autoRotate]);
+
+  useEffect(() => {
+    buildRef.current = build;
+  }, [build]);
 
   // Update camera position from spherical coords
   const updateCameraPosition = () => {
@@ -132,7 +141,7 @@ export default function Cabinet3DViewer({
     scene.add(grid);
 
     // 5. Build 3D PC Cabinet & Components
-    buildCabinetScene(scene, build, meshesRef, rotatingFansRef);
+    buildCabinetScene(scene, buildRef.current, meshesRef, rotatingFansRef);
 
     // 6. Animation loop
     let clock = new THREE.Clock();
@@ -148,7 +157,7 @@ export default function Cabinet3DViewer({
       });
 
       // Dynamic Chroma RGB flow if selected
-      if (rgbTheme.id === 'chroma' && !rgbTheme.off) {
+      if (rgbThemeRef.current.id === 'chroma' && !rgbThemeRef.current.off) {
         const hue1 = (elapsedTime * 0.2) % 1;
         const hue2 = (elapsedTime * 0.2 + 0.35) % 1;
         const c1 = new THREE.Color().setHSL(hue1, 0.9, 0.55);
@@ -166,7 +175,7 @@ export default function Cabinet3DViewer({
       }
 
       // Auto-rotation
-      if (autoRotate && !isDraggingRef.current) {
+      if (autoRotateRef.current && !isDraggingRef.current) {
         cameraRotationRef.current.theta += delta * 0.4;
         updateCameraPosition();
       }
@@ -256,37 +265,7 @@ export default function Cabinet3DViewer({
     };
   }, []);
 
-  // Rebuild scene when selected build components or theme change
-  useEffect(() => {
-    if (!sceneRef.current) return;
-    // Clean old meshes
-    const scene = sceneRef.current;
-    if (meshesRef.current.cabinetGroup) {
-      scene.remove(meshesRef.current.cabinetGroup);
-    }
-    rotatingFansRef.current = [];
-    buildCabinetScene(scene, build, meshesRef, rotatingFansRef, currentTheme);
-    applyRgbTheme(rgbTheme);
-  }, [build, currentTheme, rgbTheme]);
-
-  // Sync RGB lighting with site theme when changed
-  useEffect(() => {
-    if (!currentTheme?.colors) return;
-    setRgbTheme({
-      id: currentTheme.id,
-      name: currentTheme.name,
-      color: currentTheme.colors.threeRgb,
-      secondary: currentTheme.colors.threeSecondary || '#ffffff',
-      dynamic: false
-    });
-  }, [currentTheme]);
-
-  // Handle RGB theme changes
-  useEffect(() => {
-    applyRgbTheme(rgbTheme);
-  }, [rgbTheme]);
-
-  const applyRgbTheme = (theme) => {
+  const applyRgbTheme = useCallback((theme) => {
     if (!lightsRef.current || lightsRef.current.length === 0) return;
     const c1 = new THREE.Color(theme.color);
     const c2 = new THREE.Color(theme.secondary);
@@ -318,7 +297,35 @@ export default function Cabinet3DViewer({
         });
       }
     }
-  };
+  }, []);
+
+  // Sync RGB lighting with site theme when changed
+  const [prevThemeId, setPrevThemeId] = useState(currentTheme?.id);
+  if (currentTheme?.id && currentTheme.id !== prevThemeId) {
+    setPrevThemeId(currentTheme.id);
+    if (currentTheme.colors?.threeRgb) {
+      setRgbTheme({
+        id: currentTheme.id,
+        name: currentTheme.name,
+        color: currentTheme.colors.threeRgb,
+        secondary: currentTheme.colors.threeSecondary || '#ffffff',
+        dynamic: false
+      });
+    }
+  }
+
+  // Rebuild scene when selected build components or theme change
+  useEffect(() => {
+    if (!sceneRef.current) return;
+    // Clean old meshes
+    const scene = sceneRef.current;
+    if (meshesRef.current.cabinetGroup) {
+      scene.remove(meshesRef.current.cabinetGroup);
+    }
+    rotatingFansRef.current = [];
+    buildCabinetScene(scene, build, meshesRef, rotatingFansRef, currentTheme);
+    applyRgbTheme(rgbTheme);
+  }, [build, currentTheme, rgbTheme, applyRgbTheme]);
 
   // Handle Glass Panel open/close animation
   useEffect(() => {

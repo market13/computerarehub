@@ -1,10 +1,9 @@
 import { chromium } from '@playwright/test';
 import path from 'path';
-import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const clientDir = path.join(__dirname, '..');
+const _clientDir = path.join(__dirname, '..');
 const artifactDir = 'C:\\Users\\Hp\\.gemini\\antigravity\\brain\\1d61eb77-5216-484b-b8c2-03bbdb30fcba';
 
 async function testMegaMenuLinks() {

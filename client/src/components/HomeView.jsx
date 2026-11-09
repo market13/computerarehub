@@ -1,17 +1,10 @@
 import React from 'react';
 import { 
   Box, 
-  Sparkles, 
   ArrowRight, 
-  Flame, 
-  ShieldCheck, 
   Check, 
-  Plus, 
   Info, 
-  ExternalLink,
-  ChevronRight,
-  Zap,
-  Gamepad2
+  ChevronRight
 } from 'lucide-react';
 
 import BannerHero from './BannerHero';
@@ -22,7 +15,7 @@ export default function HomeView({
   catalog,
   build,
   onNavigate,
-  onOpenSelector,
+  onOpenSelector: _onOpenSelector,
   onViewDetails,
   onOpenPresets,
   onSelectComponent

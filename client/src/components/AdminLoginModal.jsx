@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
   X,
   ShieldCheck,
-  Lock,
   User,
   ArrowRight,
   AlertTriangle,
@@ -25,14 +24,18 @@ export default function AdminLoginModal({
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
+    return typeof window !== 'undefined' && localStorage.getItem('computercare_admin_auth') === 'true';
+  });
 
   // Sync admin state when modal opens
-  useEffect(() => {
+  const [prevOpen, setPrevOpen] = useState(isOpen);
+  if (isOpen !== prevOpen) {
+    setPrevOpen(isOpen);
     if (isOpen && typeof window !== 'undefined') {
       setIsAdminLoggedIn(localStorage.getItem('computercare_admin_auth') === 'true');
     }
-  }, [isOpen]);
+  }
 
   // Support closing on Escape key
   useEffect(() => {

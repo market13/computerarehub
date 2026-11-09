@@ -4,7 +4,6 @@ import {
   Sparkles, 
   ShieldCheck, 
   Clock, 
-  Send, 
   CheckCircle2, 
   ArrowRight, 
   User, 
@@ -13,7 +12,6 @@ import {
   MapPin, 
   Gamepad2, 
   Cpu, 
-  Layers, 
   Copy, 
   Check 
 } from 'lucide-react';
@@ -84,7 +82,7 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
     if (!formData.phone.trim()) {
       errs.phone = 'Please enter your 10-digit phone number';
     } else {
-      const cleanPhone = formData.phone.replace(/[\s\-\+\(\)]/g, '');
+      const cleanPhone = formData.phone.replace(/[^\d]/g, '');
       if (cleanPhone.length < 10) errs.phone = 'Please enter a valid phone number';
     }
     if (!formData.city.trim()) errs.city = 'Please enter your city';
