@@ -96,7 +96,8 @@ def scrape_computercare(max_pages=20, max_images_per_cat=60):
         "storage": [],
         "psu": [],
         "cooler": [],
-        "monitor": []
+        "monitor": [],
+        "gaming_pc": []
     }
 
     image_download_tasks = []
@@ -123,10 +124,14 @@ def scrape_computercare(max_pages=20, max_images_per_cat=60):
             continue
 
         # Determine category
-        cat = CATEGORY_MAP.get(p_type)
-        if not cat:
-            # Fallback by title keywords
-            t_lower = title.lower()
+        t_lower = title.lower()
+        p_vendor = p.get("vendor", "")
+        if "custom pc build" in t_lower or "pre-built" in t_lower or "gaming pc" in t_lower or p_vendor == "PC Build":
+            cat = "gaming_pc"
+        else:
+            cat = CATEGORY_MAP.get(p_type)
+            if not cat:
+                # Fallback by title keywords
             if "geforce rtx" in t_lower or "radeon rx" in t_lower or "graphics card" in t_lower:
                 cat = "gpu"
             elif "processor" in t_lower or "ryzen 7" in t_lower or "ryzen 5" in t_lower or "core i5" in t_lower or "core i7" in t_lower:

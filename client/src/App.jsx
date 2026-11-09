@@ -13,6 +13,7 @@ import BulkOrderFloatingBadge from './components/BulkOrderFloatingBadge';
 import WhatsAppFloatingButton from './components/WhatsAppFloatingButton';
 import MobileBottomNav from './components/MobileBottomNav';
 import AdminPortalView from './components/AdminPortalView';
+import { findCompatibleDefaultBuild } from './utils/compatibility';
 
 const COMPONENT_SLOTS = [
   { key: 'case', label: 'PC Cabinet / Case' },
@@ -96,10 +97,13 @@ export default function App() {
           setPresets(presetData);
         }
 
-        // Initialize with default high-end rig
-        if (prodData.case && prodData.case.length > 0) {
+        // Initialize with guaranteed compatible rig
+        const compatibleBuild = findCompatibleDefaultBuild(prodData);
+        if (compatibleBuild) {
+          setBuild(compatibleBuild);
+        } else if (prodData.case && prodData.case.length > 0) {
           setBuild({
-            case: prodData.case.find(c => c.vendor === 'Cooler Master') || prodData.case[0] || null,
+            case: prodData.case[0] || null,
             cpu: prodData.cpu ? prodData.cpu[0] : null,
             motherboard: prodData.motherboard ? prodData.motherboard[0] : null,
             ram: prodData.ram ? prodData.ram[0] : null,

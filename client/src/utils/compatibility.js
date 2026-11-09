@@ -176,3 +176,78 @@ export function calculateGamingScores(build) {
     score: baseScore
   };
 }
+
+export function findCompatibleDefaultBuild(data) {
+  if (!data) return null;
+  const cpus = (data.cpu || []).filter(c => c.vendor !== 'PC Build' && !(c.title || '').toLowerCase().includes('custom pc build'));
+  const motherboards = data.motherboard || [];
+  const rams = data.ram || [];
+  const cases = data.case || [];
+  const gpus = data.gpu || [];
+  const psus = data.psu || [];
+  const coolers = data.cooler || [];
+  const storages = data.storage || [];
+  const fans = data.case_fan || [];
+  const monitors = data.monitor || [];
+
+  // Prefer modern gaming processors first (AM5 or LGA1700), sorted by performance/price
+  const sortedCpus = [...cpus].sort((a, b) => {
+    const aIsModern = a.specs?.socket === 'AM5' || a.specs?.socket === 'LGA1700';
+    const bIsModern = b.specs?.socket === 'AM5' || b.specs?.socket === 'LGA1700';
+    if (aIsModern && !bIsModern) return -1;
+    if (!aIsModern && bIsModern) return 1;
+    return (b.price || 0) - (a.price || 0);
+  });
+
+  for (const candidateCpu of sortedCpus) {
+    const cpuSocket = candidateCpu.specs?.socket;
+    if (!cpuSocket) continue;
+
+    // Find motherboards matching socket
+    const matchingMbs = motherboards.filter(m => m.specs?.socket && m.specs.socket.toLowerCase() === cpuSocket.toLowerCase());
+    for (const candidateMb of matchingMbs) {
+      const mbRamType = candidateMb.specs?.ram_type;
+      const matchingRams = rams.filter(r => r.specs?.ram_type && r.specs.ram_type.toUpperCase() === mbRamType?.toUpperCase());
+      if (matchingRams.length === 0) continue;
+      const candidateRam = matchingRams[0];
+
+      const mbForm = candidateMb.specs?.form_factor;
+      const matchingCases = cases.filter(c => {
+        const supp = c.specs?.supported_motherboards || ['ATX', 'Micro-ATX', 'Mini-ITX'];
+        return !mbForm || supp.some(s => s.toLowerCase() === mbForm.toLowerCase());
+      });
+      if (matchingCases.length === 0) continue;
+      const candidateCase = matchingCases[0];
+
+      const candidateGpu = gpus[0] || null;
+      const candidateCooler = coolers[0] || null;
+      const candidateStorage = storages[0] || null;
+      const candidateFan = fans[0] || null;
+      const candidateMonitor = monitors[0] || null;
+
+      const draftBuild = {
+        cpu: candidateCpu,
+        motherboard: candidateMb,
+        ram: candidateRam,
+        case: candidateCase,
+        gpu: candidateGpu,
+        cooler: candidateCooler,
+        storage: candidateStorage,
+        case_fan: candidateFan,
+        monitor: candidateMonitor
+      };
+
+      const estWatts = calculateWattage(draftBuild);
+      const matchingPsus = psus.filter(p => (p.specs?.wattage || 650) >= estWatts * 1.2);
+      const candidatePsu = matchingPsus[0] || psus[0] || null;
+      draftBuild.psu = candidatePsu;
+
+      const compat = checkCompatibility(draftBuild);
+      if (compat.isCompatible) {
+        return draftBuild;
+      }
+    }
+  }
+
+  return null;
+}

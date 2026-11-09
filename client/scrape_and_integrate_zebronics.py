@@ -43,8 +43,11 @@ def download_image(url, target_path):
 def determine_category(prod):
     title = prod.get('title', '').lower()
     ptype = (prod.get('product_type') or '').lower()
+    vendor = prod.get('vendor', '')
     tags = [t.lower() for t in prod.get('tags', [])]
     
+    if 'custom pc build' in title or 'pre-built' in title or 'gaming pc' in title or vendor == 'PC Build':
+        return 'gaming_pc'
     if 'cabinet' in title or 'cabinet' in ptype or 'mid tower' in title or 'matx' in title or 'chassis' in title:
         return 'case'
     if 'liquid cooler' in ptype or 'air cooler' in ptype or 'aio' in title or 'cooler' in title:
