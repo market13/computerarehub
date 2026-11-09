@@ -348,7 +348,7 @@ export default function Header({
         </div>
 
         {/* Center Search Bar with All Categories dropdown and Blue Search button (Screens >= lg) */}
-        <div className="hidden lg:flex items-center flex-1 max-w-xl min-w-0 mx-2">
+        <search role="search" className="hidden lg:flex items-center flex-1 max-w-xl min-w-0 mx-2">
           <form 
             onSubmit={(e) => { e.preventDefault(); onSearchSubmit(); }}
             className="w-full h-[40px] flex items-center border border-slate-300 rounded-md overflow-hidden bg-white shadow-2xs hover:border-slate-400 focus-within:border-blue-600 transition-colors"
@@ -397,7 +397,7 @@ export default function Header({
               Search
             </button>
           </form>
-        </div>
+        </search>
 
         {/* Right User Actions: Custom PC Builder, Login / Account, Wishlist, Cart */}
         <div className="flex items-center gap-2 sm:gap-3 xl:gap-5 flex-shrink-0">
@@ -521,7 +521,7 @@ export default function Header({
       </div>
 
       {/* 2b. MOBILE SEARCH BAR (Visible on < lg, below logo row) */}
-      <div className="lg:hidden w-full px-3 sm:px-5 pb-2.5 pt-0.5 border-t border-slate-100">
+      <search role="search" className="lg:hidden w-full px-3 sm:px-5 pb-2.5 pt-0.5 border-t border-slate-100">
         <form 
           onSubmit={(e) => { e.preventDefault(); onSearchSubmit(); }}
           className="w-full h-[38px] flex items-center border border-slate-300 rounded-lg overflow-hidden bg-white shadow-2xs focus-within:border-blue-600 transition-colors"
@@ -540,7 +540,7 @@ export default function Header({
             Search
           </button>
         </form>
-      </div>
+      </search>
 
       {/* 3. BOTTOM NAVIGATION BAR (Desktop & Laptop >= lg) */}
       <nav 

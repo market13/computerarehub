@@ -1,28 +1,78 @@
-# Robots.txt for Computer Care Custom PC Builder
+# Robots.txt for Computer Care Custom PC Builder & Hardware Store
 # Sitemaps
 Sitemap: https://computercare.in/sitemap.xml
 
-# Default for all search engines
+# Default rule for all web search crawlers
 User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api/private/
 
-# AI Search & Answer Engines (AEO / GEO)
+# Major Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /api/private/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin
+Disallow: /api/private/
+
+# OpenAI Search & Answer Engine Bots (ChatGPT Search / SearchGPT)
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin
+Disallow: /api/private/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin
+Disallow: /api/private/
+
 User-agent: GPTBot
 Allow: /
+Disallow: /admin
+Disallow: /api/private/
 
-User-agent: ClaudeBot
-Allow: /
-
+# Perplexity AI Search Engine
 User-agent: PerplexityBot
 Allow: /
+Disallow: /admin
+Disallow: /api/private/
 
+# Anthropic Claude Search & Crawlers
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin
+Disallow: /api/private/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /admin
+Disallow: /api/private/
+
+# Google Extended & Applebot Extended (AI Search & Knowledge)
 User-agent: Google-Extended
 Allow: /
+Disallow: /admin
+Disallow: /api/private/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /admin
+Disallow: /api/private/
+
+# Additional AI Retrieval & Research Bots
+User-agent: Amazonbot
+Allow: /
+Disallow: /admin
+Disallow: /api/private/
+
+User-agent: Cohere-ai
+Allow: /
+Disallow: /admin
+Disallow: /api/private/
 
 # Host
 Host: https://computercare.in

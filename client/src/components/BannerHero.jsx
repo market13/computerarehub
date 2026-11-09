@@ -56,6 +56,7 @@ export default function BannerHero({ onNavigate }) {
   }, []);
 
   const slide = SLIDES[currentSlide];
+  const targetHref = slide.action === 'builder' ? '/builder' : `/${slide.action.replace('-', '/')}`;
 
   return (
     <div className="w-full flex flex-col gap-4">
@@ -78,13 +79,17 @@ export default function BannerHero({ onNavigate }) {
           </p>
 
           <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3">
-            <button
-              onClick={() => onNavigate(slide.action)}
-              className="bg-brand-red hover:bg-brand-redHover text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-display font-bold uppercase tracking-wider text-xs sm:text-sm shadow-xl transition-transform hover:scale-105 flex items-center gap-2 cursor-pointer"
+            <a
+              href={targetHref}
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate(slide.action);
+              }}
+              className="bg-brand-red hover:bg-brand-redHover text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-display font-bold uppercase tracking-wider text-xs sm:text-sm shadow-xl transition-transform hover:scale-105 flex items-center gap-2 cursor-pointer no-underline"
             >
               <span>{slide.cta}</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
           </div>
         </div>
 

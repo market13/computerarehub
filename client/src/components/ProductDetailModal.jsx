@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Check, ShieldCheck, Truck } from 'lucide-react';
 
 const SPEC_KEY_LABELS = {
@@ -61,6 +61,62 @@ export default function ProductDetailModal({
   isSelected 
 }) {
   const [activeImageIdx, setActiveImageIdx] = useState(0);
+
+  // Inject real-time Schema.org Product structured data for AI & search indexation
+  useEffect(() => {
+    if (!isOpen || !product) {
+      const existing = document.getElementById('dynamic-product-ldjson');
+      if (existing) existing.remove();
+      return;
+    }
+
+    const script = document.getElementById('dynamic-product-ldjson') || document.createElement('script');
+    script.id = 'dynamic-product-ldjson';
+    script.type = 'application/ld+json';
+    
+    const productImages = (product.images && product.images.length > 0)
+      ? product.images
+      : [product.image || product.cdn_image].filter(Boolean);
+
+    const fullImages = productImages.map(img => img.startsWith('http') ? img : `https://computercare.in${img.startsWith('/') ? '' : '/'}${img}`);
+
+    const productSchema = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": product.title,
+      "image": fullImages,
+      "description": product.description || `${product.title} - Authentic computer hardware component from ${product.vendor} with official manufacturer warranty.`,
+      "sku": product.sku || `CC-${product.id}`,
+      "mpn": product.sku || String(product.id),
+      "brand": {
+        "@type": "Brand",
+        "name": product.vendor
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": typeof window !== 'undefined' ? `${window.location.origin}/catalog/${product.category}` : `https://computercare.in/catalog/${product.category}`,
+        "priceCurrency": "INR",
+        "price": product.price,
+        "priceValidUntil": "2027-12-31",
+        "availability": product.available !== false ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "seller": {
+          "@type": "Organization",
+          "name": "Computer Care"
+        }
+      }
+    };
+
+    script.textContent = JSON.stringify(productSchema);
+    if (!document.getElementById('dynamic-product-ldjson')) {
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      const el = document.getElementById('dynamic-product-ldjson');
+      if (el) el.remove();
+    };
+  }, [isOpen, product]);
 
   if (!isOpen || !product) return null;
 

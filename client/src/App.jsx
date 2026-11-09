@@ -81,15 +81,18 @@ export default function App() {
     }
   }, [navigate]);
 
-  // Update per-route <title> and meta description
+  // Update per-route <title>, meta description, canonical URL, and OpenGraph/Twitter tags
   useEffect(() => {
     const p = location.pathname;
     let title = 'Computer Care | Custom PC Builds & Genuine Computer Hardware';
     let desc = "Computer Care - India's premier custom PC builder with live 3D cabinet visualization, genuine computer parts, and real-time hardware compatibility.";
+    let canonicalUrl = 'https://computercare.in/';
+    let isNoIndex = false;
 
     if (p === '/builder') {
       title = 'Custom 3D PC Builder & Real-time Compatibility | Computer Care';
       desc = 'Configure your dream gaming rig or workstation with real-time socket, DDR standard, GPU dimension, and PSU wattage checks.';
+      canonicalUrl = 'https://computercare.in/builder';
     } else if (p.startsWith('/catalog')) {
       const parts = p.split('/').filter(Boolean);
       const cat = parts[1] || selectedCatalogCategory;
@@ -97,22 +100,62 @@ export default function App() {
         const catName = cat.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
         title = `${catName} - Authentic Hardware Components | Computer Care`;
         desc = `Shop verified 100% brand-warranty ${catName} at honest prices with pan-India insured shipping.`;
+        canonicalUrl = `https://computercare.in/catalog/${cat}`;
       } else {
         title = 'Hardware Components Catalog | Computer Care';
         desc = 'Browse authentic computer hardware components, CPUs, graphics cards, motherboards, RAM, cabinets, and monitors.';
+        canonicalUrl = 'https://computercare.in/catalog';
       }
     } else if (p === '/bulk-order') {
       title = 'B2B & Institutional Bulk Hardware Orders | Computer Care';
       desc = 'Special wholesale procurement quotations for offices, gaming cafes, CAD studios, and educational labs.';
+      canonicalUrl = 'https://computercare.in/bulk-order';
     } else if (p === '/admin') {
       title = 'Administrator Management Portal | Computer Care';
       desc = 'Store administrator portal for managing orders, quotations, pricing, and hardware inventory.';
+      canonicalUrl = 'https://computercare.in/admin';
+      isNoIndex = true;
     }
 
     document.title = title;
-    const metaTag = document.querySelector('meta[name="description"]');
-    if (metaTag) {
-      metaTag.setAttribute('content', desc);
+
+    // Helper to safely set attribute
+    const setMeta = (selector, attr, value) => {
+      let el = document.querySelector(selector);
+      if (!el && attr === 'content') {
+        el = document.createElement('meta');
+        if (selector.startsWith('meta[name=')) {
+          const name = selector.match(/name="([^"]+)"/)?.[1];
+          if (name) el.setAttribute('name', name);
+        } else if (selector.startsWith('meta[property=')) {
+          const prop = selector.match(/property="([^"]+)"/)?.[1];
+          if (prop) el.setAttribute('property', prop);
+        }
+        document.head.appendChild(el);
+      }
+      if (el) el.setAttribute(attr, value);
+    };
+
+    setMeta('meta[name="description"]', 'content', desc);
+    setMeta('meta[property="og:title"]', 'content', title);
+    setMeta('meta[property="og:description"]', 'content', desc);
+    setMeta('meta[property="og:url"]', 'content', canonicalUrl);
+    setMeta('meta[name="twitter:title"]', 'content', title);
+    setMeta('meta[name="twitter:description"]', 'content', desc);
+
+    // Canonical link
+    let canonicalTag = document.querySelector('link[rel="canonical"]');
+    if (!canonicalTag) {
+      canonicalTag = document.createElement('link');
+      canonicalTag.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalTag);
+    }
+    canonicalTag.setAttribute('href', canonicalUrl);
+
+    // Robots meta (disallow indexing on admin route)
+    let robotsTag = document.querySelector('meta[name="robots"]');
+    if (robotsTag) {
+      robotsTag.setAttribute('content', isNoIndex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
     }
   }, [location.pathname, selectedCatalogCategory]);
 

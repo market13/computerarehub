@@ -129,17 +129,22 @@ export default function ShopByCategory({ onSelectCategory }) {
       {/* 2 columns on mobile, 4 on tablet, 7 on desktop matching user reference */}
       <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-5 lg:gap-6">
         {CATEGORIES.map((cat) => (
-          <button
+          <a
             key={cat.id}
-            type="button"
-            onClick={() => onSelectCategory(cat.categoryKey)}
-            className="group flex flex-col items-center text-center focus:outline-none cursor-pointer"
+            href={`/catalog/${cat.categoryKey}`}
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectCategory(cat.categoryKey);
+            }}
+            className="group flex flex-col items-center text-center focus:outline-none cursor-pointer no-underline"
           >
             {/* Card Box (Dark Rounded Square containing hardware cutout) */}
             <div className="w-full aspect-square rounded-2xl bg-[#141416] group-hover:bg-[#1a1a1e] border border-white/5 group-hover:border-white/20 p-4 sm:p-5 flex items-center justify-center transition-all duration-300 group-hover:scale-105 shadow-lg">
               <img
                 src={cat.image}
                 alt={cat.title}
+                width="160"
+                height="160"
                 className="w-full h-full object-contain filter drop-shadow-md transition-transform duration-300"
                 loading="lazy"
               />
@@ -154,7 +159,7 @@ export default function ShopByCategory({ onSelectCategory }) {
                 {cat.discount}
               </span>
             </div>
-          </button>
+          </a>
         ))}
       </div>
     </section>

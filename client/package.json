@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "predev": "node scripts/split_catalog.cjs",
-    "build": "node scripts/split_catalog.cjs && vite build && node scripts/prerender_routes.cjs",
+    "build": "node scripts/split_catalog.cjs && node scripts/generate_sitemap.cjs && vite build && node scripts/prerender_routes.cjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },

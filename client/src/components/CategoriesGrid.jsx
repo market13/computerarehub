@@ -41,10 +41,14 @@ export default function CategoriesGrid({ onSelectCategory }) {
         {CATEGORIES.map((cat) => {
           const Icon = cat.icon;
           return (
-            <button
+            <a
               key={cat.key}
-              onClick={() => onSelectCategory(cat.key)}
-              className="bg-white border border-brand-border hover:border-brand-blue hover:shadow-brand-hover rounded-xl p-3 flex flex-col items-center text-center transition-all group"
+              href={`/catalog/${cat.key}`}
+              onClick={(e) => {
+                e.preventDefault();
+                onSelectCategory(cat.key);
+              }}
+              className="bg-white border border-brand-border hover:border-brand-blue hover:shadow-brand-hover rounded-xl p-3 flex flex-col items-center text-center transition-all group no-underline"
             >
               <div className={`w-12 h-12 rounded-full ${cat.color} flex items-center justify-center mb-2 group-hover:scale-110 transition-transform`}>
                 <Icon className="w-6 h-6" />
@@ -55,7 +59,7 @@ export default function CategoriesGrid({ onSelectCategory }) {
               <span className="text-[10px] text-slate-400 font-mono mt-0.5">
                 {cat.count}
               </span>
-            </button>
+            </a>
           );
         })}
       </div>

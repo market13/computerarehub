@@ -75,16 +75,22 @@ export default function OurSpecialities({ onNavigate = () => {}, onOpenPresets: 
         {/* 2 columns on mobile, 3 on tablet, 6 on desktop matching reference */}
         <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-4 lg:gap-5 w-full">
           {SPECIALITIES.map((spec) => (
-            <div
+            <a
               key={spec.id}
-              onClick={() => handleCardClick(spec)}
-              className="rounded-2xl sm:rounded-3xl overflow-hidden bg-[#141416] border border-neutral-800 shadow-xl flex flex-col group cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_25px_rgba(250,204,21,0.25)] select-none"
+              href="/builder"
+              onClick={(e) => {
+                e.preventDefault();
+                handleCardClick(spec);
+              }}
+              className="rounded-2xl sm:rounded-3xl overflow-hidden bg-[#141416] border border-neutral-800 shadow-xl flex flex-col group cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_25px_rgba(250,204,21,0.25)] select-none no-underline"
             >
               {/* Top: PC Build Showcase Image */}
               <div className="w-full aspect-[4/4.2] overflow-hidden bg-neutral-950 relative flex items-center justify-center">
                 <img
                   src={spec.image}
                   alt={spec.title}
+                  width="300"
+                  height="315"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
@@ -95,7 +101,7 @@ export default function OurSpecialities({ onNavigate = () => {}, onOpenPresets: 
               </div>
 
               {/* Bottom: Solid Yellow Block with Bold Black Title & Black BUY NOW Button */}
-              <div className="w-full bg-[#facc15] p-2.5 sm:p-3 flex flex-col justify-between gap-2.5">
+              <div className="w-full bg-[#facc15] p-2.5 sm:p-3 flex flex-col justify-between gap-2.5 flex-1">
                 <h3 className="font-display font-black text-xs sm:text-sm text-black uppercase leading-tight tracking-tight text-center sm:text-left min-h-[34px] flex items-center justify-center sm:justify-start">
                   {spec.title}
                 </h3>
@@ -107,7 +113,7 @@ export default function OurSpecialities({ onNavigate = () => {}, onOpenPresets: 
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

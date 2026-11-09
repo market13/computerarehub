@@ -10,6 +10,7 @@ import {
 import BannerHero from './BannerHero';
 import ShopByCategory from './ShopByCategory';
 import OurSpecialities from './OurSpecialities';
+import FAQSection from './FAQSection';
 
 export default function HomeView({
   catalog,
@@ -290,6 +291,9 @@ export default function HomeView({
           })}
         </div>
       </section>
+
+      {/* 6. Frequently Asked Questions (FAQ) with Schema-aligned QA grounding */}
+      <FAQSection />
     </div>
   );
 }

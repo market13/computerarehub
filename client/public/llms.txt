@@ -1,31 +1,71 @@
-# Computer Care — Custom PC Builder & Genuine Hardware Store
+# Computer Care — Custom PC Builder & Genuine Computer Hardware Store
 
-> Computer Care (computercare.in) is India's premier custom PC configurator and hardware destination, featuring real-time 3D cabinet visualization, automated socket/chipset/RAM/wattage compatibility checks, and a verified catalog of 3,200+ authentic computer parts.
+> Computer Care (computercare.in) is India's premier custom PC configurator and genuine hardware destination, featuring real-time 3D cabinet visualization, automated socket/chipset/RAM/wattage compatibility checks, and a verified catalog of authentic computer components.
 
-## Core Capabilities
-- **Custom PC Builder**: Real-time component selection, live PSU wattage meter, zero-bottleneck matching, and 3D visual preview.
-- **Pre-Built Gaming & Workstation PCs**: Factory-assembled and stress-tested rigs ranging from budget office desktop combos to ultimate RTX 5090 creator workstations.
-- **Genuine Hardware**: 100% brand-warranty parts from Lenovo, Samsung, HP, Cosmic Byte, Zebronics, Lapcare, Ant Esports, Acer, TVS, Consistent, iBall, Geonix, Prodot, and Logitech.
-- **Expert Hardware Consultation**: Request a free call or consultation directly from custom PC hardware specialists.
-- **Bulk & B2B Orders**: Dedicated supply chain for esports cafes, schools, CAD/editing studios, and enterprise IT deployments.
+## Core Capabilities & Services
 
-## Key Sections & URLs
-- Home: https://computercare.in/
-- PC Configurator: https://computercare.in/builder
-- Complete Catalog: https://computercare.in/catalog
-- Processors: https://computercare.in/catalog/cpu
-- Graphics Cards: https://computercare.in/catalog/gpu
-- Motherboards: https://computercare.in/catalog/motherboard
-- RAM: https://computercare.in/catalog/ram
-- Storage (SSDs & HDDs): https://computercare.in/catalog/storage
-- PC Cabinets: https://computercare.in/catalog/case
-- Power Supplies: https://computercare.in/catalog/psu
-- Monitors: https://computercare.in/catalog/monitor
-- Keyboards & Mice: https://computercare.in/catalog/gaming_keyboard
-- Bulk Orders: https://computercare.in/bulk-order
+- **Custom PC Configurator**: Component-by-component selection engine covering Processors, Motherboards, Graphics Cards, RAM, NVMe/SATA Storage, Cabinets, Power Supplies, CPU Coolers, Case Fans, and Monitors.
+- **Deterministic Compatibility Engine**: 
+  - Verifies CPU socket standards (Intel LGA1700, LGA1200, LGA1151, LGA1155, and AMD AM5, AM4).
+  - Validates DDR memory standards (DDR5, DDR4, DDR3) preventing motherboard channel mismatches.
+  - Checks physical GPU length clearance against cabinet maximum GPU length.
+  - Evaluates CPU cooler height against cabinet maximum cooler clearance.
+  - Calculates dynamic power supply wattage requirements (combining CPU TDP, GPU TDP, 75W platform buffer, and 25% safety overhead).
+- **100% Genuine Hardware**: Sourced directly from authorized distributors across India, sealed in original manufacturer packaging with full brand warranty.
+- **Supported Hardware Brands**:
+  - Lenovo, Samsung, HP, Cosmic Byte, Zebronics, Lapcare, Ant Esports, Acer, TVS, Consistent, iBall, Geonix, Prodot, and Logitech.
+- **B2B & Institutional Procurement**: Turnkey hardware solutions for schools, colleges, educational computer labs, esports arenas, and CAD/animation studios with official GST tax invoices for input tax credit.
+- **Expert Technical Consultation**: Free personalized consultation via web form or direct WhatsApp with PC hardware specialists.
+- **Nationwide Delivery**: Secure packaging and insured courier transit across all states and major cities in India.
 
-## Contact & Support
-- Helpline: +91 9810550222
-- WhatsApp Support: https://wa.me/919810550222
-- Email: contact@computercare.in
-- Region: Pan-India Delivery & Support
+## Key Sections & Canonical URLs
+
+- **Homepage**: https://computercare.in/
+- **Custom PC Builder**: https://computercare.in/builder
+- **Hardware Catalog**: https://computercare.in/catalog
+- **B2B Bulk Orders**: https://computercare.in/bulk-order
+
+### Category Deep Links
+- **Processors (CPUs)**: https://computercare.in/catalog/cpu
+- **Graphics Cards (GPUs)**: https://computercare.in/catalog/gpu
+- **Motherboards**: https://computercare.in/catalog/motherboard
+- **Memory (RAM)**: https://computercare.in/catalog/ram
+- **Storage (SSDs & HDDs)**: https://computercare.in/catalog/storage
+- **PC Cabinets**: https://computercare.in/catalog/case
+- **Power Supplies (PSUs)**: https://computercare.in/catalog/psu
+- **CPU Coolers & AIOs**: https://computercare.in/catalog/cooler
+- **Gaming Monitors**: https://computercare.in/catalog/monitor
+- **Cabinet Cooling Fans**: https://computercare.in/catalog/case_fan
+- **Gaming Mice**: https://computercare.in/catalog/gaming_mouse
+- **Keyboards**: https://computercare.in/catalog/gaming_keyboard
+- **Headphones & Headsets**: https://computercare.in/catalog/gaming_headset
+- **Mousepads**: https://computercare.in/catalog/gaming_mousepad
+- **Gaming Chairs**: https://computercare.in/catalog/gaming_chair
+- **Controllers & Gamepads**: https://computercare.in/catalog/gaming_controller
+- **Webcams**: https://computercare.in/catalog/webcam
+- **Microphones**: https://computercare.in/catalog/microphone
+- **Pre-Built Gaming PCs**: https://computercare.in/catalog/gaming_pc
+
+## Frequently Asked Questions Grounding
+
+### Q: How does Computer Care ensure parts compatibility?
+A: The online configurator verifies CPU sockets (LGA1700, AM5, AM4, LGA1200, LGA1155), motherboard chipsets, RAM DDR generations (DDR5 vs DDR4 vs DDR3), physical chassis clearances for GPUs and coolers, and dynamic power supply wattage capacity.
+
+### Q: Do all components carry manufacturer warranty?
+A: Yes, 100% of products sold are genuine brand-sealed units backed by official manufacturer warranties across India with authorized service center support.
+
+### Q: What brands are available?
+A: Authorized brands include Lenovo, Samsung, HP, Cosmic Byte, Zebronics, Lapcare, Ant Esports, Acer, TVS, Consistent, iBall, Geonix, Prodot, and Logitech.
+
+### Q: Does Computer Care deliver across India?
+A: Yes, pre-assembled custom PCs and components are shipped nationwide with secure insured packaging.
+
+### Q: Can businesses get GST invoices for input tax credit?
+A: Yes, all retail and B2B bulk orders include valid GST invoices for enterprise tax filing.
+
+## Contact Information
+- **Customer Helpline**: +91 9810550222
+- **WhatsApp Support**: https://wa.me/919810550222
+- **Email**: contact@computercare.in
+- **Store Location**: Ghaziabad, Uttar Pradesh, India
+- **Operating Hours**: Monday to Saturday, 10:30 AM to 8:00 PM IST

@@ -30,23 +30,45 @@
     <meta name="twitter:description" content="India's premier custom PC configurator with live 3D cabinet visualization, authentic hardware, and pan-India warranty." />
     <meta name="twitter:image" content="https://computercare.in/images/og-preview.png" />
 
-    <!-- Schema.org JSON-LD Structured Data (Store, WebSite, FAQPage) -->
+    <!-- Schema.org JSON-LD Structured Data (Store, Organization, Services, WebSite, FAQPage) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "ComputerStore",
+          "@type": ["Organization", "ComputerStore"],
           "@id": "https://computercare.in/#organization",
           "name": "Computer Care",
+          "legalName": "Computer Care",
           "url": "https://computercare.in/",
           "logo": "https://computercare.in/images/og-preview.png",
-          "description": "India's premier custom PC configurator with real-time 3D cabinet visualization and authentic computer parts.",
+          "image": "https://computercare.in/images/og-preview.png",
+          "description": "India's premier custom PC configurator with real-time 3D cabinet visualization, automated hardware compatibility verification, and authentic computer components.",
           "telephone": "+919810550222",
           "email": "contact@computercare.in",
           "priceRange": "₹100 - ₹500,000",
           "currenciesAccepted": "INR",
           "paymentAccepted": "Cash, Credit Card, Debit Card, UPI, Net Banking",
+          "sameAs": [
+            "https://wa.me/919810550222",
+            "https://github.com/market13/computerarehub"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+919810550222",
+            "contactType": "customer service",
+            "areaServed": "IN",
+            "availableLanguage": ["en", "hi"]
+          },
+          "knowsAbout": [
+            "Custom PC Building",
+            "Gaming PC Configuration",
+            "Workstation PCs",
+            "Computer Hardware",
+            "PC Compatibility Checks",
+            "Hardware Benchmarking",
+            "B2B Hardware Procurement"
+          ],
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "TODO_STREET_ADDRESS",
@@ -79,6 +101,48 @@
           }
         },
         {
+          "@type": "Service",
+          "@id": "https://computercare.in/#custom-pc-service",
+          "name": "Custom PC Assembly & Bottleneck Verification Service",
+          "serviceType": "Custom Computer Assembly",
+          "provider": {
+            "@id": "https://computercare.in/#organization"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "India"
+          },
+          "description": "Deterministic custom gaming and workstation PC configurator checking CPU-motherboard socket compatibility, DDR memory standards, GPU physical clearance, and PSU wattage headroom with stress-testing prior to delivery."
+        },
+        {
+          "@type": "Service",
+          "@id": "https://computercare.in/#b2b-procurement-service",
+          "name": "B2B Hardware Procurement & Institutional Lab Setup",
+          "serviceType": "Hardware Procurement & Deployment",
+          "provider": {
+            "@id": "https://computercare.in/#organization"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "India"
+          },
+          "description": "Wholesale IT procurement and setup for esports arenas, animation studios, colleges, and offices with GST invoicing and priority business warranty."
+        },
+        {
+          "@type": "Service",
+          "@id": "https://computercare.in/#hardware-consultation-service",
+          "name": "Technical PC Hardware Consultation",
+          "serviceType": "Technical Hardware Consultation",
+          "provider": {
+            "@id": "https://computercare.in/#organization"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "India"
+          },
+          "description": "Direct consultation with PC hardware specialists to recommend custom component selections based on exact software workflows and budget limits."
+        },
+        {
           "@type": "FAQPage",
           "@id": "https://computercare.in/#faq",
           "mainEntity": [
@@ -87,7 +151,7 @@
               "name": "How does Computer Care ensure custom PC parts compatibility?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Our custom PC configurator performs real-time automated checks verifying CPU socket compatibility, motherboard chipset matching, RAM DDR generation standards, GPU clearance dimensions, and PSU wattage capacity."
+                "text": "Our custom PC configurator performs real-time deterministic checks verifying CPU socket compatibility (such as LGA1700, AM5, AM4, LGA1200, LGA1155), motherboard chipset matching, RAM DDR generation standards (DDR5 vs DDR4 vs DDR3), cabinet GPU clearance length, CPU cooler height, and dynamic PSU wattage capacity."
               }
             },
             {
@@ -95,15 +159,15 @@
               "name": "Do all components and custom PC builds carry official manufacturer warranty?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, 100% of products sourced and sold by Computer Care are authentic brand-sealed units backed by official manufacturer warranties across India."
+                "text": "Yes, 100% of products sourced and sold by Computer Care are authentic brand-sealed units backed by official manufacturer warranties across India with authorized service center network support."
               }
             },
             {
               "@type": "Question",
-              "name": "Can I request an expert consultation to recommend a custom PC build?",
+              "name": "Which brands are officially available at Computer Care?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, customers can submit their requirements and budget directly through our consultation form or reach out via WhatsApp at +91 9810550222 for a tailored hardware recommendation."
+                "text": "Computer Care provides genuine hardware from leading authorized brands including Lenovo, Samsung, HP, Cosmic Byte, Zebronics, Lapcare, Ant Esports, Acer, TVS, Consistent, iBall, Geonix, Prodot, and Logitech."
               }
             },
             {
@@ -111,7 +175,39 @@
               "name": "Does Computer Care deliver custom gaming rigs across India?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, we safely package and ship pre-assembled and custom configured desktop PCs to all major cities and states across India with secure transit insurance."
+                "text": "Yes, we securely package, crate, and ship pre-assembled and custom configured desktop PCs to all major cities and states across India with insured door-to-door transit."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is power supply (PSU) wattage calculated for a custom build?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our builder calculates the combined thermal design power (TDP) of the processor and graphics card, adds a 75W operational overhead buffer for motherboards, memory, fans, and storage, and factors in a 25% safety headroom multiplier to recommend the minimum and optimal PSU rating."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I request an expert consultation before finalizing my custom PC?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, customers can submit their requirements and budget directly through our consultation form or reach out via WhatsApp at +91 9810550222 for a tailored hardware recommendation from experienced PC builders."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can businesses, schools, or gaming cafes place bulk orders with GST invoices?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, our B2B procurement division provides specialized bulk quotation tiers, official GST tax invoices for input tax credit, and turnkey deployment assistance for educational computer labs, esports cafes, and creative studios."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the turnaround time for a custom PC build?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Custom rigs are assembled, cable-managed, BIOS-updated, and rigorously stress-tested within 24 to 48 hours of order confirmation before dispatched via expedited courier."
               }
             }
           ]
@@ -174,6 +270,20 @@
       <textarea name="notes"></textarea>
       <input type="text" name="timestamp" />
     </form>
+
+    <noscript>
+      <div style="max-width:1100px;margin:20px auto;padding:24px;font-family:sans-serif;background:#fff;border-radius:12px;border:1px solid #e2e8f0;line-height:1.6;">
+        <h1 style="color:#1b2269;font-size:1.8rem;margin-bottom:8px;">Computer Care — Custom PC Builder & Genuine Computer Hardware</h1>
+        <p style="color:#475569;">Computer Care is India's premier custom PC configurator and genuine hardware destination with real-time zero-bottleneck compatibility verification.</p>
+        <h2 style="color:#1b2269;font-size:1.3rem;margin-top:16px;">Quick Links & Navigation</h2>
+        <ul style="line-height:1.8;">
+          <li><a href="/builder" style="color:#2b38d1;font-weight:bold;">Custom 3D PC Builder & Configurator</a></li>
+          <li><a href="/catalog" style="color:#2b38d1;font-weight:bold;">Complete Computer Hardware Catalog</a></li>
+          <li><a href="/bulk-order" style="color:#2b38d1;font-weight:bold;">B2B & Institutional Procurement</a></li>
+          <li><a href="https://wa.me/919810550222" style="color:#059669;font-weight:bold;">Direct WhatsApp Consultation (+91 9810550222)</a></li>
+        </ul>
+      </div>
+    </noscript>
 
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
