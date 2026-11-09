@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import HomeView from './components/HomeView';
 import PCBuilderView from './components/PCBuilderView';
@@ -32,36 +33,86 @@ export default function App() {
   const [catalog, setCatalog] = useState({});
   const [presets, setPresets] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const hash = window.location.hash.toLowerCase();
-      const tabParam = new URLSearchParams(window.location.search).get('tab');
-      if (hash === '#admin' || tabParam === 'admin') return 'admin';
-      if (hash === '#builder' || tabParam === 'builder') return 'builder';
-      if (hash === '#catalog' || tabParam === 'catalog') return 'catalog';
-      if (hash === '#bulk-order' || tabParam === 'bulk-order') return 'bulk-order';
-    }
-    return 'home';
-  });
+  // Router integration for real URLs and Back/Forward history
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // Search & category filter state
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCatalogCategory, setSelectedCatalogCategory] = useState('all');
 
-  
-  // Sync URL hash with activeTab
+  // Derive activeTab from router pathname
+  const activeTab = (() => {
+    const p = location.pathname.toLowerCase();
+    if (p === '/admin') return 'admin';
+    if (p === '/builder') return 'builder';
+    if (p === '/bulk-order') return 'bulk-order';
+    if (p.startsWith('/catalog')) return 'catalog';
+    return 'home';
+  })();
+
+  // Sync /catalog/:category route with selectedCatalogCategory
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.toLowerCase();
-      if (hash === '#admin') setActiveTab('admin');
-      else if (hash === '#builder') setActiveTab('builder');
-      else if (hash === '#catalog') setActiveTab('catalog');
-      else if (hash === '#bulk-order') setActiveTab('bulk-order');
-      else if (hash === '#home' || hash === '') setActiveTab('home');
-    };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
+    const p = location.pathname;
+    if (p.startsWith('/catalog/')) {
+      const cat = p.replace('/catalog/', '').trim();
+      if (cat) {
+        setSelectedCatalogCategory(cat);
+      }
+    } else if (p === '/catalog') {
+      setSelectedCatalogCategory('all');
+    }
+  }, [location.pathname]);
+
+  // Backward-compatibility: redirect legacy hash URLs (#builder, #catalog, etc.) to real paths
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const hash = window.location.hash.toLowerCase().replace(/^#/, '');
+      if (hash === 'builder') navigate('/builder', { replace: true });
+      else if (hash === 'catalog') navigate('/catalog', { replace: true });
+      else if (hash.startsWith('catalog-')) {
+        const cat = hash.replace('catalog-', '');
+        navigate(`/catalog/${cat}`, { replace: true });
+      } else if (hash === 'bulk-order') navigate('/bulk-order', { replace: true });
+      else if (hash === 'admin') navigate('/admin', { replace: true });
+      else if (hash === 'home') navigate('/', { replace: true });
+    }
+  }, [navigate]);
+
+  // Update per-route <title> and meta description
+  useEffect(() => {
+    const p = location.pathname;
+    let title = 'Computer Care | Custom PC Builds & Genuine Computer Hardware';
+    let desc = "Computer Care - India's premier custom PC builder with live 3D cabinet visualization, genuine computer parts, and real-time hardware compatibility.";
+
+    if (p === '/builder') {
+      title = 'Custom 3D PC Builder & Real-time Compatibility | Computer Care';
+      desc = 'Configure your dream gaming rig or workstation with real-time socket, DDR standard, GPU dimension, and PSU wattage checks.';
+    } else if (p.startsWith('/catalog')) {
+      const parts = p.split('/').filter(Boolean);
+      const cat = parts[1] || selectedCatalogCategory;
+      if (cat && cat !== 'all') {
+        const catName = cat.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        title = `${catName} - Authentic Hardware Components | Computer Care`;
+        desc = `Shop verified 100% brand-warranty ${catName} at honest prices with pan-India insured shipping.`;
+      } else {
+        title = 'Hardware Components Catalog | Computer Care';
+        desc = 'Browse authentic computer hardware components, CPUs, graphics cards, motherboards, RAM, cabinets, and monitors.';
+      }
+    } else if (p === '/bulk-order') {
+      title = 'B2B & Institutional Bulk Hardware Orders | Computer Care';
+      desc = 'Special wholesale procurement quotations for offices, gaming cafes, CAD studios, and educational labs.';
+    } else if (p === '/admin') {
+      title = 'Administrator Management Portal | Computer Care';
+      desc = 'Store administrator portal for managing orders, quotations, pricing, and hardware inventory.';
+    }
+
+    document.title = title;
+    const metaTag = document.querySelector('meta[name="description"]');
+    if (metaTag) {
+      metaTag.setAttribute('content', desc);
+    }
+  }, [location.pathname, selectedCatalogCategory]);
 
   // Custom PC build state
   const [build, setBuild] = useState({
@@ -228,16 +279,20 @@ export default function App() {
 
   const handleLoadPreset = (presetBuild) => {
     setBuild(presetBuild);
-    setActiveTab('builder');
+    handleNavigate('builder');
   };
 
   const handleHeaderSearch = () => {
-    setActiveTab('catalog');
+    navigate('/catalog');
   };
 
   const handleCategorySelect = (catKey) => {
     setSelectedCatalogCategory(catKey);
-    setActiveTab('catalog');
+    if (catKey === 'all') {
+      navigate('/catalog');
+    } else {
+      navigate(`/catalog/${catKey}`);
+    }
   };
 
   const handleNavigate = (dest) => {
@@ -245,28 +300,22 @@ export default function App() {
 
     const applyNav = () => {
       if (dest === 'admin') {
-        window.location.hash = 'admin';
-        setActiveTab('admin');
+        navigate('/admin');
       } else if (dest === 'builder') {
-        window.location.hash = 'builder';
-        setActiveTab('builder');
+        navigate('/builder');
       } else if (dest === 'bulk-order') {
-        window.location.hash = 'bulk-order';
-        setActiveTab('bulk-order');
+        navigate('/bulk-order');
       } else if (dest === 'catalog') {
         setSelectedCatalogCategory('all');
-        window.location.hash = 'catalog';
-        setActiveTab('catalog');
+        navigate('/catalog');
       } else if (dest === 'presets') {
         setIsPresetsOpen(true);
       } else if (dest.startsWith('catalog-')) {
         const cat = dest.replace('catalog-', '');
         setSelectedCatalogCategory(cat);
-        window.location.hash = 'catalog';
-        setActiveTab('catalog');
+        navigate(`/catalog/${cat}`);
       } else {
-        window.location.hash = dest === 'home' ? '' : dest;
-        setActiveTab(dest);
+        navigate('/');
       }
     };
 
@@ -277,6 +326,10 @@ export default function App() {
     } else {
       applyNav();
     }
+  };
+
+  const setActiveTab = (tab) => {
+    handleNavigate(tab);
   };
 
   const buildItems = Object.values(build).filter(Boolean);
