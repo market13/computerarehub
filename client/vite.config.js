@@ -12,7 +12,34 @@ const SECURITY_HEADERS = {
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      name: 'mock-netlify-forms-dev',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          if (req.method === 'POST' && (req.url === '/' || req.url === '/index.html' || req.url?.startsWith('/?'))) {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'text/plain');
+            res.end('OK');
+            return;
+          }
+          next();
+        });
+      },
+      configurePreviewServer(server) {
+        server.middlewares.use((req, res, next) => {
+          if (req.method === 'POST' && (req.url === '/' || req.url === '/index.html' || req.url?.startsWith('/?'))) {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'text/plain');
+            res.end('OK');
+            return;
+          }
+          next();
+        });
+      }
+    }
+  ],
   server: {
     host: '0.0.0.0',
     port: 5173,

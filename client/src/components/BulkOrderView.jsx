@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
+import { AlertCircle, MessageSquare } from 'lucide-react';
+import { submitToNetlify } from '../utils/formSubmit';
 import { 
   Building2, 
   Send, 
@@ -74,6 +76,7 @@ export default function BulkOrderView({ onNavigate }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedInquiry, setSubmittedInquiry] = useState(null);
   const [copiedRef, setCopiedRef] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
 
   const validate = () => {
     const errs = {};
@@ -99,7 +102,7 @@ export default function BulkOrderView({ onNavigate }) {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) {
       window.scrollTo({ top: 350, behavior: 'smooth' });
@@ -107,21 +110,28 @@ export default function BulkOrderView({ onNavigate }) {
     }
 
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    setTimeout(() => {
-      const refNumber = `CC-B2B-${Math.floor(100000 + Math.random() * 900000)}`;
-      const inquiryRecord = {
+    const refNumber = `CC-B2B-${Math.floor(100000 + Math.random() * 900000)}`;
+    const inquiryRecord = {
+      ...formData,
+      refNumber,
+      timestamp: new Date().toISOString(),
+      formattedDate: new Date().toLocaleDateString('en-IN', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      })
+    };
+
+    try {
+      await submitToNetlify('bulk-order', {
         ...formData,
         refNumber,
-        timestamp: new Date().toISOString(),
-        formattedDate: new Date().toLocaleDateString('en-IN', {
-          day: 'numeric',
-          month: 'short',
-          year: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        })
-      };
+        timestamp: inquiryRecord.timestamp
+      });
 
       try {
         const sanitizedStorageRecord = {
@@ -146,9 +156,6 @@ export default function BulkOrderView({ onNavigate }) {
       }
 
       setSubmittedInquiry(inquiryRecord);
-      setIsSubmitting(false);
-
-      // Trigger celebration confetti
       try {
         confetti({
           particleCount: 80,
@@ -158,9 +165,17 @@ export default function BulkOrderView({ onNavigate }) {
       } catch (cErr) {
         // Confetti fallback
       }
-
-      window.scrollTo({ top: 120, behavior: 'smooth' });
-    }, 800);
+      window.scrollTo({ top: 350, behavior: 'smooth' });
+    } catch (err) {
+      console.error('Submission failed:', err);
+      const waText = `Hi Computer Care, I would like to submit a B2B Bulk Order inquiry:\n• Company: ${formData.companyName}\n• Contact: ${formData.fullName}\n• Phone: ${formData.phone}\n• City: ${formData.city}\n• Category: ${formData.category}\n• Quantity: ${formData.quantity}\n• Budget: ${formData.budgetRange}\n• Timeline: ${formData.timeline}\n• Requirements: ${formData.requirements || 'N/A'}\n(Ref: ${refNumber})`;
+      setSubmitError({
+        message: 'Could not submit your bulk inquiry online. Please check your connection or send via WhatsApp.',
+        details: waText
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleCopyRef = () => {

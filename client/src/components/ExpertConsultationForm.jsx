@@ -18,6 +18,8 @@ import {
   Check 
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { AlertCircle, MessageSquare } from 'lucide-react';
+import { submitToNetlify } from '../utils/formSubmit';
 
 const USE_CASES = [
   { id: 'gaming', label: 'High-FPS Gaming', desc: 'Esports, GTA, Cyberpunk, AAA titles' },
@@ -74,6 +76,7 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedRequest, setSubmittedRequest] = useState(null);
   const [copiedRef, setCopiedRef] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
 
   const validate = () => {
     const errs = {};
@@ -90,7 +93,7 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) {
       window.scrollTo({ top: 100, behavior: 'smooth' });
@@ -98,15 +101,22 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
     }
 
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    setTimeout(() => {
-      const refNumber = `CC-CALL-${Math.floor(100000 + Math.random() * 900000)}`;
-      const requestRecord = {
+    const refNumber = `CC-CALL-${Math.floor(100000 + Math.random() * 900000)}`;
+    const requestRecord = {
+      ...formData,
+      refNumber,
+      timestamp: new Date().toISOString(),
+      formattedTime: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })
+    };
+
+    try {
+      await submitToNetlify('expert-consultation', {
         ...formData,
         refNumber,
-        timestamp: new Date().toISOString(),
-        formattedTime: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })
-      };
+        timestamp: requestRecord.timestamp
+      });
 
       try {
         const sanitized = {
@@ -129,16 +139,23 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
       }
 
       setSubmittedRequest(requestRecord);
-      setIsSubmitting(false);
-
       try {
         confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } });
       } catch {
         // fallback
       }
-
       window.scrollTo({ top: 100, behavior: 'smooth' });
-    }, 700);
+    } catch (err) {
+      console.error('Submission failed:', err);
+      const purposeLabel = USE_CASES.find(u => u.id === formData.useCase)?.label || formData.useCase;
+      const waText = `Hi Computer Care, I would like to request an expert PC consultation:\nName: ${formData.fullName}\nPhone: ${formData.phone}\nCity: ${formData.city}\nPurpose: ${purposeLabel}\nBudget: ${formData.budget}\nPreferred Call Time: ${formData.callTime}\nNotes: ${formData.notes || 'None'}\n(Ref: ${refNumber})`;
+      setSubmitError({
+        message: 'Could not send consultation request online. Please check your connection or connect with us on WhatsApp.',
+        details: waText
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleCopyRef = () => {
@@ -271,6 +288,32 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
       ) : (
         /* The Form */
         <form onSubmit={handleSubmit} className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-xs flex flex-col gap-6">
+          {submitError && (
+            <div className="bg-rose-50 border-2 border-rose-300 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-rose-900">
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm font-medium">
+                <AlertCircle className="w-5 h-5 text-rose-600 flex-shrink-0" />
+                <span>{submitError.message}</span>
+              </div>
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <a
+                  href={`https://wa.me/919810550222?text=${encodeURIComponent(submitError.details)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex-1 sm:flex-initial px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+                >
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  <span>Send via WhatsApp instead</span>
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setSubmitError(null)}
+                  className="px-3 py-1.5 bg-white hover:bg-rose-100 text-rose-800 border border-rose-300 rounded-lg text-xs font-semibold"
+                >
+                  Dismiss
+                </button>
+              </div>
+            </div>
+          )}
           <div className="flex flex-col gap-1 border-b border-slate-100 pb-3">
             <h3 className="text-lg font-display font-black text-slate-900 tracking-tight">
               Request Your Free PC Recommendation Callback

@@ -122,6 +122,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body class="bg-[#f8fafc] text-slate-800 antialiased font-sans">
+    <!-- Netlify Forms prerendering for SPA submissions -->
+    <form name="expert-consultation" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="expert-consultation" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="refNumber" />
+      <input type="text" name="fullName" />
+      <input type="text" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="city" />
+      <input type="text" name="useCase" />
+      <input type="text" name="budget" />
+      <input type="text" name="preferredBrand" />
+      <input type="text" name="callTime" />
+      <textarea name="notes"></textarea>
+      <input type="text" name="timestamp" />
+    </form>
+    <form name="bulk-order" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="bulk-order" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="refNumber" />
+      <input type="text" name="fullName" />
+      <input type="text" name="companyName" />
+      <input type="text" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="city" />
+      <input type="text" name="category" />
+      <input type="text" name="quantity" />
+      <input type="text" name="budgetRange" />
+      <input type="text" name="timeline" />
+      <textarea name="requirements"></textarea>
+      <input type="text" name="timestamp" />
+    </form>
+    <form name="cart-checkout" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="cart-checkout" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="refNumber" />
+      <input type="text" name="fullName" />
+      <input type="text" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="city" />
+      <input type="text" name="itemCount" />
+      <input type="text" name="subtotal" />
+      <input type="text" name="tax" />
+      <input type="text" name="shipping" />
+      <input type="text" name="total" />
+      <textarea name="cartItems"></textarea>
+      <textarea name="notes"></textarea>
+      <input type="text" name="timestamp" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
