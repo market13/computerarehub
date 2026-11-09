@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AdminLoginModal from './AdminLoginModal';
 import { 
   ShoppingCart, 
   Heart, 
@@ -12,7 +13,7 @@ import {
   Building2
 } from 'lucide-react';
 
-// Exact Gaming Mega Menu matching Computer Care real-world structure
+// Exact Gaming Mega Menu featuring authorized partner brands
 const GAMING_MENU_COLUMNS = [
   {
     top: {
@@ -23,14 +24,15 @@ const GAMING_MENU_COLUMNS = [
         'Logitech Optical Mouse',
         'HP Optical Mouse',
         'Zebronics Wired Mouse',
+        'Lapcare Optical Mouse',
         'ProDot Total Control Mouse',
         'Geonix Optical Mouse',
-        'Intex Corona Mouse',
+        'Consistent Optical Mouse',
+        'iBall Optical Mouse',
         'Acer Desktop Mouse',
         'TVS Champ Heavy Duty Mouse',
-        'TVS Gold Companion Mouse',
         'Ant Esports Gaming Mouse',
-        'Razer Gaming Mouse',
+        'Cosmic Byte Gaming Mouse',
         'Wireless Gaming Mouse'
       ]
     },
@@ -55,23 +57,22 @@ const GAMING_MENU_COLUMNS = [
         'HP Wired Keyboard',
         'Logitech Wired Keyboard',
         'Zebronics Wired Keyboard',
+        'Lapcare Multimedia Keyboard',
         'ProDot Wired Keyboard',
+        'Consistent Wired Keyboard',
         'Geonix Wired Keyboard',
-        'Intex Wired Keyboard',
+        'iBall Wired Keyboard',
         'Acer Wired Keyboard',
         'Ant Esports Gaming Keyboard',
-        'Razer Gaming Keyboard',
-        'CORSAIR Gaming Keyboard',
-        'Redragon Gaming Keyboard'
+        'Cosmic Byte Mechanical Keyboard'
       ]
     },
     bottom: {
       title: 'Gaming Chair',
       items: [
         'Ant Esports Gaming Chair',
-        'Cooler Master Gaming Chair',
-        'Cybeart Gaming Chair',
-        'CORSAIR Gaming Chair'
+        'Zebronics Gaming Chair',
+        'View All'
       ]
     }
   },
@@ -82,13 +83,13 @@ const GAMING_MENU_COLUMNS = [
         'Wired Gaming Headphones',
         'Wireless Gaming Headphones',
         'Zebronics Gaming Headphones',
-        'Razer Gaming Headphones',
         'Logitech Gaming Headphones',
-        'Cooler Master Gaming Headphones',
-        'Redragon Gaming Headphones',
-        'CORSAIR Gaming Headphones',
         'Ant Esports Gaming Headphones',
-        'CosmicByte Gaming Headphones'
+        'Cosmic Byte Gaming Headphones',
+        'Lapcare Gaming Headphones',
+        'Lenovo Legion Headphones',
+        'HP Gaming Headphones',
+        'iBall Stereo Headphones'
       ]
     },
     bottom: {
@@ -98,7 +99,8 @@ const GAMING_MENU_COLUMNS = [
         'Wireless Controllers',
         'Cosmic Byte Controllers',
         'Ant Esports Controllers',
-        'Claw Controllers'
+        'Logitech Gamepad',
+        'Zebronics Gamepad'
       ]
     }
   },
@@ -109,53 +111,49 @@ const GAMING_MENU_COLUMNS = [
         'Popular : Medium Mousepad',
         'Popular : Large Mousepad',
         'Zebronics Gaming Mousepad',
-        'Razer Gaming Mousepad',
-        'Logitech Gaming Mousepad',
-        'Cooler Master Gaming Mousepad',
-        'Redragon Gaming Mousepad',
-        'CORSAIR Gaming Mousepad',
         'Ant Esports Gaming Mousepad',
-        'CosmicByte Gaming Mousepad'
+        'Cosmic Byte Gaming Mousepad',
+        'Lapcare Gaming Mousepad',
+        'ProDot Gaming Mousepad'
       ]
     },
     bottom: null
   }
 ];
 
-// Exact Streaming Mega Menu matching Computer Care real-world structure
+// Exact Streaming Mega Menu featuring authorized partner brands
 const STREAMING_MENU_COLUMNS = [
   {
     title: 'Webcam',
     items: [
       'Zebronics Webcam',
       'Logitech Webcam',
-      'Razer Webcam',
-      'Redragon Webcam',
-      'Elgato Webcam',
+      'Lapcare HD Webcam',
+      'HP Full HD Webcam',
+      'Lenovo FHD Webcam',
+      'Dell Pro Webcam',
+      'iBall Face2Face Webcam',
       'View All'
     ]
   },
   {
     title: 'Microphones',
     items: [
-      'FiFine Microphone',
-      'Logitech Microphone',
-      'Razer Microphone',
-      'Blue Yeti Microphone',
       'Ant Esports Microphone',
+      'Zebronics Microphone',
+      'Cosmic Byte Microphone',
+      'Logitech Microphone',
       'View All'
     ]
   },
   {
-    title: 'Elgato',
+    title: 'Streaming Gear',
     items: [
-      'Elgato Capture Card',
-      'Elgato Webcam',
-      'Elgato Streamdeck',
-      'Elgato Lights',
-      'Elgato Teleprompter',
-      'Elgato Green Screen',
-      'Elgato Mounting'
+      'Ant Esports Streaming Gear',
+      'Zebronics Streaming Gear',
+      'Cosmic Byte Gaming Gear',
+      'Lapcare Streaming Accessories',
+      'View All'
     ]
   },
   {
@@ -190,6 +188,8 @@ export default function Header({
   const [mobileGamingOpen, setMobileGamingOpen] = useState(false);
   const [mobileStreamingOpen, setMobileStreamingOpen] = useState(false);
   const [wishlistCount] = useState(0);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const isAdminActive = typeof window !== 'undefined' && localStorage.getItem('computercare_admin_auth') === 'true';
 
   const formattedPrice = totalPrice > 0 
     ? `Rs. ${totalPrice.toLocaleString('en-IN')}` 
@@ -250,7 +250,7 @@ export default function Header({
     } else if (groupTitle === 'Microphones') {
       targetCategory = 'microphone';
       filterQuery = item === 'View All' ? '' : item.replace(/Microphone(s)?/i, '').trim();
-    } else if (groupTitle === 'Elgato') {
+    } else if (groupTitle === 'Streaming Gear' || groupTitle === 'Elgato') {
       targetCategory = 'elgato';
       if (item === 'Elgato Capture Card') filterQuery = 'Capture';
       else if (item === 'Elgato Streamdeck') filterQuery = 'Stream';
@@ -271,6 +271,14 @@ export default function Header({
 
   return (
     <header className="w-full bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs select-none">
+      {/* Top Yellow Announcement Ticker Bar matching mobile reference */}
+      <div className="w-full bg-[#facc15] py-1.5 px-3 border-b border-amber-300 flex items-center justify-center text-center">
+        <div className="bg-black text-[#facc15] font-display font-black text-[11px] sm:text-xs uppercase tracking-wider px-3.5 py-0.5 rounded-sm flex items-center gap-2 shadow-xs">
+          <span>BUY RTX 5090</span>
+          <span className="text-white/40 hidden sm:inline">•</span>
+          <span className="text-white hidden sm:inline">GENUINE HARDWARE STORE</span>
+        </div>
+      </div>
       {/* 1. TOP ANNOUNCEMENT BAR */}
       <div className="w-full border-b border-slate-200/80 bg-white text-slate-600 text-[11px] sm:text-[12px] font-sans py-1.5 px-3 sm:px-5 lg:px-8">
         <div className="max-w-[1536px] w-full mx-auto flex items-center justify-between gap-1.5">
@@ -446,12 +454,20 @@ export default function Header({
           {/* 1. Login / Account */}
           <button 
             type="button"
-            onClick={() => alert("Computer Care Customer Portal: You are currently guest authenticated. Real-time cart & quote sync is active!")}
+            onClick={() => setIsAuthModalOpen(true)}
             className="hidden sm:flex items-center gap-1.5 cursor-pointer group bg-transparent border-none p-0 text-left focus:outline-none flex-shrink-0"
+            title={isAdminActive ? "Admin Session Active - Click to Manage" : "Login to Account / Admin Portal"}
           >
-            <User className="w-[20px] h-[20px] xl:w-[22px] xl:h-[22px] text-slate-800 group-hover:text-blue-600 transition-colors stroke-[1.8]" />
+            <div className="relative">
+              <User className="w-[20px] h-[20px] xl:w-[22px] xl:h-[22px] text-slate-800 group-hover:text-blue-600 transition-colors stroke-[1.8]" />
+              {isAdminActive && (
+                <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-white" />
+              )}
+            </div>
             <div className="text-left select-none hidden lg:block">
-              <span className="text-[10px] text-slate-500 block leading-tight">Login</span>
+              <span className={`text-[10px] block leading-tight ${isAdminActive ? 'text-emerald-600 font-bold' : 'text-slate-500'}`}>
+                {isAdminActive ? 'Admin' : 'Login'}
+              </span>
               <span className="text-xs font-semibold text-slate-900 group-hover:text-blue-600 transition-colors block leading-tight">
                 Account
               </span>
@@ -1151,6 +1167,16 @@ export default function Header({
           </div>
         </div>
       )}
+    
+      {/* Admin / Account Login Modal */}
+      <AdminLoginModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        onSuccessAdminLogin={() => {
+          setActiveTab('admin');
+          window.location.hash = 'admin';
+        }}
+      />
     </header>
   );
 }

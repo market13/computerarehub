@@ -8,14 +8,14 @@
     "cabinet_color": "Black",
     "rgb_mode": "Cyberpunk Cyan",
     "components": {
-      "case": 7100177711197,
-      "cpu": 9044110377053,
-      "motherboard": 15414154330205,
-      "gpu": 9043234750557,
-      "ram": 15474603819101,
-      "storage": 15464894922845,
-      "psu": 15460219519069,
-      "cooler": 15458811773021
+      "case": 980603,
+      "cpu": 980205,
+      "motherboard": 980105,
+      "gpu": 980304,
+      "ram": 980404,
+      "storage": 980504,
+      "psu": 980703,
+      "cooler": 980802
     }
   },
   {
@@ -24,17 +24,17 @@
     "tier": "1440p High Performance",
     "target": "1440p High FPS, 4K Video Editing & Unreal Engine 5",
     "color_theme": "#a855f7",
-    "cabinet_color": "White",
+    "cabinet_color": "Black",
     "rgb_mode": "Neon Purple Pulse",
     "components": {
-      "case": 7100171616349,
-      "cpu": 7998563942493,
-      "motherboard": 8242410913885,
-      "gpu": 8241275535453,
-      "ram": 15474591694941,
-      "storage": 15464873099357,
-      "psu": 15460199235677,
-      "cooler": 15398254084189
+      "case": 7100243050589,
+      "cpu": 910101,
+      "motherboard": 970104,
+      "gpu": 910102,
+      "ram": 7943402848349,
+      "storage": 8127197839453,
+      "psu": 980703,
+      "cooler": 980803
     }
   },
   {
@@ -46,14 +46,14 @@
     "cabinet_color": "Black",
     "rgb_mode": "Chroma RGB Wave",
     "components": {
-      "case": 7106473459805,
-      "cpu": 7998417076317,
-      "motherboard": 8223038767197,
-      "gpu": 8230538838109,
-      "ram": 15474574655581,
-      "storage": 15464869822557,
-      "psu": 8234203480157,
-      "cooler": 15398253264989
+      "case": 7100243050589,
+      "cpu": 890101,
+      "motherboard": 970105,
+      "gpu": 890102,
+      "ram": 980405,
+      "storage": 8127197839453,
+      "psu": 8051122634845,
+      "cooler": 7975801421917
     }
   }
 ]

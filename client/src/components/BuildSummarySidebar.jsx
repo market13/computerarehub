@@ -58,7 +58,7 @@ export default function BuildSummarySidebar({
     specText += `\nEstimated Consumption: ~${compatibility.estimatedWattage}W\n`;
     specText += `Total Price: ₹${totalPrice.toLocaleString('en-IN')}\n`;
     specText += `Compatibility: ${compatibility.isCompatible ? "100% Compatible" : "Issues Detected"}\n`;
-    specText += `Configured on Nexus 3D PC Builder\n`;
+    specText += `Configured on Computer Care 3D PC Configurator (computercare.in)\n`;
 
     navigator.clipboard.writeText(specText);
     setCopied(true);

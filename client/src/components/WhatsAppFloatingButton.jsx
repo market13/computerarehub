@@ -12,7 +12,7 @@ export default function WhatsAppFloatingButton() {
   return (
     <aside 
       aria-label="WhatsApp Support Floating Action" 
-      className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-50 flex items-end flex-col select-none group pointer-events-auto"
+      className="hidden lg:flex fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-50 flex-col items-end select-none group pointer-events-auto"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

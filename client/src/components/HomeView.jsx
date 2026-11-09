@@ -37,7 +37,7 @@ export default function HomeView({
   });
 
   return (
-    <div className="w-full flex flex-col gap-10 pb-16">
+    <div className="w-full flex flex-col gap-8 sm:gap-10 pb-28 lg:pb-16">
       {/* 1. Hero Carousel Banner & Service Assurance */}
       <BannerHero onNavigate={onNavigate} />
 
@@ -120,11 +120,11 @@ export default function HomeView({
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <div className="w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-xl border border-slate-200 p-2 flex items-center justify-center flex-shrink-0 shadow-2xs">
                 <img
-                  src={build.case?.image || build.case?.cdn_image || "/images/products/case/case-0001-zebronics-iceberg.jpg"}
+                  src={build.case?.image || build.case?.cdn_image || "/images/featured-case.png"}
                   alt="PC Cabinet"
                   className="w-full h-full object-contain"
                   onError={(e) => {
-                    e.target.src = "https://cdn.shopify.com/s/files/1/0583/5761/2704/files/1_15682fa0-c0b0-4665-9fa8-1f5beab15f8a.jpg";
+                    e.target.src = "/images/featured-case.png";
                   }}
                 />
               </div>

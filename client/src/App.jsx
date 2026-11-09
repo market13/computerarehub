@@ -11,6 +11,8 @@ import Footer from './components/Footer';
 import BulkOrderView from './components/BulkOrderView';
 import BulkOrderFloatingBadge from './components/BulkOrderFloatingBadge';
 import WhatsAppFloatingButton from './components/WhatsAppFloatingButton';
+import MobileBottomNav from './components/MobileBottomNav';
+import AdminPortalView from './components/AdminPortalView';
 
 const COMPONENT_SLOTS = [
   { key: 'case', label: 'PC Cabinet / Case' },
@@ -29,11 +31,36 @@ export default function App() {
   const [catalog, setCatalog] = useState({});
   const [presets, setPresets] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('home'); // 'home', 'builder', 'catalog'
+  const [activeTab, setActiveTab] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.toLowerCase();
+      const tabParam = new URLSearchParams(window.location.search).get('tab');
+      if (hash === '#admin' || tabParam === 'admin') return 'admin';
+      if (hash === '#builder' || tabParam === 'builder') return 'builder';
+      if (hash === '#catalog' || tabParam === 'catalog') return 'catalog';
+      if (hash === '#bulk-order' || tabParam === 'bulk-order') return 'bulk-order';
+    }
+    return 'home';
+  });
 
   // Search & category filter state
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCatalogCategory, setSelectedCatalogCategory] = useState('all');
+
+  
+  // Sync URL hash with activeTab
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === '#admin') setActiveTab('admin');
+      else if (hash === '#builder') setActiveTab('builder');
+      else if (hash === '#catalog') setActiveTab('catalog');
+      else if (hash === '#bulk-order') setActiveTab('bulk-order');
+      else if (hash === '#home' || hash === '') setActiveTab('home');
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   // Custom PC build state
   const [build, setBuild] = useState({
@@ -221,6 +248,11 @@ export default function App() {
           />
         ) : activeTab === 'bulk-order' ? (
           <BulkOrderView onNavigate={handleNavigate} />
+        ) : activeTab === 'admin' ? (
+          <AdminPortalView
+            catalog={catalog}
+            onNavigate={handleNavigate}
+          />
         ) : (
           <CatalogView
             catalog={catalog}
@@ -284,6 +316,18 @@ export default function App() {
 
       {/* 6. Floating Corner WhatsApp Button */}
       <WhatsAppFloatingButton />
+
+      {/* 7. Mobile Bottom Navigation Bar (Matching user reference) */}
+      <MobileBottomNav
+        activeTab={activeTab}
+        onNavigate={handleNavigate}
+        cartCount={buildItems.length}
+        onOpenCart={() => setIsCartOpen(true)}
+        onSearchFocus={() => {
+          setActiveTab('catalog');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+      />
 
       {/* Computer Care Style Footer */}
       <Footer onNavigate={handleNavigate} />

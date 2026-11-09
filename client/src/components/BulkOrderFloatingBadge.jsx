@@ -36,28 +36,7 @@ export default function BulkOrderFloatingBadge({ activeTab, onNavigate }) {
         </button>
       </aside>
 
-      {/* Mobile: Floating Bottom-Left Pill (Completely Independent Fixed Position) */}
-      <aside 
-        aria-label="Mobile Bulk Order Action"
-        className="sm:hidden fixed bottom-5 left-4 z-40 select-none"
-      >
-        <button
-          type="button"
-          onClick={() => onNavigate('bulk-order')}
-          className={`flex items-center gap-2 px-3.5 py-2.5 rounded-full shadow-2xl transition-all border cursor-pointer active:scale-95 ${
-            isBulkActive
-              ? 'bg-[#e11d48] text-white border-rose-300 ring-2 ring-rose-400/40'
-              : 'bg-[#2b38d1] text-white border-blue-400'
-          }`}
-          title="B2B & Corporate Bulk Order Inquiries"
-        >
-          <Building2 className="w-4 h-4 text-white" />
-          <span className="text-xs font-bold font-display uppercase tracking-wide text-white">Bulk Order</span>
-          <span className="text-[9px] bg-amber-400 text-slate-900 font-bold px-1.5 py-0.2 rounded font-mono">
-            B2B
-          </span>
-        </button>
-      </aside>
+      {/* Mobile: Bulk order is integrated directly in header & hamburger menu, keeping mobile bottom navigation clutter-free matching user reference */}
     </>
   );
 }

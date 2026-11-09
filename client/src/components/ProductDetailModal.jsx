@@ -239,7 +239,7 @@ export default function ProductDetailModal({
               </button>
 
               <a
-                href={`https://wa.me/919810550222?text=${encodeURIComponent(`Hi Computer Care, I am interested in ${product.name} (Rs. ${product.price?.toLocaleString('en-IN')})`)}`}
+                href={`https://wa.me/919810550222?text=${encodeURIComponent(`Hi Computer Care, I am interested in ${product.title || product.name || 'this product'}${product.price ? ` (Rs. ${product.price.toLocaleString('en-IN')})` : ''}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-3 sm:px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-display font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors shadow-md"

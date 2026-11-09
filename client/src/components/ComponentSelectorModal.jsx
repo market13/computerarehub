@@ -93,7 +93,7 @@ export default function ComponentSelectorModal({
         return false;
       }
 
-      // Safety: In Cabinet section, filter out loose fan accessories while displaying genuine budget cabinets (Intex, Geonix, etc.)
+      // Safety: In Cabinet section, filter out loose fan accessories while displaying genuine budget cabinets (Lapcare, Geonix, Consistent, etc.)
       if (categoryKey === 'case') {
         const title = (p.title || "").toLowerCase();
         const isGenuineCabinet = title.includes('cabinet') || title.includes('tower') || title.includes('chassis');

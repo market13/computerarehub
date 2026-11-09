@@ -133,6 +133,16 @@ export default function Footer({ onNavigate }) {
             © 2026 <strong>Computer Care</strong>. All Rights Reserved.
           </div>
           <div className="flex items-center gap-4">
+            <button
+              type="button"
+              onClick={() => onNavigate('admin')}
+              className="hover:text-brand-gold transition-colors text-slate-400 font-mono text-[11px] flex items-center gap-1 cursor-pointer"
+              title="Administrator Control Center"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-brand-gold" />
+              <span>Admin Portal</span>
+            </button>
+            <span className="text-slate-700">•</span>
             <span>Secure UPI, Cards, NetBanking, EMI Accepted</span>
           </div>
         </div>
