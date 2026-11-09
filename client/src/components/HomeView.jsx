@@ -195,7 +195,7 @@ export default function HomeView({
             onClick={() => onNavigate('catalog')}
             className="flex items-center gap-1 text-xs font-bold font-display uppercase tracking-wider text-brand-blue hover:text-brand-blueLight"
           >
-            <span>View All (2,900+)</span>
+            <span>View All (3,200+)</span>
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>

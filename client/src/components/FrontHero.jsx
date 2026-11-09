@@ -47,7 +47,7 @@ export default function FrontHero({
 
         {/* Subtitle */}
         <p className="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl font-mono leading-relaxed">
-          Interactive 360° cabinet visualization, automated socket & wattage compatibility checks, and 2,900+ authentic components with verified pricing.
+          Interactive 360° cabinet visualization, automated socket & wattage compatibility checks, and 3,200+ authentic components with verified pricing.
         </p>
 
         {/* Theme Picker Strip right on the Front Page */}
@@ -113,7 +113,7 @@ export default function FrontHero({
             className="px-5 py-3 rounded-xl font-mono text-xs sm:text-sm text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/15 transition-all flex items-center gap-2"
           >
             <Layers className="w-4 h-4 text-cyan-400" />
-            <span>Browse 2,900+ Parts</span>
+            <span>Browse 3,200+ Parts</span>
           </button>
         </div>
 

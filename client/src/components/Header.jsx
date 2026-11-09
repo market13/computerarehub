@@ -529,7 +529,7 @@ export default function Header({
         >
           <input
             type="text"
-            placeholder="Search 4,300+ PC components, rigs..."
+            placeholder="Search 3,200+ PC components, rigs..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="min-w-0 flex-1 px-3 py-1.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none"
@@ -1119,7 +1119,7 @@ export default function Header({
                   onClick={() => { setActiveTab('catalog'); onCategorySelect('all'); setMobileMenuOpen(false); }}
                   className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded cursor-pointer"
                 >
-                  Components (All 4,300+ Products)
+                  Components (All 3,200+ Products)
                 </button>
                 <button
                   onClick={() => { setActiveTab('catalog'); onCategorySelect('case'); setMobileMenuOpen(false); }}

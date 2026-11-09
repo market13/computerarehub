@@ -1,6 +1,6 @@
 # Computer Care — Custom PC Builder & Genuine Hardware Store
 
-> Computer Care (computercare.in) is India's premier custom PC configurator and hardware destination, featuring real-time 3D cabinet visualization, automated socket/chipset/RAM/wattage compatibility checks, and a verified catalog of authentic computer parts.
+> Computer Care (computercare.in) is India's premier custom PC configurator and hardware destination, featuring real-time 3D cabinet visualization, automated socket/chipset/RAM/wattage compatibility checks, and a verified catalog of 3,200+ authentic computer parts.
 
 ## Core Capabilities
 - **Custom PC Builder**: Real-time component selection, live PSU wattage meter, zero-bottleneck matching, and 3D visual preview.

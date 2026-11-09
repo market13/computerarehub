@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { TOTAL_PRODUCTS_COUNT } from '../constants/storeInfo';
 import { 
   Search, 
   ArrowUpDown, 
@@ -351,7 +352,7 @@ export default function CatalogView({
                 >
                   <span>{tab.label}</span>
                   <span className={`text-[10px] font-mono ${selectedCategory === tab.key ? 'text-white/80' : 'text-slate-400'}`}>
-                    {tab.key === 'all' ? '4,300+' : (catalog[tab.key]?.length || 0)}
+                    {tab.key === 'all' ? TOTAL_PRODUCTS_COUNT : (catalog[tab.key]?.length || 0)}
                   </span>
                 </button>
               ))}
