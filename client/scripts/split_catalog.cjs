@@ -84,10 +84,20 @@ const homeFeatured = {};
   }
 });
 
+let updatedAt = new Date().toISOString();
+if (fs.existsSync(targetManifestPath)) {
+  try {
+    const existing = JSON.parse(fs.readFileSync(targetManifestPath, 'utf8'));
+    if (existing.buildHash === buildHash && existing.updatedAt) {
+      updatedAt = existing.updatedAt;
+    }
+  } catch {}
+}
+
 const manifest = {
   version: buildVersion,
   buildHash,
-  updatedAt: new Date().toISOString(),
+  updatedAt,
   totalProducts,
   categories: Object.keys(data),
   categoryCounts,
