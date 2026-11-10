@@ -169,6 +169,7 @@ const STREAMING_MENU_COLUMNS = [
 export default function Header({ 
   activeTab, 
   setActiveTab, 
+  selectedCatalogCategory = 'all',
   buildCount = 0, 
   totalPrice = 0,
   _onOpenPresets = () => {},
@@ -356,9 +357,9 @@ export default function Header({
             {/* Category selection dropdown inside search bar */}
             <div className="relative flex items-center pl-2.5 pr-1.5 text-slate-700 bg-transparent flex-shrink-0">
               <select
+                value={activeTab === 'catalog' ? selectedCatalogCategory : 'all'}
                 onChange={(e) => {
                   onCategorySelect(e.target.value);
-                  if (activeTab !== 'catalog') setActiveTab('catalog');
                 }}
                 className="text-xs font-sans text-slate-800 bg-transparent py-2 pr-5 focus:outline-none cursor-pointer appearance-none font-medium max-w-[115px] xl:max-w-[145px] truncate"
               >
@@ -568,133 +569,133 @@ export default function Header({
                 onMouseLeave={() => setCategoryDropdownOpen(false)}
               >
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('gaming_pc'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('gaming_pc'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span className="font-bold text-blue-700">Pre-Built Gaming PCs</span>
                   <span className="text-[10px] text-blue-600 font-mono font-bold">50+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('gaming_mouse'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('gaming_mouse'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Gaming Mice</span>
                   <span className="text-[10px] text-slate-400 font-mono">50+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('gaming_keyboard'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('gaming_keyboard'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Gaming Keyboards</span>
                   <span className="text-[10px] text-slate-400 font-mono">50+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('gaming_headset'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('gaming_headset'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Gaming Headphones</span>
                   <span className="text-[10px] text-slate-400 font-mono">50+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('elgato'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('elgato'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Elgato Stream Gear</span>
                   <span className="text-[10px] text-slate-400 font-mono">40+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('webcam'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('webcam'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Webcams (FHD & 4K)</span>
                   <span className="text-[10px] text-slate-400 font-mono">30+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('microphone'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('microphone'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Microphones & Audio</span>
                   <span className="text-[10px] text-slate-400 font-mono">30+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('gaming_chair'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('gaming_chair'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Gaming Chairs</span>
                   <span className="text-[10px] text-slate-400 font-mono">30+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('gaming_controller'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('gaming_controller'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Controllers / Gamepad</span>
                   <span className="text-[10px] text-slate-400 font-mono">30+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('case'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('case'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>PC Cabinets (Chassis)</span>
                   <span className="text-[10px] text-slate-400 font-mono">340+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('case_fan'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('case_fan'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Cabinet Fans (120mm/140mm)</span>
                   <span className="text-[10px] text-slate-400 font-mono">130+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('gpu'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('gpu'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Graphics Cards</span>
                   <span className="text-[10px] text-slate-400 font-mono">371+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('cpu'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('cpu'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Processors (CPUs)</span>
                   <span className="text-[10px] text-slate-400 font-mono">327+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('motherboard'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('motherboard'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Motherboards</span>
                   <span className="text-[10px] text-slate-400 font-mono">200+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('ram'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('ram'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Memory (RAM)</span>
                   <span className="text-[10px] text-slate-400 font-mono">661+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('storage'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('storage'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Storage (M.2 NVMe SSD)</span>
                   <span className="text-[10px] text-slate-400 font-mono">194+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('psu'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('psu'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Power Supplies (PSU)</span>
                   <span className="text-[10px] text-slate-400 font-mono">149+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('cooler'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('cooler'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Coolers & Liquid AIO</span>
                   <span className="text-[10px] text-slate-400 font-mono">234+</span>
                 </button>
                 <button 
-                  onClick={() => { setActiveTab('catalog'); setCategoryDropdownOpen(false); onCategorySelect('monitor'); }}
+                  onClick={() => { setCategoryDropdownOpen(false); onCategorySelect('monitor'); }}
                   className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-blue-600 font-medium flex items-center justify-between"
                 >
                   <span>Gaming Monitors</span>
@@ -754,9 +755,9 @@ export default function Header({
 
             {/* Components ⌵ */}
             <button 
-              onClick={() => { setActiveTab('catalog'); onCategorySelect('all'); setActiveMegaMenu(null); }}
+              onClick={() => { onCategorySelect('all'); setActiveMegaMenu(null); }}
               className={`flex items-center gap-1 hover:text-blue-600 transition-colors ${
-                activeTab === 'catalog' ? 'text-blue-600 font-semibold' : ''
+                activeTab === 'catalog' && selectedCatalogCategory === 'all' ? 'text-blue-600 font-semibold' : ''
               }`}
             >
               <span>Components</span>
@@ -801,7 +802,6 @@ export default function Header({
 
                   <button
                     onClick={() => { 
-                      setActiveTab('catalog'); 
                       onCategorySelect('gaming_pc'); 
                       setSearchQuery('');
                       setPcBuildsMenuOpen(false); 
@@ -826,8 +826,10 @@ export default function Header({
 
             {/* Monitors ⌵ */}
             <button 
-              onClick={() => { setActiveTab('catalog'); onCategorySelect('monitor'); setActiveMegaMenu(null); }}
-              className="flex items-center gap-1 hover:text-blue-600 transition-colors"
+              onClick={() => { onCategorySelect('monitor'); setActiveMegaMenu(null); }}
+              className={`flex items-center gap-1 hover:text-blue-600 transition-colors ${
+                activeTab === 'catalog' && selectedCatalogCategory === 'monitor' ? 'text-blue-600 font-semibold' : ''
+              }`}
             >
               <span>Monitors</span>
               <ChevronDown className="w-3 h-3 text-slate-400" />
@@ -859,15 +861,16 @@ export default function Header({
             </button>
 
             {/* Pre-Built PCs */}
-            <button 
-              onClick={() => { 
-                setActiveTab('catalog'); 
+            <a 
+              href="/catalog/gaming_pc"
+              onClick={(e) => { 
+                e.preventDefault();
                 onCategorySelect('gaming_pc'); 
                 setSearchQuery('');
                 setActiveMegaMenu(null); 
               }}
               className={`hover:text-blue-600 transition-colors flex items-center gap-1 font-medium ${
-                activeTab === 'catalog' ? 'text-blue-600 font-semibold' : ''
+                activeTab === 'catalog' && selectedCatalogCategory === 'gaming_pc' ? 'text-blue-600 font-semibold' : ''
               }`}
               title="Browse Pre-Built Desktop & Gaming PCs"
             >
@@ -875,7 +878,7 @@ export default function Header({
               <span className="text-[9px] bg-red-100 text-red-600 font-bold px-1.5 py-0.2 rounded font-mono">
                 HOT
               </span>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -1032,8 +1035,14 @@ export default function Header({
               </button>
 
               {/* Pre-Built PCs CTA */}
-              <button
-                onClick={() => { setActiveTab('catalog'); onCategorySelect('gaming_pc'); setSearchQuery(''); setMobileMenuOpen(false); }}
+              <a
+                href="/catalog/gaming_pc"
+                onClick={(e) => { 
+                  e.preventDefault();
+                  onCategorySelect('gaming_pc'); 
+                  setSearchQuery(''); 
+                  setMobileMenuOpen(false); 
+                }}
                 className="w-full text-left px-3.5 py-2.5 rounded-lg border border-slate-200 hover:bg-slate-50 flex items-center justify-between font-bold text-slate-800 cursor-pointer"
               >
                 <div className="flex items-center gap-2">
@@ -1041,7 +1050,7 @@ export default function Header({
                   <span>Pre-Built Gaming PCs</span>
                 </div>
                 <span className="text-[10px] bg-red-100 text-red-600 font-bold px-1.5 py-0.5 rounded font-mono">HOT</span>
-              </button>
+              </a>
 
               {/* Navigation Links */}
               <div className="flex flex-col gap-1 text-sm font-medium text-slate-800 pt-2 border-t border-slate-100">
@@ -1115,25 +1124,25 @@ export default function Header({
                 </div>
 
                 <button
-                  onClick={() => { setActiveTab('catalog'); onCategorySelect('all'); setMobileMenuOpen(false); }}
+                  onClick={() => { onCategorySelect('all'); setMobileMenuOpen(false); }}
                   className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded cursor-pointer"
                 >
                   Components (All 3,200+ Products)
                 </button>
                 <button
-                  onClick={() => { setActiveTab('catalog'); onCategorySelect('case'); setMobileMenuOpen(false); }}
+                  onClick={() => { onCategorySelect('case'); setMobileMenuOpen(false); }}
                   className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded cursor-pointer"
                 >
                   PC Cabinets & Cases (340+)
                 </button>
                 <button
-                  onClick={() => { setActiveTab('catalog'); onCategorySelect('gpu'); setMobileMenuOpen(false); }}
+                  onClick={() => { onCategorySelect('gpu'); setMobileMenuOpen(false); }}
                   className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded cursor-pointer"
                 >
                   Graphics Cards (RTX 40 / 50 & Radeon)
                 </button>
                 <button
-                  onClick={() => { setActiveTab('catalog'); onCategorySelect('monitor'); setMobileMenuOpen(false); }}
+                  onClick={() => { onCategorySelect('monitor'); setMobileMenuOpen(false); }}
                   className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded cursor-pointer"
                 >
                   Gaming Monitors (High-Refresh)

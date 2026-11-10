@@ -37,9 +37,17 @@ export default function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const getCategoryFromPath = (pathname) => {
+    const parts = pathname.split('/').filter(Boolean);
+    if (parts[0] === 'catalog') {
+      return parts[1] || 'all';
+    }
+    return 'all';
+  };
+
   // Search & category filter state
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCatalogCategory, setSelectedCatalogCategory] = useState('all');
+  const [selectedCatalogCategory, setSelectedCatalogCategory] = useState(() => getCategoryFromPath(location.pathname));
 
   // Derive activeTab from router pathname
   const activeTab = (() => {
@@ -55,15 +63,8 @@ export default function App() {
   const [prevPath, setPrevPath] = useState(location.pathname);
   if (location.pathname !== prevPath) {
     setPrevPath(location.pathname);
-    const p = location.pathname;
-    if (p.startsWith('/catalog/')) {
-      const cat = p.replace('/catalog/', '').trim();
-      if (cat) {
-        setSelectedCatalogCategory(cat);
-      }
-    } else if (p === '/catalog') {
-      setSelectedCatalogCategory('all');
-    }
+    const cat = getCategoryFromPath(location.pathname);
+    setSelectedCatalogCategory(cat);
   }
 
   // Backward-compatibility: redirect legacy hash URLs (#builder, #catalog, etc.) to real paths
@@ -333,10 +334,13 @@ export default function App() {
 
   const handleCategorySelect = (catKey) => {
     setSelectedCatalogCategory(catKey);
-    if (catKey === 'all') {
-      navigate('/catalog');
+    const targetPath = catKey === 'all' ? '/catalog' : `/catalog/${catKey}`;
+    if (typeof document !== 'undefined' && document.startViewTransition) {
+      document.startViewTransition(() => {
+        navigate(targetPath);
+      });
     } else {
-      navigate(`/catalog/${catKey}`);
+      navigate(targetPath);
     }
   };
 
@@ -395,6 +399,7 @@ export default function App() {
       <Header
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        selectedCatalogCategory={selectedCatalogCategory}
         buildCount={buildItems.length}
         totalPrice={totalPrice}
         onOpenPresets={() => setIsPresetsOpen(true)}
@@ -452,7 +457,7 @@ export default function App() {
             catalog={catalog}
             build={build}
             selectedCategory={selectedCatalogCategory}
-            onSelectCategory={setSelectedCatalogCategory}
+            onSelectCategory={handleCategorySelect}
             onSelectComponent={handleSelectComponent}
             onViewDetails={setDetailProduct}
             searchQuery={searchQuery}

@@ -175,6 +175,36 @@ async function runTest() {
     console.log('✓ PASS: Decoded WhatsApp message text:', decodedHref);
     console.log('✓ PASS: WhatsApp link contains valid target, product title, and zero "undefined" values.');
 
+    // -------------------------------------------------------------
+    // Test 5: Pre-Built PCs Header Navigation Check
+    // -------------------------------------------------------------
+    console.log('\n--- Test 5: Pre-Built PCs Navigation Check ---');
+    await page.goto(`${BASE_URL}/`, { waitUntil: 'networkidle', timeout: 30000 });
+    await page.waitForTimeout(1000);
+
+    const prebuiltLink = page.locator('a:has-text("Pre-Built PCs"), button:has-text("Pre-Built PCs")').first();
+    await prebuiltLink.click();
+    await page.waitForTimeout(1000);
+
+    const currentUrl = page.url();
+    console.log('Navigated URL:', currentUrl);
+    if (!currentUrl.includes('/catalog/gaming_pc')) {
+      throw new Error(`FAIL: Pre-Built PCs navigation went to "${currentUrl}" instead of "/catalog/gaming_pc"!`);
+    }
+
+    const headings = await page.locator('h1, h2').allInnerTexts();
+    console.log('Headings found:', headings.slice(0, 3));
+    if (!headings.some(h => h.includes('PRE-BUILT GAMING PCS'))) {
+      throw new Error('FAIL: Catalog page heading did not show "PRE-BUILT GAMING PCS"!');
+    }
+
+    // Verify pre-built products are rendered
+    const prebuiltCards = await page.locator('text=Intel Core i3 3rd Gen').count();
+    if (prebuiltCards === 0) {
+      throw new Error('FAIL: Complete PC Setup pre-built card was not rendered!');
+    }
+    console.log('✓ PASS: Pre-Built PCs header link correctly navigates to /catalog/gaming_pc with pre-built cards displayed.');
+
     console.log('\n======================================================');
     console.log(' ALL AUDIT E2E TESTS (INCLUDING P0 ITEMS) PASSED! ');
     console.log('======================================================\n');
