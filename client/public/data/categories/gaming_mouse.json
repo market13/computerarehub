@@ -832,10 +832,10 @@
     "compare_at_price": 299,
     "available": true,
     "sku": "CST-MS-USB",
-    "image": "/images/products/gaming_mouse/970504.jpg",
-    "cdn_image": "/images/products/gaming_mouse/970504.jpg",
+    "image": "/images/products/gaming_mouse/consistent_optical_mouse_v2.png",
+    "cdn_image": "/images/products/gaming_mouse/consistent_optical_mouse_v2.png",
     "images": [
-      "/images/products/gaming_mouse/970504.jpg"
+      "/images/products/gaming_mouse/consistent_optical_mouse_v2.png"
     ],
     "specs": {
       "connectivity": "Wired USB",

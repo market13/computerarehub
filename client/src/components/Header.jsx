@@ -338,16 +338,13 @@ export default function Header({
           className="flex items-center gap-1.5 sm:gap-2 cursor-pointer flex-shrink-0 group"
           title="Computer Care Home"
         >
-          {/* Logo Geometric Graphic Mark matching Computer Care EH / CC shape */}
+          {/* Official Computer Care Brand Logo Mark */}
           <div className="flex items-center">
-            <svg className="w-7 h-7 sm:w-9 sm:h-9" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Left yellow fold */}
-              <path d="M6 10H17V17H12V23H17V30H6V10Z" fill="#F59E0B" />
-              <path d="M14 6H20V12H14V6Z" fill="#D97706" />
-              {/* Right dark charcoal fold */}
-              <path d="M21 10H32V17H26V23H32V30H21V10Z" fill="#1E293B" />
-              <path d="M26 18H34V22H26V18Z" fill="#0F172A" />
-            </svg>
+            <img 
+              src="/favicon-32x32.png" 
+              alt="Computer Care CC Logo" 
+              className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg object-contain bg-black p-0.5 shadow-sm border border-slate-800/20" 
+            />
             <div className="flex flex-col ml-1 sm:ml-1.5">
               <span className="font-black font-display text-[16px] sm:text-[20px] lg:text-[22px] tracking-tight text-slate-900 group-hover:text-blue-700 transition-colors leading-none uppercase">
                 COMPUTERCARE.COM
