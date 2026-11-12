@@ -450,12 +450,6 @@ export default function CatalogView({
                       <span className="absolute top-1.5 left-1.5 text-[9px] font-mono px-1.5 py-0.2 rounded bg-slate-100 font-semibold text-slate-700 border border-slate-200">
                         {p.vendor}
                       </span>
-
-                      {p.compare_at_price > p.price && (
-                        <span className="absolute top-1.5 right-1.5 text-[9px] font-mono font-bold px-1.5 py-0.2 rounded bg-brand-red text-white shadow-sm">
-                          {Math.round(((p.compare_at_price - p.price) / p.compare_at_price) * 100)}% OFF
-                        </span>
-                      )}
                     </div>
 
                     <div className="flex items-center gap-1.5 mb-1 flex-wrap">
@@ -489,11 +483,6 @@ export default function CatalogView({
                       <div className="font-display font-bold text-sm text-brand-navy">
                         ₹{p.price.toLocaleString('en-IN')}
                       </div>
-                      {p.compare_at_price > p.price && (
-                        <div className="font-mono text-[9px] text-slate-400 line-through">
-                          ₹{p.compare_at_price.toLocaleString('en-IN')}
-                        </div>
-                      )}
                     </div>
 
                     <div className="flex items-center gap-1">

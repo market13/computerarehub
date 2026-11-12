@@ -6,42 +6,36 @@ const CATEGORIES = [
   {
     id: 'graphic_card',
     title: 'GRAPHIC CARD',
-    discount: 'UP TO 38% OFF',
     image: '/images/shop_by_category/graphic_card.png',
     categoryKey: 'gpu'
   },
   {
     id: 'ram',
     title: 'RAM',
-    discount: 'UP TO 41% OFF',
     image: '/images/shop_by_category/ram.png',
     categoryKey: 'ram'
   },
   {
     id: 'ssd',
     title: 'SSD',
-    discount: 'UP TO 32% OFF',
     image: '/images/shop_by_category/ssd.png',
     categoryKey: 'storage'
   },
   {
     id: 'pc_cabinet',
     title: 'PC CABINET',
-    discount: 'UP TO 48% OFF',
     image: '/images/shop_by_category/pc_cabinet.png',
     categoryKey: 'case'
   },
   {
     id: 'air_cooler',
     title: 'AIR COOLER',
-    discount: 'UP TO 51% OFF',
     image: '/images/shop_by_category/air_cooler.png',
     categoryKey: 'cooler'
   },
   {
     id: 'liquid_cooler',
     title: 'LIQUID COOLER',
-    discount: 'UP TO 42% OFF',
     image: '/images/shop_by_category/liquid_cooler.png',
     categoryKey: 'cooler'
   },
@@ -50,56 +44,48 @@ const CATEGORIES = [
   {
     id: 'processor',
     title: 'PROCESSOR',
-    discount: 'UP TO 42% OFF',
     image: '/images/shop_by_category/processor.png',
     categoryKey: 'cpu'
   },
   {
     id: 'motherboard',
     title: 'MOTHERBOARD',
-    discount: 'UP TO 48% OFF',
     image: '/images/shop_by_category/motherboard.png',
     categoryKey: 'motherboard'
   },
   {
     id: 'power_supply',
     title: 'POWER SUPPLY',
-    discount: 'UP TO 38% OFF',
     image: '/images/shop_by_category/power_supply.png',
     categoryKey: 'psu'
   },
   {
     id: 'monitor',
     title: 'MONITOR',
-    discount: 'UP TO 31% OFF',
     image: '/images/shop_by_category/monitor.png',
     categoryKey: 'monitor'
   },
   {
     id: 'mouse',
     title: 'MOUSE',
-    discount: 'UP TO 72% OFF',
     image: '/images/shop_by_category/mouse.png',
     categoryKey: 'gaming_mouse'
   },
   {
     id: 'keyboard',
     title: 'KEYBOARD',
-    discount: 'UP TO 58% OFF',
     image: '/images/shop_by_category/keyboard.png',
     categoryKey: 'gaming_keyboard'
   },
   {
     id: 'headphones',
     title: 'HEADPHONES',
-    discount: 'UP TO 65% OFF',
     image: '/images/shop_by_category/headphones.png',
     categoryKey: 'gaming_headphone'
   },
   {
     id: 'mousepad',
     title: 'MOUSEPAD',
-    discount: 'UP TO 60% OFF',
     image: '/images/shop_by_category/mousepad.png',
     categoryKey: 'gaming_mousepad'
   }
@@ -150,13 +136,10 @@ export default function ShopByCategory({ onSelectCategory }) {
               />
             </div>
 
-            {/* Title & Discount Label Beneath Box */}
+            {/* Title Beneath Box */}
             <div className="flex flex-col items-center justify-center w-full mt-3">
               <span className="font-display font-black text-xs sm:text-sm tracking-wide text-white uppercase group-hover:text-amber-400 transition-colors line-clamp-1">
                 {cat.title}
-              </span>
-              <span className="font-sans font-bold text-[10px] sm:text-[11px] text-slate-300 uppercase tracking-tight mt-0.5">
-                {cat.discount}
               </span>
             </div>
           </a>

@@ -353,13 +353,6 @@ export default function ComponentSelectorModal({
                       <span className="absolute top-2 left-2 text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 font-semibold text-slate-700 border border-slate-200">
                         {p.vendor}
                       </span>
-
-                      {/* Discount pill */}
-                      {p.compare_at_price > p.price && (
-                        <span className="absolute top-2 right-2 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-brand-red text-white shadow-sm">
-                          {Math.round(((p.compare_at_price - p.price) / p.compare_at_price) * 100)}% OFF
-                        </span>
-                      )}
                     </div>
 
                     {/* Title */}
@@ -402,11 +395,6 @@ export default function ComponentSelectorModal({
                       <div className="font-display font-bold text-base text-brand-navy">
                         ₹{p.price.toLocaleString('en-IN')}
                       </div>
-                      {p.compare_at_price > p.price && (
-                        <div className="font-mono text-[10px] text-slate-400 line-through">
-                          ₹{p.compare_at_price.toLocaleString('en-IN')}
-                        </div>
-                      )}
                     </div>
 
                     <div className="flex items-center gap-1.5">

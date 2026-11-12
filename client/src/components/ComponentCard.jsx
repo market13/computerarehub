@@ -94,11 +94,6 @@ export default function ComponentCard({
               <span className="font-display font-bold text-sm sm:text-base text-brand-navy block">
                 ₹{item.price.toLocaleString('en-IN')}
               </span>
-              {item.compare_at_price > item.price && (
-                <span className="font-mono text-[10px] text-slate-400 line-through">
-                  ₹{item.compare_at_price.toLocaleString('en-IN')}
-                </span>
-              )}
             </div>
 
             <div className="flex items-center gap-1.5">

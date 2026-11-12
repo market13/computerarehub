@@ -17,11 +17,9 @@ export default function BuildSummarySidebar({
 }) {
   const [copied, setCopied] = useState(false);
 
-  // Compute total price & MRP
+  // Compute total price
   const items = Object.values(build).filter(Boolean);
   const totalPrice = items.reduce((sum, item) => sum + (item.price || 0), 0);
-  const totalMrp = items.reduce((sum, item) => sum + (item.compare_at_price || item.price || 0), 0);
-  const totalSavings = totalMrp - totalPrice;
 
   // Compatibility analysis
   const compatibility = checkCompatibility(build);
@@ -82,21 +80,11 @@ export default function BuildSummarySidebar({
       <div>
         <div className="flex items-center justify-between text-xs text-slate-400 font-mono mb-1">
           <span>BUILD TOTAL ({items.length} parts)</span>
-          {totalSavings > 0 && (
-            <span className="text-emerald-400 font-medium">
-              Save ₹{totalSavings.toLocaleString('en-IN')}
-            </span>
-          )}
         </div>
         <div className="flex items-baseline gap-2.5">
           <span className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
             ₹{totalPrice.toLocaleString('en-IN')}
           </span>
-          {totalSavings > 0 && (
-            <span className="text-sm font-mono text-slate-500 line-through">
-              ₹{totalMrp.toLocaleString('en-IN')}
-            </span>
-          )}
         </div>
       </div>
 

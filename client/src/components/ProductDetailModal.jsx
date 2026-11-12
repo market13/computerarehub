@@ -205,16 +205,6 @@ export default function ProductDetailModal({
                 <span className="text-2xl font-display font-black text-brand-navy">
                   ₹{product.price.toLocaleString('en-IN')}
                 </span>
-                {product.compare_at_price > product.price && (
-                  <span className="text-sm font-mono text-slate-400 line-through">
-                    ₹{product.compare_at_price.toLocaleString('en-IN')}
-                  </span>
-                )}
-                {product.compare_at_price > product.price && (
-                  <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-rose-100 text-brand-red">
-                    {Math.round(((product.compare_at_price - product.price) / product.compare_at_price) * 100)}% OFF
-                  </span>
-                )}
               </div>
             </div>
 

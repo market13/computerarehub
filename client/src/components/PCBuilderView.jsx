@@ -53,8 +53,6 @@ export default function PCBuilderView({
 
   const items = Object.values(build).filter(Boolean);
   const totalPrice = items.reduce((sum, item) => sum + (item.price || 0), 0);
-  const totalMrp = items.reduce((sum, item) => sum + (item.compare_at_price || item.price || 0), 0);
-  const totalSavings = totalMrp - totalPrice;
 
   const compatibility = checkCompatibility(build);
   const gaming = calculateGamingScores(build);
@@ -356,11 +354,6 @@ export default function PCBuilderView({
                   <span className="font-display font-black text-2xl text-brand-navy">
                     ₹{totalPrice.toLocaleString('en-IN')}
                   </span>
-                  {totalSavings > 0 && (
-                    <span className="text-xs font-mono text-slate-400 line-through">
-                      ₹{totalMrp.toLocaleString('en-IN')}
-                    </span>
-                  )}
                 </div>
               </div>
 

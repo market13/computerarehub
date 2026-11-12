@@ -212,11 +212,6 @@ export default function CatalogPage({
                   <div className="font-mono font-bold text-sm text-cyan-400">
                     ₹{p.price.toLocaleString('en-IN')}
                   </div>
-                  {p.compare_at_price > p.price && (
-                    <div className="font-mono text-[10px] text-slate-500 line-through">
-                      ₹{p.compare_at_price.toLocaleString('en-IN')}
-                    </div>
-                  )}
                 </div>
 
                 <div className="flex items-center gap-1">
