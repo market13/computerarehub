@@ -9,7 +9,9 @@ import {
   ChevronDown, 
   Sparkles,
   Box,
-  Building2
+  Building2,
+  Phone,
+  Mail
 } from 'lucide-react';
 
 // Exact Gaming Mega Menu featuring authorized partner brands
@@ -292,40 +294,66 @@ export default function Header({
       </div>
       {/* 1. TOP ANNOUNCEMENT BAR */}
       <div className="w-full border-b border-slate-200/80 bg-white text-slate-600 text-[11px] sm:text-[12px] font-sans py-1.5 px-3 sm:px-5 lg:px-8">
-        <div className="max-w-[1536px] w-full mx-auto flex items-center justify-between gap-1.5">
-          {/* Left Announcement & Quick Link */}
-          <div className="flex items-center gap-2 font-normal text-slate-700 tracking-tight min-w-0">
-            <span className="hidden md:inline truncate">Your one stop destination for all your Computer needs!</span>
-            <span className="text-slate-300 hidden md:inline">•</span>
-            <button
-              onClick={() => setActiveTab('builder')}
-              className="inline-flex items-center gap-1 text-blue-700 hover:text-blue-900 font-bold hover:underline cursor-pointer flex-shrink-0"
+        <div className="max-w-[1536px] w-full mx-auto flex items-center justify-between gap-2 overflow-x-hidden">
+          {/* Left Announcement & Quick Links */}
+          <div className="flex items-center gap-2 sm:gap-2.5 font-normal text-slate-700 tracking-tight min-w-0">
+            <span className="hidden lg:inline text-slate-500 truncate">Your one stop destination for all your Computer needs!</span>
+            <span className="text-slate-300 hidden lg:inline">•</span>
+            
+            {/* Custom PC Builder (Hidden on mobile < sm to guarantee zero collision) */}
+            <a
+              href="/builder"
+              onClick={(e) => { e.preventDefault(); setActiveTab('builder'); }}
+              className="hidden sm:inline-flex items-center gap-1 text-blue-700 hover:text-blue-900 font-bold hover:underline cursor-pointer flex-shrink-0"
+              title="3D Custom PC Builder"
             >
               <Box className="w-3.5 h-3.5 text-blue-600" />
               <span>Build Custom PC</span>
-              <span className="text-[9px] bg-red-100 text-red-600 px-1.5 py-0.2 rounded font-mono font-bold hidden sm:inline">CONFIGURATOR</span>
-            </button>
-            <span className="text-slate-300">•</span>
-            <button
-              onClick={() => setActiveTab('bulk-order')}
-              className="inline-flex items-center gap-1 text-amber-700 hover:text-amber-900 font-bold hover:underline cursor-pointer flex-shrink-0"
+              <span className="text-[9px] bg-red-100 text-red-600 px-1.5 py-0.5 rounded font-mono font-bold hidden md:inline">CONFIGURATOR</span>
+            </a>
+            
+            <span className="text-slate-300 hidden sm:inline">•</span>
+
+            {/* Bulk Order B2B Link */}
+            <a
+              href="/bulk-order"
+              onClick={(e) => { e.preventDefault(); setActiveTab('bulk-order'); }}
+              className="inline-flex items-center gap-1.5 text-slate-800 hover:text-amber-800 font-bold transition-colors cursor-pointer flex-shrink-0"
+              title="Bulk Hardware Orders & B2B Procurement"
             >
-              <Building2 className="w-3.5 h-3.5 text-amber-600" />
+              <Building2 className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
               <span>Bulk Order</span>
-              <span className="text-[9px] bg-amber-100 text-amber-800 px-1.5 py-0.2 rounded font-mono font-bold">B2B</span>
-            </button>
+              <span className="text-[9px] bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded font-mono font-bold leading-none">
+                B2B
+              </span>
+            </a>
           </div>
 
           {/* Right Contact Info */}
-          <div className="flex items-center gap-2.5 sm:gap-4 md:gap-6 text-slate-700 font-normal flex-shrink-0 text-[11px] sm:text-xs">
-            <a href="tel:9810550222" className="hover:text-blue-600 transition-colors flex items-center gap-1 font-medium">
-              <span>Helpline:</span>
-              <span className="text-slate-900 font-bold">+91 9810550222</span>
+          <div className="flex items-center gap-3 sm:gap-4 md:gap-6 text-slate-700 font-normal flex-shrink-0 text-[11px] sm:text-xs">
+            {/* Helpline Phone */}
+            <a 
+              href="tel:+919810550222" 
+              className="hover:text-blue-600 transition-colors inline-flex items-center gap-1.5 font-medium cursor-pointer"
+              title="Call Store Helpline: +91 9810550222"
+            >
+              <Phone className="w-3 h-3 text-emerald-600 flex-shrink-0" />
+              <span className="text-slate-500 hidden xs:inline">Helpline:</span>
+              <span className="text-slate-900 font-bold font-mono tracking-tight whitespace-nowrap">+91 9810550222</span>
             </a>
+
             <span className="text-slate-300 hidden sm:inline">|</span>
-            <span className="hover:text-blue-600 transition-colors hidden sm:inline">
-              Email: <span className="text-slate-800">contact@computercare.in</span>
-            </span>
+
+            {/* Email Contact */}
+            <a 
+              href="mailto:contact@computercare.in"
+              className="hover:text-blue-600 transition-colors hidden sm:inline-flex items-center gap-1 text-slate-600"
+              title="Email Computer Care Support Desk"
+            >
+              <Mail className="w-3 h-3 text-slate-400 flex-shrink-0" />
+              <span className="text-slate-500">Email:</span>
+              <span className="text-slate-800 font-medium">contact@computercare.in</span>
+            </a>
           </div>
         </div>
       </div>
