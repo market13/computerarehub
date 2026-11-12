@@ -6,8 +6,8 @@
     "price": 699,
     "compare_at_price": 1499,
     "category": "gaming_mouse",
-    "image": "/images/products/mouse/ant-esports-gm320-wired.png",
-    "cdn_image": "/images/products/mouse/ant-esports-gm320-wired.png",
+    "image": "/images/products/gaming_mouse/mouse_ant_esports_gm320.jpg",
+    "cdn_image": "/images/products/gaming_mouse/mouse_ant_esports_gm320.jpg",
     "handle": "ant-esports-gm320-rgb-wired-optical-gaming-mouse",
     "url": "#",
     "description": "Ant Esports GM320 is equipped with a high-speed 12,800 DPI optical sensor, 8 programmable macro buttons, dynamic RGB lighting modes, and an ergonomic thumb rest for competitive gaming.",
@@ -27,7 +27,10 @@
       "in_stock": true,
       "rgb": true
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_mouse/mouse_ant_esports_gm320.jpg"
+    ]
   },
   {
     "id": "mouse_zebronics_alex",
@@ -36,8 +39,8 @@
     "price": 199,
     "compare_at_price": 399,
     "category": "gaming_mouse",
-    "image": "/images/products/mouse/zebronics-alex-wired.png",
-    "cdn_image": "/images/products/mouse/zebronics-alex-wired.png",
+    "image": "/images/products/gaming_mouse/mouse_zebronics_alex.jpg",
+    "cdn_image": "/images/products/gaming_mouse/mouse_zebronics_alex.jpg",
     "handle": "zebronics-zeb-alex-usb-wired-optical-mouse",
     "url": "#",
     "description": "Zebronics Zeb-Alex is a dependable USB optical wired mouse with 1200 DPI tracking, comfortable palm shape, and silent scrolling for home and office computing.",
@@ -54,7 +57,10 @@
       "connectivity": "USB Wired",
       "in_stock": true
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_mouse/mouse_zebronics_alex.jpg"
+    ]
   },
   {
     "id": "mouse_acer_omr050",
@@ -63,8 +69,8 @@
     "price": 299,
     "compare_at_price": 599,
     "category": "gaming_mouse",
-    "image": "/images/products/mouse/acer-omr050-wired.png",
-    "cdn_image": "/images/products/mouse/acer-omr050-wired.png",
+    "image": "/images/products/gaming_mouse/mouse_acer_omr050.jpg",
+    "cdn_image": "/images/products/gaming_mouse/mouse_acer_omr050.jpg",
     "handle": "acer-omr050-usb-optical-wired-mouse",
     "url": "#",
     "description": "Acer OMR050 is an ambidextrous optical mouse featuring 1200 DPI sensitivity, smooth Teflon glide pads, and plug-and-play USB connectivity for laptops and desktops.",
@@ -81,7 +87,10 @@
       "connectivity": "USB Wired",
       "in_stock": true
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_mouse/mouse_acer_omr050.jpg"
+    ]
   },
   {
     "id": "mouse_geonix_gxm20",
@@ -90,8 +99,8 @@
     "price": 199,
     "compare_at_price": 399,
     "category": "gaming_mouse",
-    "image": "/images/products/mouse/geonix-gxm20-wired.png",
-    "cdn_image": "/images/products/mouse/geonix-gxm20-wired.png",
+    "image": "/images/products/gaming_mouse/mouse_geonix_gxm20.jpg",
+    "cdn_image": "/images/products/gaming_mouse/mouse_geonix_gxm20.jpg",
     "handle": "geonix-gx-m20-usb-optical-wired-mouse",
     "url": "#",
     "description": "Geonix GX-M20 is an ergonomic optical mouse designed for smooth movement, tactile clicking, and zero latency on any desktop or mousepad.",
@@ -108,7 +117,10 @@
       "connectivity": "USB Wired",
       "in_stock": true
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_mouse/mouse_geonix_gxm20.jpg"
+    ]
   },
   {
     "id": "mouse_prodot_op249s",
@@ -117,8 +129,8 @@
     "price": 199,
     "compare_at_price": 350,
     "category": "gaming_mouse",
-    "image": "/images/products/mouse/prodot-op249s-wired.png",
-    "cdn_image": "/images/products/mouse/prodot-op249s-wired.png",
+    "image": "/images/products/gaming_mouse/mouse_prodot_op249s.jpg",
+    "cdn_image": "/images/products/gaming_mouse/mouse_prodot_op249s.jpg",
     "handle": "prodot-op-249s-total-control-wired-usb-mouse",
     "url": "#",
     "description": "ProDot OP-249s is proudly manufactured in India with high-quality ABS plastic, responsive optical tracking, and durable micro-switches rated for 5 million clicks.",
@@ -135,7 +147,10 @@
       "connectivity": "USB Wired",
       "in_stock": true
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_mouse/mouse_prodot_op249s.jpg"
+    ]
   },
   {
     "id": "mouse_tvs_gold_companion",
@@ -144,8 +159,8 @@
     "price": 399,
     "compare_at_price": 699,
     "category": "gaming_mouse",
-    "image": "/images/products/mouse/tvs-gold-companion-mouse.png",
-    "cdn_image": "/images/products/mouse/tvs-gold-companion-mouse.png",
+    "image": "/images/products/gaming_mouse/mouse_tvs_gold_companion.jpg",
+    "cdn_image": "/images/products/gaming_mouse/mouse_tvs_gold_companion.jpg",
     "handle": "tvs-gold-companion-usb-wired-optical-mouse",
     "url": "#",
     "description": "The companion optical mouse for the legendary TVS Gold mechanical keyboard. Features a matching retro classic finish, optical tracking engine, and heavy-duty chassis.",
@@ -162,7 +177,10 @@
       "connectivity": "USB Wired",
       "in_stock": true
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_mouse/mouse_tvs_gold_companion.jpg"
+    ]
   },
   {
     "id": "mouse_tvs_champ",
@@ -171,8 +189,8 @@
     "price": 299,
     "compare_at_price": 550,
     "category": "gaming_mouse",
-    "image": "/images/products/mouse/tvs-champ-wired-mouse.png",
-    "cdn_image": "/images/products/mouse/tvs-champ-wired-mouse.png",
+    "image": "/images/products/gaming_mouse/mouse_tvs_champ.jpg",
+    "cdn_image": "/images/products/gaming_mouse/mouse_tvs_champ.jpg",
     "handle": "tvs-champ-heavy-duty-usb-optical-mouse",
     "url": "#",
     "description": "The TVS Champ optical mouse is built for long-hour commercial and billing operations. Rated for 5 million clicks with high-durability microswitches and smooth rubberized scroll wheel.",
@@ -189,7 +207,10 @@
       "connectivity": "USB Wired",
       "in_stock": true
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_mouse/mouse_tvs_champ.jpg"
+    ]
   },
   {
     "id": "mouse_hp_x500",
@@ -198,8 +219,8 @@
     "price": 299,
     "compare_at_price": 549,
     "category": "gaming_mouse",
-    "image": "/images/products/mouse/hp-x500-wired.png",
-    "cdn_image": "/images/products/mouse/hp-x500-wired.png",
+    "image": "/images/products/gaming_mouse/mouse_hp_x500.jpg",
+    "cdn_image": "/images/products/gaming_mouse/mouse_hp_x500.jpg",
     "handle": "hp-x500-wired-usb-optical-mouse",
     "url": "#",
     "description": "Designed for daily comfort and precision navigation. The HP X500 wired mouse connects via USB and delivers accurate optical movement across desk surfaces without requiring drivers.",
@@ -216,7 +237,10 @@
       "connectivity": "USB Wired",
       "in_stock": true
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_mouse/mouse_hp_x500.jpg"
+    ]
   },
   {
     "id": "mouse_logitech_g102",
@@ -225,8 +249,8 @@
     "price": 1595,
     "compare_at_price": 2295,
     "category": "gaming_mouse",
-    "image": "/images/products/mouse/logitech-g102-wired.png",
-    "cdn_image": "/images/products/mouse/logitech-g102-wired.png",
+    "image": "/images/products/gaming_mouse/mouse_logitech_g102.jpg",
+    "cdn_image": "/images/products/gaming_mouse/mouse_logitech_g102.jpg",
     "handle": "logitech-g102-lightsync-rgb-gaming-mouse",
     "url": "#",
     "description": "Logitech G102 Lightsync delivers gaming-grade 8,000 DPI sensor tracking, vibrant customizable RGB rainbow color wave illumination, and spring button tensioning for crisp click tactile response.",
@@ -246,7 +270,10 @@
       "in_stock": true,
       "rgb": true
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_mouse/mouse_logitech_g102.jpg"
+    ]
   },
   {
     "id": "mouse_logitech_b100",
@@ -255,8 +282,8 @@
     "price": 299,
     "compare_at_price": 495,
     "category": "gaming_mouse",
-    "image": "/images/products/mouse/logitech-b100-wired.png",
-    "cdn_image": "/images/products/mouse/logitech-b100-wired.png",
+    "image": "/images/products/gaming_mouse/mouse_logitech_b100.jpg",
+    "cdn_image": "/images/products/gaming_mouse/mouse_logitech_b100.jpg",
     "handle": "logitech-b100-usb-optical-wired-mouse",
     "url": "#",
     "description": "Logitech B100 Optical USB Mouse is an office essential with built-in quality by Logitech. Features an ambidextrous shape, responsive 800 DPI tracking, and instant plug-and-play USB setup.",
@@ -274,7 +301,10 @@
       "in_stock": true,
       "ergonomics": "Full-size Ambidextrous"
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_mouse/mouse_logitech_b100.jpg"
+    ]
   },
   {
     "id": "mouse_dell_ms116",
@@ -283,8 +313,8 @@
     "price": 299,
     "compare_at_price": 550,
     "category": "gaming_mouse",
-    "image": "/images/products/mouse/dell-ms116-wired.png",
-    "cdn_image": "/images/products/mouse/dell-ms116-wired.png",
+    "image": "/images/products/gaming_mouse/mouse_dell_ms116.jpg",
+    "cdn_image": "/images/products/gaming_mouse/mouse_dell_ms116.jpg",
     "handle": "dell-ms116-wired-optical-usb-mouse",
     "url": "#",
     "description": "The Dell Optical Mouse MS116 features optical LED tracking and wired connectivity, providing a stellar performance day after day. Improve your productivity at the office or at home with accurate 1000 DPI optical movement.",
@@ -302,7 +332,10 @@
       "in_stock": true,
       "ergonomics": "Ambidextrous"
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_mouse/mouse_dell_ms116.jpg"
+    ]
   },
   {
     "id": "gaming_mouse_7100237643869",
@@ -747,10 +780,10 @@
     "compare_at_price": 299,
     "available": true,
     "sku": "LPC-MS-SAFARI",
-    "image": "/images/shop_by_category/mouse.png",
-    "cdn_image": "/images/shop_by_category/mouse.png",
+    "image": "/images/products/gaming_mouse/981003.webp",
+    "cdn_image": "/images/products/gaming_mouse/981003.webp",
     "images": [
-      "/images/shop_by_category/mouse.png"
+      "/images/products/gaming_mouse/981003.webp"
     ],
     "specs": {
       "connectivity": "Wired USB",
@@ -773,10 +806,10 @@
     "compare_at_price": 899,
     "available": true,
     "sku": "LPC-MS-PREDATOR",
-    "image": "/images/shop_by_category/mouse.png",
-    "cdn_image": "/images/shop_by_category/mouse.png",
+    "image": "/images/products/gaming_mouse/981004.webp",
+    "cdn_image": "/images/products/gaming_mouse/981004.webp",
     "images": [
-      "/images/shop_by_category/mouse.png"
+      "/images/products/gaming_mouse/981004.webp"
     ],
     "specs": {
       "connectivity": "Wired USB",
@@ -799,10 +832,10 @@
     "compare_at_price": 299,
     "available": true,
     "sku": "CST-MS-USB",
-    "image": "/images/shop_by_category/mouse.png",
-    "cdn_image": "/images/shop_by_category/mouse.png",
+    "image": "/images/products/gaming_mouse/970504.jpg",
+    "cdn_image": "/images/products/gaming_mouse/970504.jpg",
     "images": [
-      "/images/shop_by_category/mouse.png"
+      "/images/products/gaming_mouse/970504.jpg"
     ],
     "specs": {
       "connectivity": "Wired USB",
@@ -825,10 +858,10 @@
     "compare_at_price": 349,
     "available": true,
     "sku": "IBL-MS-STYLE63",
-    "image": "/images/shop_by_category/mouse.png",
-    "cdn_image": "/images/shop_by_category/mouse.png",
+    "image": "/images/products/gaming_mouse/960104.jpg",
+    "cdn_image": "/images/products/gaming_mouse/960104.jpg",
     "images": [
-      "/images/shop_by_category/mouse.png"
+      "/images/products/gaming_mouse/960104.jpg"
     ],
     "specs": {
       "connectivity": "Wired USB",

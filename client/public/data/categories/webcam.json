@@ -411,10 +411,10 @@
     "compare_at_price": 1899,
     "available": true,
     "sku": "LPC-CAM-1080P",
-    "image": "/images/shop_by_category/monitor.png",
-    "cdn_image": "/images/shop_by_category/monitor.png",
+    "image": "/images/products/webcam/981006.webp",
+    "cdn_image": "/images/products/webcam/981006.webp",
     "images": [
-      "/images/shop_by_category/monitor.png"
+      "/images/products/webcam/981006.webp"
     ],
     "specs": {
       "resolution": "1080P Full HD (1920x1080)",
@@ -436,10 +436,10 @@
     "compare_at_price": 1999,
     "available": true,
     "sku": "IBL-CAM-F2F1080",
-    "image": "/images/shop_by_category/monitor.png",
-    "cdn_image": "/images/shop_by_category/monitor.png",
+    "image": "/images/products/webcam/960105.jpg",
+    "cdn_image": "/images/products/webcam/960105.jpg",
     "images": [
-      "/images/shop_by_category/monitor.png"
+      "/images/products/webcam/960105.jpg"
     ],
     "specs": {
       "resolution": "1080P Full HD",

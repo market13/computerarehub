@@ -841,10 +841,10 @@
     "compare_at_price": 1499,
     "available": true,
     "sku": "LPC-HS-PREDATOR",
-    "image": "/images/shop_by_category/headphones.png",
-    "cdn_image": "/images/shop_by_category/headphones.png",
+    "image": "/images/products/gaming_headset/981005.jpg",
+    "cdn_image": "/images/products/gaming_headset/981005.jpg",
     "images": [
-      "/images/shop_by_category/headphones.png"
+      "/images/products/gaming_headset/981005.jpg"
     ],
     "specs": {
       "driver_mm": 50,

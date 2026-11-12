@@ -10,10 +10,10 @@
     "compare_at_price": 1899,
     "available": true,
     "sku": "LPC-CPU-I3-3220",
-    "image": "/images/shop_by_category/processor.png",
-    "cdn_image": "/images/shop_by_category/processor.png",
+    "image": "/images/products/cpu/980201.jpg",
+    "cdn_image": "/images/products/cpu/980201.jpg",
     "images": [
-      "/images/shop_by_category/processor.png"
+      "/images/products/cpu/980201.jpg"
     ],
     "specs": {
       "socket": "LGA1155",
@@ -38,10 +38,10 @@
     "compare_at_price": 2999,
     "available": true,
     "sku": "LPC-CPU-I5-3470",
-    "image": "/images/shop_by_category/processor.png",
-    "cdn_image": "/images/shop_by_category/processor.png",
+    "image": "/images/products/cpu/980202.jpg",
+    "cdn_image": "/images/products/cpu/980202.jpg",
     "images": [
-      "/images/shop_by_category/processor.png"
+      "/images/products/cpu/980202.jpg"
     ],
     "specs": {
       "socket": "LGA1155",
@@ -66,10 +66,10 @@
     "compare_at_price": 3699,
     "available": true,
     "sku": "LPC-CPU-I5-4590",
-    "image": "/images/shop_by_category/processor.png",
-    "cdn_image": "/images/shop_by_category/processor.png",
+    "image": "/images/products/cpu/980203.jpg",
+    "cdn_image": "/images/products/cpu/980203.jpg",
     "images": [
-      "/images/shop_by_category/processor.png"
+      "/images/products/cpu/980203.jpg"
     ],
     "specs": {
       "socket": "LGA1150",
@@ -94,10 +94,10 @@
     "compare_at_price": 5499,
     "available": true,
     "sku": "LPC-CPU-I7-4790",
-    "image": "/images/shop_by_category/processor.png",
-    "cdn_image": "/images/shop_by_category/processor.png",
+    "image": "/images/products/cpu/980204.jpg",
+    "cdn_image": "/images/products/cpu/980204.jpg",
     "images": [
-      "/images/shop_by_category/processor.png"
+      "/images/products/cpu/980204.jpg"
     ],
     "specs": {
       "socket": "LGA1150",
@@ -122,10 +122,10 @@
     "compare_at_price": 10999,
     "available": true,
     "sku": "LPC-CPU-I5-10400F",
-    "image": "/images/shop_by_category/processor.png",
-    "cdn_image": "/images/shop_by_category/processor.png",
+    "image": "/images/products/cpu/980205.jpg",
+    "cdn_image": "/images/products/cpu/980205.jpg",
     "images": [
-      "/images/shop_by_category/processor.png"
+      "/images/products/cpu/980205.jpg"
     ],
     "specs": {
       "socket": "LGA1200",
@@ -150,10 +150,10 @@
     "compare_at_price": 1799,
     "available": true,
     "sku": "CST-CPU-I3-3240",
-    "image": "/images/shop_by_category/processor.png",
-    "cdn_image": "/images/shop_by_category/processor.png",
+    "image": "/images/products/cpu/970201.jpg",
+    "cdn_image": "/images/products/cpu/970201.jpg",
     "images": [
-      "/images/shop_by_category/processor.png"
+      "/images/products/cpu/970201.jpg"
     ],
     "specs": {
       "socket": "LGA1155",
@@ -178,10 +178,10 @@
     "compare_at_price": 2899,
     "available": true,
     "sku": "CST-CPU-I5-3470",
-    "image": "/images/shop_by_category/processor.png",
-    "cdn_image": "/images/shop_by_category/processor.png",
+    "image": "/images/products/cpu/970202.jpg",
+    "cdn_image": "/images/products/cpu/970202.jpg",
     "images": [
-      "/images/shop_by_category/processor.png"
+      "/images/products/cpu/970202.jpg"
     ],
     "specs": {
       "socket": "LGA1155",
@@ -206,10 +206,10 @@
     "compare_at_price": 10499,
     "available": true,
     "sku": "CST-CPU-I5-10400F",
-    "image": "/images/shop_by_category/processor.png",
-    "cdn_image": "/images/shop_by_category/processor.png",
+    "image": "/images/products/cpu/970203.jpg",
+    "cdn_image": "/images/products/cpu/970203.jpg",
     "images": [
-      "/images/shop_by_category/processor.png"
+      "/images/products/cpu/970203.jpg"
     ],
     "specs": {
       "socket": "LGA1200",
@@ -234,10 +234,10 @@
     "compare_at_price": 13999,
     "available": true,
     "sku": "CST-CPU-I5-12400F",
-    "image": "/images/shop_by_category/processor.png",
-    "cdn_image": "/images/shop_by_category/processor.png",
+    "image": "/images/products/cpu/970204.png",
+    "cdn_image": "/images/products/cpu/970204.png",
     "images": [
-      "/images/shop_by_category/processor.png"
+      "/images/products/cpu/970204.png"
     ],
     "specs": {
       "socket": "LGA1700",
@@ -262,10 +262,10 @@
     "compare_at_price": 16999,
     "available": true,
     "sku": "HP-CPU-I5-12400",
-    "image": "/images/shop_by_category/processor.png",
-    "cdn_image": "/images/shop_by_category/processor.png",
+    "image": "/images/products/cpu/910101.png",
+    "cdn_image": "/images/products/cpu/910101.png",
     "images": [
-      "/images/shop_by_category/processor.png"
+      "/images/products/cpu/910101.png"
     ],
     "specs": {
       "socket": "LGA1700",
@@ -290,10 +290,10 @@
     "compare_at_price": 37999,
     "available": true,
     "sku": "DEL-CPU-I7-13700",
-    "image": "/images/shop_by_category/processor.png",
-    "cdn_image": "/images/shop_by_category/processor.png",
+    "image": "/images/products/cpu/900101.jpg",
+    "cdn_image": "/images/products/cpu/900101.jpg",
     "images": [
-      "/images/shop_by_category/processor.png"
+      "/images/products/cpu/900101.jpg"
     ],
     "specs": {
       "socket": "LGA1700",
@@ -318,10 +318,10 @@
     "compare_at_price": 49999,
     "available": true,
     "sku": "LEN-CPU-R7-7800X3D",
-    "image": "/images/shop_by_category/processor.png",
-    "cdn_image": "/images/shop_by_category/processor.png",
+    "image": "/images/products/cpu/890101.jpg",
+    "cdn_image": "/images/products/cpu/890101.jpg",
     "images": [
-      "/images/shop_by_category/processor.png"
+      "/images/products/cpu/890101.jpg"
     ],
     "specs": {
       "socket": "AM5",

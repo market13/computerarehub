@@ -711,10 +711,10 @@
     "compare_at_price": 1399,
     "available": true,
     "sku": "LPC-PSU-450W",
-    "image": "/images/shop_by_category/power_supply.png",
-    "cdn_image": "/images/shop_by_category/power_supply.png",
+    "image": "/images/products/psu/980701.jpg",
+    "cdn_image": "/images/products/psu/980701.jpg",
     "images": [
-      "/images/shop_by_category/power_supply.png"
+      "/images/products/psu/980701.jpg"
     ],
     "specs": {
       "wattage": 450,
@@ -737,10 +737,10 @@
     "compare_at_price": 1899,
     "available": true,
     "sku": "LPC-PSU-500W",
-    "image": "/images/shop_by_category/power_supply.png",
-    "cdn_image": "/images/shop_by_category/power_supply.png",
+    "image": "/images/products/psu/980702.jpg",
+    "cdn_image": "/images/products/psu/980702.jpg",
     "images": [
-      "/images/shop_by_category/power_supply.png"
+      "/images/products/psu/980702.jpg"
     ],
     "specs": {
       "wattage": 500,
@@ -763,10 +763,10 @@
     "compare_at_price": 3999,
     "available": true,
     "sku": "LPC-PSU-650W-BRZ",
-    "image": "/images/shop_by_category/power_supply.png",
-    "cdn_image": "/images/shop_by_category/power_supply.png",
+    "image": "/images/products/psu/980703.webp",
+    "cdn_image": "/images/products/psu/980703.webp",
     "images": [
-      "/images/shop_by_category/power_supply.png"
+      "/images/products/psu/980703.webp"
     ],
     "specs": {
       "wattage": 650,
@@ -789,10 +789,10 @@
     "compare_at_price": 1299,
     "available": true,
     "sku": "CST-PSU-450W",
-    "image": "/images/shop_by_category/power_supply.png",
-    "cdn_image": "/images/shop_by_category/power_supply.png",
+    "image": "/images/products/psu/970502.jpg",
+    "cdn_image": "/images/products/psu/970502.jpg",
     "images": [
-      "/images/shop_by_category/power_supply.png"
+      "/images/products/psu/970502.jpg"
     ],
     "specs": {
       "wattage": 450,
@@ -815,10 +815,10 @@
     "compare_at_price": 1399,
     "available": true,
     "sku": "IBL-PSU-450W",
-    "image": "/images/shop_by_category/power_supply.png",
-    "cdn_image": "/images/shop_by_category/power_supply.png",
+    "image": "/images/products/psu/960102.jpg",
+    "cdn_image": "/images/products/psu/960102.jpg",
     "images": [
-      "/images/shop_by_category/power_supply.png"
+      "/images/products/psu/960102.jpg"
     ],
     "specs": {
       "wattage": 450,

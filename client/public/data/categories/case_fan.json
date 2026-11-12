@@ -10,10 +10,10 @@
     "compare_at_price": 1699,
     "available": true,
     "sku": "LPC-FAN-WW120-3PK",
-    "image": "/images/shop_by_category/air_cooler.png",
-    "cdn_image": "/images/shop_by_category/air_cooler.png",
+    "image": "/images/products/case_fan/980804.jpg",
+    "cdn_image": "/images/products/case_fan/980804.jpg",
     "images": [
-      "/images/shop_by_category/air_cooler.png"
+      "/images/products/case_fan/980804.jpg"
     ],
     "specs": {
       "fan_size": "120mm",
@@ -36,10 +36,10 @@
     "compare_at_price": 1399,
     "available": true,
     "sku": "ZEB-FAN-RAINBOW-3PK",
-    "image": "/images/shop_by_category/air_cooler.png",
-    "cdn_image": "/images/shop_by_category/air_cooler.png",
+    "image": "/images/products/case_fan/940104.jpg",
+    "cdn_image": "/images/products/case_fan/940104.jpg",
     "images": [
-      "/images/shop_by_category/air_cooler.png"
+      "/images/products/case_fan/940104.jpg"
     ],
     "specs": {
       "fan_size": "120mm",
@@ -62,10 +62,10 @@
     "compare_at_price": 1899,
     "available": true,
     "sku": "ANT-FAN-SF120-3PK",
-    "image": "/images/shop_by_category/air_cooler.png",
-    "cdn_image": "/images/shop_by_category/air_cooler.png",
+    "image": "/images/products/case_fan/930101.jpg",
+    "cdn_image": "/images/products/case_fan/930101.jpg",
     "images": [
-      "/images/shop_by_category/air_cooler.png"
+      "/images/products/case_fan/930101.jpg"
     ],
     "specs": {
       "fan_size": "120mm",
@@ -88,10 +88,10 @@
     "compare_at_price": 2499,
     "available": true,
     "sku": "ANT-FAN-RF120-3PK",
-    "image": "/images/shop_by_category/air_cooler.png",
-    "cdn_image": "/images/shop_by_category/air_cooler.png",
+    "image": "/images/products/case_fan/930102.jpg",
+    "cdn_image": "/images/products/case_fan/930102.jpg",
     "images": [
-      "/images/shop_by_category/air_cooler.png"
+      "/images/products/case_fan/930102.jpg"
     ],
     "specs": {
       "fan_size": "120mm",

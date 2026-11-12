@@ -45,10 +45,10 @@
     "compare_at_price": 3499,
     "available": true,
     "sku": "LPC-MB-H61-D3",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/980101.jpg",
+    "cdn_image": "/images/products/motherboard/980101.jpg",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/980101.jpg"
     ],
     "specs": {
       "socket": "LGA1155",
@@ -73,10 +73,10 @@
     "compare_at_price": 3999,
     "available": true,
     "sku": "LPC-MB-H81-D3",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/980102.webp",
+    "cdn_image": "/images/products/motherboard/980102.webp",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/980102.webp"
     ],
     "specs": {
       "socket": "LGA1150",
@@ -101,10 +101,10 @@
     "compare_at_price": 4599,
     "available": true,
     "sku": "LPC-MB-H110-D4",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/980103.webp",
+    "cdn_image": "/images/products/motherboard/980103.webp",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/980103.webp"
     ],
     "specs": {
       "socket": "LGA1151",
@@ -129,10 +129,10 @@
     "compare_at_price": 4999,
     "available": true,
     "sku": "LPC-MB-H310-D4",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/980104.webp",
+    "cdn_image": "/images/products/motherboard/980104.webp",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/980104.webp"
     ],
     "specs": {
       "socket": "LGA1151",
@@ -157,10 +157,10 @@
     "compare_at_price": 5999,
     "available": true,
     "sku": "LPC-MB-H510-D4",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/980105.webp",
+    "cdn_image": "/images/products/motherboard/980105.webp",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/980105.webp"
     ],
     "specs": {
       "socket": "LGA1200",
@@ -185,10 +185,10 @@
     "compare_at_price": 6999,
     "available": true,
     "sku": "LPC-MB-H610-D4",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/980106.jpg",
+    "cdn_image": "/images/products/motherboard/980106.jpg",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/980106.jpg"
     ],
     "specs": {
       "socket": "LGA1700",
@@ -213,10 +213,10 @@
     "compare_at_price": 6499,
     "available": true,
     "sku": "LPC-MB-B450-AM4",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/980107.jpg",
+    "cdn_image": "/images/products/motherboard/980107.jpg",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/980107.jpg"
     ],
     "specs": {
       "socket": "AM4",
@@ -241,10 +241,10 @@
     "compare_at_price": 3399,
     "available": true,
     "sku": "CST-MB-H61",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/970101.jpg",
+    "cdn_image": "/images/products/motherboard/970101.jpg",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/970101.jpg"
     ],
     "specs": {
       "socket": "LGA1155",
@@ -269,10 +269,10 @@
     "compare_at_price": 3799,
     "available": true,
     "sku": "CST-MB-H81",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/970102.jpg",
+    "cdn_image": "/images/products/motherboard/970102.jpg",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/970102.jpg"
     ],
     "specs": {
       "socket": "LGA1150",
@@ -297,10 +297,10 @@
     "compare_at_price": 5899,
     "available": true,
     "sku": "CST-MB-H510",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/970103.jpg",
+    "cdn_image": "/images/products/motherboard/970103.jpg",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/970103.jpg"
     ],
     "specs": {
       "socket": "LGA1200",
@@ -325,10 +325,10 @@
     "compare_at_price": 6899,
     "available": true,
     "sku": "CST-MB-H610",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/970104.jpg",
+    "cdn_image": "/images/products/motherboard/970104.jpg",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/970104.jpg"
     ],
     "specs": {
       "socket": "LGA1700",
@@ -353,10 +353,10 @@
     "compare_at_price": 6299,
     "available": true,
     "sku": "CST-MB-B450",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/970105.jpg",
+    "cdn_image": "/images/products/motherboard/970105.jpg",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/970105.jpg"
     ],
     "specs": {
       "socket": "AM4",
@@ -381,10 +381,10 @@
     "compare_at_price": 3399,
     "available": true,
     "sku": "GNX-MB-H61",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/950101.jpg",
+    "cdn_image": "/images/products/motherboard/950101.jpg",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/950101.jpg"
     ],
     "specs": {
       "socket": "LGA1155",
@@ -409,10 +409,10 @@
     "compare_at_price": 3799,
     "available": true,
     "sku": "GNX-MB-H81",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/950102.jpg",
+    "cdn_image": "/images/products/motherboard/950102.jpg",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/950102.jpg"
     ],
     "specs": {
       "socket": "LGA1150",
@@ -437,10 +437,10 @@
     "compare_at_price": 3499,
     "available": true,
     "sku": "ZEB-MB-H61",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/940101.jpg",
+    "cdn_image": "/images/products/motherboard/940101.jpg",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/940101.jpg"
     ],
     "specs": {
       "socket": "LGA1155",
@@ -465,10 +465,10 @@
     "compare_at_price": 3899,
     "available": true,
     "sku": "ZEB-MB-H81",
-    "image": "/images/shop_by_category/motherboard.png",
-    "cdn_image": "/images/shop_by_category/motherboard.png",
+    "image": "/images/products/motherboard/940102.jpg",
+    "cdn_image": "/images/products/motherboard/940102.jpg",
     "images": [
-      "/images/shop_by_category/motherboard.png"
+      "/images/products/motherboard/940102.jpg"
     ],
     "specs": {
       "socket": "LGA1150",

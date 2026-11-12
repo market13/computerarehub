@@ -1,8 +1,8 @@
 {
-  "version": "1.2.0-9134446aa1",
-  "buildHash": "9134446aa1",
-  "updatedAt": "2026-11-10T16:22:07.328Z",
-  "totalProducts": 582,
+  "version": "1.2.0-6366e63f91",
+  "buildHash": "6366e63f91",
+  "updatedAt": "2026-11-12T18:49:06.685Z",
+  "totalProducts": 581,
   "categories": [
     "case",
     "cpu",
@@ -25,7 +25,7 @@
     "gaming_pc"
   ],
   "categoryCounts": {
-    "case": 188,
+    "case": 187,
     "cpu": 12,
     "motherboard": 17,
     "gpu": 15,
@@ -78,10 +78,10 @@
       "compare_at_price": 1899,
       "available": true,
       "sku": "LPC-CPU-I3-3220",
-      "image": "/images/shop_by_category/processor.png",
-      "cdn_image": "/images/shop_by_category/processor.png",
+      "image": "/images/products/cpu/980201.jpg",
+      "cdn_image": "/images/products/cpu/980201.jpg",
       "images": [
-        "/images/shop_by_category/processor.png"
+        "/images/products/cpu/980201.jpg"
       ],
       "specs": {
         "socket": "LGA1155",
@@ -106,10 +106,10 @@
       "compare_at_price": 3499,
       "available": true,
       "sku": "LPC-MB-H61-D3",
-      "image": "/images/shop_by_category/motherboard.png",
-      "cdn_image": "/images/shop_by_category/motherboard.png",
+      "image": "/images/products/motherboard/980101.jpg",
+      "cdn_image": "/images/products/motherboard/980101.jpg",
       "images": [
-        "/images/shop_by_category/motherboard.png"
+        "/images/products/motherboard/980101.jpg"
       ],
       "specs": {
         "socket": "LGA1155",
@@ -134,10 +134,10 @@
       "compare_at_price": 1199,
       "available": true,
       "sku": "LPC-RAM-4G-D3",
-      "image": "/images/shop_by_category/ram.png",
-      "cdn_image": "/images/shop_by_category/ram.png",
+      "image": "/images/products/ram/980401.png",
+      "cdn_image": "/images/products/ram/980401.png",
       "images": [
-        "/images/shop_by_category/ram.png"
+        "/images/products/ram/980401.png"
       ],
       "specs": {
         "ram_type": "DDR3",
@@ -194,10 +194,10 @@
       "compare_at_price": 3499,
       "available": true,
       "sku": "LPC-GPU-GT710-2G",
-      "image": "/images/shop_by_category/graphic_card.png",
-      "cdn_image": "/images/shop_by_category/graphic_card.png",
+      "image": "/images/products/gpu/980301.jpg",
+      "cdn_image": "/images/products/gpu/980301.jpg",
       "images": [
-        "/images/shop_by_category/graphic_card.png"
+        "/images/products/gpu/980301.jpg"
       ],
       "specs": {
         "chipset": "GeForce GT 710",
@@ -314,10 +314,10 @@
       "compare_at_price": 1699,
       "available": true,
       "sku": "LPC-FAN-WW120-3PK",
-      "image": "/images/shop_by_category/air_cooler.png",
-      "cdn_image": "/images/shop_by_category/air_cooler.png",
+      "image": "/images/products/case_fan/980804.jpg",
+      "cdn_image": "/images/products/case_fan/980804.jpg",
       "images": [
-        "/images/shop_by_category/air_cooler.png"
+        "/images/products/case_fan/980804.jpg"
       ],
       "specs": {
         "fan_size": "120mm",
@@ -377,10 +377,10 @@
         "compare_at_price": 1899,
         "available": true,
         "sku": "LPC-CPU-I3-3220",
-        "image": "/images/shop_by_category/processor.png",
-        "cdn_image": "/images/shop_by_category/processor.png",
+        "image": "/images/products/cpu/980201.jpg",
+        "cdn_image": "/images/products/cpu/980201.jpg",
         "images": [
-          "/images/shop_by_category/processor.png"
+          "/images/products/cpu/980201.jpg"
         ],
         "specs": {
           "socket": "LGA1155",
@@ -405,10 +405,10 @@
         "compare_at_price": 2999,
         "available": true,
         "sku": "LPC-CPU-I5-3470",
-        "image": "/images/shop_by_category/processor.png",
-        "cdn_image": "/images/shop_by_category/processor.png",
+        "image": "/images/products/cpu/980202.jpg",
+        "cdn_image": "/images/products/cpu/980202.jpg",
         "images": [
-          "/images/shop_by_category/processor.png"
+          "/images/products/cpu/980202.jpg"
         ],
         "specs": {
           "socket": "LGA1155",
@@ -433,10 +433,10 @@
         "compare_at_price": 3699,
         "available": true,
         "sku": "LPC-CPU-I5-4590",
-        "image": "/images/shop_by_category/processor.png",
-        "cdn_image": "/images/shop_by_category/processor.png",
+        "image": "/images/products/cpu/980203.jpg",
+        "cdn_image": "/images/products/cpu/980203.jpg",
         "images": [
-          "/images/shop_by_category/processor.png"
+          "/images/products/cpu/980203.jpg"
         ],
         "specs": {
           "socket": "LGA1150",
@@ -461,10 +461,10 @@
         "compare_at_price": 5499,
         "available": true,
         "sku": "LPC-CPU-I7-4790",
-        "image": "/images/shop_by_category/processor.png",
-        "cdn_image": "/images/shop_by_category/processor.png",
+        "image": "/images/products/cpu/980204.jpg",
+        "cdn_image": "/images/products/cpu/980204.jpg",
         "images": [
-          "/images/shop_by_category/processor.png"
+          "/images/products/cpu/980204.jpg"
         ],
         "specs": {
           "socket": "LGA1150",
@@ -491,10 +491,10 @@
         "compare_at_price": 3499,
         "available": true,
         "sku": "LPC-GPU-GT710-2G",
-        "image": "/images/shop_by_category/graphic_card.png",
-        "cdn_image": "/images/shop_by_category/graphic_card.png",
+        "image": "/images/products/gpu/980301.jpg",
+        "cdn_image": "/images/products/gpu/980301.jpg",
         "images": [
-          "/images/shop_by_category/graphic_card.png"
+          "/images/products/gpu/980301.jpg"
         ],
         "specs": {
           "chipset": "GeForce GT 710",
@@ -523,10 +523,10 @@
         "compare_at_price": 4599,
         "available": true,
         "sku": "LPC-GPU-GT730-4G",
-        "image": "/images/shop_by_category/graphic_card.png",
-        "cdn_image": "/images/shop_by_category/graphic_card.png",
+        "image": "/images/products/gpu/980302.jpg",
+        "cdn_image": "/images/products/gpu/980302.jpg",
         "images": [
-          "/images/shop_by_category/graphic_card.png"
+          "/images/products/gpu/980302.jpg"
         ],
         "specs": {
           "chipset": "GeForce GT 730",
@@ -555,10 +555,10 @@
         "compare_at_price": 6999,
         "available": true,
         "sku": "LPC-GPU-GT1030-4G",
-        "image": "/images/shop_by_category/graphic_card.png",
-        "cdn_image": "/images/shop_by_category/graphic_card.png",
+        "image": "/images/products/gpu/980303.jpg",
+        "cdn_image": "/images/products/gpu/980303.jpg",
         "images": [
-          "/images/shop_by_category/graphic_card.png"
+          "/images/products/gpu/980303.jpg"
         ],
         "specs": {
           "chipset": "GeForce GT 1030",
@@ -586,10 +586,10 @@
         "compare_at_price": 11999,
         "available": true,
         "sku": "LPC-GPU-RX580-8G",
-        "image": "/images/shop_by_category/graphic_card.png",
-        "cdn_image": "/images/shop_by_category/graphic_card.png",
+        "image": "/images/products/gpu/980304.jpg",
+        "cdn_image": "/images/products/gpu/980304.jpg",
         "images": [
-          "/images/shop_by_category/graphic_card.png"
+          "/images/products/gpu/980304.jpg"
         ],
         "specs": {
           "chipset": "Radeon RX 580",
@@ -655,10 +655,10 @@
         "compare_at_price": 3499,
         "available": true,
         "sku": "LPC-MB-H61-D3",
-        "image": "/images/shop_by_category/motherboard.png",
-        "cdn_image": "/images/shop_by_category/motherboard.png",
+        "image": "/images/products/motherboard/980101.jpg",
+        "cdn_image": "/images/products/motherboard/980101.jpg",
         "images": [
-          "/images/shop_by_category/motherboard.png"
+          "/images/products/motherboard/980101.jpg"
         ],
         "specs": {
           "socket": "LGA1155",
@@ -683,10 +683,10 @@
         "compare_at_price": 3999,
         "available": true,
         "sku": "LPC-MB-H81-D3",
-        "image": "/images/shop_by_category/motherboard.png",
-        "cdn_image": "/images/shop_by_category/motherboard.png",
+        "image": "/images/products/motherboard/980102.webp",
+        "cdn_image": "/images/products/motherboard/980102.webp",
         "images": [
-          "/images/shop_by_category/motherboard.png"
+          "/images/products/motherboard/980102.webp"
         ],
         "specs": {
           "socket": "LGA1150",
@@ -711,10 +711,10 @@
         "compare_at_price": 4599,
         "available": true,
         "sku": "LPC-MB-H110-D4",
-        "image": "/images/shop_by_category/motherboard.png",
-        "cdn_image": "/images/shop_by_category/motherboard.png",
+        "image": "/images/products/motherboard/980103.webp",
+        "cdn_image": "/images/products/motherboard/980103.webp",
         "images": [
-          "/images/shop_by_category/motherboard.png"
+          "/images/products/motherboard/980103.webp"
         ],
         "specs": {
           "socket": "LGA1151",
@@ -1241,8 +1241,8 @@
         "price": 429,
         "compare_at_price": 799,
         "category": "gaming_keyboard",
-        "image": "/images/products/keyboard/zebronics-zeb-dlk01-wired.png",
-        "cdn_image": "/images/products/keyboard/zebronics-zeb-dlk01-wired.png",
+        "image": "/images/products/gaming_keyboard/kb_zebronics_dlk01_wired.jpg",
+        "cdn_image": "/images/products/gaming_keyboard/kb_zebronics_dlk01_wired.jpg",
         "handle": "zebronics-zeb-dlk01-usb-wired-multimedia-keyboard",
         "url": "#",
         "description": "Zebronics Zeb-DLK01 is a reliable USB wired desktop keyboard featuring UV-coated keycaps for extended durability, comfortable key travel, and dedicated Indian Rupee currency key.",
@@ -1263,7 +1263,10 @@
           "layout": "Full Size 104-Key",
           "interface": "USB Wired (1.5m)"
         },
-        "in_stock": true
+        "in_stock": true,
+        "images": [
+          "/images/products/gaming_keyboard/kb_zebronics_dlk01_wired.jpg"
+        ]
       },
       {
         "id": "kb_ant_esports_km540_wired",
@@ -1272,8 +1275,8 @@
         "price": 1299,
         "compare_at_price": 2499,
         "category": "gaming_keyboard",
-        "image": "/images/products/keyboard/ant-esports-km540-wired.png",
-        "cdn_image": "/images/products/keyboard/ant-esports-km540-wired.png",
+        "image": "/images/products/gaming_keyboard/kb_ant_esports_km540_wired.jpg",
+        "cdn_image": "/images/products/gaming_keyboard/kb_ant_esports_km540_wired.jpg",
         "handle": "ant-esports-km540-rainbow-backlit-wired-gaming-keyboard",
         "url": "#",
         "description": "Ant Esports KM540 is built for gaming performance with vibrant multi-zone RGB rainbow backlighting, 19-key anti-ghosting, tactile double-injection keycaps, and durable braided USB cable.",
@@ -1294,7 +1297,10 @@
           "layout": "Full Size 104-Key Gaming",
           "interface": "Braided USB Wired (1.8m)"
         },
-        "in_stock": true
+        "in_stock": true,
+        "images": [
+          "/images/products/gaming_keyboard/kb_ant_esports_km540_wired.jpg"
+        ]
       },
       {
         "id": "kb_acer_okb010_wired",
@@ -1303,8 +1309,8 @@
         "price": 499,
         "compare_at_price": 899,
         "category": "gaming_keyboard",
-        "image": "/images/products/keyboard/acer-okb010-wired.png",
-        "cdn_image": "/images/products/keyboard/acer-okb010-wired.png",
+        "image": "/images/products/gaming_keyboard/kb_acer_okb010_wired.jpg",
+        "cdn_image": "/images/products/gaming_keyboard/kb_acer_okb010_wired.jpg",
         "handle": "acer-okb010-standard-usb-wired-desktop-keyboard",
         "url": "#",
         "description": "Acer OKB010 delivers reliable everyday typing performance with full numeric keypad, UV coated keycaps for longevity, and ergonomic inclination for natural wrist comfort.",
@@ -1325,7 +1331,10 @@
           "layout": "Full Size 104-Key",
           "interface": "USB Wired (1.5m)"
         },
-        "in_stock": true
+        "in_stock": true,
+        "images": [
+          "/images/products/gaming_keyboard/kb_acer_okb010_wired.jpg"
+        ]
       },
       {
         "id": "kb_geonix_gx_k100_wired",
@@ -1334,8 +1343,8 @@
         "price": 449,
         "compare_at_price": 799,
         "category": "gaming_keyboard",
-        "image": "/images/products/keyboard/geonix-gx-k100-wired.png",
-        "cdn_image": "/images/products/keyboard/geonix-gx-k100-wired.png",
+        "image": "/images/products/gaming_keyboard/kb_geonix_gx_k100_wired.jpg",
+        "cdn_image": "/images/products/gaming_keyboard/kb_geonix_gx_k100_wired.jpg",
         "handle": "geonix-gx-k100-multimedia-wired-usb-keyboard",
         "url": "#",
         "description": "Geonix GX-K100 is engineered for high durability with tactile silicone key domes and quiet keystrokes. Features dedicated shortcut keys for browser, email, and volume management.",
@@ -1356,7 +1365,10 @@
           "layout": "Full Size 104-Key Multimedia",
           "interface": "USB Wired (1.5m)"
         },
-        "in_stock": true
+        "in_stock": true,
+        "images": [
+          "/images/products/gaming_keyboard/kb_geonix_gx_k100_wired.jpg"
+        ]
       }
     ],
     "gaming_mouse": [
@@ -1367,8 +1379,8 @@
         "price": 699,
         "compare_at_price": 1499,
         "category": "gaming_mouse",
-        "image": "/images/products/mouse/ant-esports-gm320-wired.png",
-        "cdn_image": "/images/products/mouse/ant-esports-gm320-wired.png",
+        "image": "/images/products/gaming_mouse/mouse_ant_esports_gm320.jpg",
+        "cdn_image": "/images/products/gaming_mouse/mouse_ant_esports_gm320.jpg",
         "handle": "ant-esports-gm320-rgb-wired-optical-gaming-mouse",
         "url": "#",
         "description": "Ant Esports GM320 is equipped with a high-speed 12,800 DPI optical sensor, 8 programmable macro buttons, dynamic RGB lighting modes, and an ergonomic thumb rest for competitive gaming.",
@@ -1388,7 +1400,10 @@
           "in_stock": true,
           "rgb": true
         },
-        "in_stock": true
+        "in_stock": true,
+        "images": [
+          "/images/products/gaming_mouse/mouse_ant_esports_gm320.jpg"
+        ]
       },
       {
         "id": "mouse_zebronics_alex",
@@ -1397,8 +1412,8 @@
         "price": 199,
         "compare_at_price": 399,
         "category": "gaming_mouse",
-        "image": "/images/products/mouse/zebronics-alex-wired.png",
-        "cdn_image": "/images/products/mouse/zebronics-alex-wired.png",
+        "image": "/images/products/gaming_mouse/mouse_zebronics_alex.jpg",
+        "cdn_image": "/images/products/gaming_mouse/mouse_zebronics_alex.jpg",
         "handle": "zebronics-zeb-alex-usb-wired-optical-mouse",
         "url": "#",
         "description": "Zebronics Zeb-Alex is a dependable USB optical wired mouse with 1200 DPI tracking, comfortable palm shape, and silent scrolling for home and office computing.",
@@ -1415,7 +1430,10 @@
           "connectivity": "USB Wired",
           "in_stock": true
         },
-        "in_stock": true
+        "in_stock": true,
+        "images": [
+          "/images/products/gaming_mouse/mouse_zebronics_alex.jpg"
+        ]
       },
       {
         "id": "mouse_acer_omr050",
@@ -1424,8 +1442,8 @@
         "price": 299,
         "compare_at_price": 599,
         "category": "gaming_mouse",
-        "image": "/images/products/mouse/acer-omr050-wired.png",
-        "cdn_image": "/images/products/mouse/acer-omr050-wired.png",
+        "image": "/images/products/gaming_mouse/mouse_acer_omr050.jpg",
+        "cdn_image": "/images/products/gaming_mouse/mouse_acer_omr050.jpg",
         "handle": "acer-omr050-usb-optical-wired-mouse",
         "url": "#",
         "description": "Acer OMR050 is an ambidextrous optical mouse featuring 1200 DPI sensitivity, smooth Teflon glide pads, and plug-and-play USB connectivity for laptops and desktops.",
@@ -1442,7 +1460,10 @@
           "connectivity": "USB Wired",
           "in_stock": true
         },
-        "in_stock": true
+        "in_stock": true,
+        "images": [
+          "/images/products/gaming_mouse/mouse_acer_omr050.jpg"
+        ]
       },
       {
         "id": "mouse_geonix_gxm20",
@@ -1451,8 +1472,8 @@
         "price": 199,
         "compare_at_price": 399,
         "category": "gaming_mouse",
-        "image": "/images/products/mouse/geonix-gxm20-wired.png",
-        "cdn_image": "/images/products/mouse/geonix-gxm20-wired.png",
+        "image": "/images/products/gaming_mouse/mouse_geonix_gxm20.jpg",
+        "cdn_image": "/images/products/gaming_mouse/mouse_geonix_gxm20.jpg",
         "handle": "geonix-gx-m20-usb-optical-wired-mouse",
         "url": "#",
         "description": "Geonix GX-M20 is an ergonomic optical mouse designed for smooth movement, tactile clicking, and zero latency on any desktop or mousepad.",
@@ -1469,7 +1490,10 @@
           "connectivity": "USB Wired",
           "in_stock": true
         },
-        "in_stock": true
+        "in_stock": true,
+        "images": [
+          "/images/products/gaming_mouse/mouse_geonix_gxm20.jpg"
+        ]
       }
     ]
   }

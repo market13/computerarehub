@@ -353,10 +353,10 @@
     "compare_at_price": 699,
     "available": true,
     "sku": "LPC-PAD-XL",
-    "image": "/images/shop_by_category/mousepad.png",
-    "cdn_image": "/images/shop_by_category/mousepad.png",
+    "image": "/images/products/gaming_mousepad/981007.webp",
+    "cdn_image": "/images/products/gaming_mousepad/981007.webp",
     "images": [
-      "/images/shop_by_category/mousepad.png"
+      "/images/products/gaming_mousepad/981007.webp"
     ],
     "specs": {
       "size": "800 x 300 x 3 mm",

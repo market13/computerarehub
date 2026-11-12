@@ -1301,10 +1301,10 @@
     "compare_at_price": 899,
     "available": true,
     "sku": "LPC-CLR-FROST100",
-    "image": "/images/shop_by_category/air_cooler.png",
-    "cdn_image": "/images/shop_by_category/air_cooler.png",
+    "image": "/images/products/cooler/980801.jpg",
+    "cdn_image": "/images/products/cooler/980801.jpg",
     "images": [
-      "/images/shop_by_category/air_cooler.png"
+      "/images/products/cooler/980801.jpg"
     ],
     "specs": {
       "cooler_type": "Air Cooler",
@@ -1332,10 +1332,10 @@
     "compare_at_price": 1799,
     "available": true,
     "sku": "LPC-CLR-FROST200",
-    "image": "/images/shop_by_category/air_cooler.png",
-    "cdn_image": "/images/shop_by_category/air_cooler.png",
+    "image": "/images/products/cooler/980802.jpg",
+    "cdn_image": "/images/products/cooler/980802.jpg",
     "images": [
-      "/images/shop_by_category/air_cooler.png"
+      "/images/products/cooler/980802.jpg"
     ],
     "specs": {
       "cooler_type": "Air Cooler",
@@ -1364,10 +1364,10 @@
     "compare_at_price": 4299,
     "available": true,
     "sku": "LPC-CLR-STORM120",
-    "image": "/images/shop_by_category/liquid_cooler.png",
-    "cdn_image": "/images/shop_by_category/liquid_cooler.png",
+    "image": "/images/products/cooler/980803.jpg",
+    "cdn_image": "/images/products/cooler/980803.jpg",
     "images": [
-      "/images/shop_by_category/liquid_cooler.png"
+      "/images/products/cooler/980803.jpg"
     ],
     "specs": {
       "cooler_type": "Liquid Cooler",

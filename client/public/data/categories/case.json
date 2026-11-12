@@ -3465,10 +3465,10 @@
     "compare_at_price": 5699,
     "available": false,
     "sku": "ant-esports-205-mini-black",
-    "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/205-air-black-1-1000x1000_result.jpg?v=1711699538",
-    "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/205-air-black-1-1000x1000_result.jpg?v=1711699538",
+    "image": "/images/products/case/7684426334301.png",
+    "cdn_image": "/images/products/case/7684426334301.png",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/205-air-black-1-1000x1000_result.jpg?v=1711699538"
+      "/images/products/case/7684426334301.png"
     ],
     "cdn_images": [
       "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/205-air-black-1-1000x1000_result.jpg?v=1711699538"
@@ -6610,45 +6610,6 @@
     }
   },
   {
-    "id": "case_7817367093341",
-    "title": "ZEBRONICS Klarity USB Gaming Microphone",
-    "vendor": "Zebronics",
-    "price": 1125,
-    "compare_at_price": 1524,
-    "category": "case",
-    "product_type": "Accessories",
-    "available": true,
-    "sku": "zebronics-klarity-usb",
-    "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/Zebronics-Zeb-Klarity.jpg?v=1736512290",
-    "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/Zebronics-Zeb-Klarity.jpg?v=1736512290",
-    "handle": "zebronics-klarity-usb-gaming-microphone",
-    "url": "https://computercare.in/products/zebronics-klarity-usb-gaming-microphone",
-    "description": "Feature of ZEBRONICS Klarity USB Gaming Microphone\n \n\nPremium gaming USB Mic ergonomic design\nAdjustable neck that comes with a 360-degree tilt\nOmnidirectional mic with an LED indicator\nNoise filter f...",
-    "tags": [
-      "CATP_ZEBRONICS",
-      "CATQ_Microphone",
-      "computercare-builder",
-      "Microphone",
-      "price_sync",
-      "Zebronics",
-      "Zebronics",
-      "Gaming"
-    ],
-    "specs": {
-      "form_factor": "Mid Tower",
-      "cabinet_style": "High-Airflow Mesh",
-      "color": "Black",
-      "supported_motherboards": [
-        "ATX",
-        "Micro-ATX",
-        "Mini-ITX"
-      ],
-      "max_gpu_length": 390,
-      "side_panel": "Tempered Glass",
-      "included_fans": "Fans Included"
-    }
-  },
-  {
     "id": "case_7818024714333",
     "title": "ZEBRONICS Robust ARGB MATX Mid Tower Cabinet ( Black )",
     "vendor": "Zebronics",
@@ -6861,10 +6822,10 @@
     "compare_at_price": 1699,
     "available": true,
     "sku": "LPC-CAS-SUPREME-01",
-    "image": "/images/shop_by_category/pc_cabinet.png",
-    "cdn_image": "/images/shop_by_category/pc_cabinet.png",
+    "image": "/images/products/case/980601.jpg",
+    "cdn_image": "/images/products/case/980601.jpg",
     "images": [
-      "/images/shop_by_category/pc_cabinet.png"
+      "/images/products/case/980601.jpg"
     ],
     "specs": {
       "form_factor": "Micro-ATX Mini Tower",
@@ -6892,10 +6853,10 @@
     "compare_at_price": 1999,
     "available": true,
     "sku": "LPC-CAS-CHAMPION",
-    "image": "/images/shop_by_category/pc_cabinet.png",
-    "cdn_image": "/images/shop_by_category/pc_cabinet.png",
+    "image": "/images/products/case/980602.jpg",
+    "cdn_image": "/images/products/case/980602.jpg",
     "images": [
-      "/images/shop_by_category/pc_cabinet.png"
+      "/images/products/case/980602.jpg"
     ],
     "specs": {
       "form_factor": "Micro-ATX Mid Tower",
@@ -6923,10 +6884,10 @@
     "compare_at_price": 3499,
     "available": true,
     "sku": "LPC-CAS-PRODIGY-RGB",
-    "image": "/images/shop_by_category/pc_cabinet.png",
-    "cdn_image": "/images/shop_by_category/pc_cabinet.png",
+    "image": "/images/products/case/980603.jpg",
+    "cdn_image": "/images/products/case/980603.jpg",
     "images": [
-      "/images/shop_by_category/pc_cabinet.png"
+      "/images/products/case/980603.jpg"
     ],
     "specs": {
       "form_factor": "ATX Mid Tower",
@@ -6955,10 +6916,10 @@
     "compare_at_price": 2699,
     "available": true,
     "sku": "LPC-CAS-WINNER",
-    "image": "/images/shop_by_category/pc_cabinet.png",
-    "cdn_image": "/images/shop_by_category/pc_cabinet.png",
+    "image": "/images/products/case/980604.jpg",
+    "cdn_image": "/images/products/case/980604.jpg",
     "images": [
-      "/images/shop_by_category/pc_cabinet.png"
+      "/images/products/case/980604.jpg"
     ],
     "specs": {
       "form_factor": "ATX Mid Tower",
@@ -6987,10 +6948,10 @@
     "compare_at_price": 1649,
     "available": true,
     "sku": "CST-CAS-CLASSIC",
-    "image": "/images/shop_by_category/pc_cabinet.png",
-    "cdn_image": "/images/shop_by_category/pc_cabinet.png",
+    "image": "/images/products/case/970501.jpg",
+    "cdn_image": "/images/products/case/970501.jpg",
     "images": [
-      "/images/shop_by_category/pc_cabinet.png"
+      "/images/products/case/970501.jpg"
     ],
     "specs": {
       "form_factor": "Micro-ATX Mini Tower",
@@ -7018,10 +6979,10 @@
     "compare_at_price": 2599,
     "available": true,
     "sku": "IBL-CAS-BABY330",
-    "image": "/images/shop_by_category/pc_cabinet.png",
-    "cdn_image": "/images/shop_by_category/pc_cabinet.png",
+    "image": "/images/products/case/960101.jpg",
+    "cdn_image": "/images/products/case/960101.jpg",
     "images": [
-      "/images/shop_by_category/pc_cabinet.png"
+      "/images/products/case/960101.jpg"
     ],
     "specs": {
       "form_factor": "Micro-ATX Mini Tower",

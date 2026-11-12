@@ -473,10 +473,10 @@
     "compare_at_price": 1599,
     "available": true,
     "sku": "LPC-SSD-128G-SATA",
-    "image": "/images/shop_by_category/ssd.png",
-    "cdn_image": "/images/shop_by_category/ssd.png",
+    "image": "/images/products/storage/980501.jpg",
+    "cdn_image": "/images/products/storage/980501.jpg",
     "images": [
-      "/images/shop_by_category/ssd.png"
+      "/images/products/storage/980501.jpg"
     ],
     "specs": {
       "form_factor": "2.5 Inch SATA",
@@ -499,10 +499,10 @@
     "compare_at_price": 2199,
     "available": true,
     "sku": "LPC-SSD-256G-SATA",
-    "image": "/images/shop_by_category/ssd.png",
-    "cdn_image": "/images/shop_by_category/ssd.png",
+    "image": "/images/products/storage/980502.jpg",
+    "cdn_image": "/images/products/storage/980502.jpg",
     "images": [
-      "/images/shop_by_category/ssd.png"
+      "/images/products/storage/980502.jpg"
     ],
     "specs": {
       "form_factor": "2.5 Inch SATA",
@@ -525,10 +525,10 @@
     "compare_at_price": 3699,
     "available": true,
     "sku": "LPC-SSD-512G-SATA",
-    "image": "/images/shop_by_category/ssd.png",
-    "cdn_image": "/images/shop_by_category/ssd.png",
+    "image": "/images/products/storage/980503.jpg",
+    "cdn_image": "/images/products/storage/980503.jpg",
     "images": [
-      "/images/shop_by_category/ssd.png"
+      "/images/products/storage/980503.jpg"
     ],
     "specs": {
       "form_factor": "2.5 Inch SATA",
@@ -551,10 +551,10 @@
     "compare_at_price": 4199,
     "available": true,
     "sku": "LPC-SSD-512G-NVME",
-    "image": "/images/shop_by_category/ssd.png",
-    "cdn_image": "/images/shop_by_category/ssd.png",
+    "image": "/images/products/storage/980504.jpg",
+    "cdn_image": "/images/products/storage/980504.jpg",
     "images": [
-      "/images/shop_by_category/ssd.png"
+      "/images/products/storage/980504.jpg"
     ],
     "specs": {
       "form_factor": "M.2 2280",
@@ -577,10 +577,10 @@
     "compare_at_price": 6999,
     "available": true,
     "sku": "LPC-SSD-1TB-NVME",
-    "image": "/images/shop_by_category/ssd.png",
-    "cdn_image": "/images/shop_by_category/ssd.png",
+    "image": "/images/products/storage/980505.jpg",
+    "cdn_image": "/images/products/storage/980505.jpg",
     "images": [
-      "/images/shop_by_category/ssd.png"
+      "/images/products/storage/980505.jpg"
     ],
     "specs": {
       "form_factor": "M.2 2280",
@@ -603,10 +603,10 @@
     "compare_at_price": 2199,
     "available": true,
     "sku": "CST-SSD-256G",
-    "image": "/images/shop_by_category/ssd.png",
-    "cdn_image": "/images/shop_by_category/ssd.png",
+    "image": "/images/products/storage/970401.jpg",
+    "cdn_image": "/images/products/storage/970401.jpg",
     "images": [
-      "/images/shop_by_category/ssd.png"
+      "/images/products/storage/970401.jpg"
     ],
     "specs": {
       "form_factor": "2.5 Inch SATA",
@@ -629,10 +629,10 @@
     "compare_at_price": 3999,
     "available": true,
     "sku": "CST-SSD-512G-NVME",
-    "image": "/images/shop_by_category/ssd.png",
-    "cdn_image": "/images/shop_by_category/ssd.png",
+    "image": "/images/products/storage/970402.jpg",
+    "cdn_image": "/images/products/storage/970402.jpg",
     "images": [
-      "/images/shop_by_category/ssd.png"
+      "/images/products/storage/970402.jpg"
     ],
     "specs": {
       "form_factor": "M.2 2280",

@@ -6,8 +6,8 @@
     "price": 429,
     "compare_at_price": 799,
     "category": "gaming_keyboard",
-    "image": "/images/products/keyboard/zebronics-zeb-dlk01-wired.png",
-    "cdn_image": "/images/products/keyboard/zebronics-zeb-dlk01-wired.png",
+    "image": "/images/products/gaming_keyboard/kb_zebronics_dlk01_wired.jpg",
+    "cdn_image": "/images/products/gaming_keyboard/kb_zebronics_dlk01_wired.jpg",
     "handle": "zebronics-zeb-dlk01-usb-wired-multimedia-keyboard",
     "url": "#",
     "description": "Zebronics Zeb-DLK01 is a reliable USB wired desktop keyboard featuring UV-coated keycaps for extended durability, comfortable key travel, and dedicated Indian Rupee currency key.",
@@ -28,7 +28,10 @@
       "layout": "Full Size 104-Key",
       "interface": "USB Wired (1.5m)"
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_keyboard/kb_zebronics_dlk01_wired.jpg"
+    ]
   },
   {
     "id": "kb_ant_esports_km540_wired",
@@ -37,8 +40,8 @@
     "price": 1299,
     "compare_at_price": 2499,
     "category": "gaming_keyboard",
-    "image": "/images/products/keyboard/ant-esports-km540-wired.png",
-    "cdn_image": "/images/products/keyboard/ant-esports-km540-wired.png",
+    "image": "/images/products/gaming_keyboard/kb_ant_esports_km540_wired.jpg",
+    "cdn_image": "/images/products/gaming_keyboard/kb_ant_esports_km540_wired.jpg",
     "handle": "ant-esports-km540-rainbow-backlit-wired-gaming-keyboard",
     "url": "#",
     "description": "Ant Esports KM540 is built for gaming performance with vibrant multi-zone RGB rainbow backlighting, 19-key anti-ghosting, tactile double-injection keycaps, and durable braided USB cable.",
@@ -59,7 +62,10 @@
       "layout": "Full Size 104-Key Gaming",
       "interface": "Braided USB Wired (1.8m)"
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_keyboard/kb_ant_esports_km540_wired.jpg"
+    ]
   },
   {
     "id": "kb_acer_okb010_wired",
@@ -68,8 +74,8 @@
     "price": 499,
     "compare_at_price": 899,
     "category": "gaming_keyboard",
-    "image": "/images/products/keyboard/acer-okb010-wired.png",
-    "cdn_image": "/images/products/keyboard/acer-okb010-wired.png",
+    "image": "/images/products/gaming_keyboard/kb_acer_okb010_wired.jpg",
+    "cdn_image": "/images/products/gaming_keyboard/kb_acer_okb010_wired.jpg",
     "handle": "acer-okb010-standard-usb-wired-desktop-keyboard",
     "url": "#",
     "description": "Acer OKB010 delivers reliable everyday typing performance with full numeric keypad, UV coated keycaps for longevity, and ergonomic inclination for natural wrist comfort.",
@@ -90,7 +96,10 @@
       "layout": "Full Size 104-Key",
       "interface": "USB Wired (1.5m)"
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_keyboard/kb_acer_okb010_wired.jpg"
+    ]
   },
   {
     "id": "kb_geonix_gx_k100_wired",
@@ -99,8 +108,8 @@
     "price": 449,
     "compare_at_price": 799,
     "category": "gaming_keyboard",
-    "image": "/images/products/keyboard/geonix-gx-k100-wired.png",
-    "cdn_image": "/images/products/keyboard/geonix-gx-k100-wired.png",
+    "image": "/images/products/gaming_keyboard/kb_geonix_gx_k100_wired.jpg",
+    "cdn_image": "/images/products/gaming_keyboard/kb_geonix_gx_k100_wired.jpg",
     "handle": "geonix-gx-k100-multimedia-wired-usb-keyboard",
     "url": "#",
     "description": "Geonix GX-K100 is engineered for high durability with tactile silicone key domes and quiet keystrokes. Features dedicated shortcut keys for browser, email, and volume management.",
@@ -121,7 +130,10 @@
       "layout": "Full Size 104-Key Multimedia",
       "interface": "USB Wired (1.5m)"
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_keyboard/kb_geonix_gx_k100_wired.jpg"
+    ]
   },
   {
     "id": "kb_prodot_kb207s_wired",
@@ -130,8 +142,8 @@
     "price": 399,
     "compare_at_price": 650,
     "category": "gaming_keyboard",
-    "image": "/images/products/keyboard/prodot-kb-207s-wired.png",
-    "cdn_image": "/images/products/keyboard/prodot-kb-207s-wired.png",
+    "image": "/images/products/gaming_keyboard/kb_prodot_kb207s_wired.jpg",
+    "cdn_image": "/images/products/gaming_keyboard/kb_prodot_kb207s_wired.jpg",
     "handle": "prodot-kb-207s-total-control-wired-usb-keyboard",
     "url": "#",
     "description": "ProDot Total Control KB-207s is manufactured in India for dependable typing endurance. Laser-etched key characters resist rubbing off even under heavy daily office, school, and data entry use.",
@@ -152,7 +164,10 @@
       "layout": "Full Size 104-Key",
       "interface": "USB Wired (1.5m)"
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_keyboard/kb_prodot_kb207s_wired.jpg"
+    ]
   },
   {
     "id": "kb_hp_100_wired",
@@ -161,8 +176,8 @@
     "price": 599,
     "compare_at_price": 999,
     "category": "gaming_keyboard",
-    "image": "/images/products/keyboard/hp-100-wired.png",
-    "cdn_image": "/images/products/keyboard/hp-100-wired.png",
+    "image": "/images/products/gaming_keyboard/kb_hp_100_wired.jpg",
+    "cdn_image": "/images/products/gaming_keyboard/kb_hp_100_wired.jpg",
     "handle": "hp-100-wired-usb-desktop-keyboard",
     "url": "#",
     "description": "The HP 100 Wired Keyboard combines high-precision key actuation with a clean, low-profile design. Built-in liquid drainage safeguards your hardware against accidental office spills.",
@@ -183,7 +198,10 @@
       "layout": "Full Size 109-Key",
       "interface": "USB Wired (1.5m)"
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_keyboard/kb_hp_100_wired.jpg"
+    ]
   },
   {
     "id": "kb_logitech_k120_wired",
@@ -192,8 +210,8 @@
     "price": 649,
     "compare_at_price": 895,
     "category": "gaming_keyboard",
-    "image": "/images/products/keyboard/logitech-k120-wired.png",
-    "cdn_image": "/images/products/keyboard/logitech-k120-wired.png",
+    "image": "/images/products/gaming_keyboard/kb_logitech_k120_wired.jpg",
+    "cdn_image": "/images/products/gaming_keyboard/kb_logitech_k120_wired.jpg",
     "handle": "logitech-k120-usb-wired-standard-keyboard",
     "url": "#",
     "description": "The global benchmark for everyday productivity typing. Logitech K120 features deep-profile keys, a spill-resistant design with liquid drainage channels, sturdy adjustable tilt legs, and plug-and-play USB simplicity.",
@@ -214,7 +232,10 @@
       "layout": "Full Size 104-Key",
       "interface": "USB Wired (1.5m)"
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_keyboard/kb_logitech_k120_wired.jpg"
+    ]
   },
   {
     "id": "kb_dell_kb216_wired",
@@ -223,8 +244,8 @@
     "price": 699,
     "compare_at_price": 1199,
     "category": "gaming_keyboard",
-    "image": "/images/products/keyboard/dell-kb216-wired.png",
-    "cdn_image": "/images/products/keyboard/dell-kb216-wired.png",
+    "image": "/images/products/gaming_keyboard/kb_dell_kb216_wired.jpg",
+    "cdn_image": "/images/products/gaming_keyboard/kb_dell_kb216_wired.jpg",
     "handle": "dell-kb216-wired-multimedia-desktop-usb-keyboard",
     "url": "#",
     "description": "India’s most popular enterprise and workstation keyboard. The Dell KB216 offers low-profile chiclet keys for whisper-quiet typing, multimedia hotkeys (play, pause, rewind, volume up/down), and an ergonomic compact footprint.",
@@ -245,7 +266,10 @@
       "layout": "Full Size 104-Key Chiclet",
       "interface": "USB Wired (1.8m)"
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_keyboard/kb_dell_kb216_wired.jpg"
+    ]
   },
   {
     "id": "kb_tvs_champ_heavy_duty",
@@ -254,8 +278,8 @@
     "price": 699,
     "compare_at_price": 1150,
     "category": "gaming_keyboard",
-    "image": "/images/products/keyboard/tvs-champ-heavy-duty.png",
-    "cdn_image": "/images/products/keyboard/tvs-champ-heavy-duty.png",
+    "image": "/images/products/gaming_keyboard/kb_tvs_champ_heavy_duty.png",
+    "cdn_image": "/images/products/gaming_keyboard/kb_tvs_champ_heavy_duty.png",
     "handle": "tvs-champ-heavy-duty-wired-usb-keyboard",
     "url": "#",
     "description": "TVS Champ heavy-duty wired USB keyboard designed for rigorous commercial, billing, office, and academic lab environments. Features laser-etched fade-proof keycaps, tactile membrane feedback, and splash-resistant engineering.",
@@ -276,7 +300,10 @@
       "layout": "Full Size 104-Key",
       "interface": "USB Wired (1.5m)"
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_keyboard/kb_tvs_champ_heavy_duty.png"
+    ]
   },
   {
     "id": "kb_tvs_gold_bharat",
@@ -285,8 +312,8 @@
     "price": 2999,
     "compare_at_price": 3999,
     "category": "gaming_keyboard",
-    "image": "/images/products/keyboard/tvs-gold-bharat-mechanical.png",
-    "cdn_image": "/images/products/keyboard/tvs-gold-bharat-mechanical.png",
+    "image": "/images/products/gaming_keyboard/kb_tvs_gold_bharat.png",
+    "cdn_image": "/images/products/gaming_keyboard/kb_tvs_gold_bharat.png",
     "handle": "tvs-gold-bharat-mechanical-wired-keyboard",
     "url": "#",
     "description": "The legendary TVS Gold Bharat mechanical keyboard trusted by banking, engineering, accounting, and power users across India. Built with genuine high-durability mechanical switches rated for 50 million keystrokes, sculpted laser-etched keycaps, standard Rupee symbol, and ultra-sturdy chassis.",
@@ -310,7 +337,10 @@
       "switch_type": "Long-Life Mechanical (50M Clicks)",
       "interface": "USB Wired (1.8m)"
     },
-    "in_stock": true
+    "in_stock": true,
+    "images": [
+      "/images/products/gaming_keyboard/kb_tvs_gold_bharat.png"
+    ]
   },
   {
     "id": "gaming_keyboard_7100200255581",
@@ -1408,10 +1438,10 @@
     "compare_at_price": 599,
     "available": true,
     "sku": "LPC-KB-SAFARI",
-    "image": "/images/shop_by_category/keyboard.png",
-    "cdn_image": "/images/shop_by_category/keyboard.png",
+    "image": "/images/products/gaming_keyboard/981001.webp",
+    "cdn_image": "/images/products/gaming_keyboard/981001.webp",
     "images": [
-      "/images/shop_by_category/keyboard.png"
+      "/images/products/gaming_keyboard/981001.webp"
     ],
     "specs": {
       "connectivity": "Wired USB",
@@ -1433,10 +1463,10 @@
     "compare_at_price": 1299,
     "available": true,
     "sku": "LPC-KB-CHAMP-RGB",
-    "image": "/images/shop_by_category/keyboard.png",
-    "cdn_image": "/images/shop_by_category/keyboard.png",
+    "image": "/images/products/gaming_keyboard/981002.webp",
+    "cdn_image": "/images/products/gaming_keyboard/981002.webp",
     "images": [
-      "/images/shop_by_category/keyboard.png"
+      "/images/products/gaming_keyboard/981002.webp"
     ],
     "specs": {
       "connectivity": "Wired USB",
@@ -1458,10 +1488,10 @@
     "compare_at_price": 549,
     "available": true,
     "sku": "CST-KB-USB",
-    "image": "/images/shop_by_category/keyboard.png",
-    "cdn_image": "/images/shop_by_category/keyboard.png",
+    "image": "/images/products/gaming_keyboard/970503.jpg",
+    "cdn_image": "/images/products/gaming_keyboard/970503.jpg",
     "images": [
-      "/images/shop_by_category/keyboard.png"
+      "/images/products/gaming_keyboard/970503.jpg"
     ],
     "specs": {
       "connectivity": "Wired USB",
@@ -1483,10 +1513,10 @@
     "compare_at_price": 599,
     "available": true,
     "sku": "IBL-KB-WINNER",
-    "image": "/images/shop_by_category/keyboard.png",
-    "cdn_image": "/images/shop_by_category/keyboard.png",
+    "image": "/images/products/gaming_keyboard/960103.jpg",
+    "cdn_image": "/images/products/gaming_keyboard/960103.jpg",
     "images": [
-      "/images/shop_by_category/keyboard.png"
+      "/images/products/gaming_keyboard/960103.jpg"
     ],
     "specs": {
       "connectivity": "Wired USB",

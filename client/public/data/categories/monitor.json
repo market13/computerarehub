@@ -2303,10 +2303,10 @@
     "compare_at_price": 4999,
     "available": true,
     "sku": "LPC-MON-19-HD",
-    "image": "/images/shop_by_category/monitor.png",
-    "cdn_image": "/images/shop_by_category/monitor.png",
+    "image": "/images/products/monitor/980901.webp",
+    "cdn_image": "/images/products/monitor/980901.webp",
     "images": [
-      "/images/shop_by_category/monitor.png"
+      "/images/products/monitor/980901.webp"
     ],
     "specs": {
       "screen_size": "19 Inch",
@@ -2333,10 +2333,10 @@
     "compare_at_price": 7499,
     "available": true,
     "sku": "LPC-MON-215-FHD",
-    "image": "/images/shop_by_category/monitor.png",
-    "cdn_image": "/images/shop_by_category/monitor.png",
+    "image": "/images/products/monitor/980902.jpg",
+    "cdn_image": "/images/products/monitor/980902.jpg",
     "images": [
-      "/images/shop_by_category/monitor.png"
+      "/images/products/monitor/980902.jpg"
     ],
     "specs": {
       "screen_size": "21.5 Inch",
@@ -2363,10 +2363,10 @@
     "compare_at_price": 9499,
     "available": true,
     "sku": "LPC-MON-24-FHD",
-    "image": "/images/shop_by_category/monitor.png",
-    "cdn_image": "/images/shop_by_category/monitor.png",
+    "image": "/images/products/monitor/980903.webp",
+    "cdn_image": "/images/products/monitor/980903.webp",
     "images": [
-      "/images/shop_by_category/monitor.png"
+      "/images/products/monitor/980903.webp"
     ],
     "specs": {
       "screen_size": "24 Inch",
@@ -2393,10 +2393,10 @@
     "compare_at_price": 12999,
     "available": true,
     "sku": "LPC-MON-27-100HZ",
-    "image": "/images/shop_by_category/monitor.png",
-    "cdn_image": "/images/shop_by_category/monitor.png",
+    "image": "/images/products/monitor/980904.webp",
+    "cdn_image": "/images/products/monitor/980904.webp",
     "images": [
-      "/images/shop_by_category/monitor.png"
+      "/images/products/monitor/980904.webp"
     ],
     "specs": {
       "screen_size": "27 Inch",

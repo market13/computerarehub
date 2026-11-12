@@ -10,10 +10,10 @@
     "compare_at_price": 3499,
     "available": true,
     "sku": "LPC-GPU-GT710-2G",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/980301.jpg",
+    "cdn_image": "/images/products/gpu/980301.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/980301.jpg"
     ],
     "specs": {
       "chipset": "GeForce GT 710",
@@ -42,10 +42,10 @@
     "compare_at_price": 4599,
     "available": true,
     "sku": "LPC-GPU-GT730-4G",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/980302.jpg",
+    "cdn_image": "/images/products/gpu/980302.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/980302.jpg"
     ],
     "specs": {
       "chipset": "GeForce GT 730",
@@ -74,10 +74,10 @@
     "compare_at_price": 6999,
     "available": true,
     "sku": "LPC-GPU-GT1030-4G",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/980303.jpg",
+    "cdn_image": "/images/products/gpu/980303.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/980303.jpg"
     ],
     "specs": {
       "chipset": "GeForce GT 1030",
@@ -105,10 +105,10 @@
     "compare_at_price": 11999,
     "available": true,
     "sku": "LPC-GPU-RX580-8G",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/980304.jpg",
+    "cdn_image": "/images/products/gpu/980304.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/980304.jpg"
     ],
     "specs": {
       "chipset": "Radeon RX 580",
@@ -137,10 +137,10 @@
     "compare_at_price": 3499,
     "available": true,
     "sku": "CST-GPU-GT710",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/970301.jpg",
+    "cdn_image": "/images/products/gpu/970301.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/970301.jpg"
     ],
     "specs": {
       "chipset": "GeForce GT 710",
@@ -169,10 +169,10 @@
     "compare_at_price": 4499,
     "available": true,
     "sku": "CST-GPU-GT730",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/970302.jpg",
+    "cdn_image": "/images/products/gpu/970302.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/970302.jpg"
     ],
     "specs": {
       "chipset": "GeForce GT 730",
@@ -201,10 +201,10 @@
     "compare_at_price": 13999,
     "available": true,
     "sku": "CST-GPU-GTX1650",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/970303.jpg",
+    "cdn_image": "/images/products/gpu/970303.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/970303.jpg"
     ],
     "specs": {
       "chipset": "GeForce GTX 1650",
@@ -233,10 +233,10 @@
     "compare_at_price": 3499,
     "available": true,
     "sku": "GNX-GPU-GT710",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/950103.jpg",
+    "cdn_image": "/images/products/gpu/950103.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/950103.jpg"
     ],
     "specs": {
       "chipset": "GeForce GT 710",
@@ -265,10 +265,10 @@
     "compare_at_price": 4499,
     "available": true,
     "sku": "GNX-GPU-GT730",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/950104.jpg",
+    "cdn_image": "/images/products/gpu/950104.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/950104.jpg"
     ],
     "specs": {
       "chipset": "GeForce GT 730",
@@ -297,10 +297,10 @@
     "compare_at_price": 4699,
     "available": true,
     "sku": "ZEB-GPU-GT730",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/940103.jpg",
+    "cdn_image": "/images/products/gpu/940103.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/940103.jpg"
     ],
     "specs": {
       "chipset": "GeForce GT 730",
@@ -329,10 +329,10 @@
     "compare_at_price": 36999,
     "available": true,
     "sku": "ACR-GPU-A770-16G",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/920101.jpg",
+    "cdn_image": "/images/products/gpu/920101.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/920101.jpg"
     ],
     "specs": {
       "chipset": "Intel Arc A770",
@@ -360,10 +360,10 @@
     "compare_at_price": 31999,
     "available": true,
     "sku": "ACR-GPU-RX7600-8G",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/920102.jpg",
+    "cdn_image": "/images/products/gpu/920102.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/920102.jpg"
     ],
     "specs": {
       "chipset": "Radeon RX 7600",
@@ -391,10 +391,10 @@
     "compare_at_price": 34999,
     "available": true,
     "sku": "HP-GPU-RTX4060-8G",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/910102.jpg",
+    "cdn_image": "/images/products/gpu/910102.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/910102.jpg"
     ],
     "specs": {
       "chipset": "GeForce RTX 4060",
@@ -422,10 +422,10 @@
     "compare_at_price": 64999,
     "available": true,
     "sku": "DEL-GPU-RTX4070-12G",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/900102.jpg",
+    "cdn_image": "/images/products/gpu/900102.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/900102.jpg"
     ],
     "specs": {
       "chipset": "GeForce RTX 4070",
@@ -453,10 +453,10 @@
     "compare_at_price": 119999,
     "available": true,
     "sku": "LEN-GPU-RTX4080-16G",
-    "image": "/images/shop_by_category/graphic_card.png",
-    "cdn_image": "/images/shop_by_category/graphic_card.png",
+    "image": "/images/products/gpu/890102.jpg",
+    "cdn_image": "/images/products/gpu/890102.jpg",
     "images": [
-      "/images/shop_by_category/graphic_card.png"
+      "/images/products/gpu/890102.jpg"
     ],
     "specs": {
       "chipset": "GeForce RTX 4080",

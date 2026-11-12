@@ -542,10 +542,10 @@
     "compare_at_price": 1199,
     "available": true,
     "sku": "LPC-RAM-4G-D3",
-    "image": "/images/shop_by_category/ram.png",
-    "cdn_image": "/images/shop_by_category/ram.png",
+    "image": "/images/products/ram/980401.png",
+    "cdn_image": "/images/products/ram/980401.png",
     "images": [
-      "/images/shop_by_category/ram.png"
+      "/images/products/ram/980401.png"
     ],
     "specs": {
       "ram_type": "DDR3",
@@ -568,10 +568,10 @@
     "compare_at_price": 1799,
     "available": true,
     "sku": "LPC-RAM-8G-D3",
-    "image": "/images/shop_by_category/ram.png",
-    "cdn_image": "/images/shop_by_category/ram.png",
+    "image": "/images/products/ram/980402.png",
+    "cdn_image": "/images/products/ram/980402.png",
     "images": [
-      "/images/shop_by_category/ram.png"
+      "/images/products/ram/980402.png"
     ],
     "specs": {
       "ram_type": "DDR3",
@@ -594,10 +594,10 @@
     "compare_at_price": 2299,
     "available": true,
     "sku": "LPC-RAM-8G-D4",
-    "image": "/images/shop_by_category/ram.png",
-    "cdn_image": "/images/shop_by_category/ram.png",
+    "image": "/images/products/ram/980403.png",
+    "cdn_image": "/images/products/ram/980403.png",
     "images": [
-      "/images/shop_by_category/ram.png"
+      "/images/products/ram/980403.png"
     ],
     "specs": {
       "ram_type": "DDR4",
@@ -620,10 +620,10 @@
     "compare_at_price": 3999,
     "available": true,
     "sku": "LPC-RAM-16G-D4",
-    "image": "/images/shop_by_category/ram.png",
-    "cdn_image": "/images/shop_by_category/ram.png",
+    "image": "/images/products/ram/980404.webp",
+    "cdn_image": "/images/products/ram/980404.webp",
     "images": [
-      "/images/shop_by_category/ram.png"
+      "/images/products/ram/980404.webp"
     ],
     "specs": {
       "ram_type": "DDR4",
@@ -646,10 +646,10 @@
     "compare_at_price": 5499,
     "available": true,
     "sku": "LPC-RAM-16G-D5",
-    "image": "/images/shop_by_category/ram.png",
-    "cdn_image": "/images/shop_by_category/ram.png",
+    "image": "/images/products/ram/980405.png",
+    "cdn_image": "/images/products/ram/980405.png",
     "images": [
-      "/images/shop_by_category/ram.png"
+      "/images/products/ram/980405.png"
     ],
     "specs": {
       "ram_type": "DDR5",
@@ -672,10 +672,10 @@
     "compare_at_price": 2199,
     "available": true,
     "sku": "CST-RAM-8G-D4",
-    "image": "/images/shop_by_category/ram.png",
-    "cdn_image": "/images/shop_by_category/ram.png",
+    "image": "/images/products/ram/970403.jpg",
+    "cdn_image": "/images/products/ram/970403.jpg",
     "images": [
-      "/images/shop_by_category/ram.png"
+      "/images/products/ram/970403.jpg"
     ],
     "specs": {
       "ram_type": "DDR4",
@@ -698,10 +698,10 @@
     "compare_at_price": 3799,
     "available": true,
     "sku": "CST-RAM-16G-D4",
-    "image": "/images/shop_by_category/ram.png",
-    "cdn_image": "/images/shop_by_category/ram.png",
+    "image": "/images/products/ram/970404.jpg",
+    "cdn_image": "/images/products/ram/970404.jpg",
     "images": [
-      "/images/shop_by_category/ram.png"
+      "/images/products/ram/970404.jpg"
     ],
     "specs": {
       "ram_type": "DDR4",
