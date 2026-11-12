@@ -273,6 +273,9 @@ export default function AdminPortalView({
   const handleLogout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem('computercare_admin_auth');
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new Event('storage'));
+    }
     window.location.hash = '';
     onNavigate('home');
   };

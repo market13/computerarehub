@@ -23,6 +23,7 @@ export default function AdminLoginModal({
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const [logoutNotice, setLogoutNotice] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
     return typeof window !== 'undefined' && localStorage.getItem('computercare_admin_auth') === 'true';
@@ -93,6 +94,10 @@ export default function AdminLoginModal({
     setIsAdminLoggedIn(false);
     setError('');
     setPassword('');
+    setLogoutNotice('Administrator session has been securely logged out.');
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new Event('storage'));
+    }
     if (onLogout) {
       onLogout();
     }
@@ -219,6 +224,12 @@ export default function AdminLoginModal({
                 </div>
               ) : (
                 <form onSubmit={handleAdminSubmit} className="space-y-4">
+                  {logoutNotice && (
+                    <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                      <span>{logoutNotice}</span>
+                    </div>
+                  )}
                   <div className="space-y-1">
                     <label className="block text-xs font-semibold text-slate-700">
                       Admin Username / Email

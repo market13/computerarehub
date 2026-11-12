@@ -71,7 +71,9 @@ export default function BuildSummarySidebar({
       spread: 80,
       origin: { y: 0.6 }
     });
-    alert(`Order inquiry initiated for ${items.length} parts totaling ₹${totalPrice.toLocaleString('en-IN')}! Our Ghaziabad store team will review stock and contact you shortly.`);
+    const partsList = items.map(it => `• ${it.title}: ₹${(it.price || 0).toLocaleString('en-IN')}`).join('\n');
+    const waText = encodeURIComponent(`Hi Computer Care! I want to order this custom PC build (${items.length} parts, Total: ₹${totalPrice.toLocaleString('en-IN')}):\n\n${partsList}\n\nPlease share availability and delivery timeframe.`);
+    window.open(`https://wa.me/919810550222?text=${waText}`, '_blank');
   };
 
   return (

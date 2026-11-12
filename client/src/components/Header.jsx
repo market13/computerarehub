@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AdminLoginModal from './AdminLoginModal';
 import { 
   ShoppingCart, 
@@ -189,7 +189,18 @@ export default function Header({
   const [mobileStreamingOpen, setMobileStreamingOpen] = useState(false);
   const [wishlistCount] = useState(0);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const isAdminActive = typeof window !== 'undefined' && localStorage.getItem('computercare_admin_auth') === 'true';
+  const [isAdminActive, setIsAdminActive] = useState(() => 
+    typeof window !== 'undefined' && localStorage.getItem('computercare_admin_auth') === 'true'
+  );
+
+  // Sync admin auth state when localStorage updates or modal logs in/out
+  useEffect(() => {
+    const syncAdminState = () => {
+      setIsAdminActive(typeof window !== 'undefined' && localStorage.getItem('computercare_admin_auth') === 'true');
+    };
+    window.addEventListener('storage', syncAdminState);
+    return () => window.removeEventListener('storage', syncAdminState);
+  }, []);
 
   const formattedPrice = totalPrice > 0 
     ? `Rs. ${totalPrice.toLocaleString('en-IN')}` 
@@ -477,9 +488,9 @@ export default function Header({
           {/* 2. Wishlist */}
           <button 
             type="button"
-            onClick={() => alert(`Your Wishlist contains ${wishlistCount} items.`)}
+            onClick={() => onCategorySelect('all')}
             className="flex items-center gap-1 cursor-pointer relative group bg-transparent border-none p-1 focus:outline-none flex-shrink-0"
-            title="Wishlist"
+            title="Wishlist (0 items) - Click to browse hardware catalog"
           >
             <div className="relative">
               <Heart className="w-[20px] h-[20px] xl:w-[22px] xl:h-[22px] text-slate-800 group-hover:text-red-500 transition-colors stroke-[1.8]" />
