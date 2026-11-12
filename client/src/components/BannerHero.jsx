@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { 
-  ChevronLeft, 
-  ChevronRight, 
   Truck, 
   ShieldCheck, 
   Box, 
@@ -9,119 +7,40 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-const SLIDES = [
-  {
-    id: 1,
-    tag: 'CUSTOM PC CONFIGURATOR',
-    title: 'BUILD YOUR DREAM CUSTOM GAMING RIG',
-    subtitle: 'Zero-Bottleneck Hardware Compatibility • Authentic Components • Real-Time Wattage & Pricing',
-    cta: 'START YOUR CUSTOM BUILD',
-    action: 'builder',
-    bgGradient: 'from-[#0f143a] via-[#1a2068] to-[#2B38D1]',
-    badgeColor: 'bg-brand-red',
-    tagColor: 'text-brand-gold'
-  },
-  {
-    id: 2,
-    tag: 'ULTIMATE PERFORMANCE GRAPHICS',
-    title: 'NVIDIA GEFORCE RTX 40 & 50 SERIES',
-    subtitle: 'Ray-Tracing & DLSS 3.5 Dominance • Genuine Brand Warranty • Sourced from Authorized Distributors',
-    cta: 'EXPLORE GRAPHICS CARDS',
-    action: 'catalog-gpu',
-    bgGradient: 'from-[#12172a] via-[#1e293b] to-[#047857]',
-    badgeColor: 'bg-emerald-600',
-    tagColor: 'text-emerald-400'
-  },
-  {
-    id: 3,
-    tag: 'NEXT-GEN PROCESSING POWER',
-    title: 'AMD RYZEN 9000 & INTEL CORE 14TH GEN',
-    subtitle: 'Unrivaled Gaming Frame Rates & High-Speed Creator Multitasking • Paired with DDR5 & PCIe Gen 5',
-    cta: 'VIEW PROCESSORS',
-    action: 'catalog-cpu',
-    bgGradient: 'from-[#311019] via-[#4c1d29] to-[#b91c1c]',
-    badgeColor: 'bg-amber-600',
-    tagColor: 'text-amber-300'
-  }
-];
-
 export default function BannerHero({ onNavigate }) {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const slide = SLIDES[currentSlide];
-  const targetHref = slide.action === 'builder' ? '/builder' : `/${slide.action.replace('-', '/')}`;
-
   return (
     <div className="w-full flex flex-col gap-4">
-      {/* 1. Main Hero Carousel Banner */}
-      <div className={`relative w-full min-h-[290px] sm:min-h-[360px] lg:h-[420px] py-7 sm:py-0 rounded-2xl overflow-hidden shadow-lg bg-gradient-to-r ${slide.bgGradient} text-white flex items-center transition-all duration-700`}>
+      {/* 1. Main Hero Banner - Custom PC Configurator */}
+      <div className="relative w-full min-h-[280px] sm:min-h-[340px] lg:h-[380px] py-8 sm:py-12 rounded-2xl overflow-hidden shadow-lg bg-gradient-to-r from-[#0f143a] via-[#1a2068] to-[#2B38D1] text-white flex items-center">
         {/* Decorative Grid Lines / Tech Pattern */}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-12 text-center sm:text-left flex flex-col items-center sm:items-start">
-          <span className={`text-[10px] sm:text-xs font-mono uppercase font-bold tracking-widest px-2.5 sm:px-3 py-1 rounded-full ${slide.badgeColor} text-white mb-2.5 shadow-md`}>
-            {slide.tag}
+          <span className="text-[10px] sm:text-xs font-mono uppercase font-bold tracking-widest px-3 py-1 rounded-full bg-brand-red text-white mb-3 shadow-md">
+            CUSTOM PC CONFIGURATOR
           </span>
 
-          <h1 className="text-xl sm:text-3xl lg:text-5xl font-display font-black tracking-tight leading-tight uppercase max-w-3xl drop-shadow-md">
-            {slide.title}
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-display font-black tracking-tight leading-tight uppercase max-w-3xl drop-shadow-md">
+            BUILD YOUR DREAM CUSTOM GAMING RIG
           </h1>
 
           <p className="mt-2.5 text-xs sm:text-sm text-slate-200 max-w-xl font-sans leading-relaxed drop-shadow">
-            {slide.subtitle}
+            Zero-Bottleneck Hardware Compatibility • Authentic Components • Real-Time Wattage & Pricing
           </p>
 
-          <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <a
-              href={targetHref}
+              href="/builder"
               onClick={(e) => {
                 e.preventDefault();
-                onNavigate(slide.action);
+                onNavigate('builder');
               }}
-              className="bg-brand-red hover:bg-brand-redHover text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-display font-bold uppercase tracking-wider text-xs sm:text-sm shadow-xl transition-transform hover:scale-105 flex items-center gap-2 cursor-pointer no-underline"
+              className="bg-brand-red hover:bg-brand-redHover text-white px-6 py-3 rounded-xl font-display font-bold uppercase tracking-wider text-xs sm:text-sm shadow-xl transition-transform hover:scale-105 flex items-center gap-2 cursor-pointer no-underline"
             >
-              <span>{slide.cta}</span>
+              <span>START YOUR CUSTOM BUILD</span>
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
-        </div>
-
-        {/* Carousel Prev/Next Buttons (Hidden on mobile for maximum text breathing room) */}
-        <button
-          onClick={() => setCurrentSlide((prev) => (prev - 1 + SLIDES.length) % SLIDES.length)}
-          className="hidden sm:flex absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 hover:bg-black/60 text-white backdrop-blur-md transition-colors cursor-pointer"
-          aria-label="Previous Slide"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-
-        <button
-          onClick={() => setCurrentSlide((prev) => (prev + 1) % SLIDES.length)}
-          className="hidden sm:flex absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 hover:bg-black/60 text-white backdrop-blur-md transition-colors cursor-pointer"
-          aria-label="Next Slide"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
-
-        {/* Slide Indicators */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2">
-          {SLIDES.map((s, idx) => (
-            <button
-              key={s.id}
-              onClick={() => setCurrentSlide(idx)}
-              className={`h-2 rounded-full transition-all ${
-                currentSlide === idx ? 'w-8 bg-brand-red' : 'w-2 bg-white/40 hover:bg-white/70'
-              }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
         </div>
       </div>
 
