@@ -15,8 +15,11 @@ export default function BannerHero({ onNavigate = () => {} }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const totalSlides = 2;
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+  const touchStartY = useRef(null);
+  const touchEndY = useRef(null);
+  const hasMoved = useRef(false);
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
@@ -32,31 +35,59 @@ export default function BannerHero({ onNavigate = () => {} }) {
       nextSlide();
     }, 5000);
     return () => clearInterval(timer);
-  }, [isPaused, nextSlide]);
+  }, [isPaused, nextSlide, currentSlide]);
 
   const handleTouchStart = (e) => {
+    setIsPaused(true);
+    hasMoved.current = false;
     touchStartX.current = e.targetTouches[0].clientX;
+    touchStartY.current = e.targetTouches[0].clientY;
+    touchEndX.current = e.targetTouches[0].clientX;
+    touchEndY.current = e.targetTouches[0].clientY;
   };
 
   const handleTouchMove = (e) => {
+    hasMoved.current = true;
     touchEndX.current = e.targetTouches[0].clientX;
+    touchEndY.current = e.targetTouches[0].clientY;
   };
 
   const handleTouchEnd = () => {
-    if (touchStartX.current && touchEndX.current) {
-      const distance = touchStartX.current - touchEndX.current;
-      if (distance > 50) {
-        nextSlide();
-      } else if (distance < -50) {
-        prevSlide();
+    setIsPaused(false);
+    if (hasMoved.current && touchStartX.current !== null && touchEndX.current !== null) {
+      const diffX = touchStartX.current - touchEndX.current;
+      const diffY = touchStartY.current - touchEndY.current;
+      // Only trigger horizontal slide if swipe is horizontal and exceeds threshold
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+        if (diffX > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
       }
     }
-    touchStartX.current = 0;
-    touchEndX.current = 0;
+    touchStartX.current = null;
+    touchEndX.current = null;
+    touchStartY.current = null;
+    touchEndY.current = null;
+    hasMoved.current = false;
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      prevSlide();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      nextSlide();
+    }
   };
 
   const handleBuilderNav = (e) => {
     if (e) {
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button === 1) {
+        return;
+      }
       e.preventDefault();
       e.stopPropagation();
     }
@@ -69,7 +100,9 @@ export default function BannerHero({ onNavigate = () => {} }) {
     <div className="w-full flex flex-col gap-4">
       {/* 1. Hero Carousel Container */}
       <div 
-        className="relative w-full min-h-[280px] sm:min-h-[340px] lg:h-[380px] rounded-2xl overflow-hidden shadow-lg bg-slate-950 group select-none"
+        className="relative w-full min-h-[280px] sm:min-h-[340px] lg:h-[380px] rounded-2xl overflow-hidden shadow-lg bg-slate-950 group select-none focus:outline-none focus:ring-2 focus:ring-cyan-400/50"
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onFocus={() => setIsPaused(true)}
@@ -77,6 +110,7 @@ export default function BannerHero({ onNavigate = () => {} }) {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
         role="region"
         aria-roledescription="carousel"
         aria-label="Computer Care Hero Banners"
@@ -87,7 +121,13 @@ export default function BannerHero({ onNavigate = () => {} }) {
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {/* Slide 0: Computer Care Branded Custom PC Configurator Banner */}
-          <div className="w-full shrink-0 min-w-full h-full min-h-[280px] sm:min-h-[340px] lg:h-[380px] relative flex flex-col items-center justify-center bg-black overflow-hidden py-3 sm:py-6">
+          <div 
+            role="group"
+            aria-roledescription="slide"
+            aria-label="1 of 2: Computer Care Custom PC Build Configurator"
+            aria-hidden={currentSlide !== 0}
+            className="w-full shrink-0 min-w-full h-full min-h-[280px] sm:min-h-[340px] lg:h-[380px] relative flex flex-col items-center justify-center bg-black overflow-hidden py-2 sm:py-4"
+          >
             {/* Ambient background glow */}
             <img
               src={computercareBanner}
@@ -98,6 +138,7 @@ export default function BannerHero({ onNavigate = () => {} }) {
 
             <a
               href="/builder"
+              tabIndex={currentSlide === 0 ? 0 : -1}
               onClick={handleBuilderNav}
               className="relative z-10 w-full h-full flex flex-col items-center justify-center px-2 sm:px-6 cursor-pointer group/slide no-underline focus:outline-none focus:ring-2 focus:ring-cyan-400/50 rounded-xl"
               aria-label="Computer Care Custom PC Build Configurator - Build Your PC Now"
@@ -106,12 +147,12 @@ export default function BannerHero({ onNavigate = () => {} }) {
                 <img
                   src={computercareBanner}
                   alt="Computer Care Custom PC Build Configurator"
-                  className="w-auto h-auto max-h-[200px] sm:max-h-[300px] lg:max-h-[350px] max-w-full object-contain mx-auto select-none pointer-events-none drop-shadow-2xl"
+                  className="w-auto h-auto max-h-[190px] sm:max-h-[265px] lg:max-h-[310px] max-w-full object-contain mx-auto select-none pointer-events-none drop-shadow-2xl"
                 />
 
-                {/* Desktop/Tablet CTA Button Overlay matching exact graphic button bounds */}
+                {/* Interactive CTA Button Overlay matching intrinsic raster graphic button */}
                 <div 
-                  className="absolute hidden sm:flex items-center justify-center"
+                  className="absolute flex items-center justify-center pointer-events-auto"
                   style={{
                     left: '6.35%',
                     top: '71.43%',
@@ -121,29 +162,24 @@ export default function BannerHero({ onNavigate = () => {} }) {
                 >
                   <span
                     onClick={handleBuilderNav}
-                    className="w-full h-full rounded-full bg-gradient-to-r from-[#00d2ff] via-[#9b28ea] to-[#ff0080] text-white flex items-center justify-center gap-1.5 md:gap-2 font-display font-extrabold uppercase tracking-wide shadow-lg shadow-pink-500/25 group-hover/slide:scale-102 group-hover/slide:brightness-110 active:scale-98 transition-all cursor-pointer text-[10px] sm:text-xs md:text-sm border border-white/20 select-none"
+                    className="w-full h-full rounded-full bg-gradient-to-r from-[#00d2ff] via-[#9b28ea] to-[#ff0080] text-white flex items-center justify-center gap-0.5 sm:gap-1.5 md:gap-2 font-display font-extrabold uppercase tracking-tight sm:tracking-wide shadow-lg shadow-pink-500/25 group-hover/slide:scale-102 group-hover/slide:brightness-110 active:scale-98 transition-all cursor-pointer text-[5.5px] min-[320px]:text-[6.5px] min-[360px]:text-[7.5px] min-[420px]:text-[8.5px] sm:text-xs md:text-sm border border-white/20 select-none px-0 min-[320px]:px-0.5 min-[360px]:px-1 sm:px-2.5 whitespace-nowrap overflow-hidden"
                   >
-                    <ShoppingCart className="w-3.5 h-3.5 md:w-4 md:h-4 shrink-0" />
+                    <ShoppingCart className="w-2 h-2 min-[360px]:w-2.5 min-[360px]:h-2.5 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 shrink-0" />
                     <span>Build Your PC Now -&gt;</span>
                   </span>
                 </div>
-              </div>
-
-              {/* Mobile CTA button displayed beneath banner image on small screens */}
-              <div className="sm:hidden mt-2 flex items-center justify-center">
-                <span 
-                  onClick={handleBuilderNav}
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 text-white font-display font-bold uppercase tracking-wider text-xs shadow-lg shadow-pink-500/25 active:scale-95 transition-all cursor-pointer"
-                >
-                  <ShoppingCart className="w-3.5 h-3.5" />
-                  <span>Build Your PC Now -&gt;</span>
-                </span>
               </div>
             </a>
           </div>
 
           {/* Slide 1: Original Custom PC Configurator Hero Banner */}
-          <div className="w-full shrink-0 min-w-full h-full min-h-[280px] sm:min-h-[340px] lg:h-[380px] relative flex items-center bg-gradient-to-r from-[#0f143a] via-[#1a2068] to-[#2B38D1] text-white py-8 sm:py-12 overflow-hidden">
+          <div 
+            role="group"
+            aria-roledescription="slide"
+            aria-label="2 of 2: Build Your Dream Custom Gaming Rig"
+            aria-hidden={currentSlide !== 1}
+            className="w-full shrink-0 min-w-full h-full min-h-[280px] sm:min-h-[340px] lg:h-[380px] relative flex items-center bg-gradient-to-r from-[#0f143a] via-[#1a2068] to-[#2B38D1] text-white py-8 sm:py-12 overflow-hidden"
+          >
             {/* Decorative Grid Lines / Tech Pattern */}
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
 
@@ -163,6 +199,7 @@ export default function BannerHero({ onNavigate = () => {} }) {
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <a
                   href="/builder"
+                  tabIndex={currentSlide === 1 ? 0 : -1}
                   onClick={handleBuilderNav}
                   className="bg-brand-red hover:bg-brand-redHover text-white px-6 py-3 rounded-xl font-display font-bold uppercase tracking-wider text-xs sm:text-sm shadow-xl transition-transform hover:scale-105 flex items-center gap-2 cursor-pointer no-underline"
                 >
@@ -177,6 +214,7 @@ export default function BannerHero({ onNavigate = () => {} }) {
         {/* Previous Slide Button (hidden on mobile for maximum text breathing room, visible on sm+ with hover) */}
         <button
           type="button"
+          tabIndex={0}
           onClick={(e) => {
             e.stopPropagation();
             prevSlide();
@@ -190,6 +228,7 @@ export default function BannerHero({ onNavigate = () => {} }) {
         {/* Next Slide Button (hidden on mobile for maximum text breathing room, visible on sm+ with hover) */}
         <button
           type="button"
+          tabIndex={0}
           onClick={(e) => {
             e.stopPropagation();
             nextSlide();
@@ -201,16 +240,18 @@ export default function BannerHero({ onNavigate = () => {} }) {
         </button>
 
         {/* Slide Indicator Dots */}
-        <div className="absolute bottom-2.5 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+        <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
           {[0, 1].map((index) => (
             <button
               key={index}
               type="button"
+              tabIndex={0}
               onClick={(e) => {
                 e.stopPropagation();
                 setCurrentSlide(index);
               }}
               aria-label={`Go to slide ${index + 1}`}
+              aria-current={currentSlide === index ? 'true' : undefined}
               className={`transition-all duration-300 rounded-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50 ${
                 currentSlide === index
                   ? 'w-7 sm:w-8 h-2 sm:h-2.5 bg-brand-red shadow-md'
