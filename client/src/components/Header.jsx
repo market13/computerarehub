@@ -284,14 +284,6 @@ export default function Header({
 
   return (
     <header className="w-full bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs select-none">
-      {/* Top Yellow Announcement Ticker Bar matching mobile reference */}
-      <div className="w-full bg-[#facc15] py-1.5 px-3 border-b border-amber-300 flex items-center justify-center text-center">
-        <div className="bg-black text-[#facc15] font-display font-black text-[11px] sm:text-xs uppercase tracking-wider px-3.5 py-0.5 rounded-sm flex items-center gap-2 shadow-xs">
-          <span>BUY RTX 5090</span>
-          <span className="text-white/40 hidden sm:inline">•</span>
-          <span className="text-white hidden sm:inline">GENUINE HARDWARE STORE</span>
-        </div>
-      </div>
       {/* 1. TOP ANNOUNCEMENT BAR */}
       <div className="w-full border-b border-slate-200/80 bg-white text-slate-600 text-[11px] sm:text-[12px] font-sans py-1.5 px-3 sm:px-5 lg:px-8">
         <div className="max-w-[1536px] w-full mx-auto flex items-center justify-between gap-2 overflow-x-hidden">
