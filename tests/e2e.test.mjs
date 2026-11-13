@@ -205,6 +205,64 @@ async function runTest() {
     }
     console.log('✓ PASS: Pre-Built PCs header link correctly navigates to /catalog/gaming_pc with pre-built cards displayed.');
 
+    // -------------------------------------------------------------
+    // Test 6: Computer Care Hero Banner Integration & Navigation Check
+    // -------------------------------------------------------------
+    console.log('\n--- Test 6: Computer Care Hero Banner Integration & Navigation ---');
+    await page.goto(`${BASE_URL}/`, { waitUntil: 'networkidle', timeout: 30000 });
+    await page.waitForTimeout(500);
+
+    // Verify branded banner image presence and valid dimensions
+    const bannerImg = page.locator('img[alt="Computer Care Custom PC Build Configurator"]').first();
+    await bannerImg.waitFor({ state: 'visible', timeout: 5000 });
+    const isImageLoaded = await bannerImg.evaluate((img) => img.complete && img.naturalWidth > 0);
+    if (!isImageLoaded) {
+      throw new Error('FAIL: Computer Care branded banner image failed to load or has 0 naturalWidth!');
+    }
+    console.log('✓ PASS: Computer Care branded banner image is present in hero rotation and loaded.');
+
+    // Verify clicking CTA button routes to /builder
+    const ctaBtn = page.locator(':has-text("Build Your PC Now ->")').first();
+    await ctaBtn.waitFor({ state: 'visible', timeout: 3000 });
+    await ctaBtn.click();
+    await page.waitForTimeout(1000);
+
+    if (!page.url().includes('/builder')) {
+      throw new Error(`FAIL: Clicking "Build Your PC Now ->" did not route to /builder! Current URL: ${page.url()}`);
+    }
+    console.log('✓ PASS: Clicking "Build Your PC Now ->" successfully routed to /builder.');
+
+    // Verify slide rotation controls
+    await page.goto(`${BASE_URL}/`, { waitUntil: 'networkidle', timeout: 30000 });
+    await page.waitForTimeout(500);
+    const nextSlideBtn = page.locator('button[aria-label="Next slide"]').first();
+    await nextSlideBtn.click({ force: true });
+    await page.waitForTimeout(600);
+
+    const configuratorSlideHeading = page.locator('text=BUILD YOUR DREAM CUSTOM GAMING RIG').first();
+    await configuratorSlideHeading.waitFor({ state: 'visible', timeout: 3000 });
+    console.log('✓ PASS: Carousel rotation controls successfully rotate between banner slides.');
+
+    // Verify responsive mobile viewport
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto(`${BASE_URL}/`, { waitUntil: 'networkidle', timeout: 30000 });
+    await page.waitForTimeout(500);
+
+    const mobileOverflow = await page.evaluate(() => document.body.scrollWidth > window.innerWidth);
+    if (mobileOverflow) {
+      throw new Error('FAIL: Horizontal overflow detected on mobile viewport!');
+    }
+    const mobileCta = page.locator(':has-text("Build Your PC Now ->")').first();
+    await mobileCta.waitFor({ state: 'visible', timeout: 3000 });
+    await mobileCta.click();
+    await page.waitForTimeout(1000);
+
+    if (!page.url().includes('/builder')) {
+      throw new Error(`FAIL: Mobile CTA click did not route to /builder! Current URL: ${page.url()}`);
+    }
+    console.log('✓ PASS: Mobile viewport renders responsively without distortion or overflow, and routes to /builder.');
+    await page.setViewportSize({ width: 1440, height: 900 });
+
     console.log('\n======================================================');
     console.log(' ALL AUDIT E2E TESTS (INCLUDING P0 ITEMS) PASSED! ');
     console.log('======================================================\n');
