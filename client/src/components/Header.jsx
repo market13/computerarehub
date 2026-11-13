@@ -367,7 +367,7 @@ export default function Header({
             />
             <div className="flex flex-col ml-1 sm:ml-1.5">
               <span className="font-black font-display text-[16px] sm:text-[20px] lg:text-[22px] tracking-tight text-slate-900 group-hover:text-blue-700 transition-colors leading-none uppercase">
-                COMPUTERCARE.COM
+                COMPUTER CARE
               </span>
               <span className="text-[7.5px] sm:text-[9px] font-mono tracking-widest text-slate-400 uppercase font-semibold leading-none mt-0.5 sm:mt-1">
                 GENUINE HARDWARE STORE
@@ -736,14 +736,26 @@ export default function Header({
           {/* Center Links (Home, Gaming ⌵, Streaming ⌵, Components ⌵, PC Builds ⌵, Monitors ⌵, Custom PC Quote, Pre-Built PCs, Bulk Order) */}
           <div className="hidden lg:flex flex-1 items-center justify-center gap-2 xl:gap-5 text-[11px] xl:text-[13px] font-medium text-slate-700 whitespace-nowrap">
             {/* Home */}
-            <button
-              onClick={() => { setActiveTab('home'); setActiveMegaMenu(null); }}
+            <a
+              href="/"
+              onClick={(e) => { e.preventDefault(); setActiveTab('home'); setActiveMegaMenu(null); }}
               className={`hover:text-blue-600 transition-colors ${
                 activeTab === 'home' ? 'text-blue-600 font-semibold' : ''
               }`}
             >
               Home
-            </button>
+            </a>
+
+            {/* Services (Ghaziabad Store & Repair Services) */}
+            <a
+              href="/services"
+              onClick={(e) => { e.preventDefault(); setActiveTab('services'); setActiveMegaMenu(null); }}
+              className={`hover:text-blue-600 transition-colors ${
+                activeTab === 'services' ? 'text-blue-600 font-semibold' : ''
+              }`}
+            >
+              Services
+            </a>
 
             {/* Gaming ⌵ (With Mega Menu) */}
             <div 
@@ -864,19 +876,21 @@ export default function Header({
             </button>
 
             {/* Custom PC Quote (Links to 3D Custom PC Builder) */}
-            <button 
-              onClick={() => { setActiveTab('builder'); setActiveMegaMenu(null); }}
+            <a 
+              href="/builder"
+              onClick={(e) => { e.preventDefault(); setActiveTab('builder'); setActiveMegaMenu(null); }}
               className={`hover:text-blue-600 transition-colors ${
                 activeTab === 'builder' ? 'text-blue-600 font-semibold' : ''
               }`}
               title="Build Custom PC / Get Instant Quote"
             >
               Custom PC Quote
-            </button>
+            </a>
 
             {/* Bulk Order (B2B) */}
-            <button 
-              onClick={() => { setActiveTab('bulk-order'); setActiveMegaMenu(null); }}
+            <a 
+              href="/bulk-order"
+              onClick={(e) => { e.preventDefault(); setActiveTab('bulk-order'); setActiveMegaMenu(null); }}
               className={`hover:text-blue-600 transition-colors flex items-center gap-1 ${
                 activeTab === 'bulk-order' ? 'text-blue-600 font-semibold' : ''
               }`}
@@ -886,7 +900,7 @@ export default function Header({
               <span className="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.2 rounded font-mono">
                 B2B
               </span>
-            </button>
+            </a>
 
             {/* Pre-Built PCs */}
             <a 
@@ -1087,6 +1101,14 @@ export default function Header({
                   className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded cursor-pointer"
                 >
                   Home
+                </button>
+
+                <button
+                  onClick={() => { setActiveTab('services'); setMobileMenuOpen(false); }}
+                  className="w-full text-left px-3 py-2 hover:bg-slate-50 rounded cursor-pointer text-brand-blue font-semibold flex items-center justify-between"
+                >
+                  <span>Services & PC Repair (Ghaziabad)</span>
+                  <span className="text-[10px] bg-blue-100 text-blue-700 font-mono font-bold px-1.5 py-0.5 rounded">LOCAL</span>
                 </button>
 
                 {/* Mobile Gaming Accordion */}

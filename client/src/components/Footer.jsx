@@ -39,24 +39,27 @@ export default function Footer({ onNavigate }) {
               Custom PC Services
             </h4>
             <div className="flex flex-col gap-2 text-xs text-slate-400">
-              <button onClick={() => onNavigate('builder')} className="text-left hover:text-white transition-colors">
+              <a href="/services" onClick={(e) => { e.preventDefault(); onNavigate('services'); }} className="text-left hover:text-white transition-colors text-cyan-400 font-semibold no-underline">
+                • Services & Repair in Ghaziabad
+              </a>
+              <a href="/builder" onClick={(e) => { e.preventDefault(); onNavigate('builder'); }} className="text-left hover:text-white transition-colors no-underline">
                 • Custom PC Configurator
-              </button>
-              <button onClick={() => onNavigate('bulk-order')} className="text-left hover:text-white transition-colors text-amber-400 font-semibold flex items-center gap-1.5">
+              </a>
+              <a href="/bulk-order" onClick={(e) => { e.preventDefault(); onNavigate('bulk-order'); }} className="text-left hover:text-white transition-colors text-amber-400 font-semibold flex items-center gap-1.5 no-underline">
                 • Corporate & Bulk Orders (B2B)
-              </button>
+              </a>
               <button onClick={() => onNavigate('presets')} className="text-left hover:text-white transition-colors">
                 • Esports Battle-Ready Rigs
               </button>
               <button onClick={() => onNavigate('presets')} className="text-left hover:text-white transition-colors">
                 • Unreal Engine 5 & 3D Workstations
               </button>
-              <button onClick={() => onNavigate('catalog-gpu')} className="text-left hover:text-white transition-colors">
+              <a href="/catalog/gpu" onClick={(e) => { e.preventDefault(); onNavigate('catalog-gpu'); }} className="text-left hover:text-white transition-colors no-underline">
                 • RTX 40 & 50 Series GPUs
-              </button>
-              <button onClick={() => onNavigate('catalog-cpu')} className="text-left hover:text-white transition-colors">
+              </a>
+              <a href="/catalog/cpu" onClick={(e) => { e.preventDefault(); onNavigate('catalog-cpu'); }} className="text-left hover:text-white transition-colors no-underline">
                 • AMD Ryzen 9000 & Intel 14th Gen
-              </button>
+              </a>
             </div>
           </div>
 
@@ -66,30 +69,30 @@ export default function Footer({ onNavigate }) {
               Component Categories
             </h4>
             <div className="grid grid-cols-2 gap-2 text-xs text-slate-400">
-              <button onClick={() => onNavigate('catalog-case')} className="text-left hover:text-white transition-colors">
+              <a href="/catalog/case" onClick={(e) => { e.preventDefault(); onNavigate('catalog-case'); }} className="text-left hover:text-white transition-colors no-underline">
                 Cabinets & Cases
-              </button>
-              <button onClick={() => onNavigate('catalog-gpu')} className="text-left hover:text-white transition-colors">
+              </a>
+              <a href="/catalog/gpu" onClick={(e) => { e.preventDefault(); onNavigate('catalog-gpu'); }} className="text-left hover:text-white transition-colors no-underline">
                 Graphics Cards
-              </button>
-              <button onClick={() => onNavigate('catalog-cpu')} className="text-left hover:text-white transition-colors">
+              </a>
+              <a href="/catalog/cpu" onClick={(e) => { e.preventDefault(); onNavigate('catalog-cpu'); }} className="text-left hover:text-white transition-colors no-underline">
                 Processors
-              </button>
-              <button onClick={() => onNavigate('catalog-motherboard')} className="text-left hover:text-white transition-colors">
+              </a>
+              <a href="/catalog/motherboard" onClick={(e) => { e.preventDefault(); onNavigate('catalog-motherboard'); }} className="text-left hover:text-white transition-colors no-underline">
                 Motherboards
-              </button>
-              <button onClick={() => onNavigate('catalog-ram')} className="text-left hover:text-white transition-colors">
+              </a>
+              <a href="/catalog/ram" onClick={(e) => { e.preventDefault(); onNavigate('catalog-ram'); }} className="text-left hover:text-white transition-colors no-underline">
                 DDR4 & DDR5 RAM
-              </button>
-              <button onClick={() => onNavigate('catalog-cooler')} className="text-left hover:text-white transition-colors">
+              </a>
+              <a href="/catalog/cooler" onClick={(e) => { e.preventDefault(); onNavigate('catalog-cooler'); }} className="text-left hover:text-white transition-colors no-underline">
                 Liquid AIO Coolers
-              </button>
-              <button onClick={() => onNavigate('catalog-storage')} className="text-left hover:text-white transition-colors">
+              </a>
+              <a href="/catalog/storage" onClick={(e) => { e.preventDefault(); onNavigate('catalog-storage'); }} className="text-left hover:text-white transition-colors no-underline">
                 M.2 NVMe SSDs
-              </button>
-              <button onClick={() => onNavigate('catalog-psu')} className="text-left hover:text-white transition-colors">
+              </a>
+              <a href="/catalog/psu" onClick={(e) => { e.preventDefault(); onNavigate('catalog-psu'); }} className="text-left hover:text-white transition-colors no-underline">
                 Power Supplies
-              </button>
+              </a>
             </div>
           </div>
 

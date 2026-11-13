@@ -1,31 +1,58 @@
-# Computer Care — Custom PC Builder & Genuine Computer Hardware Store
+# Computer Care — Custom PC Builder, Hardware Store & Repair Services
 
-> Computer Care (computercare.in) is India's premier custom PC configurator and genuine hardware destination, featuring real-time 3D cabinet visualization, automated socket/chipset/RAM/wattage compatibility checks, and a verified catalog of authentic computer components.
+> Computer Care (computercare.in) is Ghaziabad's premier computer hardware store, custom gaming PC builder, and hardware service destination. We provide desktop computers, laptops, custom PC building, hardware upgrades, diagnostic repair, laptop servicing, and verified computer accessories with official manufacturer brand warranties.
 
-## Core Capabilities & Services
+## Core Capabilities & Business Activities
 
-- **Custom PC Configurator**: Component-by-component selection engine covering Processors, Motherboards, Graphics Cards, RAM, NVMe/SATA Storage, Cabinets, Power Supplies, CPU Coolers, Case Fans, and Monitors.
-- **Deterministic Compatibility Engine**: 
-  - Verifies CPU socket standards (Intel LGA1700, LGA1200, LGA1151, LGA1155, and AMD AM5, AM4).
-  - Validates DDR memory standards (DDR5, DDR4, DDR3) preventing motherboard channel mismatches.
-  - Checks physical GPU length clearance against cabinet maximum GPU length.
-  - Evaluates CPU cooler height against cabinet maximum cooler clearance.
-  - Calculates dynamic power supply wattage requirements (combining CPU TDP, GPU TDP, 75W platform buffer, and 25% safety overhead).
-- **100% Genuine Hardware**: Sourced directly from authorized distributors across India, sealed in original manufacturer packaging with full brand warranty.
-- **Supported Hardware Brands**:
-  - Lenovo, Samsung, HP, Cosmic Byte, Zebronics, Lapcare, Ant Esports, Acer, TVS, Consistent, iBall, Geonix, Prodot, and Logitech.
-- **B2B & Institutional Procurement**: Turnkey hardware solutions for schools, colleges, educational computer labs, esports arenas, and CAD/animation studios with official GST tax invoices for input tax credit.
-- **Expert Technical Consultation**: Free personalized consultation via web form or direct WhatsApp with PC hardware specialists.
-- **Nationwide Delivery**: Secure packaging and insured courier transit across all states and major cities in India.
+1. **Custom Gaming PC Building & Assembly**:
+   - Custom gaming rigs and creative workstations built with zero hardware bottlenecks.
+   - Component matching across Intel Core 14th/13th Gen & AMD Ryzen 9000/7000 processors, NVIDIA GeForce RTX 50 & 40 series GPUs, DDR5/DDR4 RAM, PCIe NVMe storage, and high-airflow cases.
+   - Real-time online 3D PC Builder with automated socket, DDR generation, and PSU wattage verification.
+   - 24-hour thermal and stability stress testing before handover.
+
+2. **Computer Hardware Upgrades & Component Replacements**:
+   - High-speed NVMe M.2 SSD installations with seamless OS and data cloning.
+   - Dual-channel DDR4 & DDR5 RAM expansions.
+   - Graphics card (GPU) upgrades with PSU wattage headroom verification.
+   - High-efficiency power supply units (PSU) and liquid AIO / tower cooler installations.
+
+3. **Computer & Desktop Repair & Diagnostics in Ghaziabad**:
+   - Hardware diagnostic testing and troubleshooting for desktop PCs and workstations.
+   - Resolving booting failures, blue screen (BSOD) errors, and freezing.
+   - Power supply (SMPS) testing and replacement.
+   - Motherboard diagnostics, capacitor inspection, and component repairs.
+   - Internal dust cleaning and high-performance thermal paste repasting.
+
+4. **Laptop & Desktop Servicing & Maintenance**:
+   - Complete thermal servicing to resolve overheating and fan noise.
+   - Operating system reinstallation, driver updates, and malware removal.
+   - Storage drive health checks (SMART diagnostics) and bad sector analysis.
+   - Display hinge, keyboard, and battery inspection for laptops.
+
+5. **Computer Accessories & Gaming Peripherals Store**:
+   - Wired and Bluetooth wireless optical mice from Logitech, Consistent, Lapcare.
+   - Mechanical and multimedia keyboards with tactile switches.
+   - Surround-sound gaming headphones and noise-isolating headsets.
+   - Precision cloth and speed-surface mousepads.
+   - Full HD & 4K streaming webcams and USB studio microphones.
+   - Ergonomic gaming chairs.
+
+6. **B2B Bulk Hardware Procurement & Lab Setup**:
+   - Turnkey computer lab and esports arena setups for schools, colleges, gaming cafes, and studios.
+   - Official GST tax invoices for enterprise input tax credit (ITC).
+   - Tiered volume pricing for bulk orders.
+   - Priority business warranty and on-site deployment assistance.
 
 ## Key Sections & Canonical URLs
 
 - **Homepage**: https://computercare.in/
 - **Custom PC Builder**: https://computercare.in/builder
+- **Services & Repair in Ghaziabad**: https://computercare.in/services
 - **Hardware Catalog**: https://computercare.in/catalog
 - **B2B Bulk Orders**: https://computercare.in/bulk-order
 
 ### Category Deep Links
+- **Pre-Built Gaming PCs & Combos**: https://computercare.in/catalog/gaming_pc
 - **Processors (CPUs)**: https://computercare.in/catalog/cpu
 - **Graphics Cards (GPUs)**: https://computercare.in/catalog/gpu
 - **Motherboards**: https://computercare.in/catalog/motherboard
@@ -36,36 +63,55 @@
 - **CPU Coolers & AIOs**: https://computercare.in/catalog/cooler
 - **Gaming Monitors**: https://computercare.in/catalog/monitor
 - **Cabinet Cooling Fans**: https://computercare.in/catalog/case_fan
-- **Gaming Mice**: https://computercare.in/catalog/gaming_mouse
-- **Keyboards**: https://computercare.in/catalog/gaming_keyboard
+- **Gaming Mice (Wired & Bluetooth)**: https://computercare.in/catalog/gaming_mouse
+- **Keyboards (Mechanical & Multimedia)**: https://computercare.in/catalog/gaming_keyboard
 - **Headphones & Headsets**: https://computercare.in/catalog/gaming_headset
 - **Mousepads**: https://computercare.in/catalog/gaming_mousepad
 - **Gaming Chairs**: https://computercare.in/catalog/gaming_chair
 - **Controllers & Gamepads**: https://computercare.in/catalog/gaming_controller
 - **Webcams**: https://computercare.in/catalog/webcam
 - **Microphones**: https://computercare.in/catalog/microphone
-- **Pre-Built Gaming PCs**: https://computercare.in/catalog/gaming_pc
 
-## Frequently Asked Questions Grounding
+## Frequently Asked Questions & Answers
 
-### Q: How does Computer Care ensure parts compatibility?
+### Q: Where can I buy a gaming PC in Ghaziabad?
+A: You can buy pre-built and custom gaming PCs directly at Computer Care in Ghaziabad, Uttar Pradesh (G 23 Shiva Tower). We specialize in custom gaming rigs equipped with authentic brand-warranty processors, graphics cards, high-airflow cabinets, and certified power supplies, with insured delivery across Ghaziabad, Delhi NCR, and all of India.
+
+### Q: Does Computer Care build custom gaming PCs?
+A: Yes, custom gaming PC building is our primary speciality. You can configure your dream gaming rig online using our real-time 3D PC Builder with automated socket and wattage compatibility checks, or consult with our hardware engineers via WhatsApp (+91 9810550222) to design a rig tailored to your favorite games, streaming needs, and budget.
+
+### Q: Can I upgrade my existing desktop?
+A: Yes! Computer Care provides expert hardware upgrade services for desktops in Ghaziabad. We upgrade RAM (DDR4/DDR5), replace slow HDDs with high-speed PCIe NVMe SSDs, install high-performance NVIDIA GeForce graphics cards, upgrade power supplies (PSUs), and install liquid AIO or tower air coolers for better thermal performance.
+
+### Q: Where can I buy computer accessories in Ghaziabad?
+A: Computer Care offers a comprehensive collection of genuine computer accessories and peripherals in Ghaziabad. Our inventory includes wired and Bluetooth wireless optical mice, mechanical and gaming keyboards, surround-sound headsets, precision mousepads, streaming webcams, studio microphones, and ergonomic gaming chairs from top brands.
+
+### Q: Does Computer Care provide computer repair services?
+A: Yes, Computer Care provides professional computer repair, diagnostic troubleshooting, and laptop and desktop servicing in Ghaziabad. Our certified hardware technicians handle booting issues, blue screen (BSOD) errors, overheating, power supply failures, hardware cleaning, component replacements, and operating system reinstallation.
+
+### Q: Can customers get help choosing PC components?
+A: Absolutely. Our hardware specialists provide free consultation to help you choose the right components without bottlenecks. You can submit your requirements through our consultation form or chat directly with our PC builders on WhatsApp at +91 9810550222 for honest, budget-optimized hardware recommendations.
+
+### Q: How does Computer Care ensure custom PC parts compatibility?
 A: The online configurator verifies CPU sockets (LGA1700, AM5, AM4, LGA1200, LGA1155), motherboard chipsets, RAM DDR generations (DDR5 vs DDR4 vs DDR3), physical chassis clearances for GPUs and coolers, and dynamic power supply wattage capacity.
 
 ### Q: Do all components carry manufacturer warranty?
 A: Yes, 100% of products sold are genuine brand-sealed units backed by official manufacturer warranties across India with authorized service center support.
 
-### Q: What brands are available?
+### Q: Which brands are officially available at Computer Care?
 A: Authorized brands include Lenovo, Samsung, HP, Cosmic Byte, Zebronics, Lapcare, Ant Esports, Acer, TVS, Consistent, iBall, Geonix, Prodot, and Logitech.
 
-### Q: Does Computer Care deliver across India?
+### Q: Does Computer Care deliver custom gaming rigs across India?
 A: Yes, pre-assembled custom PCs and components are shipped nationwide with secure insured packaging.
 
 ### Q: Can businesses get GST invoices for input tax credit?
 A: Yes, all retail and B2B bulk orders include valid GST invoices for enterprise tax filing.
 
-## Contact Information
+## Business & Contact Information
+- **Business Name**: Computer Care
+- **Store Location**: G 23 Shiva Tower, Ghaziabad, Uttar Pradesh - 201009, India
 - **Customer Helpline**: +91 9810550222
 - **WhatsApp Support**: https://wa.me/919810550222
 - **Email**: contact@computercare.in
-- **Store Location**: Ghaziabad, Uttar Pradesh, India
 - **Operating Hours**: Monday to Saturday, 10:30 AM to 8:00 PM IST
+- **Primary Website**: https://computercare.in/

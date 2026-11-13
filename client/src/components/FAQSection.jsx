@@ -3,6 +3,36 @@ import { HelpCircle, ChevronDown, Sparkles } from 'lucide-react';
 
 const FAQS = [
   {
+    question: 'Where can I buy a gaming PC in Ghaziabad?',
+    answer:
+      'You can buy pre-built and custom gaming PCs directly at Computer Care in Ghaziabad, Uttar Pradesh (G 23 Shiva Tower). We specialize in custom gaming rigs equipped with authentic brand-warranty processors, graphics cards, high-airflow cabinets, and certified power supplies, with insured delivery across Ghaziabad, Delhi NCR, and all of India.'
+  },
+  {
+    question: 'Does Computer Care build custom gaming PCs?',
+    answer:
+      'Yes, custom gaming PC building is our primary speciality. You can configure your dream gaming rig online using our real-time 3D PC Builder with automated socket and wattage compatibility checks, or consult with our hardware engineers via WhatsApp (+91 9810550222) to design a rig tailored to your favorite games, streaming needs, and budget.'
+  },
+  {
+    question: 'Can I upgrade my existing desktop?',
+    answer:
+      'Yes! Computer Care provides expert hardware upgrade services for desktops in Ghaziabad. We upgrade RAM (DDR4/DDR5), replace slow HDDs with high-speed PCIe NVMe SSDs, install high-performance NVIDIA GeForce graphics cards, upgrade power supplies (PSUs), and install liquid AIO or tower air coolers for better thermal performance.'
+  },
+  {
+    question: 'Where can I buy computer accessories in Ghaziabad?',
+    answer:
+      'Computer Care offers a comprehensive collection of genuine computer accessories and peripherals in Ghaziabad. Our inventory includes wired and Bluetooth wireless optical mice, mechanical and gaming keyboards, surround-sound headsets, precision mousepads, streaming webcams, studio microphones, and ergonomic gaming chairs from top brands.'
+  },
+  {
+    question: 'Does Computer Care provide computer repair services?',
+    answer:
+      'Yes, Computer Care provides professional computer repair, diagnostic troubleshooting, and laptop and desktop servicing in Ghaziabad. Our certified hardware technicians handle booting issues, blue screen (BSOD) errors, overheating, power supply failures, hardware cleaning, component replacements, and operating system reinstallation.'
+  },
+  {
+    question: 'Can customers get help choosing PC components?',
+    answer:
+      'Absolutely. Our hardware specialists provide free consultation to help you choose the right components without bottlenecks. You can submit your requirements through our consultation form or chat directly with our PC builders on WhatsApp at +91 9810550222 for honest, budget-optimized hardware recommendations.'
+  },
+  {
     question: 'How does Computer Care ensure custom PC parts compatibility?',
     answer:
       'Our custom PC configurator performs real-time deterministic checks verifying CPU socket compatibility (such as LGA1700, AM5, AM4, LGA1200, LGA1155), motherboard chipset matching, RAM DDR generation standards (DDR5 vs DDR4 vs DDR3), cabinet GPU clearance length, CPU cooler height, and dynamic PSU wattage capacity.'
@@ -28,19 +58,9 @@ const FAQS = [
       'Our builder calculates the combined thermal design power (TDP) of the processor and graphics card, adds a 75W operational overhead buffer for motherboards, memory, fans, and storage, and factors in a 25% safety headroom multiplier to recommend the minimum and optimal PSU rating.'
   },
   {
-    question: 'Can I request an expert consultation before finalizing my custom PC?',
-    answer:
-      'Yes, customers can submit their requirements and budget directly through our consultation form or reach out via WhatsApp at +91 9810550222 for a tailored hardware recommendation from experienced PC builders.'
-  },
-  {
     question: 'Can businesses, schools, or gaming cafes place bulk orders with GST invoices?',
     answer:
       'Yes, our B2B procurement division provides specialized bulk quotation tiers, official GST tax invoices for input tax credit, and turnkey deployment assistance for educational computer labs, esports cafes, and creative studios.'
-  },
-  {
-    question: 'What is the turnaround time for a custom PC build?',
-    answer:
-      'Custom rigs are assembled, cable-managed, BIOS-updated, and rigorously stress-tested within 24 to 48 hours of order confirmation before dispatched via expedited courier.'
   }
 ];
 
@@ -64,7 +84,7 @@ export default function FAQSection() {
         </h2>
 
         <p className="mt-2 text-sm text-slate-600 font-sans leading-relaxed">
-          Everything you need to know about our custom PC building process, compatibility engine, genuine warranties, and nationwide delivery.
+          Frequently asked questions about buying gaming PCs, computer repair, hardware upgrades, genuine parts warranties, and services in Ghaziabad and across India.
         </p>
       </div>
 
@@ -113,12 +133,12 @@ export default function FAQSection() {
             Have a specific custom requirement or question?
           </h3>
           <p className="text-xs text-slate-500 font-sans">
-            Our hardware engineers are available on WhatsApp for direct guidance.
+            Our hardware engineers in Ghaziabad are available on WhatsApp for direct guidance.
           </p>
         </div>
 
         <a
-          href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20have%20a%20question%20about%20custom%20PC%20building"
+          href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20have%20a%20question%20about%20custom%20PC%20building%20or%20repair"
           target="_blank"
           rel="noopener noreferrer"
           className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-display font-bold uppercase text-xs tracking-wider flex items-center gap-2 shadow-sm transition-colors cursor-pointer no-underline"

@@ -178,7 +178,7 @@ export default function ProductDetailModal({
                   >
                     <img
                       src={img || cdnImages[idx]}
-                      alt=""
+                      alt={`${product.title} view ${idx + 1}`}
                       onError={(e) => {
                         if (cdnImages[idx] && e.target.src !== cdnImages[idx]) {
                           e.target.src = cdnImages[idx];

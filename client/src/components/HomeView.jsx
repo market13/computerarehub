@@ -4,7 +4,13 @@ import {
   ArrowRight, 
   Check, 
   Info, 
-  ChevronRight
+  ChevronRight,
+  Wrench,
+  Cpu,
+  HardDrive,
+  Laptop,
+  Headphones,
+  Building2
 } from 'lucide-react';
 
 import BannerHero from './BannerHero';
@@ -115,7 +121,7 @@ export default function HomeView({
               <div className="w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-xl border border-slate-200 p-2 flex items-center justify-center flex-shrink-0 shadow-2xs">
                 <img
                   src={build.case?.image || build.case?.cdn_image || "/images/featured-case.png"}
-                  alt="PC Cabinet"
+                  alt={build.case?.title || "Computer Care Custom PC Cabinet"}
                   className="w-full h-full object-contain"
                   onError={(e) => {
                     e.target.src = "/images/featured-case.png";
@@ -280,7 +286,164 @@ export default function HomeView({
         </div>
       </section>
 
-      {/* 6. Frequently Asked Questions (FAQ) with Schema-aligned QA grounding */}
+      {/* 6. Computer Care Store & Services in Ghaziabad */}
+      <section className="w-full bg-white border border-brand-border rounded-2xl p-6 sm:p-10 shadow-xs">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-8">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue font-mono text-xs font-bold w-fit mb-2">
+              <Wrench className="w-3.5 h-3.5" />
+              <span>GHAZIABAD COMPUTER STORE & SERVICES</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-display font-black text-brand-navy tracking-tight uppercase">
+              Computer Repair, Custom Builds & Upgrades in Ghaziabad
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 font-sans mt-1">
+              Serving Ghaziabad, Delhi NCR, and all of India with certified hardware solutions, custom gaming PCs, and genuine accessories.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => onNavigate('services')}
+            className="text-xs font-display font-bold uppercase tracking-wider text-brand-blue hover:text-brand-navy flex items-center gap-1.5 transition-colors cursor-pointer flex-shrink-0"
+          >
+            <span>View All Services</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="p-5 rounded-xl border border-slate-200 hover:border-brand-blue bg-slate-50/50 hover:bg-white transition-all flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-lg bg-blue-100 text-brand-blue flex items-center justify-center mb-3">
+                <Cpu className="w-5 h-5" />
+              </div>
+              <h3 className="font-display font-bold text-sm sm:text-base text-slate-900 mb-1.5">
+                Custom Gaming PC Building
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-sans">
+                Tailor-made gaming rigs & workstations built in Ghaziabad with verified socket matching, dynamic PSU wattage calculations, and 24-hr stress testing.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => onNavigate('builder')}
+              className="mt-4 text-xs font-bold text-brand-blue hover:underline flex items-center gap-1 cursor-pointer text-left"
+            >
+              Configure Rig &rarr;
+            </button>
+          </div>
+
+          <div className="p-5 rounded-xl border border-slate-200 hover:border-brand-blue bg-slate-50/50 hover:bg-white transition-all flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3">
+                <HardDrive className="w-5 h-5" />
+              </div>
+              <h3 className="font-display font-bold text-sm sm:text-base text-slate-900 mb-1.5">
+                Hardware Upgrades & SSDs
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-sans">
+                Upgrade slow desktops and laptops with high-speed PCIe NVMe SSDs, expanded RAM (DDR4/DDR5), RTX graphics cards, and high-wattage power supplies.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => onNavigate('catalog-storage')}
+              className="mt-4 text-xs font-bold text-emerald-700 hover:underline flex items-center gap-1 cursor-pointer text-left"
+            >
+              Browse Upgrades &rarr;
+            </button>
+          </div>
+
+          <div className="p-5 rounded-xl border border-slate-200 hover:border-brand-blue bg-slate-50/50 hover:bg-white transition-all flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center mb-3">
+                <Wrench className="w-5 h-5" />
+              </div>
+              <h3 className="font-display font-bold text-sm sm:text-base text-slate-900 mb-1.5">
+                Computer Repair & Troubleshooting
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-sans">
+                Diagnostic troubleshooting in Ghaziabad for booting errors, BSOD crashes, overheating, power supply failures, and deep component cleaning.
+              </p>
+            </div>
+            <a
+              href="https://wa.me/919810550222?text=Hi%20Computer%20Care%2C%20I%20need%20computer%20repair%20in%20Ghaziabad"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 text-xs font-bold text-rose-700 hover:underline flex items-center gap-1"
+            >
+              Book Repair &rarr;
+            </a>
+          </div>
+
+          <div className="p-5 rounded-xl border border-slate-200 hover:border-brand-blue bg-slate-50/50 hover:bg-white transition-all flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center mb-3">
+                <Laptop className="w-5 h-5" />
+              </div>
+              <h3 className="font-display font-bold text-sm sm:text-base text-slate-900 mb-1.5">
+                Laptop & Desktop Servicing
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-sans">
+                Full thermal maintenance, fan servicing, Arctic/Noctua thermal repasting, driver installations, and OS tuning to keep computers running fast.
+              </p>
+            </div>
+            <a
+              href="https://wa.me/919810550222?text=Hi%20Computer%20Care%2C%20I%20want%20to%20service%20my%20laptop%20or%20desktop"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 text-xs font-bold text-amber-700 hover:underline flex items-center gap-1"
+            >
+              Schedule Service &rarr;
+            </a>
+          </div>
+
+          <div className="p-5 rounded-xl border border-slate-200 hover:border-brand-blue bg-slate-50/50 hover:bg-white transition-all flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center mb-3">
+                <Headphones className="w-5 h-5" />
+              </div>
+              <h3 className="font-display font-bold text-sm sm:text-base text-slate-900 mb-1.5">
+                Computer Accessories & Peripherals
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-sans">
+                Genuine Bluetooth and wired optical mice, mechanical RGB keyboards, surround-sound headsets, precision mousepads, webcams, and chairs.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => onNavigate('catalog-gaming_mouse')}
+              className="mt-4 text-xs font-bold text-purple-700 hover:underline flex items-center gap-1 cursor-pointer text-left"
+            >
+              Shop Accessories &rarr;
+            </button>
+          </div>
+
+          <div className="p-5 rounded-xl border border-slate-200 hover:border-brand-blue bg-slate-50/50 hover:bg-white transition-all flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center mb-3">
+                <Building2 className="w-5 h-5" />
+              </div>
+              <h3 className="font-display font-bold text-sm sm:text-base text-slate-900 mb-1.5">
+                B2B Bulk Procurement & Labs
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-sans">
+                Turnkey computer lab setup for schools, colleges, and offices with wholesale volume quotations, GST invoices, and priority warranty.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => onNavigate('bulk-order')}
+              className="mt-4 text-xs font-bold text-indigo-700 hover:underline flex items-center gap-1 cursor-pointer text-left"
+            >
+              B2B Inquiry &rarr;
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Frequently Asked Questions (FAQ) with Schema-aligned QA grounding */}
       <FAQSection />
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import HomeView from './components/HomeView';
+import ServicesView from './components/ServicesView';
 import PCBuilderView from './components/PCBuilderView';
 import CatalogView from './components/CatalogView';
 import ComponentSelectorModal from './components/ComponentSelectorModal';
@@ -55,6 +56,7 @@ export default function App() {
     if (p === '/admin') return 'admin';
     if (p === '/builder') return 'builder';
     if (p === '/bulk-order') return 'bulk-order';
+    if (p === '/services') return 'services';
     if (p.startsWith('/catalog')) return 'catalog';
     return 'home';
   })();
@@ -73,6 +75,7 @@ export default function App() {
       const hash = window.location.hash.toLowerCase().replace(/^#/, '');
       if (hash === 'builder') navigate('/builder', { replace: true });
       else if (hash === 'catalog') navigate('/catalog', { replace: true });
+      else if (hash === 'services') navigate('/services', { replace: true });
       else if (hash.startsWith('catalog-')) {
         const cat = hash.replace('catalog-', '');
         navigate(`/catalog/${cat}`, { replace: true });
@@ -107,6 +110,10 @@ export default function App() {
         desc = 'Browse authentic computer hardware components, CPUs, graphics cards, motherboards, RAM, cabinets, and monitors.';
         canonicalUrl = 'https://computercare.in/catalog';
       }
+    } else if (p === '/services') {
+      title = 'Computer Repair, Custom Gaming PCs & IT Services in Ghaziabad | Computer Care';
+      desc = 'Computer Care provides custom gaming PC building, computer & laptop repair, hardware upgrades, and authentic computer accessories in Ghaziabad, Uttar Pradesh.';
+      canonicalUrl = 'https://computercare.in/services';
     } else if (p === '/bulk-order') {
       title = 'B2B & Institutional Bulk Hardware Orders | Computer Care';
       desc = 'Special wholesale procurement quotations for offices, gaming cafes, CAD studios, and educational labs.';
@@ -354,6 +361,8 @@ export default function App() {
         navigate('/builder');
       } else if (dest === 'bulk-order') {
         navigate('/bulk-order');
+      } else if (dest === 'services') {
+        navigate('/services');
       } else if (dest === 'catalog') {
         setSelectedCatalogCategory('all');
         navigate('/catalog');
@@ -447,6 +456,8 @@ export default function App() {
           />
         ) : activeTab === 'bulk-order' ? (
           <BulkOrderView onNavigate={handleNavigate} />
+        ) : activeTab === 'services' ? (
+          <ServicesView onNavigate={handleNavigate} />
         ) : activeTab === 'admin' ? (
           <AdminPortalView
             catalog={catalog}

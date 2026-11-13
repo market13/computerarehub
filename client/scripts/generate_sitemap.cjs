@@ -64,6 +64,13 @@ const entries = [
     changefreq: 'daily',
     priority: '0.9'
   },
+  // Computer Repair & Hardware Services in Ghaziabad
+  {
+    loc: 'https://computercare.in/services',
+    lastmod,
+    changefreq: 'weekly',
+    priority: '0.9'
+  },
   // B2B & Bulk Orders
   {
     loc: 'https://computercare.in/bulk-order',

@@ -35,190 +35,352 @@
     <meta name="twitter:description" content="India's premier custom PC configurator with live 3D cabinet visualization, authentic hardware, and pan-India warranty." />
     <meta name="twitter:image" content="https://computercare.in/images/og-preview.png" />
 
-    <!-- Schema.org JSON-LD Structured Data (Store, Organization, Services, WebSite, FAQPage) -->
+    <!-- Schema.org JSON-LD Structured Data (Store, Organization, Services, WebSite, Breadcrumbs, FAQPage) -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@type": [
+        "Organization",
+        "ComputerStore"
+      ],
+      "@id": "https://computercare.in/#organization",
+      "name": "Computer Care",
+      "legalName": "Computer Care",
+      "url": "https://computercare.in/",
+      "logo": "https://computercare.in/images/og-preview.png",
+      "image": "https://computercare.in/images/og-preview.png",
+      "description": "Computer Care is Ghaziabad's trusted computer store and custom gaming PC builder, offering hardware upgrades, desktop repair, laptop servicing, and authentic computer accessories.",
+      "telephone": "+919810550222",
+      "email": "contact@computercare.in",
+      "priceRange": "\u20b9100 - \u20b9500,000",
+      "currenciesAccepted": "INR",
+      "paymentAccepted": "Cash, Credit Card, Debit Card, UPI, Net Banking",
+      "sameAs": [
+        "https://wa.me/919810550222",
+        "https://github.com/market13/computerarehub"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+919810550222",
+        "contactType": "customer service",
+        "areaServed": "IN",
+        "availableLanguage": [
+          "en",
+          "hi"
+        ]
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.6692,
+        "longitude": 77.4538
+      },
+      "areaServed": [
         {
-          "@type": ["Organization", "ComputerStore"],
-          "@id": "https://computercare.in/#organization",
-          "name": "Computer Care",
-          "legalName": "Computer Care",
-          "url": "https://computercare.in/",
-          "logo": "https://computercare.in/images/og-preview.png",
-          "image": "https://computercare.in/images/og-preview.png",
-          "description": "India's premier custom PC configurator with real-time 3D cabinet visualization, automated hardware compatibility verification, and authentic computer components.",
-          "telephone": "+919810550222",
-          "email": "contact@computercare.in",
-          "priceRange": "₹100 - ₹500,000",
-          "currenciesAccepted": "INR",
-          "paymentAccepted": "Cash, Credit Card, Debit Card, UPI, Net Banking",
-          "sameAs": [
-            "https://wa.me/919810550222",
-            "https://github.com/market13/computerarehub"
-          ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+919810550222",
-            "contactType": "customer service",
-            "areaServed": "IN",
-            "availableLanguage": ["en", "hi"]
-          },
-          "knowsAbout": [
-            "Custom PC Building",
-            "Gaming PC Configuration",
-            "Workstation PCs",
-            "Computer Hardware",
-            "PC Compatibility Checks",
-            "Hardware Benchmarking",
-            "B2B Hardware Procurement"
-          ],
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "TODO_STREET_ADDRESS",
-            "addressLocality": "Ghaziabad",
-            "addressRegion": "Uttar Pradesh",
-            "postalCode": "TODO_POSTAL_CODE",
-            "addressCountry": "IN"
-          },
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-              "opens": "10:30",
-              "closes": "20:00"
-            }
-          ]
+          "@type": "City",
+          "name": "Ghaziabad"
         },
         {
-          "@type": "WebSite",
-          "@id": "https://computercare.in/#website",
-          "url": "https://computercare.in/",
-          "name": "Computer Care",
-          "publisher": {
-            "@id": "https://computercare.in/#organization"
-          },
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://computercare.in/catalog?q={search_term_string}",
-            "query-input": "required name=search_term_string"
+          "@type": "AdministrativeArea",
+          "name": "Delhi NCR"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "knowsAbout": [
+        "Custom PC Building",
+        "Gaming PC Configuration",
+        "Computer Repair and Troubleshooting",
+        "Hardware Upgrades and SSD Installation",
+        "Laptop and Desktop Servicing",
+        "Computer Accessories and Peripherals",
+        "PC Compatibility Checks",
+        "Hardware Benchmarking",
+        "B2B Hardware Procurement"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "G 23 Shiva Tower",
+        "addressLocality": "Ghaziabad",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "201009",
+        "addressCountry": "IN"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "10:30",
+          "closes": "20:00"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://computercare.in/#website",
+      "url": "https://computercare.in/",
+      "name": "Computer Care",
+      "publisher": {
+        "@id": "https://computercare.in/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://computercare.in/catalog?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://computercare.in/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://computercare.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Custom PC Builder",
+          "item": "https://computercare.in/builder"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Hardware Catalog",
+          "item": "https://computercare.in/catalog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Services & Repair (Ghaziabad)",
+          "item": "https://computercare.in/services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Bulk Orders (B2B)",
+          "item": "https://computercare.in/bulk-order"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://computercare.in/#custom-pc-service",
+      "name": "Custom Gaming PC Building & Assembly in Ghaziabad",
+      "serviceType": "Custom Computer Assembly",
+      "provider": {
+        "@id": "https://computercare.in/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Ghaziabad"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "description": "Deterministic custom gaming and workstation PC configurator verifying CPU-motherboard socket compatibility, DDR memory standards, GPU physical clearance, and PSU wattage headroom with 24-hr burn-in stress testing."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://computercare.in/#computer-repair-service",
+      "name": "Computer & Desktop Repair & Diagnostics in Ghaziabad",
+      "serviceType": "Computer Repair & Maintenance",
+      "provider": {
+        "@id": "https://computercare.in/#organization"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Ghaziabad"
+      },
+      "description": "Diagnostic troubleshooting and repair in Ghaziabad for booting failures, blue screen (BSOD) crashes, power supply breakdowns, motherboard defects, and thermal dust maintenance."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://computercare.in/#hardware-upgrade-service",
+      "name": "Computer Hardware Upgrades & Component Replacements",
+      "serviceType": "Hardware Upgrade & Installation",
+      "provider": {
+        "@id": "https://computercare.in/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Ghaziabad"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "description": "Desktop and laptop hardware speed upgrades including high-speed PCIe NVMe SSD installation with OS cloning, DDR4/DDR5 RAM upgrades, graphics card replacements, and liquid cooling."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://computercare.in/#laptop-servicing",
+      "name": "Laptop & Desktop Servicing & Maintenance in Ghaziabad",
+      "serviceType": "Computer Servicing",
+      "provider": {
+        "@id": "https://computercare.in/#organization"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Ghaziabad"
+      },
+      "description": "Comprehensive maintenance servicing for laptops and desktop computers including deep dust removal, fan lubrication, Noctua/Arctic thermal paste repasting, OS optimization, and driver updates."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://computercare.in/#accessories-service",
+      "name": "Computer Accessories & Gaming Peripherals Store in Ghaziabad",
+      "serviceType": "Computer Peripherals Retail",
+      "provider": {
+        "@id": "https://computercare.in/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Ghaziabad"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "description": "Verified store for genuine computer accessories in Ghaziabad including Bluetooth and wired optical mice, mechanical keyboards, gaming headsets, webcams, microphones, and mousepads."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://computercare.in/#b2b-procurement-service",
+      "name": "B2B Hardware Procurement & Institutional Lab Setup",
+      "serviceType": "Hardware Procurement & Deployment",
+      "provider": {
+        "@id": "https://computercare.in/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "description": "Wholesale IT procurement and setup for esports arenas, animation studios, colleges, and offices with GST invoicing and priority business warranty."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://computercare.in/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Where can I buy a gaming PC in Ghaziabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can buy pre-built and custom gaming PCs directly at Computer Care in Ghaziabad, Uttar Pradesh (G 23 Shiva Tower). We specialize in custom gaming rigs equipped with authentic brand-warranty processors, graphics cards, high-airflow cabinets, and certified power supplies, with insured delivery across Ghaziabad, Delhi NCR, and all of India."
           }
         },
         {
-          "@type": "Service",
-          "@id": "https://computercare.in/#custom-pc-service",
-          "name": "Custom PC Assembly & Bottleneck Verification Service",
-          "serviceType": "Custom Computer Assembly",
-          "provider": {
-            "@id": "https://computercare.in/#organization"
-          },
-          "areaServed": {
-            "@type": "Country",
-            "name": "India"
-          },
-          "description": "Deterministic custom gaming and workstation PC configurator checking CPU-motherboard socket compatibility, DDR memory standards, GPU physical clearance, and PSU wattage headroom with stress-testing prior to delivery."
+          "@type": "Question",
+          "name": "Does Computer Care build custom gaming PCs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, custom gaming PC building is our primary speciality. You can configure your dream gaming rig online using our real-time 3D PC Builder with automated socket and wattage compatibility checks, or consult with our hardware engineers via WhatsApp (+91 9810550222) to design a rig tailored to your favorite games, streaming needs, and budget."
+          }
         },
         {
-          "@type": "Service",
-          "@id": "https://computercare.in/#b2b-procurement-service",
-          "name": "B2B Hardware Procurement & Institutional Lab Setup",
-          "serviceType": "Hardware Procurement & Deployment",
-          "provider": {
-            "@id": "https://computercare.in/#organization"
-          },
-          "areaServed": {
-            "@type": "Country",
-            "name": "India"
-          },
-          "description": "Wholesale IT procurement and setup for esports arenas, animation studios, colleges, and offices with GST invoicing and priority business warranty."
+          "@type": "Question",
+          "name": "Can I upgrade my existing desktop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Computer Care provides expert hardware upgrade services for desktops in Ghaziabad. We upgrade RAM (DDR4/DDR5), replace slow HDDs with high-speed PCIe NVMe SSDs, install high-performance NVIDIA GeForce graphics cards, upgrade power supplies (PSUs), and install liquid AIO or tower air coolers for better thermal performance."
+          }
         },
         {
-          "@type": "Service",
-          "@id": "https://computercare.in/#hardware-consultation-service",
-          "name": "Technical PC Hardware Consultation",
-          "serviceType": "Technical Hardware Consultation",
-          "provider": {
-            "@id": "https://computercare.in/#organization"
-          },
-          "areaServed": {
-            "@type": "Country",
-            "name": "India"
-          },
-          "description": "Direct consultation with PC hardware specialists to recommend custom component selections based on exact software workflows and budget limits."
+          "@type": "Question",
+          "name": "Where can I buy computer accessories in Ghaziabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Computer Care offers a comprehensive collection of genuine computer accessories and peripherals in Ghaziabad. Our inventory includes wired and Bluetooth wireless optical mice, mechanical and gaming keyboards, surround-sound headsets, precision mousepads, streaming webcams, studio microphones, and ergonomic gaming chairs from top brands."
+          }
         },
         {
-          "@type": "FAQPage",
-          "@id": "https://computercare.in/#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "How does Computer Care ensure custom PC parts compatibility?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Our custom PC configurator performs real-time deterministic checks verifying CPU socket compatibility (such as LGA1700, AM5, AM4, LGA1200, LGA1155), motherboard chipset matching, RAM DDR generation standards (DDR5 vs DDR4 vs DDR3), cabinet GPU clearance length, CPU cooler height, and dynamic PSU wattage capacity."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Do all components and custom PC builds carry official manufacturer warranty?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, 100% of products sourced and sold by Computer Care are authentic brand-sealed units backed by official manufacturer warranties across India with authorized service center network support."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Which brands are officially available at Computer Care?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Computer Care provides genuine hardware from leading authorized brands including Lenovo, Samsung, HP, Cosmic Byte, Zebronics, Lapcare, Ant Esports, Acer, TVS, Consistent, iBall, Geonix, Prodot, and Logitech."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Does Computer Care deliver custom gaming rigs across India?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, we securely package, crate, and ship pre-assembled and custom configured desktop PCs to all major cities and states across India with insured door-to-door transit."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How is power supply (PSU) wattage calculated for a custom build?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Our builder calculates the combined thermal design power (TDP) of the processor and graphics card, adds a 75W operational overhead buffer for motherboards, memory, fans, and storage, and factors in a 25% safety headroom multiplier to recommend the minimum and optimal PSU rating."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Can I request an expert consultation before finalizing my custom PC?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, customers can submit their requirements and budget directly through our consultation form or reach out via WhatsApp at +91 9810550222 for a tailored hardware recommendation from experienced PC builders."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Can businesses, schools, or gaming cafes place bulk orders with GST invoices?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, our B2B procurement division provides specialized bulk quotation tiers, official GST tax invoices for input tax credit, and turnkey deployment assistance for educational computer labs, esports cafes, and creative studios."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What is the turnaround time for a custom PC build?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Custom rigs are assembled, cable-managed, BIOS-updated, and rigorously stress-tested within 24 to 48 hours of order confirmation before dispatched via expedited courier."
-              }
-            }
-          ]
+          "@type": "Question",
+          "name": "Does Computer Care provide computer repair services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Computer Care provides professional computer repair, diagnostic troubleshooting, and laptop and desktop servicing in Ghaziabad. Our certified hardware technicians handle booting issues, blue screen (BSOD) errors, overheating, power supply failures, hardware cleaning, component replacements, and operating system reinstallation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can customers get help choosing PC components?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. Our hardware specialists provide free consultation to help you choose the right components without bottlenecks. You can submit your requirements through our consultation form or chat directly with our PC builders on WhatsApp at +91 9810550222 for honest, budget-optimized hardware recommendations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Computer Care ensure custom PC parts compatibility?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our custom PC configurator performs real-time deterministic checks verifying CPU socket compatibility (such as LGA1700, AM5, AM4, LGA1200, LGA1155), motherboard chipset matching, RAM DDR generation standards (DDR5 vs DDR4 vs DDR3), cabinet GPU clearance length, CPU cooler height, and dynamic PSU wattage capacity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do all components and custom PC builds carry official manufacturer warranty?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, 100% of products sourced and sold by Computer Care are authentic brand-sealed units backed by official manufacturer warranties across India with authorized service center network support."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which brands are officially available at Computer Care?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Computer Care provides genuine hardware from leading authorized brands including Lenovo, Samsung, HP, Cosmic Byte, Zebronics, Lapcare, Ant Esports, Acer, TVS, Consistent, iBall, Geonix, Prodot, and Logitech."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Computer Care deliver custom gaming rigs across India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we securely package, crate, and ship pre-assembled and custom configured desktop PCs to all major cities and states across India with insured door-to-door transit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is power supply (PSU) wattage calculated for a custom build?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our builder calculates the combined thermal design power (TDP) of the processor and graphics card, adds a 75W operational overhead buffer for motherboards, memory, fans, and storage, and factors in a 25% safety headroom multiplier to recommend the minimum and optimal PSU rating."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can businesses, schools, or gaming cafes place bulk orders with GST invoices?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our B2B procurement division provides specialized bulk quotation tiers, official GST tax invoices for input tax credit, and turnkey deployment assistance for educational computer labs, esports cafes, and creative studios."
+          }
         }
       ]
     }
+  ]
+}
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -284,6 +446,7 @@
         <ul style="line-height:1.8;">
           <li><a href="/builder" style="color:#2b38d1;font-weight:bold;">Custom 3D PC Builder & Configurator</a></li>
           <li><a href="/catalog" style="color:#2b38d1;font-weight:bold;">Complete Computer Hardware Catalog</a></li>
+          <li><a href="/services" style="color:#2b38d1;font-weight:bold;">Computer Services & PC Repair (Ghaziabad)</a></li>
           <li><a href="/bulk-order" style="color:#2b38d1;font-weight:bold;">B2B & Institutional Procurement</a></li>
           <li><a href="https://wa.me/919810550222" style="color:#059669;font-weight:bold;">Direct WhatsApp Consultation (+91 9810550222)</a></li>
         </ul>
