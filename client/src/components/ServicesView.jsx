@@ -174,7 +174,7 @@ export default function ServicesView({ onNavigate }) {
         </div>
 
         <h1 className="text-2xl sm:text-4xl lg:text-5xl font-display font-black text-brand-navy tracking-tight uppercase leading-tight">
-          Computer Repair, Custom Gaming PCs & Hardware Services
+          Computer Repair, Custom Gaming PCs & Hardware Services in Ghaziabad
         </h1>
 
         <p className="mt-3 text-sm sm:text-base text-slate-600 font-sans leading-relaxed">

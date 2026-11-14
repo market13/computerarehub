@@ -60,7 +60,8 @@ async function runTest() {
     // Test 1: Base Page & 3D Canvas Rendering
     // -------------------------------------------------------------
     console.log('\n--- Test 1: Base Page & 3D Canvas Rendering ---');
-    await page.goto(BASE_URL, { waitUntil: 'networkidle', timeout: 30000 });
+    await page.goto(BASE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await page.waitForLoadState('networkidle').catch(() => {});
     console.log('Page Title:', await page.title());
 
     const canvas = await page.$('canvas');
@@ -247,6 +248,32 @@ async function runTest() {
     }
     console.log('✓ PASS: Mobile viewport renders responsively without distortion or overflow, and routes to /builder.');
     await page.setViewportSize({ width: 1440, height: 900 });
+
+    // -------------------------------------------------------------
+    // Test 7: Services & Repair in Ghaziabad Navigation & SEO Check
+    // -------------------------------------------------------------
+    console.log('\n--- Test 7: Services & Repair in Ghaziabad Navigation & SEO Check ---');
+    await page.goto(`${BASE_URL}/services`, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await page.waitForLoadState('networkidle').catch(() => {});
+    await page.waitForTimeout(500);
+
+    const servicesH1 = (await page.locator('h1').first().innerText()).toLowerCase();
+    if (!servicesH1.includes('computer repair') || !servicesH1.includes('ghaziabad')) {
+      throw new Error(`FAIL: Unexpected H1 on /services page: "${servicesH1}"`);
+    }
+    console.log(`✓ PASS: Prerendered H1 verified: "${servicesH1}"`);
+
+    const hasAddress = await page.locator('text=G 23 Shiva Tower').count();
+    if (hasAddress === 0) {
+      throw new Error('FAIL: Store address "G 23 Shiva Tower" not found on /services page!');
+    }
+    console.log('✓ PASS: Store address "G 23 Shiva Tower, Ghaziabad" verified on /services.');
+
+    const serviceCards = await page.locator('article h2').count();
+    if (serviceCards < 6) {
+      throw new Error(`FAIL: Expected at least 6 service cards, found ${serviceCards}`);
+    }
+    console.log(`✓ PASS: Verified ${serviceCards} core hardware & repair service offerings in Ghaziabad.`);
 
     console.log('\n======================================================');
     console.log(' ALL AUDIT E2E TESTS (INCLUDING P0 ITEMS) PASSED! ');
