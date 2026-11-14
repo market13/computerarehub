@@ -120,11 +120,11 @@ export default function HomeView({
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <div className="w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-xl border border-slate-200 p-2 flex items-center justify-center flex-shrink-0 shadow-2xs">
                 <img
-                  src={build.case?.image || build.case?.cdn_image || "/images/featured-case.png"}
+                  src={build.case?.image || build.case?.cdn_image || "/images/featured-case.webp"}
                   alt={build.case?.title || "Computer Care Custom PC Cabinet"}
                   className="w-full h-full object-contain"
                   onError={(e) => {
-                    e.target.src = "/images/featured-case.png";
+                    e.target.src = "/images/featured-case.webp";
                   }}
                 />
               </div>

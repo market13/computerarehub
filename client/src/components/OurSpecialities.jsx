@@ -5,7 +5,7 @@ const SPECIALITIES = [
     id: 'gaming_streaming',
     title: 'GAMING & STREAMING PC',
     description: 'Powerful gaming PCs for ultimate performance and immersive gameplay.',
-    image: '/images/specialties/specialty_gaming.png?v=3',
+    image: '/images/specialties/specialty_gaming.webp?v=4',
     badge: '144+ FPS ULTRA',
     color: '#facc15'
   },
@@ -13,7 +13,7 @@ const SPECIALITIES = [
     id: '3d_modelling',
     title: '3D MODELLING PC',
     description: 'Optimized PCs for building, 3D rendering, and testing incredible creations.',
-    image: '/images/specialties/specialty_gamedev.png?v=3',
+    image: '/images/specialties/specialty_gamedev.webp?v=4',
     badge: 'BLENDER & CAD',
     color: '#facc15'
   },
@@ -21,7 +21,7 @@ const SPECIALITIES = [
     id: 'video_editing',
     title: 'VIDEO EDITING PC',
     description: 'Powerful PCs for fast and precise creative 4K/8K editing workflows.',
-    image: '/images/specialties/specialty_editing.png?v=3',
+    image: '/images/specialties/specialty_editing.webp?v=4',
     badge: '4K/8K TIMELINES',
     color: '#facc15'
   },
@@ -29,7 +29,7 @@ const SPECIALITIES = [
     id: 'gamedev',
     title: 'GAME DEV PC',
     description: 'High-performance rigs for Unreal Engine 5, Unity, and game compilation.',
-    image: '/images/specialties/specialty_rendering.png?v=3',
+    image: '/images/specialties/specialty_rendering.webp?v=4',
     badge: 'UNREAL ENGINE 5',
     color: '#facc15'
   },
@@ -37,7 +37,7 @@ const SPECIALITIES = [
     id: 'aiml',
     title: 'AI & ML WORKSTATION',
     description: 'Advanced PCs for AI innovation, LLM fine-tuning, and CUDA tasks.',
-    image: '/images/specialties/specialty_aiml.png?v=3',
+    image: '/images/specialties/specialty_aiml.webp?v=4',
     badge: 'CUDA & PYTORCH',
     color: '#facc15'
   },
@@ -45,7 +45,7 @@ const SPECIALITIES = [
     id: 'water_cooled',
     title: 'CUSTOM WATER-COOLED PC',
     description: 'Peak thermal dissipation with whisper-quiet custom cooling loops.',
-    image: '/images/specialties/specialty_streaming.png?v=3',
+    image: '/images/specialties/specialty_streaming.webp?v=4',
     badge: 'SILENT OVERCLOCK',
     color: '#facc15'
   }
