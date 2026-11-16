@@ -45,11 +45,11 @@ export default function Footer({ onNavigate }) {
 
           {/* Col 2: Custom PC Building & Services */}
           <div className="flex flex-col gap-3">
-            <h4 className="font-display font-bold uppercase tracking-wider text-xs text-white border-b border-white/10 pb-2">
+            <h2 className="font-display font-bold uppercase tracking-wider text-xs text-white border-b border-white/10 pb-2">
               Services & Navigation
-            </h4>
-            <div className="flex flex-col gap-2 text-xs text-slate-400">
-              <a href="/services" onClick={(e) => { e.preventDefault(); onNavigate('services'); }} className="text-left hover:text-white transition-colors text-cyan-400 font-semibold no-underline">
+            </h2>
+            <div className="flex flex-col gap-2 text-xs text-slate-300">
+              <a href="/services" onClick={(e) => { e.preventDefault(); onNavigate('services'); }} className="text-left hover:text-white transition-colors text-cyan-300 font-semibold no-underline">
                 • Services & Repair in Ghaziabad
               </a>
               <a href="/builder" onClick={(e) => { e.preventDefault(); onNavigate('builder'); }} className="text-left hover:text-white transition-colors no-underline">
@@ -58,7 +58,7 @@ export default function Footer({ onNavigate }) {
               <a href="/catalog" onClick={(e) => { e.preventDefault(); onNavigate('catalog'); }} className="text-left hover:text-white transition-colors no-underline">
                 • Hardware Catalog (All Categories)
               </a>
-              <a href="/bulk-order" onClick={(e) => { e.preventDefault(); onNavigate('bulk-order'); }} className="text-left hover:text-white transition-colors text-amber-400 font-semibold flex items-center gap-1.5 no-underline">
+              <a href="/bulk-order" onClick={(e) => { e.preventDefault(); onNavigate('bulk-order'); }} className="text-left hover:text-white transition-colors text-amber-300 font-semibold flex items-center gap-1.5 no-underline">
                 • Corporate & Bulk Orders (B2B)
               </a>
               <a href="/about" onClick={(e) => { e.preventDefault(); onNavigate('about'); }} className="text-left hover:text-white transition-colors no-underline">
@@ -69,10 +69,10 @@ export default function Footer({ onNavigate }) {
 
           {/* Col 3: Customer Trust & Policy Pages */}
           <div className="flex flex-col gap-3">
-            <h4 className="font-display font-bold uppercase tracking-wider text-xs text-white border-b border-white/10 pb-2">
+            <h2 className="font-display font-bold uppercase tracking-wider text-xs text-white border-b border-white/10 pb-2">
               Trust & Policies
-            </h4>
-            <div className="flex flex-col gap-2 text-xs text-slate-400">
+            </h2>
+            <div className="flex flex-col gap-2 text-xs text-slate-300">
               <a href="/warranty-returns" onClick={(e) => { e.preventDefault(); onNavigate('warranty-returns'); }} className="text-left hover:text-white transition-colors no-underline">
                 • Warranty & Returns Policy
               </a>
@@ -93,10 +93,10 @@ export default function Footer({ onNavigate }) {
 
           {/* Col 4: Contact & Store Information */}
           <div className="flex flex-col gap-3">
-            <h4 className="font-display font-bold uppercase tracking-wider text-xs text-white border-b border-white/10 pb-2">
+            <h2 className="font-display font-bold uppercase tracking-wider text-xs text-white border-b border-white/10 pb-2">
               Store Support & Location
-            </h4>
-            <div className="flex flex-col gap-2.5 text-xs text-slate-400">
+            </h2>
+            <div className="flex flex-col gap-2.5 text-xs text-slate-300">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-brand-red flex-shrink-0 mt-0.5" />
                 <span>G 23 Shiva Tower, Ghaziabad, Uttar Pradesh 201009</span>
@@ -117,7 +117,7 @@ export default function Footer({ onNavigate }) {
                 href="https://maps.google.com/?q=Computer+Care+G+23+Shiva+Tower+Ghaziabad+Uttar+Pradesh+201009"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-blue-400 transition-colors flex items-center gap-1 text-[11px] text-slate-400"
+                className="hover:text-blue-400 transition-colors flex items-center gap-1 text-[11px] text-slate-300"
               >
                 <span>View Store on Google Maps</span>
                 <ExternalLink className="w-3 h-3" />
@@ -137,21 +137,21 @@ export default function Footer({ onNavigate }) {
         </div>
 
         {/* Bottom Bar: Copyright */}
-        <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
           <div>
-            © 2026 <strong>Computer Care</strong> (G 23 Shiva Tower, Ghaziabad, UP 201009). All Rights Reserved.
+            © 2026 <strong className="text-white">Computer Care</strong> (G 23 Shiva Tower, Ghaziabad, UP 201009). All Rights Reserved.
           </div>
           <div className="flex items-center gap-4">
             <button
               type="button"
               onClick={() => onNavigate('admin')}
-              className="hover:text-brand-gold transition-colors text-slate-400 font-mono text-[11px] flex items-center gap-1 cursor-pointer"
+              className="hover:text-brand-gold transition-colors text-slate-300 font-mono text-[11px] flex items-center gap-1 cursor-pointer"
               title="Administrator Control Center"
             >
               <ShieldCheck className="w-3.5 h-3.5 text-brand-gold" />
               <span>Admin Portal</span>
             </button>
-            <span className="text-slate-700">•</span>
+            <span className="text-slate-600">•</span>
             <span>GST Invoicing • Pan-India Delivery</span>
           </div>
         </div>

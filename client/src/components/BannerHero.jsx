@@ -61,7 +61,7 @@ export default function BannerHero({ onNavigate = () => {} }) {
             <Truck className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-xs font-bold text-slate-800 uppercase font-display">Free Shipping</h4>
+            <p className="text-xs font-bold text-slate-800 uppercase font-display">Free Shipping</p>
             <p className="text-[11px] text-slate-500">All India orders above ₹5,000</p>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function BannerHero({ onNavigate = () => {} }) {
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-xs font-bold text-slate-800 uppercase font-display">GST Invoice</h4>
+            <p className="text-xs font-bold text-slate-800 uppercase font-display">GST Invoice</p>
             <p className="text-[11px] text-slate-500">Manufacturer warranty on all parts</p>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function BannerHero({ onNavigate = () => {} }) {
             <Box className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-xs font-bold text-slate-800 uppercase font-display">Custom PC Builder</h4>
+            <p className="text-xs font-bold text-slate-800 uppercase font-display">Custom PC Builder</p>
             <p className="text-[11px] text-slate-500">Compatibility-checked hardware</p>
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function BannerHero({ onNavigate = () => {} }) {
             <MessageSquare className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-xs font-bold text-slate-800 uppercase font-display">WhatsApp Support</h4>
+            <p className="text-xs font-bold text-slate-800 uppercase font-display">WhatsApp Support</p>
             <p className="text-[11px] text-slate-500">Direct hardware specialists</p>
           </div>
         </div>

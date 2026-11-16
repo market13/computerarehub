@@ -154,6 +154,9 @@ export default function ProductDetailModal({
               <img
                 src={images[activeImageIdx] || cdnImages[activeImageIdx]}
                 alt={product.title}
+                width="288"
+                height="288"
+                loading="lazy"
                 onError={(e) => {
                   if (cdnImages[activeImageIdx] && e.target.src !== cdnImages[activeImageIdx]) {
                     e.target.src = cdnImages[activeImageIdx];
@@ -179,6 +182,9 @@ export default function ProductDetailModal({
                     <img
                       src={img || cdnImages[idx]}
                       alt={`${product.title} view ${idx + 1}`}
+                      width="56"
+                      height="56"
+                      loading="lazy"
                       onError={(e) => {
                         if (cdnImages[idx] && e.target.src !== cdnImages[idx]) {
                           e.target.src = cdnImages[idx];

@@ -124,6 +124,9 @@ export default function HomeView({
                 <img
                   src={build.case?.image || build.case?.cdn_image || "/images/featured-case.webp"}
                   alt={build.case?.title || "Computer Care Custom PC Cabinet"}
+                  width="128"
+                  height="128"
+                  loading="lazy"
                   className="w-full h-full object-contain"
                   onError={(e) => {
                     e.target.src = "/images/featured-case.webp";
@@ -135,9 +138,9 @@ export default function HomeView({
                 <span className="text-[10px] font-mono font-bold text-slate-400 uppercase">
                   {build.case?.vendor || "Featured Gaming Rig"}
                 </span>
-                <h4 className="text-sm font-bold text-slate-900 leading-snug line-clamp-2">
+                <h3 className="text-sm font-bold text-slate-900 leading-snug line-clamp-2">
                   {build.case?.title || "Custom Battle-Ready Gaming Chassis with ARGB Cooling"}
-                </h4>
+                </h3>
                 <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 mt-1">
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-50 text-blue-700 font-semibold border border-blue-200">
                     RTX 40-Series Ready
@@ -221,6 +224,8 @@ export default function HomeView({
                     <img
                       src={p.image || p.cdn_image}
                       alt={p.title}
+                      width="176"
+                      height="176"
                       onError={(e) => {
                         if (p.cdn_image && e.target.src !== p.cdn_image) {
                           e.target.src = p.cdn_image;

@@ -88,7 +88,7 @@ export default function MobileBottomNav({
           <button
             type="button"
             onClick={onOpenCart}
-            aria-label={`Shopping Cart (${cartCount} items)`}
+            aria-label={cartCount > 0 ? `${cartCount} items in shopping cart` : "Shopping Cart"}
             className="-mt-8 w-14 h-14 rounded-full bg-[#facc15] hover:bg-[#eab308] text-white flex items-center justify-center shadow-xl ring-[5px] ring-white relative cursor-pointer active:scale-95 transition-transform"
           >
             <ShoppingCart className="w-6 h-6 text-white stroke-[2.2]" />

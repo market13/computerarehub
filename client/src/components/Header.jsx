@@ -367,13 +367,15 @@ export default function Header({
             <img 
               src="/favicon-32x32.png" 
               alt="Computer Care CC Logo" 
+              width="32"
+              height="32"
               className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg object-contain bg-black p-0.5 shadow-sm border border-slate-800/20" 
             />
             <div className="flex flex-col ml-1 sm:ml-1.5">
               <span className="font-black font-display text-[16px] sm:text-[20px] lg:text-[22px] tracking-tight text-slate-900 group-hover:text-blue-700 transition-colors leading-none uppercase">
                 COMPUTER CARE
               </span>
-              <span className="text-[7.5px] sm:text-[9px] font-mono tracking-widest text-slate-400 uppercase font-semibold leading-none mt-0.5 sm:mt-1">
+              <span className="text-[7.5px] sm:text-[9px] font-mono tracking-widest text-slate-600 uppercase font-semibold leading-none mt-0.5 sm:mt-1">
                 GENUINE HARDWARE STORE
               </span>
             </div>
@@ -943,9 +945,9 @@ export default function Header({
                   <div key={idx} className="flex flex-col">
                     {/* Top Group */}
                     <div>
-                      <h4 className="text-[14px] font-bold text-slate-900 mb-3.5 tracking-tight">
+                      <p className="text-[14px] font-bold text-slate-900 mb-3.5 tracking-tight">
                         {col.top.title}
-                      </h4>
+                      </p>
                       <ul className="space-y-1">
                         {col.top.items.map((item, i) => (
                           <li key={i}>
@@ -964,9 +966,9 @@ export default function Header({
                     {/* Bottom Group (if present) */}
                     {col.bottom && (
                       <div className="mt-8">
-                        <h4 className="text-[14px] font-bold text-slate-900 mb-3.5 tracking-tight">
+                        <p className="text-[14px] font-bold text-slate-900 mb-3.5 tracking-tight">
                           {col.bottom.title}
-                        </h4>
+                        </p>
                         <ul className="space-y-1">
                           {col.bottom.items.map((item, i) => (
                             <li key={i}>
@@ -1002,9 +1004,9 @@ export default function Header({
               <div className="grid grid-cols-4 gap-x-12 gap-y-8">
                 {STREAMING_MENU_COLUMNS.map((col, idx) => (
                   <div key={idx} className="flex flex-col">
-                    <h4 className="text-[14px] font-bold text-slate-900 mb-3.5 tracking-tight">
+                    <p className="text-[14px] font-bold text-slate-900 mb-3.5 tracking-tight">
                       {col.title}
-                    </h4>
+                    </p>
                     <ul className="space-y-1">
                       {col.items.map((item, i) => (
                         <li key={i}>

@@ -52,6 +52,8 @@ export default function RecentBuildsGallery() {
                 <img
                   src={b.image}
                   alt={b.title || 'Custom PC build by Computer Care'}
+                  width="400"
+                  height="225"
                   loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />

@@ -456,6 +456,9 @@ export default function CartDrawer({
                         <img
                           src={item.image || item.cdn_image}
                           alt={item.title}
+                          width="56"
+                          height="56"
+                          loading="lazy"
                           className="w-full h-full object-contain"
                         />
                       </div>

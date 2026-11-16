@@ -1,28 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import HomeView from './components/HomeView';
-import ServicesView from './components/ServicesView';
-import PCBuilderView from './components/PCBuilderView';
-import CatalogView from './components/CatalogView';
-import ComponentSelectorModal from './components/ComponentSelectorModal';
-import ProductDetailModal from './components/ProductDetailModal';
-import PrebuiltPresetsModal from './components/PrebuiltPresetsModal';
-import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
-import BulkOrderView from './components/BulkOrderView';
 import BulkOrderFloatingBadge from './components/BulkOrderFloatingBadge';
 import WhatsAppFloatingButton from './components/WhatsAppFloatingButton';
 import MobileBottomNav from './components/MobileBottomNav';
 import StickyMobileActionBar from './components/StickyMobileActionBar';
-import AdminPortalView from './components/AdminPortalView';
-import AboutView from './components/AboutView';
-import WarrantyReturnsView from './components/WarrantyReturnsView';
-import ShippingDeliveryView from './components/ShippingDeliveryView';
-import PrivacyPolicyView from './components/PrivacyPolicyView';
-import TermsView from './components/TermsView';
 import { findCompatibleDefaultBuild } from './utils/compatibility';
 import categoryDescriptions from './constants/categoryDescriptions.json';
+
+const PCBuilderView = React.lazy(() => import('./components/PCBuilderView'));
+const CatalogView = React.lazy(() => import('./components/CatalogView'));
+const ServicesView = React.lazy(() => import('./components/ServicesView'));
+const BulkOrderView = React.lazy(() => import('./components/BulkOrderView'));
+const AdminPortalView = React.lazy(() => import('./components/AdminPortalView'));
+const AboutView = React.lazy(() => import('./components/AboutView'));
+const WarrantyReturnsView = React.lazy(() => import('./components/WarrantyReturnsView'));
+const ShippingDeliveryView = React.lazy(() => import('./components/ShippingDeliveryView'));
+const PrivacyPolicyView = React.lazy(() => import('./components/PrivacyPolicyView'));
+const TermsView = React.lazy(() => import('./components/TermsView'));
+const ComponentSelectorModal = React.lazy(() => import('./components/ComponentSelectorModal'));
+const ProductDetailModal = React.lazy(() => import('./components/ProductDetailModal'));
+const PrebuiltPresetsModal = React.lazy(() => import('./components/PrebuiltPresetsModal'));
+const CartDrawer = React.lazy(() => import('./components/CartDrawer'));
 
 const COMPONENT_SLOTS = [
   { key: 'case', label: 'PC Cabinet / Case' },
@@ -227,80 +228,29 @@ export default function App() {
   const [isPresetsOpen, setIsPresetsOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // On-demand category loading and manifest initialization with content hash caching
+  const [buildHash, setBuildHash] = useState('v1');
+  const [manifestData, setManifestData] = useState(null);
+
+  // Lightweight manifest initialization: seeds default rig and featured items instantly
   useEffect(() => {
     async function loadData() {
       try {
         const manifestResp = await fetch('/data/manifest.json');
-        let hash = 'v1';
-        let initialCatalog = {};
-
         if (manifestResp.ok) {
           const manifest = await manifestResp.json();
-          hash = manifest.buildHash || 'v1';
+          const hash = manifest.buildHash || 'v1';
+          setBuildHash(hash);
+          setManifestData(manifest);
 
           // Fast render: seed default compatible rig directly from manifest
           if (manifest.initialBuild) {
             setBuild(manifest.initialBuild);
           }
 
-          // Core categories needed for home and builder
-          const coreCategories = ['cpu', 'motherboard', 'ram', 'gpu', 'case', 'psu', 'cooler', 'storage'];
-          await Promise.all(
-            coreCategories.map(async (catKey) => {
-              try {
-                const res = await fetch(`/data/categories/${catKey}.json?v=${hash}`);
-                if (res.ok) {
-                  initialCatalog[catKey] = await res.json();
-                }
-              } catch (catErr) {
-                console.warn(`Failed loading category ${catKey}`, catErr);
-              }
-            })
-          );
-
-          // If initial build wasn't in manifest, calculate from loaded categories
-          if (!manifest.initialBuild) {
-            const compatibleBuild = findCompatibleDefaultBuild(initialCatalog);
-            if (compatibleBuild) setBuild(compatibleBuild);
+          // Seed catalog with homeFeatured so featured components display instantly
+          if (manifest.homeFeatured) {
+            setCatalog(manifest.homeFeatured);
           }
-
-          // Load remaining categories in background so catalog & search are fully populated
-          const remaining = (manifest.categories || []).filter(c => !coreCategories.includes(c));
-          Promise.all(
-            remaining.map(async (catKey) => {
-              try {
-                const res = await fetch(`/data/categories/${catKey}.json?v=${hash}`);
-                if (res.ok) {
-                  const items = await res.json();
-                  setCatalog(prev => ({ ...prev, [catKey]: items }));
-                }
-              } catch {
-                // ignore background load errors
-              }
-            })
-          );
-        } else {
-          // Fallback to products.json if manifest is missing
-          const prodResp = await fetch('/data/products.json');
-          if (prodResp.ok) {
-            initialCatalog = await prodResp.json();
-            const compatibleBuild = findCompatibleDefaultBuild(initialCatalog);
-            if (compatibleBuild) setBuild(compatibleBuild);
-          }
-        }
-
-        setCatalog(initialCatalog);
-
-        // Fetch presets (cached, no no-store or timestamp)
-        try {
-          const presetResp = await fetch(`/data/presets.json?v=${hash}`);
-          if (presetResp.ok) {
-            const presetData = await presetResp.json();
-            setPresets(presetData);
-          }
-        } catch {
-          // ignore
         }
       } catch (err) {
         console.error("Failed to load catalog manifest", err);
@@ -311,10 +261,10 @@ export default function App() {
     loadData();
   }, []);
 
-  // Ensure active selector category is loaded on demand
+  // Ensure active selector category is loaded on demand with full dataset
   useEffect(() => {
-    if (activeSelectorKey && !catalog[activeSelectorKey]) {
-      fetch(`/data/categories/${activeSelectorKey}.json`)
+    if (activeSelectorKey && (!catalog[activeSelectorKey] || catalog[activeSelectorKey].length <= 4)) {
+      fetch(`/data/categories/${activeSelectorKey}.json?v=${buildHash}`)
         .then(res => res.ok ? res.json() : [])
         .then(items => {
           if (items.length > 0) {
@@ -323,12 +273,12 @@ export default function App() {
         })
         .catch(() => {});
     }
-  }, [activeSelectorKey, catalog]);
+  }, [activeSelectorKey, catalog, buildHash]);
 
-  // Ensure selected catalog category is loaded on demand
+  // Ensure selected catalog category is loaded on demand with full dataset
   useEffect(() => {
-    if (selectedCatalogCategory && selectedCatalogCategory !== 'all' && !catalog[selectedCatalogCategory]) {
-      fetch(`/data/categories/${selectedCatalogCategory}.json`)
+    if (selectedCatalogCategory && selectedCatalogCategory !== 'all' && (!catalog[selectedCatalogCategory] || catalog[selectedCatalogCategory].length <= 4)) {
+      fetch(`/data/categories/${selectedCatalogCategory}.json?v=${buildHash}`)
         .then(res => res.ok ? res.json() : [])
         .then(items => {
           if (items.length > 0) {
@@ -337,7 +287,28 @@ export default function App() {
         })
         .catch(() => {});
     }
-  }, [selectedCatalogCategory, catalog]);
+  }, [selectedCatalogCategory, catalog, buildHash]);
+
+  // Progressive background loading for full catalog only when browsing catalog 'all'
+  useEffect(() => {
+    if (activeTab === 'catalog' && selectedCatalogCategory === 'all' && manifestData) {
+      const timer = setTimeout(() => {
+        (manifestData.categories || []).forEach(catKey => {
+          if (!catalog[catKey] || catalog[catKey].length <= 4) {
+            fetch(`/data/categories/${catKey}.json?v=${buildHash}`)
+              .then(res => res.ok ? res.json() : [])
+              .then(items => {
+                if (items.length > 0) {
+                  setCatalog(prev => ({ ...prev, [catKey]: items }));
+                }
+              })
+              .catch(() => {});
+          }
+        });
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [activeTab, selectedCatalogCategory, manifestData, buildHash, catalog]);
 
   const handleSelectComponent = (categoryKey, product) => {
     setBuild(prev => ({
@@ -368,6 +339,20 @@ export default function App() {
         monitor: null
       });
     }
+  };
+
+  const handleOpenPresets = () => {
+    if (presets.length === 0) {
+      fetch(`/data/presets.json?v=${buildHash}`)
+        .then(res => res.ok ? res.json() : [])
+        .then(data => {
+          if (Array.isArray(data) && data.length > 0) {
+            setPresets(data);
+          }
+        })
+        .catch(() => {});
+    }
+    setIsPresetsOpen(true);
   };
 
   const handleLoadPreset = (presetBuild) => {
@@ -423,7 +408,7 @@ export default function App() {
         setSelectedCatalogCategory('all');
         navigate('/catalog');
       } else if (dest === 'presets') {
-        setIsPresetsOpen(true);
+        handleOpenPresets();
       } else if (dest.startsWith('catalog-')) {
         const cat = dest.replace('catalog-', '');
         setSelectedCatalogCategory(cat);
@@ -467,7 +452,7 @@ export default function App() {
         selectedCatalogCategory={selectedCatalogCategory}
         buildCount={buildItems.length}
         totalPrice={totalPrice}
-        onOpenPresets={() => setIsPresetsOpen(true)}
+        onOpenPresets={handleOpenPresets}
         onResetBuild={handleResetBuild}
         onOpenCart={() => setIsCartOpen(true)}
         categories={Object.keys(catalog)}
@@ -480,24 +465,15 @@ export default function App() {
       {/* Main Content Area */}
       <main id="main-content" className="flex-1 max-w-[1536px] w-full mx-auto px-3 sm:px-5 lg:px-8 py-6 pb-28 md:pb-6">
         <div key={activeTab} className="animate-tab-enter w-full">
-        {loading ? (
-          <div className="py-32 flex flex-col items-center justify-center text-center">
-            <div className="w-12 h-12 rounded-2xl border-4 border-brand-navy/20 border-t-brand-navy animate-spin mb-4" />
-            <h2 className="text-base font-display font-bold text-brand-navy uppercase tracking-wider">
-              LOADING COMPUTER CARE HARDWARE LAB
-            </h2>
-            <p className="text-xs text-slate-500 font-sans mt-1">
-              Synchronizing genuine Computer Care hardware catalog & custom PC builder...
-            </p>
-          </div>
-        ) : activeTab === 'home' ? (
+        <Suspense fallback={<div className="py-24 text-center font-mono text-xs text-slate-500"><div className="w-8 h-8 rounded-full border-4 border-brand-navy border-t-transparent animate-spin mx-auto mb-2" />Loading...</div>}>
+        {activeTab === 'home' ? (
           <HomeView
             catalog={catalog}
             build={build}
             onNavigate={handleNavigate}
             onOpenSelector={(cat) => setActiveSelectorKey(cat)}
             onViewDetails={setDetailProduct}
-            onOpenPresets={() => setIsPresetsOpen(true)}
+            onOpenPresets={handleOpenPresets}
             onSelectComponent={handleSelectComponent}
           />
         ) : activeTab === 'builder' ? (
@@ -507,7 +483,7 @@ export default function App() {
             onOpenSelector={(cat) => setActiveSelectorKey(cat)}
             onRemoveComponent={handleRemoveComponent}
             onViewDetails={setDetailProduct}
-            onOpenPresets={() => setIsPresetsOpen(true)}
+            onOpenPresets={handleOpenPresets}
             onResetBuild={handleResetBuild}
             onAddToCart={() => setIsCartOpen(true)}
           />
@@ -542,52 +518,59 @@ export default function App() {
             setSearchQuery={setSearchQuery}
           />
         )}
+        </Suspense>
       </div>
       </main>
 
       {/* Modals & Drawers */}
-      {/* 1. Component Selector Modal */}
-      {activeSelectorKey && activeSelectorSlot && (
-        <ComponentSelectorModal
-          isOpen={Boolean(activeSelectorKey)}
-          onClose={() => setActiveSelectorKey(null)}
-          categoryKey={activeSelectorKey}
-          categoryLabel={activeSelectorSlot.label}
-          products={catalog[activeSelectorKey] || []}
-          build={build}
-          onSelectProduct={handleSelectComponent}
-          onViewDetails={setDetailProduct}
-        />
-      )}
+      <Suspense fallback={null}>
+        {/* 1. Component Selector Modal */}
+        {activeSelectorKey && activeSelectorSlot && (
+          <ComponentSelectorModal
+            isOpen={Boolean(activeSelectorKey)}
+            onClose={() => setActiveSelectorKey(null)}
+            categoryKey={activeSelectorKey}
+            categoryLabel={activeSelectorSlot.label}
+            products={catalog[activeSelectorKey] || []}
+            build={build}
+            onSelectProduct={handleSelectComponent}
+            onViewDetails={setDetailProduct}
+          />
+        )}
 
-      {/* 2. Product Detail Modal */}
-      {detailProduct && (
-        <ProductDetailModal
-          isOpen={Boolean(detailProduct)}
-          product={detailProduct}
-          onClose={() => setDetailProduct(null)}
-          onSelectProduct={handleSelectComponent}
-          isSelected={build[detailProduct.category]?.id === detailProduct.id}
-        />
-      )}
+        {/* 2. Product Detail Modal */}
+        {detailProduct && (
+          <ProductDetailModal
+            isOpen={Boolean(detailProduct)}
+            product={detailProduct}
+            onClose={() => setDetailProduct(null)}
+            onSelectProduct={handleSelectComponent}
+            isSelected={build[detailProduct.category]?.id === detailProduct.id}
+          />
+        )}
 
-      {/* 3. Prebuilt Rig Presets Modal */}
-      <PrebuiltPresetsModal
-        isOpen={isPresetsOpen}
-        onClose={() => setIsPresetsOpen(false)}
-        presets={presets}
-        catalog={catalog}
-        onLoadPreset={handleLoadPreset}
-      />
+        {/* 3. Prebuilt Rig Presets Modal */}
+        {isPresetsOpen && (
+          <PrebuiltPresetsModal
+            isOpen={isPresetsOpen}
+            onClose={() => setIsPresetsOpen(false)}
+            presets={presets}
+            catalog={catalog}
+            onLoadPreset={handleLoadPreset}
+          />
+        )}
 
-      {/* 4. Shopping Cart Drawer */}
-      <CartDrawer
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        build={build}
-        onRemoveItem={handleRemoveComponent}
-        onClearCart={handleResetBuild}
-      />
+        {/* 4. Shopping Cart Drawer */}
+        {isCartOpen && (
+          <CartDrawer
+            isOpen={isCartOpen}
+            onClose={() => setIsCartOpen(false)}
+            build={build}
+            onRemoveItem={handleRemoveComponent}
+            onClearCart={handleResetBuild}
+          />
+        )}
+      </Suspense>
 
       {/* 5. Persistent Floating Side Label: Bulk Order */}
       <BulkOrderFloatingBadge activeTab={activeTab} onNavigate={handleNavigate} />

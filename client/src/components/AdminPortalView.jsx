@@ -1102,6 +1102,9 @@ export default function AdminPortalView({
                         <img
                           src={prod.image || prod.cdn_image}
                           alt={prod.title}
+                          width="40"
+                          height="40"
+                          loading="lazy"
                           className="w-full h-full object-contain"
                         />
                       </div>

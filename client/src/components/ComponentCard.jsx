@@ -34,6 +34,8 @@ export default function ComponentCard({
               <img
                 src={item.image || item.cdn_image}
                 alt={item.title}
+                width="80"
+                height="80"
                 onError={(e) => {
                   if (item.cdn_image && e.target.src !== item.cdn_image) {
                     e.target.src = item.cdn_image;

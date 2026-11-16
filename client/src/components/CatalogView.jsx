@@ -477,6 +477,8 @@ export default function CatalogView({
                         <img
                           src={p.image || p.cdn_image}
                           alt={p.title}
+                          width="176"
+                          height="176"
                           onError={(e) => {
                             if (p.cdn_image && e.target.src !== p.cdn_image) {
                               e.target.src = p.cdn_image;

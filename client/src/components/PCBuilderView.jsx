@@ -328,6 +328,9 @@ export default function PCBuilderView({
                   <img
                     src={build.case.image || build.case.cdn_image}
                     alt={build.case.title}
+                    width="80"
+                    height="80"
+                    loading="lazy"
                     className="w-full h-full object-contain hover:scale-105 transition-transform"
                   />
                 </div>

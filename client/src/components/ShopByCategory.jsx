@@ -6,37 +6,37 @@ const CATEGORIES = [
   {
     id: 'graphic_card',
     title: 'GRAPHIC CARD',
-    image: '/images/shop_by_category/graphic_card.png',
+    image: '/images/shop_by_category/graphic_card.webp',
     categoryKey: 'gpu'
   },
   {
     id: 'ram',
     title: 'RAM',
-    image: '/images/shop_by_category/ram.png',
+    image: '/images/shop_by_category/ram.webp',
     categoryKey: 'ram'
   },
   {
     id: 'ssd',
     title: 'SSD',
-    image: '/images/shop_by_category/ssd.png',
+    image: '/images/shop_by_category/ssd.webp',
     categoryKey: 'storage'
   },
   {
     id: 'pc_cabinet',
     title: 'PC CABINET',
-    image: '/images/shop_by_category/pc_cabinet.png',
+    image: '/images/shop_by_category/pc_cabinet.webp',
     categoryKey: 'case'
   },
   {
     id: 'air_cooler',
     title: 'AIR COOLER',
-    image: '/images/shop_by_category/air_cooler.png',
+    image: '/images/shop_by_category/air_cooler.webp',
     categoryKey: 'cooler'
   },
   {
     id: 'liquid_cooler',
     title: 'LIQUID COOLER',
-    image: '/images/shop_by_category/liquid_cooler.png',
+    image: '/images/shop_by_category/liquid_cooler.webp',
     categoryKey: 'cooler'
   },
 
@@ -44,49 +44,49 @@ const CATEGORIES = [
   {
     id: 'processor',
     title: 'PROCESSOR',
-    image: '/images/shop_by_category/processor.png',
+    image: '/images/shop_by_category/processor.webp',
     categoryKey: 'cpu'
   },
   {
     id: 'motherboard',
     title: 'MOTHERBOARD',
-    image: '/images/shop_by_category/motherboard.png',
+    image: '/images/shop_by_category/motherboard.webp',
     categoryKey: 'motherboard'
   },
   {
     id: 'power_supply',
     title: 'POWER SUPPLY',
-    image: '/images/shop_by_category/power_supply.png',
+    image: '/images/shop_by_category/power_supply.webp',
     categoryKey: 'psu'
   },
   {
     id: 'monitor',
     title: 'MONITOR',
-    image: '/images/shop_by_category/monitor.png',
+    image: '/images/shop_by_category/monitor.webp',
     categoryKey: 'monitor'
   },
   {
     id: 'mouse',
     title: 'MOUSE',
-    image: '/images/shop_by_category/mouse.png',
+    image: '/images/shop_by_category/mouse.webp',
     categoryKey: 'gaming_mouse'
   },
   {
     id: 'keyboard',
     title: 'KEYBOARD',
-    image: '/images/shop_by_category/keyboard.png',
+    image: '/images/shop_by_category/keyboard.webp',
     categoryKey: 'gaming_keyboard'
   },
   {
     id: 'headphones',
     title: 'HEADPHONES',
-    image: '/images/shop_by_category/headphones.png',
+    image: '/images/shop_by_category/headphones.webp',
     categoryKey: 'gaming_headphone'
   },
   {
     id: 'mousepad',
     title: 'MOUSEPAD',
-    image: '/images/shop_by_category/mousepad.png',
+    image: '/images/shop_by_category/mousepad.webp',
     categoryKey: 'gaming_mousepad'
   }
 ];
