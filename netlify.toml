@@ -28,6 +28,16 @@
   status = 301
 
 [[redirects]]
+  from = "/contact"
+  to = "/builder?mode=consultation"
+  status = 301
+
+[[redirects]]
+  from = "/consultation"
+  to = "/builder?mode=consultation"
+  status = 301
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

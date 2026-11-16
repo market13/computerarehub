@@ -14,6 +14,7 @@ import BulkOrderView from './components/BulkOrderView';
 import BulkOrderFloatingBadge from './components/BulkOrderFloatingBadge';
 import WhatsAppFloatingButton from './components/WhatsAppFloatingButton';
 import MobileBottomNav from './components/MobileBottomNav';
+import StickyMobileActionBar from './components/StickyMobileActionBar';
 import AdminPortalView from './components/AdminPortalView';
 import AboutView from './components/AboutView';
 import WarrantyReturnsView from './components/WarrantyReturnsView';
@@ -60,7 +61,7 @@ export default function App() {
   const activeTab = (() => {
     const p = location.pathname.toLowerCase();
     if (p === '/admin') return 'admin';
-    if (p === '/builder') return 'builder';
+    if (p === '/builder' || p === '/contact' || p === '/consultation') return 'builder';
     if (p === '/bulk-order') return 'bulk-order';
     if (p === '/services') return 'services';
     if (p === '/about') return 'about';
@@ -71,6 +72,14 @@ export default function App() {
     if (p.startsWith('/catalog')) return 'catalog';
     return 'home';
   })();
+
+  // Automatically redirect /contact or /consultation to /builder?mode=consultation
+  useEffect(() => {
+    const p = location.pathname.toLowerCase();
+    if (p === '/contact' || p === '/consultation') {
+      navigate('/builder?mode=consultation', { replace: true });
+    }
+  }, [location.pathname, navigate]);
 
   // Sync /catalog/:category route with selectedCatalogCategory
   const [prevPath, setPrevPath] = useState(location.pathname);
@@ -382,14 +391,20 @@ export default function App() {
     }
   };
 
-  const handleNavigate = (dest) => {
+  const handleNavigate = (dest, subParam) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     const applyNav = () => {
       if (dest === 'admin') {
         navigate('/admin');
       } else if (dest === 'builder') {
-        navigate('/builder');
+        if (subParam === 'consultation') {
+          navigate('/builder?mode=consultation');
+        } else {
+          navigate('/builder');
+        }
+      } else if (dest === 'consultation' || dest === 'contact') {
+        navigate('/builder?mode=consultation');
       } else if (dest === 'bulk-order') {
         navigate('/bulk-order');
       } else if (dest === 'services') {
@@ -463,7 +478,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main id="main-content" className="flex-1 max-w-[1536px] w-full mx-auto px-3 sm:px-5 lg:px-8 py-6">
+      <main id="main-content" className="flex-1 max-w-[1536px] w-full mx-auto px-3 sm:px-5 lg:px-8 py-6 pb-28 md:pb-6">
         <div key={activeTab} className="animate-tab-enter w-full">
         {loading ? (
           <div className="py-32 flex flex-col items-center justify-center text-center">
@@ -488,6 +503,7 @@ export default function App() {
         ) : activeTab === 'builder' ? (
           <PCBuilderView
             build={build}
+            initialMode={location.search.includes('mode=consultation') ? 'consultation' : 'diy'}
             onOpenSelector={(cat) => setActiveSelectorKey(cat)}
             onRemoveComponent={handleRemoveComponent}
             onViewDetails={setDetailProduct}
@@ -578,6 +594,9 @@ export default function App() {
 
       {/* 6. Floating Corner WhatsApp Button */}
       <WhatsAppFloatingButton />
+
+      {/* 6.5. Mobile Sticky Helpline & WhatsApp Bar */}
+      <StickyMobileActionBar />
 
       {/* 7. Mobile Bottom Navigation Bar (Matching user reference) */}
       <MobileBottomNav

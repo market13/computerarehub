@@ -452,7 +452,7 @@ export default function HomeView({
       <ReviewsSection />
 
       {/* 9. Frequently Asked Questions (FAQ) with Schema-aligned QA grounding */}
-      <FAQSection />
+      <FAQSection onNavigate={onNavigate} />
     </div>
   );
 }

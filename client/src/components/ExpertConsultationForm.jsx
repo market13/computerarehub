@@ -75,8 +75,13 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
   const [submittedRequest, setSubmittedRequest] = useState(null);
   const [copiedRef, setCopiedRef] = useState(false);
   const [submitError, setSubmitError] = useState(null);
+  const [botField, setBotField] = useState('');
 
   const validate = () => {
+    if (botField) {
+      console.warn('Spam submission detected and blocked via honeypot');
+      return false;
+    }
     const errs = {};
     if (!formData.fullName.trim()) errs.fullName = 'Please enter your name';
     if (!formData.phone.trim()) {
@@ -112,6 +117,7 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
     try {
       await submitToNetlify('expert-consultation', {
         ...formData,
+        'bot-field': botField,
         refNumber,
         timestamp: requestRecord.timestamp
       });
@@ -286,6 +292,19 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
       ) : (
         /* The Form */
         <form onSubmit={handleSubmit} className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-xs flex flex-col gap-6">
+          {/* Anti-spam honeypot field */}
+          <div style={{ display: 'none' }} aria-hidden="true">
+            <label htmlFor="consultation-bot-field">Do not fill this out if human</label>
+            <input
+              id="consultation-bot-field"
+              type="text"
+              name="bot-field"
+              tabIndex={-1}
+              autoComplete="off"
+              value={botField}
+              onChange={(e) => setBotField(e.target.value)}
+            />
+          </div>
           {submitError && (
             <div className="bg-rose-50 border-2 border-rose-300 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-rose-900">
               <div className="flex items-center gap-2.5 text-xs sm:text-sm font-medium">
@@ -475,10 +494,10 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
             </div>
           </div>
 
-          {/* Specific Notes */}
+          {/* Specific Requirements / Message */}
           <div className="flex flex-col gap-1.5 pt-2 border-t border-slate-100">
             <label className="text-xs font-semibold text-slate-800 flex items-center justify-between">
-              <span>Any specific requirements, target software, or questions?</span>
+              <span>Your Requirements / Message <span className="text-slate-400 font-normal">(Target games, software, or custom requests)</span></span>
               <span className="text-[10px] text-slate-400">Optional</span>
             </label>
             <textarea

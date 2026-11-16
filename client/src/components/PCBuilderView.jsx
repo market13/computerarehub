@@ -47,10 +47,24 @@ export default function PCBuilderView({
   onViewDetails,
   onOpenPresets,
   onResetBuild,
-  onAddToCart
+  onAddToCart,
+  initialMode = 'diy'
 }) {
   const [copied, setCopied] = React.useState(false);
-  const [builderMode, setBuilderMode] = useState('diy'); // 'diy' | 'consultation'
+  const [builderMode, setBuilderMode] = useState(() => {
+    if (typeof window !== 'undefined' && window.location.search.includes('mode=consultation')) {
+      return 'consultation';
+    }
+    return initialMode || 'diy';
+  });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.search.includes('mode=consultation')) {
+      setBuilderMode('consultation');
+    } else if (initialMode) {
+      setBuilderMode(initialMode);
+    }
+  }, [initialMode]);
 
   const items = Object.values(build).filter(Boolean);
   const totalPrice = items.reduce((sum, item) => sum + (item.price || 0), 0);
@@ -93,12 +107,15 @@ export default function PCBuilderView({
       {/* Title & Presets Bar */}
       <div className="bg-white p-4 sm:p-5 rounded-xl border border-brand-border shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 mb-1">
+          <div className="flex flex-wrap items-center gap-2 mb-1">
             <span className="text-[11px] font-mono uppercase tracking-wider px-2 py-0.5 rounded font-bold bg-brand-navy text-white">
               CUSTOM PC RIG
             </span>
             <span className="text-xs text-slate-500 font-medium">
               Real-Time Hardware Compatibility & Wattage Engine
+            </span>
+            <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+              Budget to high-end builds (H61 to RTX 4090)
             </span>
           </div>
           <h1 className="text-xl sm:text-2xl font-black font-display text-brand-navy tracking-tight">

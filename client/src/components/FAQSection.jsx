@@ -64,7 +64,7 @@ const FAQS = [
   }
 ];
 
-export default function FAQSection() {
+export default function FAQSection({ onNavigate }) {
   const [openIdx, setOpenIdx] = useState(null);
 
   const toggleFAQ = (index) => {
@@ -118,7 +118,28 @@ export default function FAQSection() {
 
               {isOpen && (
                 <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 font-sans leading-relaxed border-t border-slate-100/80 animate-fadeIn">
-                  {faq.answer}
+                  {faq.question === 'Can customers get help choosing PC components?' ? (
+                    <span>
+                      Absolutely. Our hardware specialists provide free consultation to help you choose the right components with full compatibility. You can submit your requirements through our{' '}
+                      <a
+                        href="/builder?mode=consultation"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (onNavigate) {
+                            onNavigate('builder', 'consultation');
+                          } else {
+                            window.location.href = '/builder?mode=consultation';
+                          }
+                        }}
+                        className="text-brand-blue hover:text-blue-800 underline font-semibold cursor-pointer"
+                      >
+                        consultation form
+                      </a>{' '}
+                      or chat directly with our PC builders on WhatsApp at +91 9810550222 for honest, budget-optimized hardware recommendations.
+                    </span>
+                  ) : (
+                    faq.answer
+                  )}
                 </div>
               )}
             </div>
