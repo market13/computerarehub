@@ -102,13 +102,13 @@ assert(faqSchema?.mainEntity && faqSchema.mainEntity.length >= 8, `FAQPage conta
 // 4. Crawlability without JavaScript Audit
 console.log('\n--- 4. Crawlability without JavaScript Audit ---');
 // Verify homepage has rich HTML inside #root
-assert(homeHtml.includes('<h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">Computer Care — India\'s Premier Custom PC Builder & Genuine Computer Hardware</h1>'), 'Homepage #root contains prominent static <h1>');
+assert(homeHtml.includes('Custom Gaming PCs, Hardware & Computer Repair in Ghaziabad'), 'Homepage #root contains prominent static <h1> with Ghaziabad');
 assert(homeHtml.includes('Shop Hardware Components by Category'), 'Homepage #root contains static categories list');
 assert(homeHtml.includes('<noscript>'), 'Homepage contains accessible <noscript> navigation fallback');
 
 // Verify builder page
 const builderHtml = fs.readFileSync(path.join(distDir, 'builder/index.html'), 'utf8');
-assert(builderHtml.includes('Custom 3D PC Builder & Real-Time Hardware Configurator'), 'Builder page has prerendered <h1>');
+assert(builderHtml.includes('Custom PC Builder & Real-Time Hardware Configurator'), 'Builder page has prerendered <h1>');
 assert(builderHtml.includes('<link rel="canonical" href="https://computercaregzb.com/builder" />'), 'Builder page has canonical URL https://computercaregzb.com/builder');
 
 // Verify catalog and category page

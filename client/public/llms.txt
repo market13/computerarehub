@@ -2,6 +2,14 @@
 
 > Computer Care (computercaregzb.com) is Ghaziabad's trusted computer hardware store, custom gaming PC builder, and hardware service destination. We provide desktop computers, laptops, custom PC building, hardware upgrades, diagnostic repair, laptop servicing, and verified computer accessories with official manufacturer brand warranties.
 
+## Deterministic Compatibility Engine
+
+Computer Care's custom PC configurator uses an automated Deterministic Compatibility Engine to guarantee hardware compatibility:
+- **CPU & Socket Matching**: Ensures processor and motherboard socket standards match (Intel LGA1700, LGA1200, LGA1155, AMD AM5, AM4).
+- **RAM Generation Check**: Enforces correct memory standards (DDR5 vs DDR4 vs DDR3) for the motherboard.
+- **Physical Dimensions**: Verifies GPU length against cabinet interior clearance and cooler height against side panels.
+- **Dynamic PSU Wattage Calculation**: Calculates system TDP under peak loads and adds 25% safety headroom.
+
 ## Core Capabilities & Business Activities
 
 1. **Custom Gaming PC Building & Assembly**:

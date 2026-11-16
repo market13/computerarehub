@@ -241,7 +241,7 @@ const homeContent = `
 `;
 
 const renderedHome = injectHtml(baseHtmlTemplate, {
-  title: "Computer Care | Custom PC Builder & Hardware Store Ghaziabad",
+  title: "Computer Care | Custom PC Builder & Hardware Ghaziabad",
   description: "Computer Care is a trusted computer shop in Ghaziabad for custom PC building, hardware upgrades, and laptop repair services.",
   canonicalUrl: "https://computercaregzb.com/",
   content: homeContent
@@ -756,8 +756,8 @@ const servicesContent = `
 fs.writeFileSync(
   path.join(servicesDir, 'index.html'),
   injectHtml(baseHtmlTemplate, {
-    title: 'Computer Repair, Custom Gaming PCs & Hardware Services in Ghaziabad | Computer Care',
-    description: 'Expert computer repair, custom gaming PC building, hardware upgrades (RAM/SSD/GPU), and laptop servicing in Ghaziabad, Uttar Pradesh. Authorized brand warranty.',
+    title: 'Computer Repair & Custom PCs | Computer Care Ghaziabad',
+    description: 'Expert computer repair, custom gaming PC building, hardware upgrades (RAM/SSD/GPU), and laptop servicing in Ghaziabad with manufacturer warranty.',
     canonicalUrl: 'https://computercaregzb.com/services',
     content: servicesContent,
     extraSchema: servicesSchema

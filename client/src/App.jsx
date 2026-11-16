@@ -99,7 +99,7 @@ export default function App() {
   // Update per-route <title>, meta description, canonical URL, and OpenGraph/Twitter tags
   useEffect(() => {
     const p = location.pathname;
-    let title = 'Computer Care | Custom PC Builder & Hardware Store Ghaziabad';
+    let title = 'Computer Care | Custom PC Builder & Hardware Ghaziabad';
     let desc = 'Computer Care is a trusted computer shop in Ghaziabad for custom PC building, hardware upgrades, and laptop repair services.';
     let canonicalUrl = 'https://computercaregzb.com/';
     let isNoIndex = false;
@@ -122,11 +122,11 @@ export default function App() {
         canonicalUrl = 'https://computercaregzb.com/catalog';
       }
     } else if (p === '/services') {
-      title = 'Computer Repair, Custom Gaming PCs & IT Services in Ghaziabad | Computer Care';
+      title = 'Computer Repair & Custom PCs | Computer Care Ghaziabad';
       desc = 'Computer Care provides custom gaming PC building, computer & laptop repair, hardware upgrades, and authentic computer accessories in Ghaziabad, Uttar Pradesh.';
       canonicalUrl = 'https://computercaregzb.com/services';
     } else if (p === '/bulk-order') {
-      title = 'B2B & Institutional Bulk Hardware Orders | Computer Care';
+      title = 'B2B Bulk Hardware Procurement | Computer Care';
       desc = 'Special wholesale procurement quotations for offices, gaming cafes, CAD studios, and educational labs.';
       canonicalUrl = 'https://computercaregzb.com/bulk-order';
     } else if (p === '/about') {
