@@ -88,14 +88,14 @@ export default function App() {
   // Update per-route <title>, meta description, canonical URL, and OpenGraph/Twitter tags
   useEffect(() => {
     const p = location.pathname;
-    let title = 'Computer Care | Custom PC Builds & Genuine Computer Hardware';
-    let desc = "Computer Care - India's premier custom PC builder with live 3D cabinet visualization, genuine computer parts, and real-time hardware compatibility.";
+    let title = 'Computer Care | Custom PC Builder & Hardware Store Ghaziabad';
+    let desc = 'Computer Care is a trusted computer shop in Ghaziabad for custom PC building, hardware upgrades, and laptop repair services.';
     let canonicalUrl = 'https://computercaregzb.com/';
     let isNoIndex = false;
 
     if (p === '/builder') {
-      title = 'Custom 3D PC Builder & Real-time Compatibility | Computer Care';
-      desc = 'Configure your dream gaming rig or workstation with real-time socket, DDR standard, GPU dimension, and PSU wattage checks.';
+      title = 'Custom PC Builder & Compatibility Check | Computer Care';
+      desc = 'Build your custom gaming PC with real-time socket, DDR RAM, GPU clearance, and PSU wattage checks at Computer Care Ghaziabad.';
       canonicalUrl = 'https://computercaregzb.com/builder';
     } else if (p.startsWith('/catalog')) {
       const parts = p.split('/').filter(Boolean);

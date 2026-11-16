@@ -3,6 +3,31 @@
   publish = "dist"
 
 [[redirects]]
+  from = "/3d-builder"
+  to = "/builder"
+  status = 301
+
+[[redirects]]
+  from = "/3d-pc-builder"
+  to = "/builder"
+  status = 301
+
+[[redirects]]
+  from = "/3d-configurator"
+  to = "/builder"
+  status = 301
+
+[[redirects]]
+  from = "/3d"
+  to = "/builder"
+  status = 301
+
+[[redirects]]
+  from = "/pc-builder-3d"
+  to = "/builder"
+  status = 301
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

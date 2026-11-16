@@ -182,7 +182,7 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
           </h2>
 
           <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
-            Tell us your budget and what you want to use the computer for. A Computer Care hardware specialist will call you directly, discuss your requirements, check socket compatibility, and recommend the best zero-bottleneck rig tailored to your exact needs.
+            Tell us your budget and what you want to use the computer for. A Computer Care hardware specialist will call you directly, discuss your requirements, check socket compatibility, and recommend the best compatibility-checked rig tailored to your exact needs.
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-3 border-t border-white/10 text-[11px] text-slate-300">
@@ -196,7 +196,7 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
             </div>
             <div className="flex items-center gap-1.5">
               <Cpu className="w-3.5 h-3.5 text-blue-400" />
-              <span>Zero Bottlenecks</span>
+              <span>Compatibility-Checked</span>
             </div>
             <div className="flex items-center gap-1.5">
               <PhoneCall className="w-3.5 h-3.5 text-purple-400" />

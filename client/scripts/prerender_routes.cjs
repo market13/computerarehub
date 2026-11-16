@@ -99,12 +99,12 @@ function injectHtml(template, { title, description, canonicalUrl, content, extra
 const homeContent = `
   <main style="max-width:1200px;margin:0 auto;padding:20px;font-family:sans-serif;">
     <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
-      <h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">Computer Care — India's Premier Custom PC Builder & Genuine Computer Hardware</h1>
+      <h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">Custom Gaming PCs, Hardware & Computer Repair in Ghaziabad</h1>
       <p style="color:#475569;font-size:1.1rem;line-height:1.6;">
-        Build and configure your dream custom gaming PC, 3D animation workstation, or office desktop with real-time zero-bottleneck compatibility verification. Sourced 100% genuine from authorized brand distributors across India.
+        Build and configure your dream custom gaming PC, workstation, or office desktop with real-time compatibility-checked verification. Manufacturer warranty and GST invoice with every purchase.
       </p>
       <nav style="margin-top:12px;display:flex;gap:16px;flex-wrap:wrap;">
-        <a href="/builder" style="color:#2b38d1;font-weight:bold;">Custom 3D PC Builder</a>
+        <a href="/builder" style="color:#2b38d1;font-weight:bold;">Custom PC Builder</a>
         <a href="/catalog" style="color:#2b38d1;font-weight:bold;">Hardware Catalog</a>
         <a href="/services" style="color:#2b38d1;font-weight:bold;">Services & Repair in Ghaziabad</a>
         <a href="/bulk-order" style="color:#2b38d1;font-weight:bold;">B2B Bulk Orders</a>
@@ -190,7 +190,7 @@ const homeContent = `
         </article>
         <article style="border:1px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;">
           <h3 style="font-size:1.1rem;color:#1e293b;margin:0 0 6px 0;">Does Computer Care build custom gaming PCs?</h3>
-          <p style="color:#475569;margin:0;font-size:0.95rem;line-height:1.5;">Yes, custom gaming PC building is our core speciality. You can configure your dream gaming rig online using our interactive 3D PC Builder with real-time socket and wattage compatibility checks, or consult with our hardware engineers to design a build suited to your budget and favorite games.</p>
+          <p style="color:#475569;margin:0;font-size:0.95rem;line-height:1.5;">Yes, custom gaming PC building is our core speciality. You can configure your dream gaming rig online using our interactive Custom PC Builder with real-time socket and wattage compatibility checks, or consult with our hardware engineers to design a build suited to your budget and favorite games.</p>
         </article>
         <article style="border:1px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;">
           <h3 style="font-size:1.1rem;color:#1e293b;margin:0 0 6px 0;">Can I upgrade my existing desktop?</h3>
@@ -230,8 +230,8 @@ const homeContent = `
 `;
 
 const renderedHome = injectHtml(baseHtmlTemplate, {
-  title: "Computer Care | Custom PC Builds & Genuine Computer Hardware",
-  description: "Computer Care - India's premier custom PC builder with live 3D cabinet visualization, authentic computer parts, and real-time hardware compatibility.",
+  title: "Computer Care | Custom PC Builder & Hardware Store Ghaziabad",
+  description: "Computer Care is a trusted computer shop in Ghaziabad for custom PC building, hardware upgrades, and laptop repair services.",
   canonicalUrl: "https://computercaregzb.com/",
   content: homeContent
 });
@@ -244,9 +244,9 @@ const builderContent = `
   <main style="max-width:1200px;margin:0 auto;padding:20px;font-family:sans-serif;">
     <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
       <a href="/" style="color:#64748b;text-decoration:none;font-size:0.9rem;">&larr; Back to Computer Care Home</a>
-      <h1 style="color:#1b2269;font-size:2rem;margin-top:8px;">Custom 3D PC Builder & Real-Time Hardware Configurator</h1>
+      <h1 style="color:#1b2269;font-size:2rem;margin-top:8px;">Custom PC Builder & Real-Time Hardware Configurator</h1>
       <p style="color:#475569;font-size:1.1rem;line-height:1.6;">
-        Build your high-performance gaming rig, creative editing workstation, or AI development system with zero bottlenecks. Select components step-by-step with live compatibility verification.
+        Build your high-performance gaming rig, creative editing workstation, or office PC with compatibility-checked hardware. Select components step-by-step with live compatibility verification.
       </p>
     </header>
 
@@ -283,7 +283,7 @@ const builderContent = `
 
       <article style="border:1px solid #e2e8f0;border-radius:10px;padding:16px;background:#fff;">
         <h2 style="font-size:1.2rem;color:#1e293b;">6. PC Cabinet & Case</h2>
-        <p style="color:#64748b;font-size:0.9rem;">Panoramic dual-chamber fishbowl cases, mesh airflow mid-towers with pre-installed ARGB fans.</p>
+        <p style="color:#64748b;font-size:0.9rem;">Panoramic dual-chamber cases and mesh airflow mid-towers with pre-installed ARGB fans.</p>
         <a href="/catalog/case" style="color:#2b38d1;font-weight:bold;font-size:0.9rem;">Browse Cases &rarr;</a>
       </article>
 
@@ -300,6 +300,37 @@ const builderContent = `
       </article>
     </section>
 
+    <!-- No-JS Quote Request Form Fallback -->
+    <section style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:24px;margin-bottom:32px;">
+      <h2 style="color:#1b2269;font-size:1.4rem;margin-top:0;">Request a Custom PC Build Quotation</h2>
+      <p style="color:#64748b;font-size:0.95rem;margin-bottom:16px;">Don't want to pick components yourself? Tell us your budget and requirements, and our hardware experts in Ghaziabad will prepare a custom quotation for you.</p>
+      <form name="custom-pc-quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/builder?submitted=true" style="display:grid;grid-template-columns:1fr;gap:12px;max-width:540px;">
+        <input type="hidden" name="form-name" value="custom-pc-quote" />
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+        <div>
+          <label style="display:block;font-size:0.85rem;font-weight:bold;color:#334155;margin-bottom:4px;" for="qb-name">Full Name *</label>
+          <input id="qb-name" name="name" type="text" required style="width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:6px;box-sizing:border-box;" placeholder="e.g. Rahul Sharma" />
+        </div>
+        <div>
+          <label style="display:block;font-size:0.85rem;font-weight:bold;color:#334155;margin-bottom:4px;" for="qb-phone">Phone / WhatsApp Number *</label>
+          <input id="qb-phone" name="phone" type="tel" required style="width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:6px;box-sizing:border-box;" placeholder="e.g. 9810550222" />
+        </div>
+        <div>
+          <label style="display:block;font-size:0.85rem;font-weight:bold;color:#334155;margin-bottom:4px;" for="qb-budget">Estimated Budget (₹) *</label>
+          <input id="qb-budget" name="budget" type="text" required style="width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:6px;box-sizing:border-box;" placeholder="e.g. ₹45,000 or ₹1,20,000" />
+        </div>
+        <div>
+          <label style="display:block;font-size:0.85rem;font-weight:bold;color:#334155;margin-bottom:4px;" for="qb-usecase">Primary Use Case *</label>
+          <input id="qb-usecase" name="useCase" type="text" required style="width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:6px;box-sizing:border-box;" placeholder="e.g. Gaming (GTA 5, Valorant), Video Editing, Office Work" />
+        </div>
+        <div>
+          <label style="display:block;font-size:0.85rem;font-weight:bold;color:#334155;margin-bottom:4px;" for="qb-msg">Message / Preferred Brands</label>
+          <textarea id="qb-msg" name="message" rows="3" style="width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:6px;box-sizing:border-box;" placeholder="Any specific requirements (e.g. Wi-Fi, 32GB RAM, RGB cabinet)..."></textarea>
+        </div>
+        <button type="submit" style="background:#1b2269;color:#fff;font-weight:bold;padding:12px 20px;border:none;border-radius:6px;cursor:pointer;font-size:0.95rem;">Submit Quote Request</button>
+      </form>
+    </section>
+
     <div style="background:#f1f5f9;padding:16px;border-radius:8px;margin-bottom:24px;">
       <h3 style="margin-top:0;color:#1e293b;">Need Expert Assistance?</h3>
       <p style="color:#475569;margin-bottom:8px;">Speak with our hardware specialists for free custom build recommendations, balance checks, and quotation assistance.</p>
@@ -310,8 +341,8 @@ const builderContent = `
 fs.writeFileSync(
   path.join(builderDir, 'index.html'),
   injectHtml(baseHtmlTemplate, {
-    title: 'Custom 3D PC Builder & Real-time Compatibility | Computer Care',
-    description: 'Configure your dream gaming rig or workstation with real-time socket, DDR standard, GPU dimension, and PSU wattage checks.',
+    title: 'Custom PC Builder & Compatibility Check | Computer Care',
+    description: 'Build your custom gaming PC with real-time socket, DDR RAM, GPU clearance, and PSU wattage checks at Computer Care Ghaziabad.',
     canonicalUrl: 'https://computercaregzb.com/builder',
     content: builderContent
   }),
@@ -520,7 +551,7 @@ const servicesSchema = [
         "name": "Does Computer Care build custom gaming PCs?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, custom gaming PC building is our primary speciality. You can configure your dream gaming rig online using our real-time 3D PC Builder or consult with our hardware engineers on WhatsApp (+91 9810550222)."
+          "text": "Yes, custom gaming PC building is our primary speciality. You can configure your dream gaming rig online using our real-time Custom PC Builder or consult with our hardware engineers on WhatsApp (+91 9810550222)."
         }
       },
       {
@@ -552,7 +583,7 @@ const servicesSchema = [
         "name": "Can customers get help choosing PC components?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely. Our hardware specialists provide free consultation to help you choose the right components without bottlenecks. Contact us via WhatsApp at +91 9810550222 for personalized recommendations."
+          "text": "Absolutely. Our hardware specialists provide free consultation to help you choose the right components with full compatibility. Contact us via WhatsApp at +91 9810550222 for personalized recommendations."
         }
       }
     ]
@@ -576,13 +607,13 @@ const servicesContent = `
     <section style="display:grid;grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));gap:20px;margin-bottom:32px;">
       <article style="border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;">
         <h2 style="font-size:1.3rem;color:#1b2269;margin-top:0;">1. Custom Gaming PC Building & Assembly in Ghaziabad</h2>
-        <p style="color:#475569;font-size:0.95rem;line-height:1.5;">Build high-performance gaming computers tailored to your favorite titles (GTA V, Valorant, Cyberpunk 2077, COD Warzone) and creative workstations. Verified socket and wattage matching with zero bottlenecks.</p>
+        <p style="color:#475569;font-size:0.95rem;line-height:1.5;">Build high-performance gaming computers tailored to your favorite titles (GTA V, Valorant, Cyberpunk 2077, COD Warzone) and creative workstations. Verified socket and wattage matching with compatibility-checked hardware.</p>
         <ul style="color:#334155;font-size:0.85rem;line-height:1.7;">
           <li>Intel Core 14th/13th Gen & AMD Ryzen 9000/7000 processors</li>
           <li>NVIDIA GeForce RTX 50 & 40 Series graphics cards</li>
           <li>Rigorous 24-hour thermal and stability stress testing</li>
         </ul>
-        <a href="/builder" style="color:#2b38d1;font-weight:bold;text-decoration:none;font-size:0.9rem;">Launch 3D PC Builder &rarr;</a>
+        <a href="/builder" style="color:#2b38d1;font-weight:bold;text-decoration:none;font-size:0.9rem;">Launch Custom PC Builder &rarr;</a>
       </article>
 
       <article style="border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#fff;">
@@ -671,7 +702,7 @@ const servicesContent = `
         </article>
         <article style="border:1px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;">
           <h3 style="font-size:1.05rem;color:#1e293b;margin:0 0 6px 0;">Does Computer Care build custom gaming PCs?</h3>
-          <p style="color:#475569;margin:0;font-size:0.95rem;line-height:1.5;">Yes, custom gaming PC building is our primary speciality. You can configure your dream gaming rig online using our real-time 3D PC Builder with automated socket and wattage compatibility checks, or consult with our hardware engineers via WhatsApp (+91 9810550222) to design a rig tailored to your favorite games, streaming needs, and budget.</p>
+          <p style="color:#475569;margin:0;font-size:0.95rem;line-height:1.5;">Yes, custom gaming PC building is our primary speciality. You can configure your dream gaming rig online using our real-time Custom PC Builder with automated socket and wattage compatibility checks, or consult with our hardware engineers via WhatsApp (+91 9810550222) to design a rig tailored to your favorite games, streaming needs, and budget.</p>
         </article>
         <article style="border:1px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;">
           <h3 style="font-size:1.05rem;color:#1e293b;margin:0 0 6px 0;">Can I upgrade my existing desktop?</h3>
@@ -687,7 +718,7 @@ const servicesContent = `
         </article>
         <article style="border:1px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;">
           <h3 style="font-size:1.05rem;color:#1e293b;margin:0 0 6px 0;">Can customers get help choosing PC components?</h3>
-          <p style="color:#475569;margin:0;font-size:0.95rem;line-height:1.5;">Absolutely. Our hardware specialists provide free consultation to help you choose the right components without bottlenecks. You can submit your requirements through our consultation form or chat directly with our PC builders on WhatsApp at +91 9810550222 for honest, budget-optimized hardware recommendations.</p>
+          <p style="color:#475569;margin:0;font-size:0.95rem;line-height:1.5;">Absolutely. Our hardware specialists provide free consultation to help you choose the right components with full compatibility. You can submit your requirements through our consultation form or chat directly with our PC builders on WhatsApp at +91 9810550222 for honest, budget-optimized hardware recommendations.</p>
         </article>
       </div>
     </section>

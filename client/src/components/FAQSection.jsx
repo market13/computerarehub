@@ -10,7 +10,7 @@ const FAQS = [
   {
     question: 'Does Computer Care build custom gaming PCs?',
     answer:
-      'Yes, custom gaming PC building is our primary speciality. You can configure your dream gaming rig online using our real-time 3D PC Builder with automated socket and wattage compatibility checks, or consult with our hardware engineers via WhatsApp (+91 9810550222) to design a rig tailored to your favorite games, streaming needs, and budget.'
+      'Yes, custom gaming PC building is our primary speciality. You can configure your dream gaming rig online using our real-time Custom PC Builder with automated socket and wattage compatibility checks, or consult with our hardware engineers via WhatsApp (+91 9810550222) to design a rig tailored to your favorite games, streaming needs, and budget.'
   },
   {
     question: 'Can I upgrade my existing desktop?',
@@ -30,7 +30,7 @@ const FAQS = [
   {
     question: 'Can customers get help choosing PC components?',
     answer:
-      'Absolutely. Our hardware specialists provide free consultation to help you choose the right components without bottlenecks. You can submit your requirements through our consultation form or chat directly with our PC builders on WhatsApp at +91 9810550222 for honest, budget-optimized hardware recommendations.'
+      'Absolutely. Our hardware specialists provide free consultation to help you choose the right components with full compatibility. You can submit your requirements through our consultation form or chat directly with our PC builders on WhatsApp at +91 9810550222 for honest, budget-optimized hardware recommendations.'
   },
   {
     question: 'How does Computer Care ensure custom PC parts compatibility?',
@@ -40,7 +40,7 @@ const FAQS = [
   {
     question: 'Do all components and custom PC builds carry official manufacturer warranty?',
     answer:
-      'Yes, 100% of products sourced and sold by Computer Care are authentic brand-sealed units backed by official manufacturer warranties across India with authorized service center network support.'
+      'Yes, all hardware components and custom PC builds sold by Computer Care carry manufacturer warranty and a GST tax invoice with every purchase.'
   },
   {
     question: 'Which brands are officially available at Computer Care?',

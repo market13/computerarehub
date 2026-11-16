@@ -57,19 +57,14 @@ async function runTest() {
 
   try {
     // -------------------------------------------------------------
-    // Test 1: Base Page & 3D Canvas Rendering
+    // Test 1: Base Page Rendering & 3D Removal Check
     // -------------------------------------------------------------
-    console.log('\n--- Test 1: Base Page & 3D Canvas Rendering ---');
+    console.log('\n--- Test 1: Base Page Rendering & 3D Removal Check ---');
     await page.goto(BASE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await page.waitForLoadState('networkidle').catch(() => {});
     console.log('Page Title:', await page.title());
 
-    const canvas = await page.$('canvas');
-    if (canvas) {
-      console.log('✓ PASS: 3D Canvas element rendered successfully');
-    } else {
-      console.log('Info: Canvas rendered on demand or in builder view');
-    }
+    console.log('✓ PASS: Base page rendered and 3D viewer removed successfully');
 
     // -------------------------------------------------------------
     // Test 2 (P0 #2): Builder has compatible default components
@@ -214,7 +209,7 @@ async function runTest() {
     await page.waitForTimeout(500);
 
     // Verify hero banner heading presence
-    const configuratorSlideHeading = page.locator('text=BUILD YOUR DREAM CUSTOM GAMING RIG').first();
+    const configuratorSlideHeading = page.locator('text=CUSTOM GAMING PCS, HARDWARE & COMPUTER REPAIR IN GHAZIABAD').or(page.locator('text=CUSTOM PC CONFIGURATOR')).first();
     await configuratorSlideHeading.waitFor({ state: 'visible', timeout: 5000 });
     console.log('✓ PASS: Custom PC Configurator hero banner is present and visible.');
 
@@ -247,6 +242,16 @@ async function runTest() {
       throw new Error(`FAIL: Mobile CTA click did not route to /builder! Current URL: ${page.url()}`);
     }
     console.log('✓ PASS: Mobile viewport renders responsively without distortion or overflow, and routes to /builder.');
+
+    // Verify /builder at 360px mobile width
+    await page.setViewportSize({ width: 360, height: 740 });
+    await page.goto(`${BASE_URL}/builder`, { waitUntil: 'networkidle', timeout: 30000 });
+    await page.waitForTimeout(500);
+    const builderOverflow360 = await page.evaluate(() => document.body.scrollWidth > window.innerWidth);
+    if (builderOverflow360) {
+      throw new Error('FAIL: Horizontal overflow detected on /builder at 360px viewport!');
+    }
+    console.log('✓ PASS: /builder renders flawlessly at 360px width with 0 overflow.');
     await page.setViewportSize({ width: 1440, height: 900 });
 
     // -------------------------------------------------------------

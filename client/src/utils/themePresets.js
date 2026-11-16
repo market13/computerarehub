@@ -18,8 +18,6 @@ export const THEMES = [
       glow: 'rgba(245, 158, 11, 0.35)',
       cabinetColor: 'Black',
       cabinetHex: 0x121218,
-      threeRgb: '#f59e0b',
-      threeSecondary: '#e2e8f0',
       gradient: 'from-amber-500 via-yellow-400 to-amber-600'
     }
   },
@@ -42,8 +40,6 @@ export const THEMES = [
       glow: 'rgba(56, 189, 248, 0.35)',
       cabinetColor: 'White',
       cabinetHex: 0xededf2,
-      threeRgb: '#38bdf8',
-      threeSecondary: '#ffffff',
       gradient: 'from-sky-400 via-cyan-300 to-blue-500'
     }
   },
@@ -66,8 +62,6 @@ export const THEMES = [
       glow: 'rgba(236, 72, 153, 0.35)',
       cabinetColor: 'Black',
       cabinetHex: 0x141420,
-      threeRgb: '#06b6d4',
-      threeSecondary: '#ec4899',
       gradient: 'from-cyan-400 via-indigo-500 to-pink-500'
     }
   },
@@ -90,8 +84,6 @@ export const THEMES = [
       glow: 'rgba(239, 68, 68, 0.35)',
       cabinetColor: 'Black',
       cabinetHex: 0x161012,
-      threeRgb: '#ef4444',
-      threeSecondary: '#ffffff',
       gradient: 'from-red-500 via-rose-500 to-red-600'
     }
   },
@@ -114,8 +106,6 @@ export const THEMES = [
       glow: 'rgba(16, 185, 129, 0.35)',
       cabinetColor: 'Gunmetal',
       cabinetHex: 0x181c19,
-      threeRgb: '#10b981',
-      threeSecondary: '#a7f3d0',
       gradient: 'from-emerald-400 via-teal-300 to-green-500'
     }
   }

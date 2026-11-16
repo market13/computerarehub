@@ -45,7 +45,7 @@ export default function PrebuiltPresetsModal({
               </h2>
             </div>
             <p className="text-xs text-slate-300 font-sans mt-0.5">
-              Optimized for maximum FPS, zero bottlenecks, and optimal thermal headroom
+              Optimized for maximum FPS, compatibility-checked components, and optimal thermal headroom
             </p>
           </div>
 

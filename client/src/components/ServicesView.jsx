@@ -27,7 +27,7 @@ export default function ServicesView({ onNavigate }) {
       badge: 'Core Speciality in Ghaziabad',
       badgeColor: 'bg-blue-50 text-brand-blue border-blue-200',
       description:
-        'Custom gaming and workstation PC building engineered with zero hardware bottlenecks. We assemble, cable-manage, BIOS-update, and stress-test custom rigs tailored to your favorite games, video editing workloads, or 3D rendering.',
+        'Custom gaming and workstation PC building engineered with compatibility-checked hardware. We assemble, cable-manage, BIOS-update, and stress-test custom rigs tailored to your favorite games, video editing workloads, or creative rendering.',
       highlights: [
         'Intel Core 14th/13th Gen & AMD Ryzen 9000/7000 Series configurations',
         'NVIDIA GeForce RTX 40 & 50 Series GPU integration',
@@ -36,7 +36,7 @@ export default function ServicesView({ onNavigate }) {
         'Insured pan-India door-to-door transit & local Ghaziabad store pickup'
       ],
       primaryAction: {
-        label: 'Launch 3D PC Builder',
+        label: 'Launch Custom PC Builder',
         onClick: () => onNavigate('builder')
       },
       secondaryAction: {

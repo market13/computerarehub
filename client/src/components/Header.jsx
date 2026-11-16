@@ -298,7 +298,7 @@ export default function Header({
               href="/builder"
               onClick={(e) => { e.preventDefault(); setActiveTab('builder'); }}
               className="hidden sm:inline-flex items-center gap-1 text-blue-700 hover:text-blue-900 font-bold hover:underline cursor-pointer flex-shrink-0"
-              title="3D Custom PC Builder"
+              title="Custom PC Builder"
             >
               <Box className="w-3.5 h-3.5 text-blue-600" />
               <span>Build Custom PC</span>
@@ -879,7 +879,7 @@ export default function Header({
               <ChevronDown className="w-3 h-3 text-slate-400" />
             </button>
 
-            {/* Custom PC Quote (Links to 3D Custom PC Builder) */}
+            {/* Custom PC Quote (Links to Custom PC Builder) */}
             <a 
               href="/builder"
               onClick={(e) => { e.preventDefault(); setActiveTab('builder'); setActiveMegaMenu(null); }}

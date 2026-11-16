@@ -18,7 +18,8 @@ import {
   Gamepad2,
   Plus,
   PhoneCall,
-  ArrowRight
+  ArrowRight,
+  MessageSquare
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -80,6 +81,12 @@ export default function PCBuilderView({
 
     confetti({ particleCount: 60, spread: 70, origin: { y: 0.8 } });
   };
+
+  const whatsappQuoteUrl = `https://wa.me/919810550222?text=${encodeURIComponent(
+    `Hi Computer Care, I configured a custom PC build on computercaregzb.com:\n\n` +
+    COMPONENT_SLOTS.map(slot => build[slot.key] ? `• ${slot.label}: ${build[slot.key].title} (₹${build[slot.key].price?.toLocaleString('en-IN')})` : null).filter(Boolean).join('\n') +
+    `\n\nTotal Estimated Price: ₹${totalPrice.toLocaleString('en-IN')}\nEstimated Power: ~${compatibility.estimatedWattage}W\nPlease provide final quotation and component availability.`
+  )}`;
 
   return (
     <div className="w-full flex flex-col gap-6">
@@ -374,6 +381,16 @@ export default function PCBuilderView({
               <ShoppingBag className="w-4 h-4" />
               <span>Buy Rig / Add to Cart ({items.length} Parts)</span>
             </button>
+
+            <a
+              href={whatsappQuoteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-xl font-display font-bold uppercase tracking-wider text-xs shadow-md transition-all flex items-center justify-center gap-2 no-underline"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>Get a Quote on WhatsApp</span>
+            </a>
           </div>
 
           {/* Compatibility Diagnostics Card */}
@@ -442,7 +459,7 @@ export default function PCBuilderView({
                   <Gamepad2 className="w-4 h-4 text-brand-blue" />
                   <span>Estimated Ultra Gaming Performance</span>
                 </div>
-                <span className="text-[10px] font-mono text-slate-500">Zero Bottlenecks</span>
+                <span className="text-[10px] font-mono text-slate-500">Compatibility-Checked</span>
               </div>
 
               <div className="grid grid-cols-3 gap-2 text-center">

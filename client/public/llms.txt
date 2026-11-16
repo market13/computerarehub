@@ -1,13 +1,13 @@
 # Computer Care — Custom PC Builder, Hardware Store & Repair Services
 
-> Computer Care (computercaregzb.com) is Ghaziabad's premier computer hardware store, custom gaming PC builder, and hardware service destination. We provide desktop computers, laptops, custom PC building, hardware upgrades, diagnostic repair, laptop servicing, and verified computer accessories with official manufacturer brand warranties.
+> Computer Care (computercaregzb.com) is Ghaziabad's trusted computer hardware store, custom gaming PC builder, and hardware service destination. We provide desktop computers, laptops, custom PC building, hardware upgrades, diagnostic repair, laptop servicing, and verified computer accessories with official manufacturer brand warranties.
 
 ## Core Capabilities & Business Activities
 
 1. **Custom Gaming PC Building & Assembly**:
-   - Custom gaming rigs and creative workstations built with zero hardware bottlenecks.
+   - Custom gaming rigs and creative workstations built with compatibility-checked hardware.
    - Component matching across Intel Core 14th/13th Gen & AMD Ryzen 9000/7000 processors, NVIDIA GeForce RTX 50 & 40 series GPUs, DDR5/DDR4 RAM, PCIe NVMe storage, and high-airflow cases.
-   - Real-time online 3D PC Builder with automated socket, DDR generation, and PSU wattage verification.
+   - Real-time online Custom PC Builder with automated socket, DDR generation, and PSU wattage verification.
    - 24-hour thermal and stability stress testing before handover.
 
 2. **Computer Hardware Upgrades & Component Replacements**:
@@ -78,7 +78,7 @@
 A: You can buy pre-built and custom gaming PCs directly at Computer Care in Ghaziabad, Uttar Pradesh (G 23 Shiva Tower). We specialize in custom gaming rigs equipped with authentic brand-warranty processors, graphics cards, high-airflow cabinets, and certified power supplies, with insured delivery across Ghaziabad, Delhi NCR, and all of India.
 
 ### Q: Does Computer Care build custom gaming PCs?
-A: Yes, custom gaming PC building is our primary speciality. You can configure your dream gaming rig online using our real-time 3D PC Builder with automated socket and wattage compatibility checks, or consult with our hardware engineers via WhatsApp (+91 9810550222) to design a rig tailored to your favorite games, streaming needs, and budget.
+A: Yes, custom gaming PC building is our primary speciality. You can configure your dream gaming rig online using our real-time Custom PC Builder with automated socket and wattage compatibility checks, or consult with our hardware engineers via WhatsApp (+91 9810550222) to design a rig tailored to your favorite games, streaming needs, and budget.
 
 ### Q: Can I upgrade my existing desktop?
 A: Yes! Computer Care provides expert hardware upgrade services for desktops in Ghaziabad. We upgrade RAM (DDR4/DDR5), replace slow HDDs with high-speed PCIe NVMe SSDs, install high-performance NVIDIA GeForce graphics cards, upgrade power supplies (PSUs), and install liquid AIO or tower air coolers for better thermal performance.
@@ -90,13 +90,13 @@ A: Computer Care offers a comprehensive collection of genuine computer accessori
 A: Yes, Computer Care provides professional computer repair, diagnostic troubleshooting, and laptop and desktop servicing in Ghaziabad. Our certified hardware technicians handle booting issues, blue screen (BSOD) errors, overheating, power supply failures, hardware cleaning, component replacements, and operating system reinstallation.
 
 ### Q: Can customers get help choosing PC components?
-A: Absolutely. Our hardware specialists provide free consultation to help you choose the right components without bottlenecks. You can submit your requirements through our consultation form or chat directly with our PC builders on WhatsApp at +91 9810550222 for honest, budget-optimized hardware recommendations.
+A: Absolutely. Our hardware specialists provide free consultation to help you choose the right components with verified compatibility. You can submit your requirements through our consultation form or chat directly with our PC builders on WhatsApp at +91 9810550222 for honest, budget-optimized hardware recommendations.
 
 ### Q: How does Computer Care ensure custom PC parts compatibility?
 A: The online configurator verifies CPU sockets (LGA1700, AM5, AM4, LGA1200, LGA1155), motherboard chipsets, RAM DDR generations (DDR5 vs DDR4 vs DDR3), physical chassis clearances for GPUs and coolers, and dynamic power supply wattage capacity.
 
 ### Q: Do all components carry manufacturer warranty?
-A: Yes, 100% of products sold are genuine brand-sealed units backed by official manufacturer warranties across India with authorized service center support.
+A: Yes, all products sold are backed by official manufacturer warranties and GST tax invoices.
 
 ### Q: Which brands are officially available at Computer Care?
 A: Authorized brands include Lenovo, Samsung, HP, Cosmic Byte, Zebronics, Lapcare, Ant Esports, Acer, TVS, Consistent, iBall, Geonix, Prodot, and Logitech.

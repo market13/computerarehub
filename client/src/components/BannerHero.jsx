@@ -34,11 +34,11 @@ export default function BannerHero({ onNavigate = () => {} }) {
           </span>
 
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-display font-black tracking-tight leading-tight uppercase max-w-3xl drop-shadow-md">
-            BUILD YOUR DREAM CUSTOM GAMING RIG
+            CUSTOM GAMING PCS, HARDWARE & COMPUTER REPAIR IN GHAZIABAD
           </h1>
 
           <p className="mt-2.5 text-xs sm:text-sm text-slate-200 max-w-xl font-sans leading-relaxed drop-shadow">
-            Zero-Bottleneck Hardware Compatibility • Authentic Components • Real-Time Wattage & Pricing
+            Compatibility-Checked Hardware • Authentic Components • Real-Time Wattage & Pricing
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">

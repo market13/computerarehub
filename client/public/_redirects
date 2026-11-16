@@ -1,1 +1,10 @@
+# 301 Redirects for legacy 3D builder endpoints
+/3d-builder          /builder   301
+/3d-pc-builder       /builder   301
+/3d-configurator     /builder   301
+/3d                  /builder   301
+/pc-builder-3d       /builder   301
+
+# SPA fallback
 /*    /index.html   200
+
