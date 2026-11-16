@@ -45,35 +45,35 @@ if (fs.existsSync(manifestPath)) {
 const entries = [
   // Homepage
   {
-    loc: 'https://computercare.in/',
+    loc: 'https://computercaregzb.com/',
     lastmod,
     changefreq: 'daily',
     priority: '1.0'
   },
   // Custom PC Builder Configurator
   {
-    loc: 'https://computercare.in/builder',
+    loc: 'https://computercaregzb.com/builder',
     lastmod,
     changefreq: 'daily',
     priority: '0.9'
   },
   // Complete Hardware Catalog
   {
-    loc: 'https://computercare.in/catalog',
+    loc: 'https://computercaregzb.com/catalog',
     lastmod,
     changefreq: 'daily',
     priority: '0.9'
   },
   // Computer Repair & Hardware Services in Ghaziabad
   {
-    loc: 'https://computercare.in/services',
+    loc: 'https://computercaregzb.com/services',
     lastmod,
     changefreq: 'weekly',
     priority: '0.9'
   },
   // B2B & Bulk Orders
   {
-    loc: 'https://computercare.in/bulk-order',
+    loc: 'https://computercaregzb.com/bulk-order',
     lastmod,
     changefreq: 'weekly',
     priority: '0.8'
@@ -83,7 +83,7 @@ const entries = [
 // Add all 19 hardware categories
 categories.forEach((cat) => {
   entries.push({
-    loc: `https://computercare.in/catalog/${cat}`,
+    loc: `https://computercaregzb.com/catalog/${cat}`,
     lastmod,
     changefreq: 'daily',
     priority: '0.8'

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { AlertCircle, MessageSquare } from 'lucide-react';
 import { submitToNetlify } from '../utils/formSubmit';
+import { CONTACT_EMAIL } from '../constants/storeInfo';
 import { 
   Building2, 
   Send, 
@@ -715,18 +716,21 @@ export default function BulkOrderView({ onNavigate }) {
                 </div>
               </a>
 
-              <a 
-                href="mailto:contact@computercare.in" 
-                className="flex items-center gap-3 p-2.5 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
-              >
-                <div className="w-8 h-8 rounded-md bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[10px] text-slate-400 block">B2B Email Desk</span>
-                  <span className="font-bold text-white text-sm font-mono">contact@computercare.in</span>
-                </div>
-              </a>
+              {CONTACT_EMAIL && (
+                /* TODO: Configure store email on computercaregzb.com via VITE_CONTACT_EMAIL */
+                <a 
+                  href={`mailto:${CONTACT_EMAIL}`} 
+                  className="flex items-center gap-3 p-2.5 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                >
+                  <div className="w-8 h-8 rounded-md bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] text-slate-400 block">B2B Email Desk</span>
+                    <span className="font-bold text-white text-sm font-mono">{CONTACT_EMAIL}</span>
+                  </div>
+                </a>
+              )}
 
               <div className="flex items-center gap-3 p-2.5 rounded-lg bg-white/5">
                 <div className="w-8 h-8 rounded-md bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">

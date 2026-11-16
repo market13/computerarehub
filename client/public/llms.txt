@@ -1,6 +1,6 @@
 # Computer Care — Custom PC Builder, Hardware Store & Repair Services
 
-> Computer Care (computercare.in) is Ghaziabad's premier computer hardware store, custom gaming PC builder, and hardware service destination. We provide desktop computers, laptops, custom PC building, hardware upgrades, diagnostic repair, laptop servicing, and verified computer accessories with official manufacturer brand warranties.
+> Computer Care (computercaregzb.com) is Ghaziabad's premier computer hardware store, custom gaming PC builder, and hardware service destination. We provide desktop computers, laptops, custom PC building, hardware upgrades, diagnostic repair, laptop servicing, and verified computer accessories with official manufacturer brand warranties.
 
 ## Core Capabilities & Business Activities
 
@@ -45,32 +45,32 @@
 
 ## Key Sections & Canonical URLs
 
-- **Homepage**: https://computercare.in/
-- **Custom PC Builder**: https://computercare.in/builder
-- **Services & Repair in Ghaziabad**: https://computercare.in/services
-- **Hardware Catalog**: https://computercare.in/catalog
-- **B2B Bulk Orders**: https://computercare.in/bulk-order
+- **Homepage**: https://computercaregzb.com/
+- **Custom PC Builder**: https://computercaregzb.com/builder
+- **Services & Repair in Ghaziabad**: https://computercaregzb.com/services
+- **Hardware Catalog**: https://computercaregzb.com/catalog
+- **B2B Bulk Orders**: https://computercaregzb.com/bulk-order
 
 ### Category Deep Links
-- **Pre-Built Gaming PCs & Combos**: https://computercare.in/catalog/gaming_pc
-- **Processors (CPUs)**: https://computercare.in/catalog/cpu
-- **Graphics Cards (GPUs)**: https://computercare.in/catalog/gpu
-- **Motherboards**: https://computercare.in/catalog/motherboard
-- **Memory (RAM)**: https://computercare.in/catalog/ram
-- **Storage (SSDs & HDDs)**: https://computercare.in/catalog/storage
-- **PC Cabinets**: https://computercare.in/catalog/case
-- **Power Supplies (PSUs)**: https://computercare.in/catalog/psu
-- **CPU Coolers & AIOs**: https://computercare.in/catalog/cooler
-- **Gaming Monitors**: https://computercare.in/catalog/monitor
-- **Cabinet Cooling Fans**: https://computercare.in/catalog/case_fan
-- **Gaming Mice (Wired & Bluetooth)**: https://computercare.in/catalog/gaming_mouse
-- **Keyboards (Mechanical & Multimedia)**: https://computercare.in/catalog/gaming_keyboard
-- **Headphones & Headsets**: https://computercare.in/catalog/gaming_headset
-- **Mousepads**: https://computercare.in/catalog/gaming_mousepad
-- **Gaming Chairs**: https://computercare.in/catalog/gaming_chair
-- **Controllers & Gamepads**: https://computercare.in/catalog/gaming_controller
-- **Webcams**: https://computercare.in/catalog/webcam
-- **Microphones**: https://computercare.in/catalog/microphone
+- **Pre-Built Gaming PCs & Combos**: https://computercaregzb.com/catalog/gaming_pc
+- **Processors (CPUs)**: https://computercaregzb.com/catalog/cpu
+- **Graphics Cards (GPUs)**: https://computercaregzb.com/catalog/gpu
+- **Motherboards**: https://computercaregzb.com/catalog/motherboard
+- **Memory (RAM)**: https://computercaregzb.com/catalog/ram
+- **Storage (SSDs & HDDs)**: https://computercaregzb.com/catalog/storage
+- **PC Cabinets**: https://computercaregzb.com/catalog/case
+- **Power Supplies (PSUs)**: https://computercaregzb.com/catalog/psu
+- **CPU Coolers & AIOs**: https://computercaregzb.com/catalog/cooler
+- **Gaming Monitors**: https://computercaregzb.com/catalog/monitor
+- **Cabinet Cooling Fans**: https://computercaregzb.com/catalog/case_fan
+- **Gaming Mice (Wired & Bluetooth)**: https://computercaregzb.com/catalog/gaming_mouse
+- **Keyboards (Mechanical & Multimedia)**: https://computercaregzb.com/catalog/gaming_keyboard
+- **Headphones & Headsets**: https://computercaregzb.com/catalog/gaming_headset
+- **Mousepads**: https://computercaregzb.com/catalog/gaming_mousepad
+- **Gaming Chairs**: https://computercaregzb.com/catalog/gaming_chair
+- **Controllers & Gamepads**: https://computercaregzb.com/catalog/gaming_controller
+- **Webcams**: https://computercaregzb.com/catalog/webcam
+- **Microphones**: https://computercaregzb.com/catalog/microphone
 
 ## Frequently Asked Questions & Answers
 
@@ -112,6 +112,6 @@ A: Yes, all retail and B2B bulk orders include valid GST invoices for enterprise
 - **Store Location**: G 23 Shiva Tower, Ghaziabad, Uttar Pradesh - 201009, India
 - **Customer Helpline**: +91 9810550222
 - **WhatsApp Support**: https://wa.me/919810550222
-- **Email**: contact@computercare.in
+- **Email**: contact@computercaregzb.com
 - **Operating Hours**: Monday to Saturday, 10:30 AM to 8:00 PM IST
-- **Primary Website**: https://computercare.in/
+- **Primary Website**: https://computercaregzb.com/

@@ -31,7 +31,7 @@ async function testHeaderLoginFlow() {
 
   // Fill in credentials
   console.log('3. Entering admin credentials: admin / admin123...');
-  await page.fill('input[placeholder*="admin or admin@computercare.in"]', 'admin');
+  await page.fill('input[placeholder*="admin"]', 'admin');
   await page.fill('input[placeholder="Enter password"]', 'admin123');
 
   // Click Submit

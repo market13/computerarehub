@@ -90,13 +90,13 @@ export default function App() {
     const p = location.pathname;
     let title = 'Computer Care | Custom PC Builds & Genuine Computer Hardware';
     let desc = "Computer Care - India's premier custom PC builder with live 3D cabinet visualization, genuine computer parts, and real-time hardware compatibility.";
-    let canonicalUrl = 'https://computercare.in/';
+    let canonicalUrl = 'https://computercaregzb.com/';
     let isNoIndex = false;
 
     if (p === '/builder') {
       title = 'Custom 3D PC Builder & Real-time Compatibility | Computer Care';
       desc = 'Configure your dream gaming rig or workstation with real-time socket, DDR standard, GPU dimension, and PSU wattage checks.';
-      canonicalUrl = 'https://computercare.in/builder';
+      canonicalUrl = 'https://computercaregzb.com/builder';
     } else if (p.startsWith('/catalog')) {
       const parts = p.split('/').filter(Boolean);
       const cat = parts[1] || selectedCatalogCategory;
@@ -104,24 +104,24 @@ export default function App() {
         const catName = cat.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
         title = `${catName} - Authentic Hardware Components | Computer Care`;
         desc = `Shop verified 100% brand-warranty ${catName} at honest prices with pan-India insured shipping.`;
-        canonicalUrl = `https://computercare.in/catalog/${cat}`;
+        canonicalUrl = `https://computercaregzb.com/catalog/${cat}`;
       } else {
         title = 'Hardware Components Catalog | Computer Care';
         desc = 'Browse authentic computer hardware components, CPUs, graphics cards, motherboards, RAM, cabinets, and monitors.';
-        canonicalUrl = 'https://computercare.in/catalog';
+        canonicalUrl = 'https://computercaregzb.com/catalog';
       }
     } else if (p === '/services') {
       title = 'Computer Repair, Custom Gaming PCs & IT Services in Ghaziabad | Computer Care';
       desc = 'Computer Care provides custom gaming PC building, computer & laptop repair, hardware upgrades, and authentic computer accessories in Ghaziabad, Uttar Pradesh.';
-      canonicalUrl = 'https://computercare.in/services';
+      canonicalUrl = 'https://computercaregzb.com/services';
     } else if (p === '/bulk-order') {
       title = 'B2B & Institutional Bulk Hardware Orders | Computer Care';
       desc = 'Special wholesale procurement quotations for offices, gaming cafes, CAD studios, and educational labs.';
-      canonicalUrl = 'https://computercare.in/bulk-order';
+      canonicalUrl = 'https://computercaregzb.com/bulk-order';
     } else if (p === '/admin') {
       title = 'Administrator Management Portal | Computer Care';
       desc = 'Store administrator portal for managing orders, quotations, pricing, and hardware inventory.';
-      canonicalUrl = 'https://computercare.in/admin';
+      canonicalUrl = 'https://computercaregzb.com/admin';
       isNoIndex = true;
     }
 

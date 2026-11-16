@@ -33,7 +33,7 @@ async function testLiveNetlify() {
 
   if (modalVisible) {
     console.log('Testing Admin Login on live Netlify site...');
-    await page.fill('input[placeholder*="admin or admin@computercare.in"]', 'admin');
+    await page.fill('input[placeholder*="admin"]', 'admin');
     await page.fill('input[placeholder="Enter password"]', 'admin123');
     await page.click('button:has-text("Log In to Admin Portal")');
     await page.waitForTimeout(2000);

@@ -44,7 +44,7 @@ COMPANY_NAME=Computer Care
 COMPANY_GSTIN=09XXXXX0000X1Z5
 STORE_ADDRESS=Shiva Tower, Ghaziabad, UP 201001
 STORE_PHONE=+919810550222
-STORE_EMAIL=info@computercare.in
+STORE_EMAIL=contact@computercaregzb.com
 ```
 
 ---

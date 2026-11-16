@@ -1,6 +1,6 @@
 # Robots.txt for Computer Care Custom PC Builder & Hardware Store
 # Sitemaps
-Sitemap: https://computercare.in/sitemap.xml
+Sitemap: https://computercaregzb.com/sitemap.xml
 
 # Default rule for all web search crawlers
 User-agent: *
@@ -75,4 +75,4 @@ Disallow: /admin
 Disallow: /api/private/
 
 # Host
-Host: https://computercare.in
+Host: https://computercaregzb.com

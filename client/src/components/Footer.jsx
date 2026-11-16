@@ -1,4 +1,5 @@
 import React from 'react';
+import { CONTACT_EMAIL } from '../constants/storeInfo';
 import { 
   Cpu, 
   Phone, 
@@ -110,10 +111,13 @@ export default function Footer({ onNavigate }) {
                 <Phone className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                 <span>Helpline: +91 9810550222</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                <span>support@computercare.in</span>
-              </div>
+              {CONTACT_EMAIL && (
+                /* TODO: Configure store email on computercaregzb.com via VITE_CONTACT_EMAIL */
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white transition-colors">{CONTACT_EMAIL}</a>
+                </div>
+              )}
               <a
                 href="https://wa.me/919810550222"
                 target="_blank"

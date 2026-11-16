@@ -78,7 +78,7 @@ export default function ProductDetailModal({
       ? product.images
       : [product.image || product.cdn_image].filter(Boolean);
 
-    const fullImages = productImages.map(img => img.startsWith('http') ? img : `https://computercare.in${img.startsWith('/') ? '' : '/'}${img}`);
+    const fullImages = productImages.map(img => img.startsWith('http') ? img : `https://computercaregzb.com${img.startsWith('/') ? '' : '/'}${img}`);
 
     const productSchema = {
       "@context": "https://schema.org",
@@ -94,7 +94,7 @@ export default function ProductDetailModal({
       },
       "offers": {
         "@type": "Offer",
-        "url": typeof window !== 'undefined' ? `${window.location.origin}/catalog/${product.category}` : `https://computercare.in/catalog/${product.category}`,
+        "url": typeof window !== 'undefined' ? `${window.location.origin}/catalog/${product.category}` : `https://computercaregzb.com/catalog/${product.category}`,
         "priceCurrency": "INR",
         "price": product.price,
         "priceValidUntil": "2027-12-31",

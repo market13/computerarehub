@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AdminLoginModal from './AdminLoginModal';
+import { CONTACT_EMAIL } from '../constants/storeInfo';
 import { 
   ShoppingCart, 
   Heart, 
@@ -334,18 +335,21 @@ export default function Header({
               <span className="text-slate-900 font-bold font-mono tracking-tight whitespace-nowrap">+91 9810550222</span>
             </a>
 
-            <span className="text-slate-300 hidden sm:inline">|</span>
-
-            {/* Email Contact */}
-            <a 
-              href="mailto:contact@computercare.in"
-              className="hover:text-blue-600 transition-colors hidden sm:inline-flex items-center gap-1 text-slate-600"
-              title="Email Computer Care Support Desk"
-            >
-              <Mail className="w-3 h-3 text-slate-400 flex-shrink-0" />
-              <span className="text-slate-500">Email:</span>
-              <span className="text-slate-800 font-medium">contact@computercare.in</span>
-            </a>
+            {CONTACT_EMAIL && (
+              <>
+                <span className="text-slate-300 hidden sm:inline">|</span>
+                {/* Email Contact (TODO: Configure store email on computercaregzb.com via VITE_CONTACT_EMAIL) */}
+                <a 
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="hover:text-blue-600 transition-colors hidden sm:inline-flex items-center gap-1 text-slate-600"
+                  title="Email Computer Care Support Desk"
+                >
+                  <Mail className="w-3 h-3 text-slate-400 flex-shrink-0" />
+                  <span className="text-slate-500">Email:</span>
+                  <span className="text-slate-800 font-medium">{CONTACT_EMAIL}</span>
+                </a>
+              </>
+            )}
           </div>
         </div>
       </div>

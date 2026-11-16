@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const contactEmail = process.env.CONTACT_EMAIL || process.env.VITE_CONTACT_EMAIL || '';
 
 const clientDist = path.resolve(__dirname, '../dist');
 const dataCategoriesDir = path.resolve(__dirname, '../public/data/categories');
@@ -223,7 +224,7 @@ const homeContent = `
     </section>
 
     <footer style="border-top:1px solid #e2e8f0;padding-top:16px;color:#64748b;font-size:0.85rem;">
-      <p>Computer Care &copy; 2026. Ghaziabad, Uttar Pradesh, India. Helpline: +91 9810550222 | Email: contact@computercare.in</p>
+      <p>Computer Care &copy; 2026. Ghaziabad, Uttar Pradesh, India. Helpline: +91 9810550222${contactEmail ? ` | Email: ${contactEmail}` : ''}</p>
     </footer>
   </main>
 `;
@@ -231,7 +232,7 @@ const homeContent = `
 const renderedHome = injectHtml(baseHtmlTemplate, {
   title: "Computer Care | Custom PC Builds & Genuine Computer Hardware",
   description: "Computer Care - India's premier custom PC builder with live 3D cabinet visualization, authentic computer parts, and real-time hardware compatibility.",
-  canonicalUrl: "https://computercare.in/",
+  canonicalUrl: "https://computercaregzb.com/",
   content: homeContent
 });
 fs.writeFileSync(baseIndexHtml, renderedHome, 'utf8');
@@ -311,7 +312,7 @@ fs.writeFileSync(
   injectHtml(baseHtmlTemplate, {
     title: 'Custom 3D PC Builder & Real-time Compatibility | Computer Care',
     description: 'Configure your dream gaming rig or workstation with real-time socket, DDR standard, GPU dimension, and PSU wattage checks.',
-    canonicalUrl: 'https://computercare.in/builder',
+    canonicalUrl: 'https://computercaregzb.com/builder',
     content: builderContent
   }),
   'utf8'
@@ -350,7 +351,7 @@ fs.writeFileSync(
   injectHtml(baseHtmlTemplate, {
     title: 'Hardware Components Catalog | Computer Care',
     description: 'Browse authentic computer hardware components, CPUs, graphics cards, motherboards, RAM, cabinets, and monitors.',
-    canonicalUrl: 'https://computercare.in/catalog',
+    canonicalUrl: 'https://computercaregzb.com/catalog',
     content: catalogContent
   }),
   'utf8'
@@ -396,7 +397,7 @@ fs.writeFileSync(
   injectHtml(baseHtmlTemplate, {
     title: 'B2B & Institutional Bulk Hardware Orders | Computer Care',
     description: 'Special wholesale procurement quotations for offices, gaming cafes, CAD studios, and educational labs.',
-    canonicalUrl: 'https://computercare.in/bulk-order',
+    canonicalUrl: 'https://computercaregzb.com/bulk-order',
     content: bulkContent
   }),
   'utf8'
@@ -415,24 +416,24 @@ const servicesSchema = [
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://computercare.in/"
+        "item": "https://computercaregzb.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Services & Repair",
-        "item": "https://computercare.in/services"
+        "item": "https://computercaregzb.com/services"
       }
     ]
   },
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://computercare.in/services#custom-gaming-pc",
+    "@id": "https://computercaregzb.com/services#custom-gaming-pc",
     "name": "Custom Gaming PC Building & Assembly in Ghaziabad",
     "serviceType": "Custom Computer Building",
     "provider": {
-      "@id": "https://computercare.in/#organization"
+      "@id": "https://computercaregzb.com/#organization"
     },
     "areaServed": [
       { "@type": "City", "name": "Ghaziabad" },
@@ -444,11 +445,11 @@ const servicesSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://computercare.in/services#hardware-upgrades",
+    "@id": "https://computercaregzb.com/services#hardware-upgrades",
     "name": "Computer Hardware Upgrades & Component Replacement in Ghaziabad",
     "serviceType": "Hardware Upgrade Service",
     "provider": {
-      "@id": "https://computercare.in/#organization"
+      "@id": "https://computercaregzb.com/#organization"
     },
     "areaServed": [
       { "@type": "City", "name": "Ghaziabad" },
@@ -459,11 +460,11 @@ const servicesSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://computercare.in/services#computer-repair",
+    "@id": "https://computercaregzb.com/services#computer-repair",
     "name": "Computer & Desktop Repair & Diagnostics in Ghaziabad",
     "serviceType": "Computer Repair Service",
     "provider": {
-      "@id": "https://computercare.in/#organization"
+      "@id": "https://computercaregzb.com/#organization"
     },
     "areaServed": [
       { "@type": "City", "name": "Ghaziabad" },
@@ -474,11 +475,11 @@ const servicesSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://computercare.in/services#laptop-servicing",
+    "@id": "https://computercaregzb.com/services#laptop-servicing",
     "name": "Laptop & Desktop Servicing & Maintenance in Ghaziabad",
     "serviceType": "Laptop and Desktop Servicing",
     "provider": {
-      "@id": "https://computercare.in/#organization"
+      "@id": "https://computercaregzb.com/#organization"
     },
     "areaServed": [
       { "@type": "City", "name": "Ghaziabad" },
@@ -489,17 +490,72 @@ const servicesSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://computercare.in/services#computer-accessories",
+    "@id": "https://computercaregzb.com/services#computer-accessories",
     "name": "Computer Accessories & Gaming Peripherals Store in Ghaziabad",
     "serviceType": "Computer Hardware & Peripherals Retail",
     "provider": {
-      "@id": "https://computercare.in/#organization"
+      "@id": "https://computercaregzb.com/#organization"
     },
     "areaServed": [
       { "@type": "City", "name": "Ghaziabad" },
       { "@type": "State", "name": "Uttar Pradesh" }
     ],
     "description": "Wired and Bluetooth wireless optical mice, mechanical keyboards, gaming headsets, precision mousepads, streaming webcams, and gaming chairs with genuine brand warranty."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://computercaregzb.com/services#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where can I buy a gaming PC in Ghaziabad?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can buy custom gaming PCs directly at Computer Care located at G 23 Shiva Tower, Ghaziabad, Uttar Pradesh 201009. We offer pre-built gaming rigs and custom configurations with real-time hardware compatibility checks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Computer Care build custom gaming PCs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, custom gaming PC building is our primary speciality. You can configure your dream gaming rig online using our real-time 3D PC Builder or consult with our hardware engineers on WhatsApp (+91 9810550222)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I upgrade my existing desktop?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Computer Care provides expert hardware upgrade services for desktops in Ghaziabad including RAM expansion, NVMe SSD upgrades, graphics card replacements, and power supply installations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where can I buy computer accessories in Ghaziabad?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Computer Care stocks genuine computer peripherals and accessories at our Shiva Tower store, including Bluetooth mice, mechanical keyboards, gaming headphones, webcams, and cables."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Computer Care provide computer repair services?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Computer Care provides professional computer repair, diagnostic troubleshooting, and laptop and desktop servicing in Ghaziabad for booting issues, overheating, power supply failures, and OS reinstallation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can customers get help choosing PC components?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Our hardware specialists provide free consultation to help you choose the right components without bottlenecks. Contact us via WhatsApp at +91 9810550222 for personalized recommendations."
+        }
+      }
+    ]
   }
 ];
 
@@ -513,8 +569,7 @@ const servicesContent = `
       </p>
       <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;font-size:0.9rem;color:#334155;">
         <span><strong>Location:</strong> G 23 Shiva Tower, Ghaziabad, Uttar Pradesh - 201009</span> |
-        <span><strong>Helpline:</strong> <a href="tel:+919810550222" style="color:#059669;font-weight:bold;">+91 9810550222</a></span> |
-        <span><strong>Email:</strong> <a href="mailto:contact@computercare.in" style="color:#2b38d1;">contact@computercare.in</a></span>
+        <span><strong>Helpline:</strong> <a href="tel:+919810550222" style="color:#059669;font-weight:bold;">+91 9810550222</a></span>${contactEmail ? ` | <span><strong>Email:</strong> <a href="mailto:${contactEmail}" style="color:#2b38d1;">${contactEmail}</a></span>` : ''}
       </div>
     </header>
 
@@ -606,6 +661,36 @@ const servicesContent = `
         </div>
       </div>
     </section>
+
+    <section style="margin-bottom:32px;">
+      <h2 style="color:#1b2269;font-size:1.4rem;margin-top:0;">Frequently Asked Questions (Ghaziabad Services & Hardware)</h2>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
+        <article style="border:1px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;">
+          <h3 style="font-size:1.05rem;color:#1e293b;margin:0 0 6px 0;">Where can I buy a gaming PC in Ghaziabad?</h3>
+          <p style="color:#475569;margin:0;font-size:0.95rem;line-height:1.5;">You can buy pre-built and custom gaming PCs directly at Computer Care in Ghaziabad, Uttar Pradesh (G 23 Shiva Tower). We specialize in custom gaming rigs equipped with authentic brand-warranty processors, graphics cards, high-airflow cabinets, and certified power supplies, with insured delivery across Ghaziabad, Delhi NCR, and all of India.</p>
+        </article>
+        <article style="border:1px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;">
+          <h3 style="font-size:1.05rem;color:#1e293b;margin:0 0 6px 0;">Does Computer Care build custom gaming PCs?</h3>
+          <p style="color:#475569;margin:0;font-size:0.95rem;line-height:1.5;">Yes, custom gaming PC building is our primary speciality. You can configure your dream gaming rig online using our real-time 3D PC Builder with automated socket and wattage compatibility checks, or consult with our hardware engineers via WhatsApp (+91 9810550222) to design a rig tailored to your favorite games, streaming needs, and budget.</p>
+        </article>
+        <article style="border:1px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;">
+          <h3 style="font-size:1.05rem;color:#1e293b;margin:0 0 6px 0;">Can I upgrade my existing desktop?</h3>
+          <p style="color:#475569;margin:0;font-size:0.95rem;line-height:1.5;">Yes! Computer Care provides expert hardware upgrade services for desktops in Ghaziabad. We upgrade RAM (DDR4/DDR5), replace slow HDDs with high-speed PCIe NVMe SSDs, install high-performance NVIDIA GeForce graphics cards, upgrade power supplies (PSUs), and install liquid AIO or tower air coolers for better thermal performance.</p>
+        </article>
+        <article style="border:1px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;">
+          <h3 style="font-size:1.05rem;color:#1e293b;margin:0 0 6px 0;">Where can I buy computer accessories in Ghaziabad?</h3>
+          <p style="color:#475569;margin:0;font-size:0.95rem;line-height:1.5;">Computer Care offers a comprehensive collection of genuine computer accessories and peripherals in Ghaziabad. Our inventory includes wired and Bluetooth wireless optical mice, mechanical and gaming keyboards, surround-sound headsets, precision mousepads, streaming webcams, studio microphones, and ergonomic gaming chairs from top brands.</p>
+        </article>
+        <article style="border:1px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;">
+          <h3 style="font-size:1.05rem;color:#1e293b;margin:0 0 6px 0;">Does Computer Care provide computer repair services?</h3>
+          <p style="color:#475569;margin:0;font-size:0.95rem;line-height:1.5;">Yes, Computer Care provides professional computer repair, diagnostic troubleshooting, and laptop and desktop servicing in Ghaziabad. Our certified hardware technicians handle booting issues, blue screen (BSOD) errors, overheating, power supply failures, hardware cleaning, component replacements, and operating system reinstallation.</p>
+        </article>
+        <article style="border:1px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;">
+          <h3 style="font-size:1.05rem;color:#1e293b;margin:0 0 6px 0;">Can customers get help choosing PC components?</h3>
+          <p style="color:#475569;margin:0;font-size:0.95rem;line-height:1.5;">Absolutely. Our hardware specialists provide free consultation to help you choose the right components without bottlenecks. You can submit your requirements through our consultation form or chat directly with our PC builders on WhatsApp at +91 9810550222 for honest, budget-optimized hardware recommendations.</p>
+        </article>
+      </div>
+    </section>
   </main>
 `;
 
@@ -614,7 +699,7 @@ fs.writeFileSync(
   injectHtml(baseHtmlTemplate, {
     title: 'Computer Repair, Custom Gaming PCs & Hardware Services in Ghaziabad | Computer Care',
     description: 'Expert computer repair, custom gaming PC building, hardware upgrades (RAM/SSD/GPU), and laptop servicing in Ghaziabad, Uttar Pradesh. Authorized brand warranty.',
-    canonicalUrl: 'https://computercare.in/services',
+    canonicalUrl: 'https://computercaregzb.com/services',
     content: servicesContent,
     extraSchema: servicesSchema
   }),
@@ -644,7 +729,7 @@ categories.forEach((cat) => {
     "@type": "ItemList",
     "name": `${catName} - Authentic Hardware`,
     "description": `Shop 100% brand-warranty ${catName} at Computer Care with fast pan-India delivery.`,
-    "url": `https://computercare.in/catalog/${cat}`,
+    "url": `https://computercaregzb.com/catalog/${cat}`,
     "numberOfItems": products.length,
     "itemListElement": products.slice(0, 10).map((p, idx) => ({
       "@type": "ListItem",
@@ -652,7 +737,7 @@ categories.forEach((cat) => {
       "item": {
         "@type": "Product",
         "name": p.title,
-        "image": p.image ? `https://computercare.in${p.image.startsWith('/') ? '' : '/'}${p.image}` : undefined,
+        "image": p.image ? `https://computercaregzb.com${p.image.startsWith('/') ? '' : '/'}${p.image}` : undefined,
         "sku": p.sku || `CC-${p.id}`,
         "brand": {
           "@type": "Brand",
@@ -718,7 +803,7 @@ categories.forEach((cat) => {
     injectHtml(baseHtmlTemplate, {
       title: `${catName} - Authentic Hardware Components | Computer Care`,
       description: `Shop verified 100% brand-warranty ${catName} at honest prices with pan-India insured shipping.`,
-      canonicalUrl: `https://computercare.in/catalog/${cat}`,
+      canonicalUrl: `https://computercaregzb.com/catalog/${cat}`,
       content: catContent,
       extraSchema: itemListSchema
     }),

@@ -65,8 +65,8 @@ export default function AdminLoginModal({
       const cleanUser = username.trim().toLowerCase();
       const cleanPass = password.trim();
 
-      // Support 'admin', 'admin@computercare.in', 'computercare'
-      const isUserValid = cleanUser === 'admin' || cleanUser === 'admin@computercare.in' || cleanUser === 'computercare';
+      // Support 'admin', 'admin@computercaregzb.com', 'computercare'
+      const isUserValid = cleanUser === 'admin' || cleanUser === 'admin@computercaregzb.com' || cleanUser === 'computercare';
       const isPassValid = cleanPass === 'admin123' || cleanPass === 'computercare';
 
       if (isUserValid && isPassValid) {
@@ -239,7 +239,7 @@ export default function AdminLoginModal({
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        placeholder="admin or admin@computercare.in"
+                        placeholder="admin or admin@computercaregzb.com"
                         required
                         className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent font-medium"
                       />

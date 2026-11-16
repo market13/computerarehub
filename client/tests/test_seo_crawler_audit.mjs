@@ -34,7 +34,7 @@ assert(robotsContent.includes('User-agent: GPTBot'), 'robots.txt explicitly defi
 assert(robotsContent.includes('User-agent: PerplexityBot'), 'robots.txt explicitly defines User-agent: PerplexityBot');
 assert(robotsContent.includes('User-agent: ClaudeBot'), 'robots.txt explicitly defines User-agent: ClaudeBot');
 assert(robotsContent.includes('Disallow: /admin'), 'robots.txt protects /admin from indexation');
-assert(robotsContent.includes('Sitemap: https://computercare.in/sitemap.xml'), 'robots.txt references sitemap.xml');
+assert(robotsContent.includes('Sitemap: https://computercaregzb.com/sitemap.xml'), 'robots.txt references sitemap.xml');
 
 // 2. Dynamic XML Sitemap Test
 console.log('\n--- 2. Dynamic XML Sitemap Audit ---');
@@ -43,14 +43,14 @@ assert(fs.existsSync(sitemapPath), 'dist/sitemap.xml exists');
 const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
 assert(sitemapContent.startsWith('<?xml'), 'sitemap.xml has valid XML declaration');
 assert(sitemapContent.includes('<urlset'), 'sitemap.xml has <urlset>');
-assert(sitemapContent.includes('<loc>https://computercare.in/</loc>'), 'sitemap.xml includes homepage');
-assert(sitemapContent.includes('<loc>https://computercare.in/builder</loc>'), 'sitemap.xml includes /builder');
-assert(sitemapContent.includes('<loc>https://computercare.in/catalog</loc>'), 'sitemap.xml includes /catalog');
-assert(sitemapContent.includes('<loc>https://computercare.in/bulk-order</loc>'), 'sitemap.xml includes /bulk-order');
+assert(sitemapContent.includes('<loc>https://computercaregzb.com/</loc>'), 'sitemap.xml includes homepage');
+assert(sitemapContent.includes('<loc>https://computercaregzb.com/builder</loc>'), 'sitemap.xml includes /builder');
+assert(sitemapContent.includes('<loc>https://computercaregzb.com/catalog</loc>'), 'sitemap.xml includes /catalog');
+assert(sitemapContent.includes('<loc>https://computercaregzb.com/bulk-order</loc>'), 'sitemap.xml includes /bulk-order');
 
 const sampleCategories = ['cpu', 'gpu', 'motherboard', 'case', 'ram', 'storage', 'psu', 'cooler', 'monitor'];
 sampleCategories.forEach(cat => {
-  assert(sitemapContent.includes(`<loc>https://computercare.in/catalog/${cat}</loc>`), `sitemap.xml includes category /catalog/${cat}`);
+  assert(sitemapContent.includes(`<loc>https://computercaregzb.com/catalog/${cat}</loc>`), `sitemap.xml includes category /catalog/${cat}`);
 });
 
 // Count total URL entries
@@ -109,12 +109,12 @@ assert(homeHtml.includes('<noscript>'), 'Homepage contains accessible <noscript>
 // Verify builder page
 const builderHtml = fs.readFileSync(path.join(distDir, 'builder/index.html'), 'utf8');
 assert(builderHtml.includes('Custom 3D PC Builder & Real-Time Hardware Configurator'), 'Builder page has prerendered <h1>');
-assert(builderHtml.includes('<link rel="canonical" href="https://computercare.in/builder" />'), 'Builder page has canonical URL https://computercare.in/builder');
+assert(builderHtml.includes('<link rel="canonical" href="https://computercaregzb.com/builder" />'), 'Builder page has canonical URL https://computercaregzb.com/builder');
 
 // Verify catalog and category page
 const cpuHtml = fs.readFileSync(path.join(distDir, 'catalog/cpu/index.html'), 'utf8');
 assert(cpuHtml.includes('Processors & CPUs'), 'Category page /catalog/cpu has prerendered title');
-assert(cpuHtml.includes('<link rel="canonical" href="https://computercare.in/catalog/cpu" />'), 'Category page has canonical URL https://computercare.in/catalog/cpu');
+assert(cpuHtml.includes('<link rel="canonical" href="https://computercaregzb.com/catalog/cpu" />'), 'Category page has canonical URL https://computercaregzb.com/catalog/cpu');
 assert(cpuHtml.includes('"@type": "ItemList"'), 'Category page has route-specific ItemList JSON-LD schema');
 assert(cpuHtml.includes('₹'), 'Category page displays static INR product prices in raw HTML');
 
@@ -131,7 +131,7 @@ assert(llmsContent.includes('Computer Care'), 'llms.txt contains brand identity'
 assert(llmsContent.includes('Deterministic Compatibility Engine'), 'llms.txt explains compatibility engine');
 assert(llmsContent.includes('Lenovo, Samsung, HP, Cosmic Byte, Zebronics, Lapcare'), 'llms.txt lists authorized hardware brands');
 assert(llmsContent.includes('+91 9810550222'), 'llms.txt includes contact phone');
-assert(llmsContent.includes('https://computercare.in/catalog/cpu'), 'llms.txt includes deep links');
+assert(llmsContent.includes('https://computercaregzb.com/catalog/cpu'), 'llms.txt includes deep links');
 
 console.log(`\n=== AUDIT RESULTS: ${passedTests}/${totalTests} TESTS PASSED ===`);
 if (passedTests === totalTests) {

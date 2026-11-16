@@ -24,8 +24,8 @@ async function testHeader() {
   const announcementText = await page.textContent('div:has-text("Your one stop destination")');
   console.log('Announcement Text:', announcementText?.trim().slice(0, 60));
 
-  const emailText = await page.textContent('span:has-text("contact@computercare.in")');
-  console.log('Email verified:', emailText?.trim());
+  const helplineText = await page.textContent('span:has-text("+91 9810550222")');
+  console.log('Helpline verified:', helplineText?.trim());
 
   // 2. Check Logo
   console.log('\n--- 2. Checking Logo Branding ---');

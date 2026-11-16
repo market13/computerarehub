@@ -1,4 +1,6 @@
 import React from 'react';
+import FAQSection from './FAQSection';
+import { CONTACT_EMAIL } from '../constants/storeInfo';
 import { 
   Wrench, 
   Cpu, 
@@ -316,13 +318,16 @@ export default function ServicesView({ onNavigate }) {
                 </div>
               </div>
 
-              <div className="flex items-start gap-2.5">
-                <Mail className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-white block font-display">Email Address:</strong>
-                  <span>contact@computercare.in</span>
+              {CONTACT_EMAIL && (
+                /* TODO: Configure store email on computercaregzb.com via VITE_CONTACT_EMAIL */
+                <div className="flex items-start gap-2.5">
+                  <Mail className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white block font-display">Email Address:</strong>
+                    <span>{CONTACT_EMAIL}</span>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
@@ -351,6 +356,9 @@ export default function ServicesView({ onNavigate }) {
           </div>
         </div>
       </section>
+
+      {/* Frequently Asked Questions Section for Ghaziabad Services */}
+      <FAQSection />
     </main>
   );
 }
