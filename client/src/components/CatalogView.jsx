@@ -1,10 +1,12 @@
 import React, { useState, useMemo } from 'react';
 import { TOTAL_PRODUCTS_COUNT } from '../constants/storeInfo';
+import categoryDescriptions from '../constants/categoryDescriptions.json';
 import { 
   Search, 
   ArrowUpDown, 
   Info, 
-  X 
+  X,
+  MessageCircle
 } from 'lucide-react';
 
 const CATEGORY_TABS = [
@@ -211,6 +213,9 @@ export default function CatalogView({
           <h1 className="text-xl sm:text-2xl font-black font-display text-brand-navy tracking-tight">
             {CATEGORY_TITLE_MAP[selectedCategory] || 'HARDWARE & GEAR STORE'}
           </h1>
+          <p className="text-xs sm:text-sm text-slate-600 font-sans mt-1.5 max-w-2xl leading-relaxed">
+            {categoryDescriptions[selectedCategory] || categoryDescriptions.all}
+          </p>
         </div>
 
         {/* Search */}
@@ -351,9 +356,21 @@ export default function CatalogView({
                   }`}
                 >
                   <span>{tab.label}</span>
-                  <span className={`text-[10px] font-mono ${selectedCategory === tab.key ? 'text-white/80' : 'text-slate-400'}`}>
-                    {tab.key === 'all' ? TOTAL_PRODUCTS_COUNT : (catalog[tab.key]?.length || 0)}
-                  </span>
+                  {tab.key === 'all' ? (
+                    <span className={`text-[10px] font-mono ${selectedCategory === tab.key ? 'text-white/80' : 'text-slate-400'}`}>
+                      {TOTAL_PRODUCTS_COUNT}
+                    </span>
+                  ) : (catalog[tab.key]?.length || 0) > 0 ? (
+                    <span className={`text-[10px] font-mono ${selectedCategory === tab.key ? 'text-white/80' : 'text-slate-400'}`}>
+                      {catalog[tab.key].length}
+                    </span>
+                  ) : (
+                    <span className={`text-[9px] font-sans font-semibold px-1.5 py-0.5 rounded ${
+                      selectedCategory === tab.key ? 'bg-white/20 text-white' : 'bg-amber-50 text-amber-700 border border-amber-200'
+                    }`}>
+                      On Request
+                    </span>
+                  )}
                 </button>
               ))}
             </div>
@@ -419,97 +436,137 @@ export default function CatalogView({
             </div>
           </div>
 
-          {/* Products Grid */}
-          <div key={`${selectedCategory}-${selectedBrand}-${selectedCabinetKind}-${selectedFanKind}-${pageNumber}`} className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 animate-product-grid">
-            {paginatedProducts.map((p) => {
-              const isSelected = build[p.category]?.id === p.id;
+          {/* Products Grid or Empty / On-Request State */}
+          {filteredProducts.length === 0 ? (
+            <div className="bg-white rounded-xl border border-dashed border-slate-300 p-8 sm:p-12 text-center flex flex-col items-center justify-center my-4">
+              <div className="w-12 h-12 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center mb-3">
+                <Info className="w-6 h-6" />
+              </div>
+              <h3 className="font-display font-bold text-base text-slate-800">
+                Available on Request
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-500 max-w-md mt-1 leading-relaxed">
+                We procure authentic brand hardware and custom components with official manufacturer warranties. Contact our Ghaziabad store specialists on WhatsApp for live pricing, availability, and orders.
+              </p>
+              <a
+                href={`https://wa.me/919810550222?text=${encodeURIComponent(`Hello Computer Care, I am looking for products in: ${CATEGORY_TITLE_MAP[selectedCategory] || selectedCategory}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>Enquire on WhatsApp (+91 9810550222)</span>
+              </a>
+            </div>
+          ) : (
+            <div key={`${selectedCategory}-${selectedBrand}-${selectedCabinetKind}-${selectedFanKind}-${pageNumber}`} className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 animate-product-grid">
+              {paginatedProducts.map((p) => {
+                const isSelected = build[p.category]?.id === p.id;
 
-              return (
-                <div
-                  key={p.id}
-                  className="bg-white rounded-xl border border-brand-border hover:border-brand-blue p-2.5 sm:p-3.5 flex flex-col justify-between group product-card-hover"
-                >
-                  <div>
-                    {/* Image */}
-                    <div 
-                      className="relative w-full h-32 sm:h-44 bg-white rounded-lg overflow-hidden flex items-center justify-center p-1.5 sm:p-2 mb-2 sm:mb-2.5 cursor-pointer"
-                      onClick={() => onViewDetails(p)}
-                    >
-                      <img
-                        src={p.image || p.cdn_image}
-                        alt={p.title}
-                        onError={(e) => {
-                          if (p.cdn_image && e.target.src !== p.cdn_image) {
-                            e.target.src = p.cdn_image;
-                          }
-                        }}
-                        className="w-full h-full object-contain product-image-hover"
-                        loading="lazy"
-                      />
+                return (
+                  <div
+                    key={p.id}
+                    className="bg-white rounded-xl border border-brand-border hover:border-brand-blue p-2.5 sm:p-3.5 flex flex-col justify-between group product-card-hover"
+                  >
+                    <div>
+                      {/* Image */}
+                      <div 
+                        className="relative w-full h-32 sm:h-44 bg-white rounded-lg overflow-hidden flex items-center justify-center p-1.5 sm:p-2 mb-2 sm:mb-2.5 cursor-pointer"
+                        onClick={() => onViewDetails(p)}
+                      >
+                        <img
+                          src={p.image || p.cdn_image}
+                          alt={p.title}
+                          onError={(e) => {
+                            if (p.cdn_image && e.target.src !== p.cdn_image) {
+                              e.target.src = p.cdn_image;
+                            }
+                          }}
+                          className="w-full h-full object-contain product-image-hover"
+                          loading="lazy"
+                        />
 
-                      <span className="absolute top-1.5 left-1.5 text-[9px] font-mono px-1.5 py-0.2 rounded bg-slate-100 font-semibold text-slate-700 border border-slate-200">
-                        {p.vendor}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-1.5 mb-1 flex-wrap">
-                      <span className="text-[10px] font-mono uppercase font-bold px-1.5 py-0.2 rounded bg-blue-50 text-brand-blue">
-                        {p.category}
-                      </span>
-                      {p.specs?.cabinet_style && (
-                        <span className="text-[10px] font-sans font-semibold text-slate-600">
-                          {p.specs.cabinet_style}
+                        <span className="absolute top-1.5 left-1.5 text-[9px] font-mono px-1.5 py-0.2 rounded bg-slate-100 font-semibold text-slate-700 border border-slate-200">
+                          {p.vendor}
                         </span>
+                      </div>
+
+                      <div className="flex items-center gap-1.5 mb-1 flex-wrap">
+                        <span className="text-[10px] font-mono uppercase font-bold px-1.5 py-0.2 rounded bg-blue-50 text-brand-blue">
+                          {p.category}
+                        </span>
+                        <span className="text-[10px] font-sans font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">
+                          ● {p.available !== false ? 'In Stock' : 'On Request'}
+                        </span>
+                        {p.specs?.cabinet_style && (
+                          <span className="text-[10px] font-sans font-semibold text-slate-600">
+                            {p.specs.cabinet_style}
+                          </span>
+                        )}
+                      </div>
+
+                      <h3 
+                        className="text-xs font-semibold text-slate-800 line-clamp-2 hover:text-brand-blue cursor-pointer transition-colors"
+                        onClick={() => onViewDetails(p)}
+                        title={p.title}
+                      >
+                        {p.title}
+                      </h3>
+
+                      {p.specs?.color && (
+                        <div className="mt-1 text-[11px] text-slate-500 font-sans">
+                          Color: <strong className="text-slate-700">{p.specs.color}</strong> • {p.specs.form_factor || "Mid Tower"}
+                        </div>
                       )}
                     </div>
 
-                    <h3 
-                      className="text-xs font-semibold text-slate-800 line-clamp-2 hover:text-brand-blue cursor-pointer transition-colors"
-                      onClick={() => onViewDetails(p)}
-                      title={p.title}
-                    >
-                      {p.title}
-                    </h3>
-
-                    {p.specs?.color && (
-                      <div className="mt-1 text-[11px] text-slate-500 font-sans">
-                        Color: <strong className="text-slate-700">{p.specs.color}</strong> • {p.specs.form_factor || "Mid Tower"}
+                    <div className="mt-3 pt-2.5 border-t border-slate-100 flex flex-col gap-2">
+                      <div className="flex items-center justify-between">
+                        <div className="font-display font-bold text-sm text-brand-navy">
+                          {p.price && p.price > 0 ? `₹${p.price.toLocaleString('en-IN')}` : 'Call for price'}
+                        </div>
+                        <span className="text-[10px] text-slate-400 font-mono">
+                          {p.sku || `CC-${p.id}`}
+                        </span>
                       </div>
-                    )}
-                  </div>
 
-                  <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
-                    <div>
-                      <div className="font-display font-bold text-sm text-brand-navy">
-                        ₹{p.price.toLocaleString('en-IN')}
+                      <div className="flex items-center gap-1.5">
+                        <a
+                          href={`https://wa.me/919810550222?text=${encodeURIComponent(`Hello Computer Care, I would like to enquire about: ${p.title} (${p.vendor})`)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 py-1.5 px-2 rounded-lg text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-xs font-bold flex items-center justify-center gap-1 transition-colors"
+                          title={`Enquire on WhatsApp about ${p.title}`}
+                        >
+                          <MessageCircle className="w-3.5 h-3.5" />
+                          <span>Enquire</span>
+                        </a>
+
+                        <button
+                          onClick={() => onViewDetails(p)}
+                          className="p-1.5 rounded-lg text-slate-400 hover:text-brand-navy hover:bg-slate-100 border border-slate-200"
+                          title="View Specifications"
+                        >
+                          <Info className="w-3.5 h-3.5" />
+                        </button>
+
+                        <button
+                          onClick={() => onSelectComponent(p.category, p)}
+                          className={`px-2.5 py-1.5 rounded-lg text-xs font-display font-bold uppercase tracking-wider transition-colors ${
+                            isSelected
+                              ? 'bg-emerald-600 text-white'
+                              : 'bg-brand-navy hover:bg-brand-blue text-white'
+                          }`}
+                        >
+                          {isSelected ? "In Rig" : "Add"}
+                        </button>
                       </div>
                     </div>
-
-                    <div className="flex items-center gap-1">
-                      <button
-                        onClick={() => onViewDetails(p)}
-                        className="p-1.5 rounded-lg text-slate-400 hover:text-brand-navy hover:bg-slate-100"
-                        title="View Specifications"
-                      >
-                        <Info className="w-3.5 h-3.5" />
-                      </button>
-
-                      <button
-                        onClick={() => onSelectComponent(p.category, p)}
-                        className={`px-2.5 py-1.5 rounded-lg text-xs font-display font-bold uppercase tracking-wider transition-colors ${
-                          isSelected
-                            ? 'bg-emerald-600 text-white'
-                            : 'bg-brand-navy hover:bg-brand-blue text-white'
-                        }`}
-                      >
-                        {isSelected ? "In Rig" : "Add"}
-                      </button>
-                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          )}
 
           {/* Pagination Controls */}
           {totalPages > 1 && (

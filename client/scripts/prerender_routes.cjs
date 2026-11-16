@@ -37,6 +37,17 @@ if (fs.existsSync(manifestPath)) {
   }
 }
 
+// Load per-category descriptions
+const categoryDescriptionsPath = path.join(__dirname, '../src/constants/categoryDescriptions.json');
+let categoryDescriptions = {};
+if (fs.existsSync(categoryDescriptionsPath)) {
+  try {
+    categoryDescriptions = JSON.parse(fs.readFileSync(categoryDescriptionsPath, 'utf8'));
+  } catch (e) {
+    console.warn('Could not read categoryDescriptions:', e.message);
+  }
+}
+
 function formatCategoryName(key) {
   const map = {
     case: 'PC Cabinets & Cases',
@@ -352,13 +363,29 @@ fs.writeFileSync(
 // 3. Prerender /catalog
 const catalogDir = path.join(clientDist, 'catalog');
 fs.mkdirSync(catalogDir, { recursive: true });
+
+const catalogItemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Computer Care Hardware Categories",
+  "description": "Browse computer hardware components, custom PC parts, and accessories with manufacturer warranty in Ghaziabad.",
+  "url": "https://computercaregzb.com/catalog",
+  "numberOfItems": categories.length,
+  "itemListElement": categories.map((cat, idx) => ({
+    "@type": "ListItem",
+    "position": idx + 1,
+    "name": formatCategoryName(cat),
+    "url": `https://computercaregzb.com/catalog/${cat}`
+  }))
+};
+
 const catalogContent = `
   <main style="max-width:1200px;margin:0 auto;padding:20px;font-family:sans-serif;">
     <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
       <a href="/" style="color:#64748b;text-decoration:none;font-size:0.9rem;">&larr; Back to Computer Care Home</a>
       <h1 style="color:#1b2269;font-size:2rem;margin-top:8px;">Genuine Computer Hardware Components Catalog</h1>
       <p style="color:#475569;font-size:1.1rem;line-height:1.6;">
-        Browse authentic desktop hardware components, processors, graphics cards, motherboards, memory, gaming monitors, and peripherals with official brand warranties.
+        ${categoryDescriptions.all || 'Browse authentic desktop hardware components, processors, graphics cards, motherboards, memory, gaming monitors, and peripherals with official brand warranties.'}
       </p>
     </header>
 
@@ -367,7 +394,7 @@ const catalogContent = `
         ${categories.map(cat => `
           <article style="border:1px solid #e2e8f0;border-radius:10px;padding:16px;background:#fff;">
             <h2 style="font-size:1.2rem;color:#1e293b;margin-top:0;">${formatCategoryName(cat)}</h2>
-            <p style="color:#64748b;font-size:0.85rem;">100% Genuine, Brand Warranty, Insured Shipping</p>
+            <p style="color:#64748b;font-size:0.85rem;line-height:1.5;">${categoryDescriptions[cat] || 'Explore authentic ' + formatCategoryName(cat) + ' with manufacturer warranty and GST invoice.'}</p>
             <a href="/catalog/${cat}" style="display:inline-block;margin-top:8px;color:#2b38d1;font-weight:bold;text-decoration:none;">
               View All ${formatCategoryName(cat)} &rarr;
             </a>
@@ -381,9 +408,10 @@ fs.writeFileSync(
   path.join(catalogDir, 'index.html'),
   injectHtml(baseHtmlTemplate, {
     title: 'Hardware Components Catalog | Computer Care',
-    description: 'Browse authentic computer hardware components, CPUs, graphics cards, motherboards, RAM, cabinets, and monitors.',
+    description: (categoryDescriptions.all || 'Browse authentic computer hardware components, CPUs, graphics cards, motherboards, RAM, cabinets, and monitors in Ghaziabad.').slice(0, 155),
     canonicalUrl: 'https://computercaregzb.com/catalog',
-    content: catalogContent
+    content: catalogContent,
+    extraSchema: catalogItemListSchema
   }),
   'utf8'
 );
@@ -754,15 +782,17 @@ categories.forEach((cat) => {
     }
   }
 
+  const catDesc = categoryDescriptions[cat] || `Explore authentic ${catName.toLowerCase()} with official manufacturer warranty and GST invoice in Ghaziabad.`;
+
   // Generate ItemList schema
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": `${catName} - Authentic Hardware`,
-    "description": `Shop 100% brand-warranty ${catName} at Computer Care with fast pan-India delivery.`,
+    "name": `${catName} - Computer Hardware Catalog`,
+    "description": catDesc.slice(0, 155),
     "url": `https://computercaregzb.com/catalog/${cat}`,
     "numberOfItems": products.length,
-    "itemListElement": products.slice(0, 10).map((p, idx) => ({
+    "itemListElement": products.slice(0, 12).map((p, idx) => ({
       "@type": "ListItem",
       "position": idx + 1,
       "item": {
@@ -770,6 +800,7 @@ categories.forEach((cat) => {
         "name": p.title,
         "image": p.image ? `https://computercaregzb.com${p.image.startsWith('/') ? '' : '/'}${p.image}` : undefined,
         "sku": p.sku || `CC-${p.id}`,
+        "description": p.description || `${p.title} - Authentic ${catName} from ${p.vendor} with manufacturer warranty and GST invoice.`,
         "brand": {
           "@type": "Brand",
           "name": p.vendor
@@ -777,7 +808,7 @@ categories.forEach((cat) => {
         "offers": {
           "@type": "Offer",
           "priceCurrency": "INR",
-          "price": p.price,
+          "price": p.price || 0,
           "availability": p.available !== false ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
           "seller": {
             "@type": "Organization",
@@ -799,21 +830,23 @@ categories.forEach((cat) => {
       <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
         <h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">${catName}</h1>
         <p style="color:#475569;font-size:1.05rem;line-height:1.5;">
-          Explore authentic ${catName.toLowerCase()} with official manufacturer warranty, transparent pricing, and nationwide insured shipping.
+          ${catDesc}
         </p>
       </header>
 
       <section>
         <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:20px;">
           ${products.slice(0, 24).map(p => `
-            <article style="border:1px solid #e2e8f0;border-radius:10px;padding:16px;background:#fff;display:flex;flex-direction:column;justify-content:between;">
+            <article style="border:1px solid #e2e8f0;border-radius:10px;padding:16px;background:#fff;display:flex;flex-direction:column;justify-content:space-between;">
               <div>
+                ${(p.image || p.cdn_image) ? `<div style="text-align:center;margin-bottom:10px;height:140px;display:flex;align-items:center;justify-content:center;"><img src="${p.image || p.cdn_image}" alt="${p.title}" loading="lazy" style="max-height:130px;max-width:100%;object-fit:contain;" /></div>` : ''}
                 <span style="font-size:0.75rem;font-weight:bold;color:#64748b;text-transform:uppercase;">${p.vendor}</span>
                 <h2 style="font-size:1rem;color:#1e293b;margin:6px 0 10px 0;line-height:1.4;">${p.title}</h2>
-                <div style="font-size:1.25rem;font-weight:bold;color:#1b2269;">₹${p.price.toLocaleString('en-IN')}</div>
+                <div style="font-size:1.25rem;font-weight:bold;color:#1b2269;">${p.price && p.price > 0 ? '₹' + p.price.toLocaleString('en-IN') : 'Call for price'}</div>
+                <div style="margin-top:6px;font-size:0.8rem;color:#059669;font-weight:bold;">● ${p.available !== false ? 'In Stock' : 'Available on request'}</div>
               </div>
-              <div style="margin-top:12px;padding-top:12px;border-top:1px solid #f1f5f9;display:flex;justify-content:space-between;align-items:center;">
-                <span style="font-size:0.8rem;color:#059669;font-weight:bold;">● In Stock</span>
+              <div style="margin-top:12px;padding-top:12px;border-top:1px solid #f1f5f9;display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;align-items:center;">
+                <a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20am%20enquiring%20about%20${encodeURIComponent(p.title)}" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:#059669;font-weight:bold;text-decoration:none;border:1px solid #a7f3d0;background:#ecfdf5;padding:6px 12px;border-radius:4px;">Enquire on WhatsApp &rarr;</a>
                 <a href="/builder" style="font-size:0.8rem;color:#2b38d1;font-weight:bold;text-decoration:none;">Add to Rig &rarr;</a>
               </div>
             </article>
@@ -832,8 +865,8 @@ categories.forEach((cat) => {
   fs.writeFileSync(
     path.join(catDir, 'index.html'),
     injectHtml(baseHtmlTemplate, {
-      title: `${catName} - Authentic Hardware Components | Computer Care`,
-      description: `Shop verified 100% brand-warranty ${catName} at honest prices with pan-India insured shipping.`,
+      title: `${catName} | Computer Care Ghaziabad`.slice(0, 59),
+      description: catDesc.slice(0, 155),
       canonicalUrl: `https://computercaregzb.com/catalog/${cat}`,
       content: catContent,
       extraSchema: itemListSchema

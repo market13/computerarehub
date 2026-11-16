@@ -16,6 +16,7 @@ import WhatsAppFloatingButton from './components/WhatsAppFloatingButton';
 import MobileBottomNav from './components/MobileBottomNav';
 import AdminPortalView from './components/AdminPortalView';
 import { findCompatibleDefaultBuild } from './utils/compatibility';
+import categoryDescriptions from './constants/categoryDescriptions.json';
 
 const COMPONENT_SLOTS = [
   { key: 'case', label: 'PC Cabinet / Case' },
@@ -102,12 +103,12 @@ export default function App() {
       const cat = parts[1] || selectedCatalogCategory;
       if (cat && cat !== 'all') {
         const catName = cat.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-        title = `${catName} - Authentic Hardware Components | Computer Care`;
-        desc = `Shop verified 100% brand-warranty ${catName} at honest prices with pan-India insured shipping.`;
+        title = `${catName} | Computer Care Ghaziabad`.slice(0, 59);
+        desc = (categoryDescriptions[cat] || `Browse ${catName} at Computer Care Ghaziabad with official manufacturer warranty and GST invoice.`).slice(0, 155);
         canonicalUrl = `https://computercaregzb.com/catalog/${cat}`;
       } else {
         title = 'Hardware Components Catalog | Computer Care';
-        desc = 'Browse authentic computer hardware components, CPUs, graphics cards, motherboards, RAM, cabinets, and monitors.';
+        desc = (categoryDescriptions.all || 'Browse authentic computer hardware components, CPUs, graphics cards, motherboards, RAM, cabinets, and monitors.').slice(0, 155);
         canonicalUrl = 'https://computercaregzb.com/catalog';
       }
     } else if (p === '/services') {
