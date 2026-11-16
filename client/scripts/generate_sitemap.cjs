@@ -77,6 +77,41 @@ const entries = [
     lastmod,
     changefreq: 'weekly',
     priority: '0.8'
+  },
+  // About Us
+  {
+    loc: 'https://computercaregzb.com/about',
+    lastmod,
+    changefreq: 'monthly',
+    priority: '0.7'
+  },
+  // Warranty & Returns Policy
+  {
+    loc: 'https://computercaregzb.com/warranty-returns',
+    lastmod,
+    changefreq: 'monthly',
+    priority: '0.7'
+  },
+  // Shipping & Delivery
+  {
+    loc: 'https://computercaregzb.com/shipping-delivery',
+    lastmod,
+    changefreq: 'monthly',
+    priority: '0.7'
+  },
+  // Privacy Policy
+  {
+    loc: 'https://computercaregzb.com/privacy-policy',
+    lastmod,
+    changefreq: 'monthly',
+    priority: '0.5'
+  },
+  // Terms & Conditions
+  {
+    loc: 'https://computercaregzb.com/terms',
+    lastmod,
+    changefreq: 'monthly',
+    priority: '0.5'
   }
 ];
 

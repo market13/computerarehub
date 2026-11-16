@@ -71,8 +71,8 @@ export default function BannerHero({ onNavigate = () => {} }) {
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-xs font-bold text-slate-800 uppercase font-display">100% Genuine</h4>
-            <p className="text-[11px] text-slate-500">Official Brand Warranty</p>
+            <h4 className="text-xs font-bold text-slate-800 uppercase font-display">GST Invoice</h4>
+            <p className="text-[11px] text-slate-500">Manufacturer warranty on all parts</p>
           </div>
         </div>
 
@@ -82,7 +82,7 @@ export default function BannerHero({ onNavigate = () => {} }) {
           </div>
           <div>
             <h4 className="text-xs font-bold text-slate-800 uppercase font-display">Custom PC Builder</h4>
-            <p className="text-[11px] text-slate-500">Zero-bottleneck compatibility</p>
+            <p className="text-[11px] text-slate-500">Compatibility-checked hardware</p>
           </div>
         </div>
 

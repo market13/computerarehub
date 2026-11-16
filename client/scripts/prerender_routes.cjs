@@ -875,7 +875,147 @@ categories.forEach((cat) => {
   );
 });
 
-// 6. Prerender /admin as noindex
+// 7. Prerender Trust & Policy Pages (/about, /warranty-returns, /shipping-delivery, /privacy-policy, /terms)
+const trustPages = [
+  {
+    slug: 'about',
+    title: 'About Us | Computer Care Ghaziabad',
+    description: 'Learn about Computer Care, your local custom PC builder, hardware retailer, and computer repair shop at Shiva Tower, Ghaziabad.',
+    h1: 'About Computer Care — Ghaziabad',
+    content: `
+      <main style="max-width:1000px;margin:0 auto;padding:20px;font-family:sans-serif;">
+        <nav style="font-size:0.85rem;color:#64748b;margin-bottom:12px;">
+          <a href="/" style="color:#64748b;text-decoration:none;">Home</a> &gt; <strong style="color:#1e293b;">About Us</strong>
+        </nav>
+        <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
+          <h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">About Computer Care — Ghaziabad</h1>
+          <p style="color:#475569;font-size:1.05rem;line-height:1.6;">
+            Your neighborhood computer hardware store, custom PC builder, and hardware repair center located at G 23 Shiva Tower, Ghaziabad, Uttar Pradesh.
+          </p>
+        </header>
+        <section style="line-height:1.7;color:#334155;font-size:0.95rem;">
+          <p>Computer Care is a local retail computer shop and technical service center based in Ghaziabad, Uttar Pradesh. We serve students, office professionals, competitive gamers, content creators, and local businesses across Ghaziabad and the Delhi NCR region, as well as shipping custom desktop builds across India.</p>
+          <p>We specialize in custom computer building across all budget tiers — from affordable office desktops and value-conscious home setups (including H61, LGA1155, Lapcare, and Consistent components) to high-performance gaming rigs powered by modern Intel Core, AMD Ryzen, and NVIDIA GeForce RTX hardware.</p>
+          <div style="background:#f8fafc;border:1px dashed #cbd5e1;padding:16px;border-radius:8px;margin:20px 0;">
+            <strong style="color:#1e293b;display:block;margin-bottom:4px;">Store Location & Contact:</strong>
+            <p style="margin:0;color:#475569;">G 23 Shiva Tower, Ghaziabad, Uttar Pradesh 201009 | Hours: Mon-Sat 10:30 AM - 8:00 PM IST | Phone/WhatsApp: +91 9810550222</p>
+          </div>
+        </section>
+      </main>
+    `
+  },
+  {
+    slug: 'warranty-returns',
+    title: 'Warranty & Returns Policy | Computer Care',
+    description: 'Read Computer Care\'s warranty coverage, manufacturer RMA guidelines, and 7-day DOA replacement terms for computer hardware.',
+    h1: 'Warranty & Returns Policy',
+    content: `
+      <main style="max-width:1000px;margin:0 auto;padding:20px;font-family:sans-serif;">
+        <nav style="font-size:0.85rem;color:#64748b;margin-bottom:12px;">
+          <a href="/" style="color:#64748b;text-decoration:none;">Home</a> &gt; <strong style="color:#1e293b;">Warranty & Returns</strong>
+        </nav>
+        <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
+          <h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">Warranty & Returns Policy</h1>
+          <p style="color:#475569;font-size:1.05rem;line-height:1.6;">
+            Official manufacturer warranty coverage and replacement guidelines for all computer hardware purchased from Computer Care.
+          </p>
+        </header>
+        <section style="line-height:1.7;color:#334155;font-size:0.95rem;">
+          <h2 style="color:#1b2269;font-size:1.3rem;">1. Manufacturer Warranty on All Hardware</h2>
+          <p>All individual components and pre-built computer systems sold by Computer Care carry official manufacturer warranties backed by their respective authorized service centers across India. Every sale includes an official GST tax invoice for warranty claims.</p>
+          <h2 style="color:#1b2269;font-size:1.3rem;">2. Dead on Arrival (DOA) & 7-Day Replacement</h2>
+          <p>If any component purchased from Computer Care is non-functional upon initial delivery, report it within 7 days via WhatsApp (+91 9810550222) with unboxing media and serial numbers for prompt replacement assistance.</p>
+        </section>
+      </main>
+    `
+  },
+  {
+    slug: 'shipping-delivery',
+    title: 'Shipping & Delivery Information | Computer Care',
+    description: 'Pan-India insured courier delivery and free store pickup in Ghaziabad for custom gaming PCs, components, and accessories.',
+    h1: 'Shipping & Delivery Information',
+    content: `
+      <main style="max-width:1000px;margin:0 auto;padding:20px;font-family:sans-serif;">
+        <nav style="font-size:0.85rem;color:#64748b;margin-bottom:12px;">
+          <a href="/" style="color:#64748b;text-decoration:none;">Home</a> &gt; <strong style="color:#1e293b;">Shipping & Delivery</strong>
+        </nav>
+        <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
+          <h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">Shipping & Delivery Information</h1>
+          <p style="color:#475569;font-size:1.05rem;line-height:1.6;">
+            Insured shipping across all states in India and convenient same-day store pickup at Shiva Tower, Ghaziabad.
+          </p>
+        </header>
+        <section style="line-height:1.7;color:#334155;font-size:0.95rem;">
+          <h2 style="color:#1b2269;font-size:1.3rem;">Local Store Pickup in Ghaziabad (Free)</h2>
+          <p>Collect your ordered hardware or completed custom gaming PC directly at G 23 Shiva Tower, Ghaziabad, UP 201009 with live on-site testing.</p>
+          <h2 style="color:#1b2269;font-size:1.3rem;">Pan-India Insured Shipping</h2>
+          <p>Insured courier delivery via express logistics partners with multi-layer protective packaging and expanding foam for PC cabinet interiors.</p>
+        </section>
+      </main>
+    `
+  },
+  {
+    slug: 'privacy-policy',
+    title: 'Privacy Policy | Computer Care Ghaziabad',
+    description: 'Read the privacy policy of Computer Care. We safeguard customer personal data and never sell information to third parties.',
+    h1: 'Privacy Policy',
+    content: `
+      <main style="max-width:1000px;margin:0 auto;padding:20px;font-family:sans-serif;">
+        <nav style="font-size:0.85rem;color:#64748b;margin-bottom:12px;">
+          <a href="/" style="color:#64748b;text-decoration:none;">Home</a> &gt; <strong style="color:#1e293b;">Privacy Policy</strong>
+        </nav>
+        <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
+          <h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">Privacy Policy</h1>
+          <p style="color:#475569;font-size:1.05rem;line-height:1.6;">
+            How Computer Care collects, uses, and protects customer personal data in accordance with applicable Indian laws.
+          </p>
+        </header>
+        <section style="line-height:1.7;color:#334155;font-size:0.95rem;">
+          <p>Computer Care collects customer contact, shipping, and billing details solely for quotation generation, order fulfillment, and GST invoicing. We never sell or share customer data with third-party advertisers.</p>
+        </section>
+      </main>
+    `
+  },
+  {
+    slug: 'terms',
+    title: 'Terms & Conditions | Computer Care Ghaziabad',
+    description: 'Terms of service, pricing validity, GST invoicing, and custom PC assembly policies at Computer Care Ghaziabad.',
+    h1: 'Terms & Conditions',
+    content: `
+      <main style="max-width:1000px;margin:0 auto;padding:20px;font-family:sans-serif;">
+        <nav style="font-size:0.85rem;color:#64748b;margin-bottom:12px;">
+          <a href="/" style="color:#64748b;text-decoration:none;">Home</a> &gt; <strong style="color:#1e293b;">Terms & Conditions</strong>
+        </nav>
+        <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
+          <h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">Terms & Conditions</h1>
+          <p style="color:#475569;font-size:1.05rem;line-height:1.6;">
+            Terms governing hardware quotations, sales, custom PC assembly, and technical services provided by Computer Care.
+          </p>
+        </header>
+        <section style="line-height:1.7;color:#334155;font-size:0.95rem;">
+          <p>Hardware pricing and quotation estimates are valid for 24-48 hours. Official GST tax invoices accompany every purchase. Jurisdiction: Ghaziabad, Uttar Pradesh, India.</p>
+        </section>
+      </main>
+    `
+  }
+];
+
+trustPages.forEach((pg) => {
+  const pDir = path.join(clientDist, pg.slug);
+  fs.mkdirSync(pDir, { recursive: true });
+  fs.writeFileSync(
+    path.join(pDir, 'index.html'),
+    injectHtml(baseHtmlTemplate, {
+      title: pg.title,
+      description: pg.description,
+      canonicalUrl: `https://computercaregzb.com/${pg.slug}`,
+      content: pg.content
+    }),
+    'utf8'
+  );
+});
+
+// 8. Prerender /admin as noindex
 const adminDir = path.join(clientDist, 'admin');
 fs.mkdirSync(adminDir, { recursive: true });
 let adminHtml = baseHtmlTemplate;

@@ -96,7 +96,7 @@ export default function PrebuiltPresetsModal({
 
                   <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200 space-y-1 text-[11px] font-sans text-slate-700">
                     <div>• RGB Theme: <strong>{preset.rgb_mode}</strong></div>
-                    <div>• 100% Genuine Brand Warranty</div>
+                    <div>• Manufacturer warranty on all parts</div>
                     <div>• Assembly & Stress-Testing Included</div>
                   </div>
                 </div>

@@ -26,6 +26,12 @@ export default function ServicesView({ onNavigate }) {
       icon: Cpu,
       badge: 'Core Speciality in Ghaziabad',
       badgeColor: 'bg-blue-50 text-brand-blue border-blue-200',
+      // TODO: Add real starting price when confirmed by store owner
+      startingPrice: null,
+      // TODO: Add real typical turnaround time when confirmed by store owner
+      turnaroundTime: null,
+      // TODO: Add real repair/build warranty when confirmed by store owner
+      warranty: null,
       description:
         'Custom gaming and workstation PC building engineered with compatibility-checked hardware. We assemble, cable-manage, BIOS-update, and stress-test custom rigs tailored to your favorite games, video editing workloads, or creative rendering.',
       highlights: [
@@ -50,6 +56,12 @@ export default function ServicesView({ onNavigate }) {
       icon: HardDrive,
       badge: 'Speed & Storage Upgrades',
       badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+      // TODO: Add real starting price when confirmed by store owner
+      startingPrice: null,
+      // TODO: Add real typical turnaround time when confirmed by store owner
+      turnaroundTime: null,
+      // TODO: Add real repair/upgrade warranty when confirmed by store owner
+      warranty: null,
       description:
         'Transform slow computers and laptops with targeted hardware upgrades. We install ultra-fast NVMe SSDs, expand dual-channel RAM, upgrade graphics cards, and install high-efficiency power supplies and liquid coolers.',
       highlights: [
@@ -57,7 +69,7 @@ export default function ServicesView({ onNavigate }) {
         'DDR4 & DDR5 RAM capacity and frequency expansions',
         'Graphics card upgrades with PSU wattage headroom verification',
         'Liquid AIO & high-airflow cabinet cooling to stop thermal throttling',
-        '100% genuine brand-sealed parts with official manufacturer warranty'
+        'Brand-sealed parts with official manufacturer warranty and GST invoice'
       ],
       primaryAction: {
         label: 'Browse Components',
@@ -74,6 +86,12 @@ export default function ServicesView({ onNavigate }) {
       icon: Wrench,
       badge: 'Expert Troubleshooting in Ghaziabad',
       badgeColor: 'bg-rose-50 text-rose-700 border-rose-200',
+      // TODO: Add real starting price when confirmed by store owner
+      startingPrice: null,
+      // TODO: Add real typical turnaround time when confirmed by store owner
+      turnaroundTime: null,
+      // TODO: Add real repair warranty when confirmed by store owner
+      warranty: null,
       description:
         'Professional diagnostic troubleshooting and repair for desktop computers and workstations in Ghaziabad. We resolve blue screen (BSOD) crashes, boot failures, motherboard issues, and power supply malfunctions.',
       highlights: [
@@ -98,6 +116,12 @@ export default function ServicesView({ onNavigate }) {
       icon: Laptop,
       badge: 'Preventive Servicing',
       badgeColor: 'bg-amber-50 text-amber-700 border-amber-200',
+      // TODO: Add real starting price when confirmed by store owner
+      startingPrice: null,
+      // TODO: Add real typical turnaround time when confirmed by store owner
+      turnaroundTime: null,
+      // TODO: Add real service warranty when confirmed by store owner
+      warranty: null,
       description:
         'Comprehensive servicing to keep laptops and desktop PCs running cool, quiet, and fast. Includes internal dust removal, cooling fan servicing, high-performance thermal paste application, and OS optimization.',
       highlights: [
@@ -122,6 +146,12 @@ export default function ServicesView({ onNavigate }) {
       icon: Headphones,
       badge: 'Genuine Peripherals in Ghaziabad',
       badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
+      // TODO: Add real starting price when confirmed by store owner
+      startingPrice: null,
+      // TODO: Add real typical turnaround time when confirmed by store owner
+      turnaroundTime: null,
+      // TODO: Add real warranty policy when confirmed by store owner
+      warranty: null,
       description:
         'Ghaziabad’s one-stop store for genuine computer accessories and gaming gear. We stock verified wired and Bluetooth optical mice, mechanical keyboards, surround-sound headsets, precision mousepads, webcams, and ergonomic gaming chairs.',
       highlights: [
@@ -146,6 +176,12 @@ export default function ServicesView({ onNavigate }) {
       icon: Building2,
       badge: 'Enterprise & Institutional',
       badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+      // TODO: Add real starting price / MOQ when confirmed by store owner
+      startingPrice: null,
+      // TODO: Add real typical turnaround time when confirmed by store owner
+      turnaroundTime: null,
+      // TODO: Add real warranty policy when confirmed by store owner
+      warranty: null,
       description:
         'Wholesale IT hardware procurement and deployment for schools, colleges, training institutes, gaming cafes, animation studios, and corporate offices across Uttar Pradesh and India.',
       highlights: [
@@ -194,7 +230,7 @@ export default function ServicesView({ onNavigate }) {
           </span>
           <span className="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-full">
             <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
-            <span>100% Genuine Brand Warranty</span>
+            <span>Manufacturer Warranty on All Parts</span>
           </span>
         </div>
       </header>
@@ -238,6 +274,27 @@ export default function ServicesView({ onNavigate }) {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Pricing, turnaround, and warranty fields: rendered only when real data is filled */}
+                  {(svc.startingPrice || svc.turnaroundTime || svc.warranty) && (
+                    <div className="mt-3 pt-3 border-t border-slate-100 flex flex-wrap gap-2 text-[11px] text-slate-600 font-sans">
+                      {svc.startingPrice && (
+                        <span className="px-2 py-1 bg-slate-50 border border-slate-200 rounded font-medium">
+                          Starting from: <strong className="text-slate-800">{svc.startingPrice}</strong>
+                        </span>
+                      )}
+                      {svc.turnaroundTime && (
+                        <span className="px-2 py-1 bg-slate-50 border border-slate-200 rounded font-medium">
+                          Turnaround: <strong className="text-slate-800">{svc.turnaroundTime}</strong>
+                        </span>
+                      )}
+                      {svc.warranty && (
+                        <span className="px-2 py-1 bg-slate-50 border border-slate-200 rounded font-medium">
+                          Warranty: <strong className="text-slate-800">{svc.warranty}</strong>
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
 

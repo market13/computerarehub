@@ -221,7 +221,7 @@ export default function BulkOrderView({ onNavigate }) {
           <div className="relative z-10 max-w-3xl flex flex-col gap-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-semibold w-fit">
               <Building2 className="w-3.5 h-3.5" />
-              <span>DIRECT DISTRIBUTOR B2B SUPPLY • PAN-INDIA</span>
+              <span>GST INVOICE • MANUFACTURER WARRANTY • PAN-INDIA</span>
             </div>
 
             <h1 className="text-2xl sm:text-4xl font-display font-black tracking-tight text-white leading-tight">
@@ -756,9 +756,10 @@ export default function BulkOrderView({ onNavigate }) {
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="font-bold text-slate-900 block">Genuine Brand Tier-1 Sourcing</span>
+                  <span className="font-bold text-slate-900 block">Manufacturer Warranty & Serial Tracking</span>
                   <span className="text-slate-500 leading-normal">
-                    Direct billing from authorized national distributors (Ingram Micro, Redington, Savex) with full brand serial tracking.
+                    {/* TODO: confirm distributor names before restoring */}
+                    Official GST invoice with brand serial tracking and manufacturer warranty on all components.
                   </span>
                 </div>
               </div>

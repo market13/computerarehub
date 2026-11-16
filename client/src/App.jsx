@@ -15,6 +15,11 @@ import BulkOrderFloatingBadge from './components/BulkOrderFloatingBadge';
 import WhatsAppFloatingButton from './components/WhatsAppFloatingButton';
 import MobileBottomNav from './components/MobileBottomNav';
 import AdminPortalView from './components/AdminPortalView';
+import AboutView from './components/AboutView';
+import WarrantyReturnsView from './components/WarrantyReturnsView';
+import ShippingDeliveryView from './components/ShippingDeliveryView';
+import PrivacyPolicyView from './components/PrivacyPolicyView';
+import TermsView from './components/TermsView';
 import { findCompatibleDefaultBuild } from './utils/compatibility';
 import categoryDescriptions from './constants/categoryDescriptions.json';
 
@@ -58,6 +63,11 @@ export default function App() {
     if (p === '/builder') return 'builder';
     if (p === '/bulk-order') return 'bulk-order';
     if (p === '/services') return 'services';
+    if (p === '/about') return 'about';
+    if (p === '/warranty-returns') return 'warranty-returns';
+    if (p === '/shipping-delivery') return 'shipping-delivery';
+    if (p === '/privacy-policy') return 'privacy-policy';
+    if (p === '/terms') return 'terms';
     if (p.startsWith('/catalog')) return 'catalog';
     return 'home';
   })();
@@ -119,6 +129,26 @@ export default function App() {
       title = 'B2B & Institutional Bulk Hardware Orders | Computer Care';
       desc = 'Special wholesale procurement quotations for offices, gaming cafes, CAD studios, and educational labs.';
       canonicalUrl = 'https://computercaregzb.com/bulk-order';
+    } else if (p === '/about') {
+      title = 'About Us | Computer Care Ghaziabad';
+      desc = 'Learn about Computer Care, your local custom PC builder, hardware retailer, and computer repair shop at Shiva Tower, Ghaziabad.';
+      canonicalUrl = 'https://computercaregzb.com/about';
+    } else if (p === '/warranty-returns') {
+      title = 'Warranty & Returns Policy | Computer Care';
+      desc = 'Read Computer Care\'s warranty coverage, manufacturer RMA guidelines, and 7-day DOA replacement terms for computer hardware.';
+      canonicalUrl = 'https://computercaregzb.com/warranty-returns';
+    } else if (p === '/shipping-delivery') {
+      title = 'Shipping & Delivery Information | Computer Care';
+      desc = 'Pan-India insured courier delivery and free store pickup in Ghaziabad for custom gaming PCs, components, and accessories.';
+      canonicalUrl = 'https://computercaregzb.com/shipping-delivery';
+    } else if (p === '/privacy-policy') {
+      title = 'Privacy Policy | Computer Care Ghaziabad';
+      desc = 'Read the privacy policy of Computer Care. We safeguard customer personal data and never sell information to third parties.';
+      canonicalUrl = 'https://computercaregzb.com/privacy-policy';
+    } else if (p === '/terms') {
+      title = 'Terms & Conditions | Computer Care Ghaziabad';
+      desc = 'Terms of service, pricing validity, GST invoicing, and custom PC assembly policies at Computer Care Ghaziabad.';
+      canonicalUrl = 'https://computercaregzb.com/terms';
     } else if (p === '/admin') {
       title = 'Administrator Management Portal | Computer Care';
       desc = 'Store administrator portal for managing orders, quotations, pricing, and hardware inventory.';
@@ -364,6 +394,16 @@ export default function App() {
         navigate('/bulk-order');
       } else if (dest === 'services') {
         navigate('/services');
+      } else if (dest === 'about') {
+        navigate('/about');
+      } else if (dest === 'warranty-returns') {
+        navigate('/warranty-returns');
+      } else if (dest === 'shipping-delivery') {
+        navigate('/shipping-delivery');
+      } else if (dest === 'privacy-policy') {
+        navigate('/privacy-policy');
+      } else if (dest === 'terms') {
+        navigate('/terms');
       } else if (dest === 'catalog') {
         setSelectedCatalogCategory('all');
         navigate('/catalog');
@@ -459,6 +499,16 @@ export default function App() {
           <BulkOrderView onNavigate={handleNavigate} />
         ) : activeTab === 'services' ? (
           <ServicesView onNavigate={handleNavigate} />
+        ) : activeTab === 'about' ? (
+          <AboutView onNavigate={handleNavigate} />
+        ) : activeTab === 'warranty-returns' ? (
+          <WarrantyReturnsView onNavigate={handleNavigate} />
+        ) : activeTab === 'shipping-delivery' ? (
+          <ShippingDeliveryView onNavigate={handleNavigate} />
+        ) : activeTab === 'privacy-policy' ? (
+          <PrivacyPolicyView onNavigate={handleNavigate} />
+        ) : activeTab === 'terms' ? (
+          <TermsView onNavigate={handleNavigate} />
         ) : activeTab === 'admin' ? (
           <AdminPortalView
             catalog={catalog}

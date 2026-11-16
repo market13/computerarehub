@@ -16,6 +16,8 @@ import {
 import BannerHero from './BannerHero';
 import ShopByCategory from './ShopByCategory';
 import OurSpecialities from './OurSpecialities';
+import RecentBuildsGallery from './RecentBuildsGallery';
+import ReviewsSection from './ReviewsSection';
 import FAQSection from './FAQSection';
 
 export default function HomeView({
@@ -58,11 +60,11 @@ export default function HomeView({
             </div>
 
             <h2 className="text-2xl sm:text-4xl font-display font-black text-brand-navy tracking-tight uppercase leading-tight">
-              Build Your Custom PC With Zero Bottlenecks
+              Build Your Custom PC With Compatibility-Checked Parts
             </h2>
 
             <p className="text-sm text-slate-600 leading-relaxed font-sans">
-              Experience India's most accurate custom PC builder. Select authentic components from top brands, verify socket and DDR memory standards, check dynamic wattage loads, and order with genuine brand warranty and authentic pricing from Computer Care.
+              Configure your custom PC online with real-time socket, RAM standard, and wattage verification. Select authentic components, check dynamic power headroom, and order with manufacturer warranty and GST invoice from Computer Care Ghaziabad.
             </p>
 
             <div className="grid grid-cols-2 gap-3 text-xs font-sans text-slate-700 py-2">
@@ -443,7 +445,13 @@ export default function HomeView({
         </div>
       </section>
 
-      {/* 7. Frequently Asked Questions (FAQ) with Schema-aligned QA grounding */}
+      {/* 7. Recent Custom PC Builds Gallery (Renders only when real builds exist in recentBuilds.json) */}
+      <RecentBuildsGallery />
+
+      {/* 8. Customer Reviews & Testimonials (Renders only when real reviews exist in reviews.json) */}
+      <ReviewsSection />
+
+      {/* 9. Frequently Asked Questions (FAQ) with Schema-aligned QA grounding */}
       <FAQSection />
     </div>
   );

@@ -32,7 +32,8 @@ export default function CategoriesGrid({ onSelectCategory }) {
             Featured Component Categories
           </h2>
           <p className="text-xs text-slate-500 font-sans">
-            Sourced directly from authorized brand distributors across India
+            {/* TODO: confirm distributor relationships */}
+            GST invoice with every purchase and manufacturer warranty on all parts
           </p>
         </div>
       </div>
