@@ -8,7 +8,3 @@
 # Consultation and contact redirects
 /contact             /builder?mode=consultation   301
 /consultation        /builder?mode=consultation   301
-
-# SPA fallback
-/*    /index.html   200
-
