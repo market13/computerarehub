@@ -141,11 +141,14 @@ async function runTest() {
       console.log('✓ PASS: In-page confirmation rendered with reference ID.');
     }
 
+    // Remove route interception from test 3 so subsequent tests are not blocked
+    await page.unroute('**');
+
     // -------------------------------------------------------------
     // Test 4 (P0 #3): Product WhatsApp Link Contains Title
     // -------------------------------------------------------------
     console.log('\n--- Test 4: P0 #3 Product WhatsApp Title Check ---');
-    await page.goto(`${BASE_URL}/catalog`, { waitUntil: 'networkidle', timeout: 30000 });
+    await page.goto(`${BASE_URL}/catalog`, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await page.waitForTimeout(1000);
 
     // Click "View Specifications" on the first product card
@@ -279,6 +282,32 @@ async function runTest() {
       throw new Error(`FAIL: Expected at least 6 service cards, found ${serviceCards}`);
     }
     console.log(`✓ PASS: Verified ${serviceCards} core hardware & repair service offerings in Ghaziabad.`);
+
+    // -------------------------------------------------------------
+    // Test 8: Repair Status Tracker on /services
+    // -------------------------------------------------------------
+    console.log('\n--- Test 8: Repair Status Tracker Check ---');
+    await page.goto(`${BASE_URL}/services`, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await page.waitForTimeout(500);
+
+    const repairHubHeading = await page.locator('text=Repair & Service Hub').count();
+    if (repairHubHeading === 0) {
+      throw new Error('FAIL: Repair & Service Hub not rendered on /services!');
+    }
+    console.log('✓ PASS: Repair & Service Hub rendered successfully on /services.');
+
+    // Test Job ID search with demo ticket CC-REP-1042
+    const searchInput = page.locator('input[placeholder*="CC-REP"]').first();
+    await searchInput.fill('CC-REP-1042');
+    const checkStatusBtn = page.locator('button:has-text("Check Status")').first();
+    await checkStatusBtn.click();
+    await page.waitForTimeout(500);
+
+    const ticketResult = await page.locator('text=CC-REP-1042').count();
+    if (ticketResult === 0) {
+      throw new Error('FAIL: Could not locate demo repair ticket CC-REP-1042 after search!');
+    }
+    console.log('✓ PASS: Successfully tracked demo repair ticket CC-REP-1042 with status and milestone.');
 
     console.log('\n======================================================');
     console.log(' ALL AUDIT E2E TESTS (INCLUDING P0 ITEMS) PASSED! ');

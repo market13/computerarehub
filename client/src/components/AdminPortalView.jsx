@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Package,
   ShoppingCart,
@@ -21,8 +21,16 @@ import {
   Phone,
   Mail,
   MapPin,
-  DollarSign
+  DollarSign,
+  Wrench,
+  Plus,
+  CheckCircle2,
+  Clock,
+  Laptop
 } from 'lucide-react';
+import { getAllRepairTickets, updateRepairTicket, createRepairTicket, REPAIR_STATUS_MAP } from '../services/repairService';
+import { getStoredQuotes } from '../services/quoteService';
+import { saveProductOverride } from '../services/catalogService';
 
 const DEFAULT_ADMIN_PASSCODE = 'admin123';
 
@@ -259,14 +267,99 @@ export default function AdminPortalView({
     }
   });
 
+  // Repair Tickets state
+  const [repairs, setRepairs] = useState([]);
+  const [selectedRepair, setSelectedRepair] = useState(null);
+  const [repairFilter, setRepairFilter] = useState('all');
+  const [repairSearch, setRepairSearch] = useState('');
+  const [isWalkInModalOpen, setIsWalkInModalOpen] = useState(false);
+  const [walkInForm, setWalkInForm] = useState({
+    customerName: '',
+    customerPhone: '',
+    customerEmail: '',
+    deviceType: 'Laptop',
+    deviceBrandModel: '',
+    serialNumber: '',
+    issueDescription: '',
+    accessoriesIncluded: '',
+    estimatedCost: 0
+  });
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      // 1. Load Repair Tickets
+      getAllRepairTickets().then(res => {
+        if (res?.data) {
+          setRepairs(res.data);
+        }
+      });
+
+      // 2. Load Cloud / Stored Quotations
+      getStoredQuotes().then(res => {
+        if (res?.data && res.data.length > 0) {
+          const cloudQuotes = res.data.map(q => ({
+            id: q.quotation_number,
+            type: q.inquiry_type === 'consultation' ? 'PC Consultation / Quote' : 'Custom PC Build Quote',
+            name: q.customer_name,
+            company: q.inquiry_type === 'b2b_bulk' ? (q.company_name || 'Business Client') : 'Direct Customer',
+            phone: q.customer_phone,
+            email: q.customer_email,
+            city: q.city,
+            category: q.intended_usage || 'Custom Rig',
+            quantity: '1 Custom PC',
+            budget: q.budget_range || `₹${Number(q.quoted_subtotal || 0).toLocaleString('en-IN')}`,
+            timeline: 'Immediate',
+            date: new Date(q.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }),
+            status: q.status === 'pending' ? 'Pending Review' : q.status
+          }));
+
+          setInquiries(prev => {
+            const map = new Map();
+            [...cloudQuotes, ...prev].forEach(item => map.set(item.id, item));
+            return Array.from(map.values());
+          });
+        }
+      });
+    }
+  }, [isAuthenticated]);
+
+  const handleUpdateRepair = async (jobId, updates) => {
+    await updateRepairTicket(jobId, updates);
+    setRepairs(prev => prev.map(r => r.job_id === jobId ? { ...r, ...updates, updated_at: new Date().toISOString() } : r));
+    if (selectedRepair && selectedRepair.job_id === jobId) {
+      setSelectedRepair(prev => ({ ...prev, ...updates }));
+    }
+  };
+
+  const handleCreateWalkIn = async (e) => {
+    e.preventDefault();
+    const res = await createRepairTicket(walkInForm);
+    if (res?.data?.ticket) {
+      setRepairs(prev => [res.data.ticket, ...prev]);
+      setIsWalkInModalOpen(false);
+      setWalkInForm({
+        customerName: '',
+        customerPhone: '',
+        customerEmail: '',
+        deviceType: 'Laptop',
+        deviceBrandModel: '',
+        serialNumber: '',
+        issueDescription: '',
+        accessoriesIncluded: '',
+        estimatedCost: 0
+      });
+    }
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
-    if (passcode.trim() === DEFAULT_ADMIN_PASSCODE || passcode.trim() === 'computercare') {
+    const configuredPasscode = import.meta.env.VITE_ADMIN_PASSCODE || DEFAULT_ADMIN_PASSCODE;
+    if (passcode.trim() === configuredPasscode || passcode.trim() === 'computercare') {
       setIsAuthenticated(true);
       localStorage.setItem('computercare_admin_auth', 'true');
       setAuthError('');
     } else {
-      setAuthError('Invalid administrator credentials. (Default demo passcode: admin123)');
+      setAuthError('Invalid administrator credentials.');
     }
   };
 
@@ -313,22 +406,37 @@ export default function AdminPortalView({
     });
   }, [allProductsList, productCategory, productSearch]);
 
-  const handleSaveProductEdit = (e) => {
+  // Filtered repairs for admin
+  const filteredRepairs = useMemo(() => {
+    return repairs.filter(r => {
+      const matchStatus = repairFilter === 'all' || r.status === repairFilter;
+      const matchSearch = !repairSearch ||
+        r.job_id?.toLowerCase().includes(repairSearch.toLowerCase()) ||
+        r.customer_name?.toLowerCase().includes(repairSearch.toLowerCase()) ||
+        r.customer_phone?.includes(repairSearch) ||
+        r.device_brand_model?.toLowerCase().includes(repairSearch.toLowerCase());
+      return matchStatus && matchSearch;
+    });
+  }, [repairs, repairFilter, repairSearch]);
+
+  const handleSaveProductEdit = async (e) => {
     e.preventDefault();
     if (!editingProduct) return;
 
+    const payload = {
+      stock: parseInt(editingProduct.stock, 10) || 0,
+      price: parseInt(editingProduct.price, 10) || 0,
+      mrp: parseInt(editingProduct.mrp, 10) || 0,
+      isFeatured: editingProduct.isFeatured
+    };
+
     const newOverrides = {
       ...stockOverrides,
-      [editingProduct.id]: {
-        stock: parseInt(editingProduct.stock, 10) || 0,
-        price: parseInt(editingProduct.price, 10) || 0,
-        mrp: parseInt(editingProduct.mrp, 10) || 0,
-        isFeatured: editingProduct.isFeatured
-      }
+      [editingProduct.id]: payload
     };
 
     setStockOverrides(newOverrides);
-    localStorage.setItem('computercare_stock_overrides', JSON.stringify(newOverrides));
+    await saveProductOverride(editingProduct.id, payload);
     setEditingProduct(null);
   };
 
@@ -375,14 +483,18 @@ export default function AdminPortalView({
     const totalRev = orders.reduce((sum, o) => sum + (o.status !== 'cancelled' ? o.total : 0), 0);
     const lowStock = allProductsList.filter(p => p.stock < 5).length;
     const pendingInquiries = inquiries.filter(i => i.status === 'Pending Review').length;
+    const activeRepairs = repairs.filter(r => !['delivered', 'cancelled'].includes(r.status)).length;
+    const readyForPickup = repairs.filter(r => r.status === 'ready_for_pickup').length;
     return {
       revenue: totalRev,
       ordersCount: orders.length,
       lowStockCount: lowStock,
       pendingInquiriesCount: pendingInquiries,
-      totalCatalogCount: allProductsList.length
+      totalCatalogCount: allProductsList.length,
+      activeRepairsCount: activeRepairs,
+      readyForPickupCount: readyForPickup
     };
-  }, [orders, allProductsList, inquiries]);
+  }, [orders, allProductsList, inquiries, repairs]);
 
   // LOGIN SCREEN IF NOT AUTHENTICATED
   if (!isAuthenticated) {
@@ -567,13 +679,25 @@ export default function AdminPortalView({
           <Tag className="w-4 h-4" />
           <span>Discount Coupons</span>
         </button>
+
+        <button
+          onClick={() => setAdminTab('repairs')}
+          className={`px-4 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-2 ${
+            adminTab === 'repairs'
+              ? 'bg-brand-navy text-white shadow-sm'
+              : 'text-slate-600 hover:bg-slate-100'
+          }`}
+        >
+          <Wrench className="w-4 h-4" />
+          <span>Repair Jobs & Service ({repairs.length})</span>
+        </button>
       </div>
 
       {/* 1. DASHBOARD OVERVIEW TAB */}
       {adminTab === 'dashboard' && (
         <div className="flex flex-col gap-6">
           {/* Top KPI Cards */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
             <div className="bg-white p-4 sm:p-5 rounded-2xl border border-brand-border shadow-xs flex flex-col justify-between">
               <div className="flex items-center justify-between text-slate-500 mb-2">
                 <span className="text-xs font-semibold uppercase tracking-wider font-mono">Total Sales (Gross)</span>
@@ -616,6 +740,21 @@ export default function AdminPortalView({
               </div>
               <span className="text-[10px] text-amber-600 font-medium mt-1">
                 Requires response within 2 hours
+              </span>
+            </div>
+
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-brand-border shadow-xs flex flex-col justify-between">
+              <div className="flex items-center justify-between text-slate-500 mb-2">
+                <span className="text-xs font-semibold uppercase tracking-wider font-mono">Active Repairs</span>
+                <div className="p-2 bg-indigo-50 text-indigo-600 rounded-xl">
+                  <Wrench className="w-4 h-4" />
+                </div>
+              </div>
+              <div className="text-xl sm:text-2xl font-black font-display text-indigo-600">
+                {stats.activeRepairsCount}
+              </div>
+              <span className="text-[10px] text-indigo-600 font-medium mt-1">
+                {stats.readyForPickupCount} Ready for Pickup
               </span>
             </div>
 
@@ -1215,6 +1354,374 @@ export default function AdminPortalView({
               </div>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* 6. REPAIR JOBS TAB */}
+      {adminTab === 'repairs' && (
+        <div className="bg-white rounded-2xl border border-brand-border p-4 sm:p-5 shadow-xs flex flex-col gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
+            <div>
+              <h3 className="font-display font-bold uppercase text-base text-brand-navy flex items-center gap-2">
+                <Wrench className="w-4 h-4 text-brand-blue" />
+                <span>Repair Tickets & Bench Diagnostics ({filteredRepairs.length} jobs)</span>
+              </h3>
+              <p className="text-xs text-slate-500 font-sans mt-0.5">
+                Manage repair jobs, update diagnostic findings, set parts estimates, and notify customers.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search Job ID, phone, device..."
+                  value={repairSearch}
+                  onChange={(e) => setRepairSearch(e.target.value)}
+                  className="pl-8 pr-3 py-1.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-1 focus:ring-brand-blue w-48 sm:w-60"
+                />
+                <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2.5" />
+              </div>
+
+              <select
+                value={repairFilter}
+                onChange={(e) => setRepairFilter(e.target.value)}
+                className="bg-slate-50 border border-slate-300 rounded-xl px-2.5 py-1.5 text-xs text-slate-700 focus:outline-none cursor-pointer"
+              >
+                <option value="all">All Statuses</option>
+                <option value="received">Device Received</option>
+                <option value="diagnosing">Under Diagnosis</option>
+                <option value="awaiting_parts">Awaiting Parts</option>
+                <option value="in_progress">Repair in Progress</option>
+                <option value="ready_for_pickup">Ready for Pickup</option>
+                <option value="delivered">Delivered / Closed</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+
+              <button
+                type="button"
+                onClick={() => setIsWalkInModalOpen(true)}
+                className="px-3 py-1.5 bg-brand-navy hover:bg-brand-blue text-white rounded-xl text-xs font-bold font-display uppercase tracking-wider flex items-center gap-1.5 shadow-xs transition-colors cursor-pointer"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                <span>New Walk-in Repair</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Repair Jobs Table */}
+          <div className="overflow-x-auto divide-y divide-slate-100">
+            <table className="w-full text-left text-xs">
+              <thead>
+                <tr className="text-slate-400 font-mono uppercase text-[10px] border-b border-slate-100">
+                  <th className="py-2.5">Job ID</th>
+                  <th className="py-2.5">Customer</th>
+                  <th className="py-2.5">Device & Model</th>
+                  <th className="py-2.5">Issue Reported</th>
+                  <th className="py-2.5">Status</th>
+                  <th className="py-2.5">Estimate / Final</th>
+                  <th className="py-2.5 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {filteredRepairs.map((ticket) => (
+                  <tr key={ticket.job_id} className="hover:bg-slate-50/70 transition-colors">
+                    <td className="py-3 font-mono font-bold text-brand-navy">
+                      {ticket.job_id}
+                    </td>
+
+                    <td className="py-3">
+                      <div className="font-semibold text-slate-900">{ticket.customer_name}</div>
+                      <div className="text-[10px] text-slate-500 font-mono">{ticket.customer_phone}</div>
+                    </td>
+
+                    <td className="py-3">
+                      <div className="font-medium text-slate-800">{ticket.device_brand_model}</div>
+                      <div className="text-[10px] text-slate-400 font-mono">{ticket.device_type}</div>
+                    </td>
+
+                    <td className="py-3 max-w-xs truncate text-slate-600" title={ticket.issue_description}>
+                      {ticket.issue_description}
+                    </td>
+
+                    <td className="py-3">
+                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${REPAIR_STATUS_MAP[ticket.status]?.color || 'bg-slate-100 text-slate-700 border-slate-200'}`}>
+                        {REPAIR_STATUS_MAP[ticket.status]?.label || ticket.status}
+                      </span>
+                    </td>
+
+                    <td className="py-3 font-mono font-bold text-slate-900">
+                      {ticket.final_cost ? `₹${Number(ticket.final_cost).toLocaleString('en-IN')}` : ticket.estimated_cost ? `~₹${Number(ticket.estimated_cost).toLocaleString('en-IN')}` : 'TBD'}
+                    </td>
+
+                    <td className="py-3 text-right">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedRepair({ ...ticket })}
+                        className="px-2.5 py-1 text-xs font-semibold text-brand-blue hover:bg-blue-50 border border-blue-200 rounded-lg transition-colors cursor-pointer"
+                      >
+                        Manage
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {/* Manage Selected Repair Modal */}
+      {selectedRepair && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
+          <div className="w-full max-w-xl bg-white rounded-2xl shadow-2xl border border-brand-border p-6 flex flex-col gap-4">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div className="flex items-center gap-2">
+                <Wrench className="w-5 h-5 text-brand-navy" />
+                <h3 className="text-base font-bold font-display text-brand-navy">
+                  Manage Service Job: {selectedRepair.job_id}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedRepair(null)}
+                className="p-1 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
+              <div>
+                <span className="text-slate-400 font-mono uppercase text-[10px] block">Customer</span>
+                <span className="font-semibold text-slate-800">{selectedRepair.customer_name}</span>
+                <span className="block text-slate-500 font-mono">{selectedRepair.customer_phone}</span>
+              </div>
+              <div>
+                <span className="text-slate-400 font-mono uppercase text-[10px] block">Device</span>
+                <span className="font-semibold text-slate-800">{selectedRepair.device_brand_model}</span>
+                <span className="block text-slate-500">{selectedRepair.device_type}</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3 text-xs">
+              <div>
+                <label className="block text-slate-700 font-bold mb-1">Service Status</label>
+                <select
+                  value={selectedRepair.status}
+                  onChange={(e) => setSelectedRepair({ ...selectedRepair, status: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-300 bg-white font-medium focus:border-brand-blue"
+                >
+                  <option value="received">Device Received</option>
+                  <option value="diagnosing">Under Diagnosis</option>
+                  <option value="awaiting_parts">Awaiting Parts</option>
+                  <option value="in_progress">Repair in Progress</option>
+                  <option value="ready_for_pickup">Ready for Pickup</option>
+                  <option value="delivered">Delivered / Completed</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-slate-700 font-bold mb-1">Technician Notes (Visible to Customer)</label>
+                <textarea
+                  rows={3}
+                  value={selectedRepair.technician_notes || ''}
+                  onChange={(e) => setSelectedRepair({ ...selectedRepair, technician_notes: e.target.value })}
+                  placeholder="e.g. Diagnosed motherboard fault. Replaced faulty capacitors. Stress testing under load."
+                  className="w-full p-2.5 rounded-xl border border-slate-300 text-xs focus:border-brand-blue"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-slate-700 font-bold mb-1">Estimated Cost (₹)</label>
+                  <input
+                    type="number"
+                    value={selectedRepair.estimated_cost || ''}
+                    onChange={(e) => setSelectedRepair({ ...selectedRepair, estimated_cost: e.target.value })}
+                    className="w-full p-2 rounded-xl border border-slate-300 font-mono"
+                  />
+                </div>
+                <div>
+                  <label className="block text-slate-700 font-bold mb-1">Final Bill (₹)</label>
+                  <input
+                    type="number"
+                    value={selectedRepair.final_cost || ''}
+                    onChange={(e) => setSelectedRepair({ ...selectedRepair, final_cost: e.target.value })}
+                    className="w-full p-2 rounded-xl border border-slate-300 font-mono"
+                    placeholder="Enter upon delivery"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+              <a
+                href={`https://wa.me/${selectedRepair.customer_phone.replace(/\D/g, '')}?text=${encodeURIComponent(`Hi ${selectedRepair.customer_name}, this is Computer Care, Ghaziabad regarding your repair job ${selectedRepair.job_id}. Current status: ${REPAIR_STATUS_MAP[selectedRepair.status]?.label || selectedRepair.status}. Notes: ${selectedRepair.technician_notes || 'Service in progress.'}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold font-display uppercase tracking-wider flex items-center gap-1.5"
+              >
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span>Notify Customer</span>
+              </a>
+
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setSelectedRepair(null)}
+                  className="px-4 py-2 border border-slate-300 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    await handleUpdateRepair(selectedRepair.job_id, {
+                      status: selectedRepair.status,
+                      technician_notes: selectedRepair.technician_notes,
+                      estimated_cost: selectedRepair.estimated_cost,
+                      final_cost: selectedRepair.final_cost
+                    });
+                    setSelectedRepair(null);
+                  }}
+                  className="px-5 py-2 bg-brand-navy hover:bg-brand-blue text-white rounded-xl text-xs font-bold font-display uppercase tracking-wider shadow-sm cursor-pointer"
+                >
+                  Save Changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* New Walk-in Repair Check-in Modal */}
+      {isWalkInModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
+          <form onSubmit={handleCreateWalkIn} className="w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-brand-border p-6 flex flex-col gap-4">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div className="flex items-center gap-2">
+                <Plus className="w-5 h-5 text-brand-navy" />
+                <h3 className="text-base font-bold font-display text-brand-navy">
+                  Check-in Walk-in Repair (Shiva Tower)
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsWalkInModalOpen(false)}
+                className="p-1 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 text-xs">
+              <div>
+                <label className="block text-slate-700 font-bold mb-1">Customer Full Name *</label>
+                <input
+                  type="text"
+                  required
+                  value={walkInForm.customerName}
+                  onChange={(e) => setWalkInForm({ ...walkInForm, customerName: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-300"
+                  placeholder="e.g. Manish Sharma"
+                />
+              </div>
+
+              <div>
+                <label className="block text-slate-700 font-bold mb-1">Phone Number *</label>
+                <input
+                  type="tel"
+                  required
+                  value={walkInForm.customerPhone}
+                  onChange={(e) => setWalkInForm({ ...walkInForm, customerPhone: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-300 font-mono"
+                  placeholder="e.g. 9810550222"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 text-xs">
+              <div>
+                <label className="block text-slate-700 font-bold mb-1">Device Type</label>
+                <select
+                  value={walkInForm.deviceType}
+                  onChange={(e) => setWalkInForm({ ...walkInForm, deviceType: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-300 bg-white"
+                >
+                  <option value="Laptop">Laptop</option>
+                  <option value="Desktop PC">Desktop Computer</option>
+                  <option value="Custom Gaming Rig">Custom Gaming Rig</option>
+                  <option value="Component">Component (GPU, SMPS, RAM)</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-slate-700 font-bold mb-1">Brand & Model *</label>
+                <input
+                  type="text"
+                  required
+                  value={walkInForm.deviceBrandModel}
+                  onChange={(e) => setWalkInForm({ ...walkInForm, deviceBrandModel: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-300"
+                  placeholder="e.g. Lenovo IdeaPad 3"
+                />
+              </div>
+            </div>
+
+            <div className="text-xs">
+              <label className="block text-slate-700 font-bold mb-1">Reported Issue / Symptoms *</label>
+              <textarea
+                rows={2}
+                required
+                value={walkInForm.issueDescription}
+                onChange={(e) => setWalkInForm({ ...walkInForm, issueDescription: e.target.value })}
+                className="w-full p-2.5 rounded-xl border border-slate-300"
+                placeholder="e.g. Machine dead, power LED blinks once, no fan spin."
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 text-xs">
+              <div>
+                <label className="block text-slate-700 font-bold mb-1">Accessories Received</label>
+                <input
+                  type="text"
+                  value={walkInForm.accessoriesIncluded}
+                  onChange={(e) => setWalkInForm({ ...walkInForm, accessoriesIncluded: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-300"
+                  placeholder="e.g. Power adapter, bag"
+                />
+              </div>
+              <div>
+                <label className="block text-slate-700 font-bold mb-1">Initial Estimate (₹)</label>
+                <input
+                  type="number"
+                  value={walkInForm.estimatedCost || ''}
+                  onChange={(e) => setWalkInForm({ ...walkInForm, estimatedCost: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-300 font-mono"
+                  placeholder="e.g. 1500"
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+              <button
+                type="button"
+                onClick={() => setIsWalkInModalOpen(false)}
+                className="px-4 py-2 border border-slate-300 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="px-5 py-2 bg-brand-navy hover:bg-brand-blue text-white rounded-xl text-xs font-bold font-display uppercase tracking-wider shadow-sm cursor-pointer"
+              >
+                Generate Job Ticket
+              </button>
+            </div>
+          </form>
         </div>
       )}
 

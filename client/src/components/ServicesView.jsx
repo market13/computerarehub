@@ -1,5 +1,6 @@
 import React from 'react';
 import FAQSection from './FAQSection';
+import RepairStatusLookup from './RepairStatusLookup';
 import { CONTACT_EMAIL } from '../constants/storeInfo';
 import { 
   Wrench, 
@@ -102,12 +103,14 @@ export default function ServicesView({ onNavigate }) {
         'Transparent pricing and prompt turnaround time'
       ],
       primaryAction: {
-        label: 'Book Repair Diagnostic',
-        href: 'https://wa.me/919810550222?text=Hi%20Computer%20Care%2C%20I%20need%20computer%20repair%20services%20in%20Ghaziabad'
+        label: 'Book Diagnostic / Track Job',
+        onClick: () => {
+          document.getElementById('repair-tracker')?.scrollIntoView({ behavior: 'smooth' });
+        }
       },
       secondaryAction: {
-        label: 'Call Helpline',
-        href: 'tel:+919810550222'
+        label: 'WhatsApp Desk',
+        href: 'https://wa.me/919810550222?text=Hi%20Computer%20Care%2C%20I%20need%20computer%20repair%20services%20in%20Ghaziabad'
       }
     },
     {
@@ -235,7 +238,12 @@ export default function ServicesView({ onNavigate }) {
         </div>
       </header>
 
-      {/* 2. Grid of Core Services */}
+      {/* 2. Live Repair Tracking & Service Booking Hub */}
+      <section id="repair-tracker" className="w-full scroll-mt-24">
+        <RepairStatusLookup />
+      </section>
+
+      {/* 3. Grid of Core Services */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((svc) => {
           const Icon = svc.icon;

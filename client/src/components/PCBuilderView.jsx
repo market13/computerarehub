@@ -26,6 +26,7 @@ import confetti from 'canvas-confetti';
 import ComponentCard from './ComponentCard';
 import ExpertConsultationForm from './ExpertConsultationForm';
 import { checkCompatibility, calculateGamingScores } from '../utils/compatibility';
+import { saveBuildQuote, formatWhatsAppQuoteText } from '../services/quoteService';
 
 const COMPONENT_SLOTS = [
   { key: 'case', label: 'PC Cabinet / Case', icon: Box, required: true },
@@ -101,6 +102,30 @@ export default function PCBuilderView({
     COMPONENT_SLOTS.map(slot => build[slot.key] ? `• ${slot.label}: ${build[slot.key].title} (₹${build[slot.key].price?.toLocaleString('en-IN')})` : null).filter(Boolean).join('\n') +
     `\n\nTotal Estimated Price: ₹${totalPrice.toLocaleString('en-IN')}\nEstimated Power: ~${compatibility.estimatedWattage}W\nPlease provide final quotation and component availability.`
   )}`;
+
+  const [isSavingQuote, setIsSavingQuote] = useState(false);
+  const [savedQuoteRef, setSavedQuoteRef] = useState(null);
+
+  const handleGetWhatsAppQuote = async () => {
+    setIsSavingQuote(true);
+    try {
+      const res = await saveBuildQuote({
+        build,
+        totalPrice,
+        estimatedWattage: compatibility.estimatedWattage,
+        inquiryType: 'custom_pc',
+      });
+      const refNum = res?.data?.quotationNumber || res?.quotationNumber || null;
+      if (refNum) setSavedQuoteRef(refNum);
+      const text = formatWhatsAppQuoteText(build, totalPrice, compatibility.estimatedWattage, refNum);
+      window.open(`https://wa.me/919810550222?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+    } catch (err) {
+      console.warn('Quote save error, opening WhatsApp directly:', err);
+      window.open(whatsappQuoteUrl, '_blank', 'noopener,noreferrer');
+    } finally {
+      setIsSavingQuote(false);
+    }
+  };
 
   return (
     <div className="w-full flex flex-col gap-6">
@@ -402,15 +427,21 @@ export default function PCBuilderView({
               <span>Buy Rig / Add to Cart ({items.length} Parts)</span>
             </button>
 
-            <a
-              href={whatsappQuoteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-xl font-display font-bold uppercase tracking-wider text-xs shadow-md transition-all flex items-center justify-center gap-2 no-underline"
+            <button
+              type="button"
+              onClick={handleGetWhatsAppQuote}
+              disabled={items.length === 0 || isSavingQuote}
+              className="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-xl font-display font-bold uppercase tracking-wider text-xs shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
             >
               <MessageSquare className="w-4 h-4" />
-              <span>Get a Quote on WhatsApp</span>
-            </a>
+              <span>{isSavingQuote ? 'Saving Quote...' : 'Get a Quote on WhatsApp'}</span>
+            </button>
+
+            {savedQuoteRef && (
+              <div className="bg-emerald-50 border border-emerald-300 rounded-lg p-2 text-center text-[11px] text-emerald-800 font-mono">
+                Saved Quote Ref: <span className="font-bold">{savedQuoteRef}</span>
+              </div>
+            )}
           </div>
 
           {/* Compatibility Diagnostics Card */}

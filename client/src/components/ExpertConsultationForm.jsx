@@ -18,6 +18,7 @@ import {
 import confetti from 'canvas-confetti';
 import { AlertCircle, MessageSquare } from 'lucide-react';
 import { submitToNetlify } from '../utils/formSubmit';
+import { saveBuildQuote } from '../services/quoteService';
 
 const USE_CASES = [
   { id: 'gaming', label: 'High-FPS Gaming', desc: 'Esports, GTA, Cyberpunk, AAA titles' },
@@ -121,6 +122,23 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
         refNumber,
         timestamp: requestRecord.timestamp
       });
+
+      // Save to Cloud DB / Persistent Quotations
+      try {
+        await saveBuildQuote({
+          customerName: formData.fullName,
+          customerPhone: formData.phone,
+          customerEmail: formData.email,
+          city: formData.city,
+          intendedUsage: formData.useCase,
+          budgetRange: formData.budget,
+          notes: `Preferred Call Time: ${formData.callTime} | ${formData.notes || ''}`,
+          inquiryType: 'consultation',
+          totalPrice: 0,
+        });
+      } catch (err) {
+        console.warn('Consultation cloud save fallback:', err);
+      }
 
       try {
         const sanitized = {
