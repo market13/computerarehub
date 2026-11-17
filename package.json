@@ -6,6 +6,7 @@
     "client"
   ],
   "scripts": {
-    "build": "npm --prefix client install && npm --prefix client run build && node -e \"const fs=require('fs'); fs.cpSync('client/dist', 'dist', {recursive: true});\""
+    "build": "npm --prefix client install && npm --prefix client run build && node -e \"const fs=require('fs'); fs.cpSync('client/dist', 'dist', {recursive: true});\"",
+    "deploy:pages": "wrangler pages deploy dist --project-name custom-pc-builder"
   }
 }

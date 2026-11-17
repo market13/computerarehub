@@ -44,3 +44,7 @@ client/*.png
 .agent/
 .agents/
 scratch_*.py
+
+# Wrangler
+.wrangler/
+wrangler.toml
