@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import AdminLoginModal from './AdminLoginModal';
+import React, { useState, useEffect, Suspense } from 'react';
+const AdminLoginModal = React.lazy(() => import('./AdminLoginModal'));
 import WhatsAppIcon from './WhatsAppIcon';
 import { CONTACT_EMAIL } from '../constants/storeInfo';
 import { 
@@ -193,17 +193,25 @@ export default function Header({
   const [mobileStreamingOpen, setMobileStreamingOpen] = useState(false);
   const [wishlistCount] = useState(0);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [isAdminActive, setIsAdminActive] = useState(() => 
-    typeof window !== 'undefined' && localStorage.getItem('computercare_admin_auth') === 'true'
-  );
+  const [currentUser, setCurrentUser] = useState(null);
 
-  // Sync admin auth state when localStorage updates or modal logs in/out
+  // Sync user auth state via Supabase
   useEffect(() => {
-    const syncAdminState = () => {
-      setIsAdminActive(typeof window !== 'undefined' && localStorage.getItem('computercare_admin_auth') === 'true');
+    let mounted = true;
+    import('../lib/supabase').then(({ getCurrentUser: fetchUser, onAuthStateChange: listenAuth }) => {
+      fetchUser().then(user => {
+        if (mounted) setCurrentUser(user);
+      });
+      const { data: { subscription } } = listenAuth((_event, session) => {
+        if (mounted) setCurrentUser(session?.user || null);
+      });
+      return () => {
+        subscription?.unsubscribe();
+      };
+    }).catch(() => {});
+    return () => {
+      mounted = false;
     };
-    window.addEventListener('storage', syncAdminState);
-    return () => window.removeEventListener('storage', syncAdminState);
   }, []);
 
   const formattedPrice = totalPrice > 0 
@@ -486,25 +494,25 @@ export default function Header({
             )}
           </button>
 
-          {/* 1. Login / Account */}
+          {/* 1. Login / Customer Account */}
           <button 
             type="button"
             onClick={() => setIsAuthModalOpen(true)}
             className="hidden sm:flex items-center gap-1.5 cursor-pointer group bg-transparent border-none p-0 text-left focus:outline-none flex-shrink-0"
-            title={isAdminActive ? "Admin Session Active - Click to Manage" : "Login to Account / Admin Portal"}
+            title={currentUser ? `Signed in as ${currentUser.email}` : "Sign in to Customer Account"}
           >
             <div className="relative">
               <User className="w-[20px] h-[20px] xl:w-[22px] xl:h-[22px] text-slate-800 group-hover:text-blue-600 transition-colors stroke-[1.8]" />
-              {isAdminActive && (
+              {currentUser && (
                 <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-white" />
               )}
             </div>
             <div className="text-left select-none hidden lg:block">
-              <span className={`text-[10px] block leading-tight ${isAdminActive ? 'text-emerald-600 font-bold' : 'text-slate-500'}`}>
-                {isAdminActive ? 'Admin' : 'Login'}
+              <span className="text-[10px] block leading-tight text-slate-500">
+                {currentUser ? 'Hi,' : 'Welcome'}
               </span>
-              <span className="text-xs font-semibold text-slate-900 group-hover:text-blue-600 transition-colors block leading-tight">
-                Account
+              <span className="text-xs font-semibold text-slate-900 group-hover:text-blue-600 transition-colors block leading-tight truncate max-w-[90px]">
+                {currentUser ? (currentUser.user_metadata?.full_name?.split(' ')[0] || 'Account') : 'Sign In'}
               </span>
             </div>
           </button>
@@ -1236,23 +1244,23 @@ export default function Header({
         </div>
       )}
     
-      {/* Admin / Account Login Modal */}
-      <AdminLoginModal
-        isOpen={isAuthModalOpen}
-        onClose={() => setIsAuthModalOpen(false)}
-        onSuccessAdminLogin={() => {
-          setIsAdminActive(true);
-          setActiveTab('admin');
-          window.location.hash = 'admin';
-        }}
-        onLogout={() => {
-          setIsAdminActive(false);
-          if (activeTab === 'admin') {
-            setActiveTab('home');
-            window.location.hash = '';
-          }
-        }}
-      />
+      {/* Customer Account / Auth Modal */}
+      {isAuthModalOpen && (
+        <Suspense fallback={null}>
+          <AdminLoginModal
+            isOpen={isAuthModalOpen}
+            onClose={() => setIsAuthModalOpen(false)}
+            onSuccessAdminLogin={() => {
+              setActiveTab('admin');
+            }}
+            onLogout={() => {
+              if (activeTab === 'admin') {
+                setActiveTab('home');
+              }
+            }}
+          />
+        </Suspense>
+      )}
     </header>
   );
 }

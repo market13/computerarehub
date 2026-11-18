@@ -59,13 +59,11 @@ export default function PCBuilderView({
     return initialMode || 'diy';
   });
 
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.location.search.includes('mode=consultation')) {
-      setBuilderMode('consultation');
-    } else if (initialMode) {
-      setBuilderMode(initialMode);
-    }
-  }, [initialMode]);
+  const [prevInitialMode, setPrevInitialMode] = useState(initialMode);
+  if (initialMode !== prevInitialMode) {
+    setPrevInitialMode(initialMode);
+    setBuilderMode(initialMode);
+  }
 
   const items = Object.values(build).filter(Boolean);
   const totalPrice = items.reduce((sum, item) => sum + (item.price || 0), 0);

@@ -23,16 +23,19 @@ import {
   MapPin,
   DollarSign,
   Wrench,
-  Plus,
-  CheckCircle2,
-  Clock,
-  Laptop
+  Plus
 } from 'lucide-react';
 import { getAllRepairTickets, updateRepairTicket, createRepairTicket, REPAIR_STATUS_MAP } from '../services/repairService';
 import { getStoredQuotes } from '../services/quoteService';
 import { saveProductOverride } from '../services/catalogService';
-
-const DEFAULT_ADMIN_PASSCODE = 'admin123';
+import {
+  isSupabaseConfigured,
+  signIn,
+  signOut,
+  getCurrentUser,
+  checkIsAdmin,
+  onAuthStateChange
+} from '../lib/supabase';
 
 const ORDER_STATUS_COLORS = {
   pending: 'bg-amber-100 text-amber-800 border-amber-300',
@@ -134,11 +137,12 @@ export default function AdminPortalView({
   onNavigate,
   onUpdateProduct: _onUpdateProduct
 }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return localStorage.getItem('computercare_admin_auth') === 'true';
-  });
-  const [passcode, setPasscode] = useState('');
+  const [adminUser, setAdminUser] = useState(null);
+  const [isVerifyingAuth, setIsVerifyingAuth] = useState(true);
+  const [adminEmail, setAdminEmail] = useState('');
+  const [adminPassword, setAdminPassword] = useState('');
   const [authError, setAuthError] = useState('');
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
 
   // Active section in Admin
   const [adminTab, setAdminTab] = useState('dashboard'); // 'dashboard', 'products', 'orders', 'quotations', 'coupons'
@@ -286,7 +290,51 @@ export default function AdminPortalView({
   });
 
   useEffect(() => {
-    if (isAuthenticated) {
+    let mounted = true;
+    async function checkAuth() {
+      if (!isSupabaseConfigured()) {
+        if (mounted) {
+          setAdminUser(null);
+          setIsVerifyingAuth(false);
+        }
+        return;
+      }
+      try {
+        const user = await getCurrentUser();
+        if (user) {
+          const isAdmin = await checkIsAdmin();
+          if (mounted) {
+            setAdminUser(isAdmin ? user : null);
+          }
+        } else {
+          if (mounted) setAdminUser(null);
+        }
+      } catch (err) {
+        console.warn('Failed admin auth check:', err);
+        if (mounted) setAdminUser(null);
+      } finally {
+        if (mounted) setIsVerifyingAuth(false);
+      }
+    }
+    checkAuth();
+
+    const { data: { subscription } } = onAuthStateChange(async (_event, session) => {
+      if (session?.user) {
+        const isAdmin = await checkIsAdmin();
+        if (mounted) setAdminUser(isAdmin ? session.user : null);
+      } else {
+        if (mounted) setAdminUser(null);
+      }
+    });
+
+    return () => {
+      mounted = false;
+      subscription?.unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (adminUser) {
       // 1. Load Repair Tickets
       getAllRepairTickets().then(res => {
         if (res?.data) {
@@ -321,7 +369,7 @@ export default function AdminPortalView({
         }
       });
     }
-  }, [isAuthenticated]);
+  }, [adminUser]);
 
   const handleUpdateRepair = async (jobId, updates) => {
     await updateRepairTicket(jobId, updates);
@@ -351,25 +399,39 @@ export default function AdminPortalView({
     }
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const configuredPasscode = import.meta.env.VITE_ADMIN_PASSCODE || DEFAULT_ADMIN_PASSCODE;
-    if (passcode.trim() === configuredPasscode || passcode.trim() === 'computercare') {
-      setIsAuthenticated(true);
-      localStorage.setItem('computercare_admin_auth', 'true');
-      setAuthError('');
-    } else {
-      setAuthError('Invalid administrator credentials.');
+    setAuthError('');
+    if (!isSupabaseConfigured()) {
+      setAuthError('Admin unavailable: backend not configured.');
+      return;
+    }
+    setIsLoggingIn(true);
+    try {
+      const { data, error } = await signIn(adminEmail, adminPassword);
+      if (error || !data?.user) {
+        setAuthError(error?.message || 'Invalid administrator email or password.');
+        setIsLoggingIn(false);
+        return;
+      }
+      const isAdmin = await checkIsAdmin();
+      if (!isAdmin) {
+        await signOut();
+        setAuthError('Access denied: Account does not possess administrator role in profiles.');
+        setIsLoggingIn(false);
+        return;
+      }
+      setAdminUser(data.user);
+    } catch (err) {
+      setAuthError(err.message || 'Authentication error');
+    } finally {
+      setIsLoggingIn(false);
     }
   };
 
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-    localStorage.removeItem('computercare_admin_auth');
-    if (typeof window !== 'undefined') {
-      window.dispatchEvent(new Event('storage'));
-    }
-    window.location.hash = '';
+  const handleLogout = async () => {
+    await signOut();
+    setAdminUser(null);
     onNavigate('home');
   };
 
@@ -496,8 +558,47 @@ export default function AdminPortalView({
     };
   }, [orders, allProductsList, inquiries, repairs]);
 
-  // LOGIN SCREEN IF NOT AUTHENTICATED
-  if (!isAuthenticated) {
+  // 1. BACKEND NOT CONFIGURED
+  if (!isSupabaseConfigured()) {
+    return (
+      <div className="min-h-[75vh] flex items-center justify-center py-12 px-4 sm:px-6">
+        <div className="max-w-md w-full bg-white rounded-2xl shadow-xl border border-amber-200 p-6 sm:p-8 text-center">
+          <div className="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-800 mx-auto mb-3 shadow-sm">
+            <Lock className="w-8 h-8 text-amber-600" />
+          </div>
+          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-amber-800 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
+            BACKEND NOT CONFIGURED
+          </span>
+          <h1 className="text-xl font-bold font-display text-slate-900 mt-3">
+            Admin unavailable: backend not configured
+          </h1>
+          <p className="text-xs text-slate-600 font-sans mt-2 leading-relaxed">
+            The administrator portal is disabled because Supabase is not configured. Please set <code className="bg-slate-100 px-1 py-0.5 rounded font-mono text-slate-800">VITE_SUPABASE_URL</code> and <code className="bg-slate-100 px-1 py-0.5 rounded font-mono text-slate-800">VITE_SUPABASE_ANON_KEY</code>.
+          </p>
+          <button
+            type="button"
+            onClick={() => onNavigate('home')}
+            className="mt-6 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-navy hover:underline cursor-pointer"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Return to Storefront</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // 2. LOGIN SCREEN IF NOT AUTHENTICATED
+  if (!adminUser) {
+    if (isVerifyingAuth) {
+      return (
+        <div className="min-h-[60vh] flex items-center justify-center">
+          <div className="text-xs font-mono text-slate-500 animate-pulse">
+            Verifying administrator credentials...
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="min-h-[75vh] flex items-center justify-center py-12 px-4 sm:px-6">
         <div className="max-w-md w-full bg-white rounded-2xl shadow-xl border border-brand-border p-6 sm:p-8">
@@ -509,7 +610,7 @@ export default function AdminPortalView({
               RESTRICTED SYSTEM ACCESS
             </span>
             <h1 className="text-xl font-bold font-display text-brand-navy mt-1">
-              Computer Care Admin Portal
+              Computer Care Admin Console
             </h1>
             <p className="text-xs text-slate-500 font-sans mt-1">
               Authorized hardware managers, inventory staff, and e-commerce directors only.
@@ -519,22 +620,37 @@ export default function AdminPortalView({
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Administrator Passcode
+                Administrator Email
+              </label>
+              <div className="relative">
+                <input
+                  type="email"
+                  value={adminEmail}
+                  onChange={(e) => setAdminEmail(e.target.value)}
+                  placeholder="admin@computercaregzb.com"
+                  required
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                  autoFocus
+                />
+                <Mail className="w-4 h-4 text-slate-400 absolute right-3.5 top-3" />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-slate-700 mb-1">
+                Password
               </label>
               <div className="relative">
                 <input
                   type="password"
-                  value={passcode}
-                  onChange={(e) => setPasscode(e.target.value)}
-                  placeholder="Enter admin passcode"
+                  value={adminPassword}
+                  onChange={(e) => setAdminPassword(e.target.value)}
+                  placeholder="Enter administrator password"
+                  required
                   className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
-                  autoFocus
                 />
                 <Lock className="w-4 h-4 text-slate-400 absolute right-3.5 top-3" />
               </div>
-              <p className="text-[11px] text-slate-400 mt-1">
-                Demo access code: <code className="text-brand-navy font-bold font-mono">admin123</code>
-              </p>
             </div>
 
             {authError && (
@@ -546,9 +662,10 @@ export default function AdminPortalView({
 
             <button
               type="submit"
-              className="w-full py-3 rounded-xl bg-brand-navy hover:bg-brand-blue text-white font-display font-bold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer"
+              disabled={isLoggingIn}
+              className="w-full py-3 rounded-xl bg-brand-navy hover:bg-brand-blue text-white font-display font-bold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer disabled:opacity-50"
             >
-              Authenticate & Enter Admin Console
+              {isLoggingIn ? 'Verifying with Supabase...' : 'Authenticate & Enter Admin Console'}
             </button>
           </form>
 
