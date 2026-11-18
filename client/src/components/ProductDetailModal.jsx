@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Check, ShieldCheck, Truck } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const SPEC_KEY_LABELS = {
   form_factor: 'Form Factor',
@@ -285,9 +286,10 @@ export default function ProductDetailModal({
                 href={`https://wa.me/919810550222?text=${encodeURIComponent(`Hi Computer Care, I am interested in ${product.title || 'this product'}${product.price ? ` (Rs. ${product.price.toLocaleString('en-IN')})` : ''}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 sm:px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-display font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors shadow-md"
+                className="px-3 sm:px-4 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-display font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors shadow-md"
                 title="Inquire on WhatsApp"
               >
+                <WhatsAppIcon variant="badge" className="w-4 h-4" />
                 <span>WhatsApp Buy / Inquire</span>
               </a>
             </div>

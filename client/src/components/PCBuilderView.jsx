@@ -18,13 +18,13 @@ import {
   Gamepad2,
   Plus,
   PhoneCall,
-  ArrowRight,
-  MessageSquare
+  ArrowRight
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 import ComponentCard from './ComponentCard';
 import ExpertConsultationForm from './ExpertConsultationForm';
+import WhatsAppIcon from './WhatsAppIcon';
 import { checkCompatibility, calculateGamingScores } from '../utils/compatibility';
 import { saveBuildQuote, formatWhatsAppQuoteText } from '../services/quoteService';
 
@@ -431,9 +431,9 @@ export default function PCBuilderView({
               type="button"
               onClick={handleGetWhatsAppQuote}
               disabled={items.length === 0 || isSavingQuote}
-              className="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-xl font-display font-bold uppercase tracking-wider text-xs shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+              className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3 rounded-xl font-display font-bold uppercase tracking-wider text-xs shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
             >
-              <MessageSquare className="w-4 h-4" />
+              <WhatsAppIcon variant="badge" className="w-4 h-4" />
               <span>{isSavingQuote ? 'Saving Quote...' : 'Get a Quote on WhatsApp'}</span>
             </button>
 

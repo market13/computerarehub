@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import WhatsAppIcon from './WhatsAppIcon';
 import {
   Package,
   ShoppingCart,
@@ -13,7 +14,6 @@ import {
   ShieldCheck,
   Lock,
   LogOut,
-  MessageSquare,
   Building2,
   Tag,
   FileText,
@@ -873,9 +873,9 @@ export default function AdminPortalView({
                         href={`https://wa.me/${inq.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${inq.name}, this is Computer Care regarding your quotation request ${inq.id}.`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[11px] text-emerald-600 hover:text-emerald-700 font-bold mt-2 flex items-center gap-1"
+                        className="text-[11px] text-emerald-600 hover:text-emerald-700 font-bold mt-2 flex items-center gap-1.5"
                       >
-                        <MessageSquare className="w-3 h-3" />
+                        <WhatsAppIcon variant="badge" className="w-3.5 h-3.5" />
                         <span>WhatsApp Reply</span>
                       </a>
                     </div>
@@ -1169,9 +1169,9 @@ export default function AdminPortalView({
                       href={`https://wa.me/${inq.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hello ${inq.name}, Computer Care sales team following up on your inquiry ${inq.id} for ${inq.quantity}.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-2.5 py-1 rounded bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] flex items-center gap-1 transition-colors shadow-xs"
+                      className="px-2.5 py-1 rounded bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-[11px] flex items-center gap-1.5 transition-colors shadow-xs"
                     >
-                      <MessageSquare className="w-3 h-3" />
+                      <WhatsAppIcon variant="badge" className="w-3.5 h-3.5" />
                       <span>WhatsApp</span>
                     </a>
                   </div>
@@ -1561,9 +1561,9 @@ export default function AdminPortalView({
                 href={`https://wa.me/${selectedRepair.customer_phone.replace(/\D/g, '')}?text=${encodeURIComponent(`Hi ${selectedRepair.customer_name}, this is Computer Care, Ghaziabad regarding your repair job ${selectedRepair.job_id}. Current status: ${REPAIR_STATUS_MAP[selectedRepair.status]?.label || selectedRepair.status}. Notes: ${selectedRepair.technician_notes || 'Service in progress.'}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold font-display uppercase tracking-wider flex items-center gap-1.5"
+                className="px-3.5 py-2 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-xl text-xs font-bold font-display uppercase tracking-wider flex items-center gap-1.5 shadow-xs"
               >
-                <MessageSquare className="w-3.5 h-3.5" />
+                <WhatsAppIcon variant="badge" className="w-3.5 h-3.5" />
                 <span>Notify Customer</span>
               </a>
 

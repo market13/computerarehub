@@ -1,6 +1,7 @@
 import React from 'react';
 import FAQSection from './FAQSection';
 import RepairStatusLookup from './RepairStatusLookup';
+import WhatsAppIcon from './WhatsAppIcon';
 import { CONTACT_EMAIL } from '../constants/storeInfo';
 import { 
   Wrench, 
@@ -333,9 +334,12 @@ export default function ServicesView({ onNavigate }) {
                     href={svc.secondaryAction.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3.5 py-2.5 rounded-xl border border-slate-200 hover:border-slate-300 text-slate-700 font-display font-semibold text-xs transition-colors cursor-pointer no-underline whitespace-nowrap"
+                    className="px-3.5 py-2.5 rounded-xl border border-slate-200 hover:border-slate-300 text-slate-700 font-display font-semibold text-xs transition-colors cursor-pointer no-underline whitespace-nowrap flex items-center gap-1.5"
                   >
-                    {svc.secondaryAction.label}
+                    {svc.secondaryAction.href?.includes('wa.me') && (
+                      <WhatsAppIcon variant="badge" className="w-3.5 h-3.5 flex-shrink-0" />
+                    )}
+                    <span>{svc.secondaryAction.label}</span>
                   </a>
                 )}
               </div>
@@ -407,8 +411,9 @@ export default function ServicesView({ onNavigate }) {
               href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20have%20an%20inquiry%20regarding%20computer%20services%20in%20Ghaziabad"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-display font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-sm transition-colors text-center no-underline"
+              className="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-display font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-sm transition-colors text-center no-underline"
             >
+              <WhatsAppIcon variant="badge" className="w-4 h-4" />
               <span>Chat on WhatsApp</span>
             </a>
             <a

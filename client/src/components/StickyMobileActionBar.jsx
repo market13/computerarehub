@@ -1,5 +1,6 @@
 import React from 'react';
-import { Phone, MessageSquare } from 'lucide-react';
+import { Phone } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function StickyMobileActionBar() {
   const phone = '919810550222';
@@ -26,7 +27,7 @@ export default function StickyMobileActionBar() {
         rel="noopener noreferrer"
         className="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white py-2 px-3 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all no-underline"
       >
-        <MessageSquare className="w-3.5 h-3.5 fill-current" />
+        <WhatsAppIcon variant="current" className="w-4 h-4 fill-current" />
         <span>WhatsApp</span>
       </a>
     </aside>

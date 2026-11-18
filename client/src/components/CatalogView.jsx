@@ -5,9 +5,9 @@ import {
   Search, 
   ArrowUpDown, 
   Info, 
-  X,
-  MessageCircle
+  X
 } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const CATEGORY_TABS = [
   { key: 'all', label: 'All Products' },
@@ -452,9 +452,9 @@ export default function CatalogView({
                 href={`https://wa.me/919810550222?text=${encodeURIComponent(`Hello Computer Care, I am looking for products in: ${CATEGORY_TITLE_MAP[selectedCategory] || selectedCategory}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 transition-colors"
+                className="mt-4 px-4 py-2 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs flex items-center gap-2 transition-colors shadow-sm"
               >
-                <MessageCircle className="w-4 h-4" />
+                <WhatsAppIcon variant="badge" className="w-4 h-4" />
                 <span>Enquire on WhatsApp (+91 9810550222)</span>
               </a>
             </div>
@@ -537,10 +537,10 @@ export default function CatalogView({
                           href={`https://wa.me/919810550222?text=${encodeURIComponent(`Hello Computer Care, I would like to enquire about: ${p.title} (${p.vendor})`)}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 py-1.5 px-2 rounded-lg text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-xs font-bold flex items-center justify-center gap-1 transition-colors"
+                          className="flex-1 py-1.5 px-2 rounded-lg text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
                           title={`Enquire on WhatsApp about ${p.title}`}
                         >
-                          <MessageCircle className="w-3.5 h-3.5" />
+                          <WhatsAppIcon variant="badge" className="w-3.5 h-3.5" />
                           <span>Enquire</span>
                         </a>
 

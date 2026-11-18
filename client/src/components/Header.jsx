@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AdminLoginModal from './AdminLoginModal';
+import WhatsAppIcon from './WhatsAppIcon';
 import { CONTACT_EMAIL } from '../constants/storeInfo';
 import { 
   ShoppingCart, 
@@ -1214,9 +1215,12 @@ export default function Header({
                   href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20help%20with%20a%20PC%20build"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-2 bg-emerald-50 text-emerald-700 border border-emerald-300 rounded-lg text-xs font-bold flex items-center justify-between"
+                  className="px-3 py-2 bg-emerald-50 text-emerald-800 border border-emerald-300 rounded-lg text-xs font-bold flex items-center justify-between hover:bg-emerald-100 transition-colors"
                 >
-                  <span>Chat on WhatsApp</span>
+                  <div className="flex items-center gap-1.5">
+                    <WhatsAppIcon variant="badge" className="w-4 h-4" />
+                    <span>Chat on WhatsApp</span>
+                  </div>
                   <span className="font-mono text-[11px]">+91 9810550222</span>
                 </a>
                 <a

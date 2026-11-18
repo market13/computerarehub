@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function WhatsAppFloatingButton() {
   const [isHovered, setIsHovered] = useState(false);
@@ -64,19 +65,13 @@ export default function WhatsAppFloatingButton() {
         rel="noopener noreferrer"
         aria-label="Chat with Computer Care on WhatsApp (+91 9810550222)"
         title="Chat on WhatsApp (+91 9810550222)"
-        className="relative flex items-center justify-center w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white shadow-2xl shadow-emerald-600/40 hover:shadow-emerald-600/60 transform hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-4 focus:ring-emerald-400/50 overflow-visible"
+        className="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 transform hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-4 focus:ring-emerald-400/50 drop-shadow-xl hover:drop-shadow-2xl"
       >
-        {/* WhatsApp Official Silhouette Icon */}
-        <svg 
-          className="w-7 h-7 sm:w-9 sm:h-9 fill-current text-white relative z-10 drop-shadow-xs" 
-          viewBox="0 0 24 24"
-        >
-          <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.978-.276-.1-.476-.15-.676.15-.2.301-.776.978-.952 1.179-.175.2-.351.226-.652.075-.301-.15-1.27-.468-2.42-1.493-.895-.798-1.5-1.785-1.676-2.086-.175-.301-.019-.464.132-.614.135-.135.301-.351.451-.527.151-.175.2-.301.301-.501.101-.2.05-.376-.025-.526-.075-.15-.677-1.632-.927-2.234-.244-.587-.492-.507-.677-.516-.175-.008-.376-.01-.577-.01-.201 0-.527.075-.802.376s-1.053 1.028-1.053 2.508 1.078 2.91 1.229 3.111c.15.201 2.122 3.24 5.14 4.544.718.31 1.279.495 1.716.634.721.23 1.378.197 1.897.12.578-.087 1.78-.727 2.031-1.429.251-.702.251-1.304.175-1.43-.075-.125-.276-.2-.577-.35zM12.04 2C6.51 2 2.02 6.49 2.02 12.02c0 1.94.55 3.75 1.51 5.29L2 22l4.83-1.48c1.48.88 3.2 1.38 5.21 1.38 5.53 0 10.02-4.49 10.02-10.02C22.06 6.49 17.57 2 12.04 2zm0 18.25c-1.74 0-3.37-.53-4.74-1.45l-.34-.23-2.87.88.89-2.79-.24-.35c-1.02-1.45-1.57-3.17-1.57-4.99 0-4.55 3.7-8.25 8.25-8.25 4.55 0 8.25 3.7 8.25 8.25 0 4.55-3.7 8.25-8.25 8.25z"/>
-        </svg>
+        <WhatsAppIcon variant="badge" className="w-full h-full" />
 
         {/* Online Status Pill on the corner */}
-        <span className="absolute top-0 right-0 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-emerald-300 border-2 border-white rounded-full flex items-center justify-center z-20">
-          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-600" />
+        <span className="absolute top-0 right-0 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-emerald-400 border-2 border-white rounded-full flex items-center justify-center z-20 shadow-xs">
+          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white" />
         </span>
       </a>
     </aside>

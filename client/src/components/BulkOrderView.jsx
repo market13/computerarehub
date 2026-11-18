@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
-import { AlertCircle, MessageSquare } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { submitToNetlify } from '../utils/formSubmit';
 import { CONTACT_EMAIL } from '../constants/storeInfo';
 import { 
@@ -349,8 +350,9 @@ export default function BulkOrderView({ onNavigate }) {
                 href={`https://wa.me/919810550222?text=Hello%20Computer%20Care%20B2B%20Team%2C%20I%20have%20submitted%20a%20bulk%20order%20inquiry%20(Ref%3A%20${encodeURIComponent(submittedInquiry.refNumber)})%20for%20${encodeURIComponent(submittedInquiry.quantity)}.`}
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg font-bold text-xs flex items-center gap-1.5 transition-colors shadow-xs"
+                className="px-4 py-2 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-lg font-bold text-xs flex items-center gap-2 transition-colors shadow-xs"
               >
+                <WhatsAppIcon variant="badge" className="w-4 h-4" />
                 <span>Follow Up via WhatsApp</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
@@ -650,9 +652,9 @@ export default function BulkOrderView({ onNavigate }) {
                   href={`https://wa.me/919810550222?text=${encodeURIComponent(submitError.details)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg flex items-center gap-1.5 transition-colors flex-shrink-0"
+                  className="px-3 py-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold rounded-lg flex items-center gap-1.5 transition-colors flex-shrink-0 text-xs shadow-xs"
                 >
-                  <MessageSquare className="w-3.5 h-3.5" />
+                  <WhatsAppIcon variant="badge" className="w-3.5 h-3.5" />
                   <span>Send via WhatsApp instead</span>
                 </a>
               </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, MessageSquare, Quote } from 'lucide-react';
+import { Star, Quote } from 'lucide-react';
 
 export default function ReviewsSection() {
   const [reviews, setReviews] = useState([]);

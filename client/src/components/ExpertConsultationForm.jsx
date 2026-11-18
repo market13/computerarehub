@@ -16,7 +16,8 @@ import {
   Check 
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { AlertCircle, MessageSquare } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { submitToNetlify } from '../utils/formSubmit';
 import { saveBuildQuote } from '../services/quoteService';
 
@@ -291,8 +292,9 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
                 href={`https://wa.me/919810550222?text=Hello%20Computer%20Care%20Team%2C%20I%20have%20submitted%20a%20PC%20recommendation%20call%20request%20(Ref%3A%20${encodeURIComponent(submittedRequest.refNumber)})%20for%20my%20${encodeURIComponent(submittedRequest.useCase)}%20PC%20build.`}
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg font-bold text-xs flex items-center gap-1.5 transition-colors shadow-xs"
+                className="px-4 py-2 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-lg font-bold text-xs flex items-center gap-2 transition-colors shadow-xs"
               >
+                <WhatsAppIcon variant="badge" className="w-4 h-4" />
                 <span>WhatsApp Hardware Team</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
@@ -334,9 +336,9 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
                   href={`https://wa.me/919810550222?text=${encodeURIComponent(submitError.details)}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 sm:flex-initial px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+                  className="flex-1 sm:flex-initial px-3.5 py-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-lg font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-xs"
                 >
-                  <MessageSquare className="w-3.5 h-3.5" />
+                  <WhatsAppIcon variant="badge" className="w-3.5 h-3.5" />
                   <span>Send via WhatsApp instead</span>
                 </a>
                 <button

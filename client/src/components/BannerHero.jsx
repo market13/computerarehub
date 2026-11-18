@@ -3,9 +3,9 @@ import {
   Truck, 
   ShieldCheck, 
   Box, 
-  MessageSquare,
   ArrowRight
 } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function BannerHero({ onNavigate = () => {} }) {
   const handleBuilderNav = (e) => {
@@ -86,15 +86,20 @@ export default function BannerHero({ onNavigate = () => {} }) {
           </div>
         </div>
 
-        <div className="flex items-center gap-3 p-2">
-          <div className="w-10 h-10 rounded-xl bg-rose-50 text-brand-red flex items-center justify-center flex-shrink-0">
-            <MessageSquare className="w-5 h-5" />
+        <a 
+          href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20have%20an%20inquiry%20regarding%20custom%20PC%20builds%20and%20hardware"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 transition-colors no-underline group"
+        >
+          <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+            <WhatsAppIcon variant="badge" className="w-6 h-6" />
           </div>
           <div>
-            <p className="text-xs font-bold text-slate-800 uppercase font-display">WhatsApp Support</p>
+            <p className="text-xs font-bold text-slate-800 uppercase font-display group-hover:text-emerald-700 transition-colors">WhatsApp Support</p>
             <p className="text-[11px] text-slate-500">Direct hardware specialists</p>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   );

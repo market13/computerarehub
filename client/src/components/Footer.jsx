@@ -1,12 +1,12 @@
 import React from 'react';
 import { CONTACT_EMAIL } from '../constants/storeInfo';
+import WhatsAppIcon from './WhatsAppIcon';
 import { 
   Cpu, 
   Phone, 
   Mail, 
   MapPin, 
   ShieldCheck, 
-  MessageSquare,
   Clock,
   ExternalLink
 } from 'lucide-react';
@@ -127,9 +127,9 @@ export default function Footer({ onNavigate }) {
                 href="https://wa.me/919810550222"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white py-2 px-3 rounded-lg font-bold text-xs transition-colors no-underline"
+                className="mt-2 inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white py-2 px-3 rounded-lg font-bold text-xs shadow-sm transition-all no-underline"
               >
-                <MessageSquare className="w-4 h-4" />
+                <WhatsAppIcon variant="badge" className="w-4 h-4" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>

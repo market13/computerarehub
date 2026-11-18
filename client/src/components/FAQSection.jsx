@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { HelpCircle, ChevronDown, Sparkles } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const FAQS = [
   {
@@ -162,9 +163,9 @@ export default function FAQSection({ onNavigate }) {
           href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20have%20a%20question%20about%20custom%20PC%20building%20or%20repair"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-display font-bold uppercase text-xs tracking-wider flex items-center gap-2 shadow-sm transition-colors cursor-pointer no-underline"
+          className="px-5 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-display font-bold uppercase text-xs tracking-wider flex items-center gap-2 shadow-sm transition-colors cursor-pointer no-underline"
         >
-          <Sparkles className="w-3.5 h-3.5" />
+          <WhatsAppIcon variant="badge" className="w-4 h-4" />
           <span>Chat on WhatsApp</span>
         </a>
       </div>

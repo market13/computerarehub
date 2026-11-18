@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Search, Wrench, Clock, CheckCircle2, AlertCircle, Phone, MessageSquare, Laptop, Cpu, ShieldCheck } from 'lucide-react';
+import { Search, Wrench, Clock, CheckCircle2, AlertCircle, Phone, Laptop, Cpu, ShieldCheck } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { getRepairTicket, createRepairTicket, REPAIR_STATUS_MAP } from '../services/repairService';
 import { validateIndianPhone, checkSubmissionRateLimit } from '../utils/validation';
 
@@ -199,9 +200,9 @@ export default function RepairStatusLookup() {
                   href={`https://wa.me/919810550222?text=${encodeURIComponent(`Hi Computer Care, inquiring regarding my Repair Job ID: ${ticket.job_id} (${ticket.device_brand_model})`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold font-display uppercase tracking-wider transition-all shadow-sm"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-xl text-xs font-bold font-display uppercase tracking-wider transition-all shadow-sm"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <WhatsAppIcon variant="badge" className="w-4 h-4" />
                   <span>Ask Technician</span>
                 </a>
               </div>
@@ -314,9 +315,9 @@ export default function RepairStatusLookup() {
                   href={`https://wa.me/919810550222?text=${encodeURIComponent(`Hi Computer Care, I just booked a repair online with Job ID: ${bookingSuccess.jobId}. Please confirm desk availability.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold font-display uppercase tracking-wider flex items-center gap-1.5 shadow-sm"
+                  className="px-4 py-2 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-lg text-xs font-bold font-display uppercase tracking-wider flex items-center gap-1.5 shadow-sm"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <WhatsAppIcon variant="badge" className="w-4 h-4" />
                   <span>Notify via WhatsApp</span>
                 </a>
               </div>
