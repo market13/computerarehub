@@ -10,4 +10,4 @@ export {
   getUserProfile,
   checkIsAdmin,
   onAuthStateChange
-} from '../lib/supabase';
+} from '../lib/supabase.js';

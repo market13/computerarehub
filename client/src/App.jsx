@@ -8,6 +8,7 @@ import WhatsAppFloatingButton from './components/WhatsAppFloatingButton';
 import MobileBottomNav from './components/MobileBottomNav';
 import StickyMobileActionBar from './components/StickyMobileActionBar';
 import { findCompatibleDefaultBuild } from './utils/compatibility';
+import { getPCConfigurationByCode } from './services/builderService';
 import categoryDescriptions from './constants/categoryDescriptions.json';
 import { SITE_URL } from './constants/storeInfo';
 
@@ -296,6 +297,21 @@ export default function App() {
     }
     loadData();
   }, []);
+
+  // Restore shared PC build if ?config=<code> is present in URL
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const configCode = params.get('config');
+    if (configCode) {
+      getPCConfigurationByCode(configCode).then((res) => {
+        if (res && res.build) {
+          setBuild(res.build);
+        }
+      }).catch((err) => {
+        console.warn('Could not restore shared build config:', err);
+      });
+    }
+  }, [location.search]);
 
   // Ensure active selector category is loaded on demand with full dataset
   useEffect(() => {

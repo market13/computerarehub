@@ -1,4 +1,4 @@
-import { supabase, isSupabaseConfigured, safeDbQuery } from './supabaseClient';
+import { supabase, isSupabaseConfigured, safeDbQuery } from './supabaseClient.js';
 
 const LOCAL_STORAGE_KEY = 'computercare_saved_quotations';
 

@@ -865,16 +865,18 @@ categories.forEach((cat) => {
           "@type": "Brand",
           "name": p.vendor
         },
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "INR",
-          "price": p.price || 0,
-          "availability": p.available !== false ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-          "seller": {
-            "@type": "Organization",
-            "name": "Computer Care"
+        ...(p.price && Number(p.price) > 0 ? {
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "INR",
+            "price": Number(p.price),
+            "availability": p.available !== false ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Computer Care"
+            }
           }
-        }
+        } : {})
       }
     }))
   };

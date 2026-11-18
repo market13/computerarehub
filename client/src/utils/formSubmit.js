@@ -1,5 +1,5 @@
-import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import { STORE_PHONE } from '../constants/storeInfo';
+import { supabase, isSupabaseConfigured } from '../lib/supabase.js';
+import { STORE_PHONE } from '../constants/storeInfo.js';
 
 /**
  * Builds a direct WhatsApp contact URL with pre-filled message

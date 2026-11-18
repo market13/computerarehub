@@ -27,6 +27,7 @@ import ExpertConsultationForm from './ExpertConsultationForm';
 import WhatsAppIcon from './WhatsAppIcon';
 import { checkCompatibility, calculateGamingScores } from '../utils/compatibility';
 import { saveBuildQuote, formatWhatsAppQuoteText } from '../services/quoteService';
+import { savePCConfiguration } from '../services/builderService';
 
 const COMPONENT_SLOTS = [
   { key: 'case', label: 'PC Cabinet / Case', icon: Box, required: true },
@@ -74,25 +75,47 @@ export default function PCBuilderView({
   const psuWattage = build.psu?.specs?.wattage || 750;
   const wattagePct = Math.min(100, Math.round((compatibility.estimatedWattage / psuWattage) * 100));
 
-  const handleShareBuild = () => {
-    let specText = `=== COMPUTER CARE CUSTOM PC RIG ===\n\n`;
-    COMPONENT_SLOTS.forEach(slot => {
-      const item = build[slot.key];
-      if (item) {
-        specText += `• ${slot.label}: ${item.title} - ₹${item.price.toLocaleString('en-IN')}\n`;
-      }
-    });
+  const [shareFeedback, setShareFeedback] = useState(null);
 
-    specText += `\nEstimated Consumption: ~${compatibility.estimatedWattage}W\n`;
-    specText += `Total Price: ₹${totalPrice.toLocaleString('en-IN')}\n`;
-    specText += `Compatibility: ${compatibility.isCompatible ? "100% Compatible" : "Review Alerts"}\n`;
-    specText += `Built on Computer Care PC Configurator (Shiva Tower, Ghaziabad)\n`;
+  const handleShareBuild = async () => {
+    try {
+      const res = await savePCConfiguration({
+        title: 'Custom PC Rig - Computer Care',
+        build,
+        totalPrice,
+        estimatedWattage: compatibility.estimatedWattage,
+        isCompatible: compatibility.isCompatible,
+        compatibilityNotes: compatibility.issues.concat(compatibility.warnings),
+        gamingScores: gaming,
+      });
 
-    navigator.clipboard.writeText(specText);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
+      const generatedUrl = res?.shareUrl || `${window.location.origin}/builder?config=${res?.shareCode || 'spec'}`;
+      navigator.clipboard.writeText(generatedUrl);
+      setCopied(true);
+      setShareFeedback(`Link copied! (${res?.shareCode || 'saved'})`);
+      setTimeout(() => {
+        setCopied(false);
+        setShareFeedback(null);
+      }, 3500);
 
-    confetti({ particleCount: 60, spread: 70, origin: { y: 0.8 } });
+      confetti({ particleCount: 60, spread: 70, origin: { y: 0.8 } });
+    } catch (err) {
+      console.warn('Share build error, copying specsheet text:', err);
+      let specText = `=== COMPUTER CARE CUSTOM PC RIG ===\n\n`;
+      COMPONENT_SLOTS.forEach(slot => {
+        const item = build[slot.key];
+        if (item) {
+          specText += `• ${slot.label}: ${item.title} - ₹${item.price.toLocaleString('en-IN')}\n`;
+        }
+      });
+      specText += `\nEstimated Consumption: ~${compatibility.estimatedWattage}W\n`;
+      specText += `Total Price: ₹${totalPrice.toLocaleString('en-IN')}\n`;
+      specText += `Compatibility: ${compatibility.isCompatible ? "100% Compatible" : "Review Alerts"}\n`;
+      specText += `Built on Computer Care PC Configurator (Shiva Tower, Ghaziabad)\n`;
+      navigator.clipboard.writeText(specText);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    }
   };
 
   const whatsappQuoteUrl = `https://wa.me/919810550222?text=${encodeURIComponent(
@@ -407,13 +430,21 @@ export default function PCBuilderView({
                 </div>
               </div>
 
-              <button
-                onClick={handleShareBuild}
-                className="p-2 rounded-lg border border-slate-200 text-slate-600 hover:text-brand-navy hover:bg-slate-50 transition-colors"
-                title="Share Build Spec Sheet"
-              >
-                {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Share2 className="w-4 h-4" />}
-              </button>
+              <div className="flex items-center gap-2">
+                {shareFeedback && (
+                  <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                    {shareFeedback}
+                  </span>
+                )}
+                <button
+                  type="button"
+                  onClick={handleShareBuild}
+                  className="p-2 rounded-lg border border-slate-200 text-slate-600 hover:text-brand-navy hover:bg-slate-50 transition-colors cursor-pointer"
+                  title="Save & Share Build Link"
+                >
+                  {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Share2 className="w-4 h-4" />}
+                </button>
+              </div>
             </div>
 
             <button

@@ -21,6 +21,12 @@ import {
   checkIsAdmin,
   onAuthStateChange
 } from '../lib/supabase';
+import {
+  getCustomerProfile,
+  updateCustomerProfile,
+  getCustomerOrders,
+  getCustomerSavedBuilds
+} from '../services/customerService';
 
 export default function AdminLoginModal({
   isOpen,
@@ -44,6 +50,55 @@ export default function AdminLoginModal({
   const [customerName, setCustomerName] = useState('');
   const [customerMsg, setCustomerMsg] = useState({ type: '', text: '' });
   const [customerUser, setCustomerUser] = useState(null);
+
+  // Customer account & history state
+  const [customerSubTab, setCustomerSubTab] = useState('orders'); // 'orders' | 'builds' | 'profile'
+  const [customerProfile, setCustomerProfile] = useState(null);
+  const [customerOrders, setCustomerOrders] = useState([]);
+  const [customerBuilds, setCustomerBuilds] = useState([]);
+  const [editFullName, setEditFullName] = useState('');
+  const [editPhone, setEditPhone] = useState('');
+  const [isSavingProfile, setIsSavingProfile] = useState(false);
+  const [profileSaveSuccess, setProfileSaveSuccess] = useState(false);
+
+  useEffect(() => {
+    if (!customerUser) return;
+    getCustomerProfile(customerUser.id).then((prof) => {
+      if (prof) {
+        setCustomerProfile(prof);
+        setEditFullName(prof.full_name || '');
+        setEditPhone(prof.phone || '');
+      }
+    });
+    getCustomerOrders(customerUser.id, customerUser.email).then((ords) => {
+      setCustomerOrders(ords || []);
+    });
+    getCustomerSavedBuilds(customerUser.id).then((blds) => {
+      setCustomerBuilds(blds || []);
+    });
+  }, [customerUser]);
+
+  const handleSaveProfile = async (e) => {
+    e.preventDefault();
+    if (!customerUser) return;
+    setIsSavingProfile(true);
+    setProfileSaveSuccess(false);
+    try {
+      const { data } = await updateCustomerProfile(customerUser.id, {
+        fullName: editFullName,
+        phone: editPhone,
+      });
+      if (data) {
+        setCustomerProfile(data);
+        setProfileSaveSuccess(true);
+        setTimeout(() => setProfileSaveSuccess(false), 2500);
+      }
+    } catch (err) {
+      console.warn('Profile save error:', err);
+    } finally {
+      setIsSavingProfile(false);
+    }
+  };
 
   // Check auth status on open and listen to changes
   useEffect(() => {
@@ -275,35 +330,157 @@ export default function AdminLoginModal({
             <div>
               {customerUser ? (
                 <div className="space-y-4">
-                  <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block font-display font-bold text-sm text-emerald-900">
-                        Signed In as Customer
-                      </strong>
-                      <span className="text-emerald-700 leading-relaxed block mt-0.5">
-                        {customerUser.email}
-                      </span>
+                  <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                      <div>
+                        <strong className="block font-bold text-emerald-950">
+                          {customerProfile?.full_name || customerUser.email}
+                        </strong>
+                        <span className="text-[11px] text-emerald-700">{customerUser.email}</span>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 pt-2">
-                    <button
-                      type="button"
-                      onClick={onClose}
-                      className="flex-1 py-3 rounded-xl bg-brand-navy hover:bg-brand-blue text-white font-display font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
-                    >
-                      <span>Continue Shopping</span>
-                      <ArrowRight className="w-4 h-4 text-brand-gold" />
-                    </button>
-
                     <button
                       type="button"
                       onClick={handleCustomerLogout}
-                      className="py-3 px-4 rounded-xl border border-rose-200 text-rose-600 hover:bg-rose-50 text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer"
+                      className="px-2.5 py-1 rounded-lg border border-rose-200 text-rose-600 hover:bg-rose-50 text-[11px] font-semibold flex items-center gap-1 transition-colors cursor-pointer"
                     >
-                      <LogOut className="w-3.5 h-3.5" />
+                      <LogOut className="w-3 h-3" />
                       <span>Sign Out</span>
+                    </button>
+                  </div>
+
+                  {/* Customer Subtabs */}
+                  <div className="flex border-b border-slate-200 text-xs font-semibold">
+                    <button
+                      type="button"
+                      onClick={() => setCustomerSubTab('orders')}
+                      className={`pb-2 px-2 border-b-2 transition-colors cursor-pointer ${
+                        customerSubTab === 'orders' ? 'border-brand-navy text-brand-navy' : 'border-transparent text-slate-500 hover:text-slate-800'
+                      }`}
+                    >
+                      My Orders ({customerOrders.length})
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setCustomerSubTab('builds')}
+                      className={`pb-2 px-2 border-b-2 transition-colors cursor-pointer ${
+                        customerSubTab === 'builds' ? 'border-brand-navy text-brand-navy' : 'border-transparent text-slate-500 hover:text-slate-800'
+                      }`}
+                    >
+                      Saved Builds ({customerBuilds.length})
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setCustomerSubTab('profile')}
+                      className={`pb-2 px-2 border-b-2 transition-colors cursor-pointer ${
+                        customerSubTab === 'profile' ? 'border-brand-navy text-brand-navy' : 'border-transparent text-slate-500 hover:text-slate-800'
+                      }`}
+                    >
+                      Profile Settings
+                    </button>
+                  </div>
+
+                  {/* Subtab 1: Orders */}
+                  {customerSubTab === 'orders' && (
+                    <div className="max-h-60 overflow-y-auto space-y-2 pr-1">
+                      {customerOrders.length === 0 ? (
+                        <div className="py-8 text-center text-xs text-slate-500">
+                          No order requests found. Configure your dream rig in the PC Builder!
+                        </div>
+                      ) : (
+                        customerOrders.map((ord) => (
+                          <div key={ord.id || ord.order_number} className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
+                            <div className="flex items-center justify-between font-mono font-bold text-slate-900">
+                              <span>{ord.order_number || ord.orderNumber}</span>
+                              <span className="text-[10px] uppercase px-1.5 py-0.5 rounded font-sans font-bold bg-amber-100 text-amber-800">
+                                {ord.status}
+                              </span>
+                            </div>
+                            <div className="flex items-center justify-between text-slate-500 text-[11px]">
+                              <span>{ord.created_at || ord.createdAt ? new Date(ord.created_at || ord.createdAt).toLocaleDateString('en-IN') : 'Recent'}</span>
+                              <span className="font-semibold text-brand-navy">
+                                ₹{Number(ord.total_amount || ord.totalAmount || 0).toLocaleString('en-IN')}
+                              </span>
+                            </div>
+                          </div>
+                        ))
+                      )}
+                    </div>
+                  )}
+
+                  {/* Subtab 2: Saved Builds */}
+                  {customerSubTab === 'builds' && (
+                    <div className="max-h-60 overflow-y-auto space-y-2 pr-1">
+                      {customerBuilds.length === 0 ? (
+                        <div className="py-8 text-center text-xs text-slate-500">
+                          No saved builds yet. Use "Share Build" in the configurator to save your specs!
+                        </div>
+                      ) : (
+                        customerBuilds.map((b) => (
+                          <div key={b.id || b.share_code} className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs flex items-center justify-between">
+                            <div>
+                              <strong className="block text-slate-800 font-bold">{b.title || 'Custom Rig'}</strong>
+                              <span className="text-[11px] font-mono text-slate-500">Ref: {b.share_code}</span>
+                            </div>
+                            <a
+                              href={`/builder?config=${b.share_code}`}
+                              onClick={onClose}
+                              className="px-2.5 py-1 bg-brand-navy text-white text-[11px] font-semibold rounded-lg hover:bg-brand-blue transition-colors cursor-pointer"
+                            >
+                              Load
+                            </a>
+                          </div>
+                        ))
+                      )}
+                    </div>
+                  )}
+
+                  {/* Subtab 3: Profile Settings */}
+                  {customerSubTab === 'profile' && (
+                    <form onSubmit={handleSaveProfile} className="space-y-3">
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-700 mb-1">Full Name</label>
+                        <input
+                          type="text"
+                          value={editFullName}
+                          onChange={(e) => setEditFullName(e.target.value)}
+                          placeholder="Your full name"
+                          className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
+                        <input
+                          type="tel"
+                          value={editPhone}
+                          onChange={(e) => setEditPhone(e.target.value)}
+                          placeholder="+91 9876543210"
+                          className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                        />
+                      </div>
+                      {profileSaveSuccess && (
+                        <div className="text-[11px] text-emerald-700 font-semibold">
+                          Profile details updated successfully!
+                        </div>
+                      )}
+                      <button
+                        type="submit"
+                        disabled={isSavingProfile}
+                        className="w-full py-2 rounded-xl bg-brand-navy hover:bg-brand-blue text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-50"
+                      >
+                        {isSavingProfile ? 'Saving...' : 'Save Profile'}
+                      </button>
+                    </form>
+                  )}
+
+                  <div className="pt-2">
+                    <button
+                      type="button"
+                      onClick={onClose}
+                      className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors cursor-pointer"
+                    >
+                      Close Account Panel
                     </button>
                   </div>
                 </div>

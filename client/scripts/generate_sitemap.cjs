@@ -26,138 +26,162 @@ let categories = [
   'gaming_pc'
 ];
 
-let lastmod = new Date().toISOString().split('T')[0];
-
 if (fs.existsSync(manifestPath)) {
   try {
     const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
     if (Array.isArray(manifest.categories) && manifest.categories.length > 0) {
       categories = manifest.categories;
     }
-    if (manifest.updatedAt) {
-      lastmod = manifest.updatedAt.split('T')[0];
-    }
   } catch (err) {
     console.warn('Failed to parse manifest.json, using fallback category list:', err.message);
   }
 }
 
+/**
+ * Helper to get ISO date string from file modification timestamp
+ */
+function getFileModDate(filePath) {
+  try {
+    if (fs.existsSync(filePath)) {
+      const stats = fs.statSync(filePath);
+      return stats.mtime.toISOString().split('T')[0];
+    }
+  } catch {
+    // fallback
+  }
+  return null;
+}
+
+const defaultMod = getFileModDate(manifestPath) || new Date().toISOString().split('T')[0];
+const blogMod = getFileModDate(path.resolve(__dirname, '../src/data/blogPosts.js')) || defaultMod;
+const builderMod = getFileModDate(path.resolve(__dirname, '../src/components/PCBuilderView.jsx')) || defaultMod;
+const servicesMod = getFileModDate(path.resolve(__dirname, '../src/components/ServicesView.jsx')) || defaultMod;
+const bulkOrderMod = getFileModDate(path.resolve(__dirname, '../src/components/BulkOrderView.jsx')) || defaultMod;
+const aboutMod = getFileModDate(path.resolve(__dirname, '../src/components/AboutView.jsx')) || defaultMod;
+const privacyMod = getFileModDate(path.resolve(__dirname, '../src/components/PrivacyPolicyView.jsx')) || defaultMod;
+const termsMod = getFileModDate(path.resolve(__dirname, '../src/components/TermsView.jsx')) || defaultMod;
+const warrantyMod = getFileModDate(path.resolve(__dirname, '../src/components/WarrantyReturnsView.jsx')) || defaultMod;
+const shippingMod = getFileModDate(path.resolve(__dirname, '../src/components/ShippingDeliveryView.jsx')) || defaultMod;
+
 const entries = [
   // Homepage
   {
     loc: 'https://computercaregzb.com/',
-    lastmod,
+    lastmod: defaultMod,
     changefreq: 'daily',
     priority: '1.0'
   },
   // Custom PC Builder Configurator
   {
     loc: 'https://computercaregzb.com/builder',
-    lastmod,
+    lastmod: builderMod,
     changefreq: 'daily',
     priority: '0.9'
   },
   // Complete Hardware Catalog
   {
     loc: 'https://computercaregzb.com/catalog',
-    lastmod,
+    lastmod: defaultMod,
     changefreq: 'daily',
     priority: '0.9'
   },
   // Computer Repair & Hardware Services in Ghaziabad
   {
     loc: 'https://computercaregzb.com/services',
-    lastmod,
+    lastmod: servicesMod,
     changefreq: 'weekly',
     priority: '0.9'
   },
   // B2B & Bulk Orders
   {
     loc: 'https://computercaregzb.com/bulk-order',
-    lastmod,
+    lastmod: bulkOrderMod,
     changefreq: 'weekly',
     priority: '0.8'
   },
   // About Us
   {
     loc: 'https://computercaregzb.com/about',
-    lastmod,
+    lastmod: aboutMod,
     changefreq: 'monthly',
     priority: '0.7'
   },
   // Warranty & Returns Policy
   {
     loc: 'https://computercaregzb.com/warranty-returns',
-    lastmod,
+    lastmod: warrantyMod,
     changefreq: 'monthly',
     priority: '0.7'
   },
   // Shipping & Delivery
   {
     loc: 'https://computercaregzb.com/shipping-delivery',
-    lastmod,
+    lastmod: shippingMod,
     changefreq: 'monthly',
     priority: '0.7'
   },
   // Privacy Policy
   {
     loc: 'https://computercaregzb.com/privacy-policy',
-    lastmod,
+    lastmod: privacyMod,
     changefreq: 'monthly',
     priority: '0.5'
   },
   // Terms & Conditions
   {
     loc: 'https://computercaregzb.com/terms',
-    lastmod,
+    lastmod: termsMod,
     changefreq: 'monthly',
     priority: '0.5'
   },
   // Local SEO Landing Pages
   {
     loc: 'https://computercaregzb.com/pc-repair-indirapuram',
-    lastmod,
+    lastmod: servicesMod,
     changefreq: 'weekly',
     priority: '0.85'
   },
   {
     loc: 'https://computercaregzb.com/gaming-pc-vaishali',
-    lastmod,
+    lastmod: builderMod,
     changefreq: 'weekly',
     priority: '0.85'
   },
   {
     loc: 'https://computercaregzb.com/computer-shop-raj-nagar-extension',
-    lastmod,
+    lastmod: defaultMod,
     changefreq: 'weekly',
     priority: '0.85'
   },
   // Hardware Guides & Blog
   {
     loc: 'https://computercaregzb.com/blog',
-    lastmod,
+    lastmod: blogMod,
     changefreq: 'weekly',
     priority: '0.8'
   },
   {
     loc: 'https://computercaregzb.com/blog/best-gaming-pc-build-under-50000-2026',
-    lastmod,
+    lastmod: blogMod,
     changefreq: 'monthly',
     priority: '0.75'
   },
   {
     loc: 'https://computercaregzb.com/blog/laptop-repair-cost-ghaziabad',
-    lastmod,
+    lastmod: blogMod,
     changefreq: 'monthly',
     priority: '0.75'
   }
 ];
 
-// Add all 19 hardware categories
+// Add all 19 hardware categories with per-category file modification date
 categories.forEach((cat) => {
+  const catFilePath = path.resolve(__dirname, `../public/data/categories/${cat}.json`);
+  const catLastmod = getFileModDate(catFilePath) || defaultMod;
+
   entries.push({
     loc: `https://computercaregzb.com/catalog/${cat}`,
-    lastmod,
+    lastmod: catLastmod,
     changefreq: 'daily',
     priority: '0.8'
   });
@@ -170,7 +194,7 @@ ${entries
   .map(
     (e) => `  <url>
     <loc>${e.loc}</loc>
-    <lastmod>${e.lastmod}</lastmod>
+    ${e.lastmod ? `<lastmod>${e.lastmod}</lastmod>` : ''}
     <changefreq>${e.changefreq}</changefreq>
     <priority>${e.priority}</priority>
   </url>`

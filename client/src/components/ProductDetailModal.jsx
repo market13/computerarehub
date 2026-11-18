@@ -89,23 +89,25 @@ export default function ProductDetailModal({
       "description": product.description || `${product.title} - Authentic computer hardware component from ${product.vendor} with official manufacturer warranty.`,
       "sku": product.sku || `CC-${product.id}`,
       "mpn": product.sku || String(product.id),
-      "brand": {
+      brand: {
         "@type": "Brand",
         "name": product.vendor
       },
-      "offers": {
-        "@type": "Offer",
-        "url": typeof window !== 'undefined' ? `${window.location.origin}/catalog/${product.category}` : `https://computercaregzb.com/catalog/${product.category}`,
-        "priceCurrency": "INR",
-        "price": product.price,
-        "priceValidUntil": "2027-12-31",
-        "availability": product.available !== false ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-        "itemCondition": "https://schema.org/NewCondition",
-        "seller": {
-          "@type": "Organization",
-          "name": "Computer Care"
+      ...(product.price && Number(product.price) > 0 ? {
+        offers: {
+          "@type": "Offer",
+          "url": typeof window !== 'undefined' ? `${window.location.origin}/catalog/${product.category}` : `https://computercaregzb.com/catalog/${product.category}`,
+          "priceCurrency": "INR",
+          "price": Number(product.price),
+          "priceValidUntil": "2027-12-31",
+          "availability": product.available !== false ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+          "itemCondition": "https://schema.org/NewCondition",
+          "seller": {
+            "@type": "Organization",
+            "name": "Computer Care"
+          }
         }
-      }
+      } : {})
     };
 
     script.textContent = JSON.stringify(productSchema);

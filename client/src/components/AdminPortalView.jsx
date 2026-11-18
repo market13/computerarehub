@@ -23,11 +23,21 @@ import {
   MapPin,
   DollarSign,
   Wrench,
-  Plus
+  Plus,
+  Users
 } from 'lucide-react';
 import { getAllRepairTickets, updateRepairTicket, createRepairTicket, REPAIR_STATUS_MAP } from '../services/repairService';
 import { getStoredQuotes } from '../services/quoteService';
 import { saveProductOverride } from '../services/catalogService';
+import {
+  checkBackendConnection,
+  fetchAdminOrders,
+  updateAdminOrderStatus,
+  updateAdminOrderTracking,
+  fetchAdminLeadsAndQuotes,
+  updateAdminInquiryStatus,
+  fetchAdminCustomers,
+} from '../services/adminService';
 import {
   isSupabaseConfigured,
   signIn,
@@ -172,6 +182,10 @@ export default function AdminPortalView({
   });
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [orderStatusFilter, setOrderStatusFilter] = useState('all');
+
+  // Live Backend & Customers State
+  const [backendStatus, setBackendStatus] = useState({ isLive: false, checked: false, reason: '' });
+  const [customers, setCustomers] = useState([]);
 
   // Quotations & Inquiries state
   const [inquiries, setInquiries] = useState(() => {
@@ -335,37 +349,36 @@ export default function AdminPortalView({
 
   useEffect(() => {
     if (adminUser) {
-      // 1. Load Repair Tickets
-      getAllRepairTickets().then(res => {
-        if (res?.data) {
-          setRepairs(res.data);
+      // 1. Check live database connectivity
+      checkBackendConnection().then((res) => {
+        setBackendStatus({ isLive: res.isLive, checked: true, reason: res.reason || '' });
+      });
+
+      // 2. Load live orders from Supabase (or fallback)
+      fetchAdminOrders().then((liveOrds) => {
+        if (liveOrds && liveOrds.length > 0) {
+          setOrders(liveOrds);
         }
       });
 
-      // 2. Load Cloud / Stored Quotations
-      getStoredQuotes().then(res => {
-        if (res?.data && res.data.length > 0) {
-          const cloudQuotes = res.data.map(q => ({
-            id: q.quotation_number,
-            type: q.inquiry_type === 'consultation' ? 'PC Consultation / Quote' : 'Custom PC Build Quote',
-            name: q.customer_name,
-            company: q.inquiry_type === 'b2b_bulk' ? (q.company_name || 'Business Client') : 'Direct Customer',
-            phone: q.customer_phone,
-            email: q.customer_email,
-            city: q.city,
-            category: q.intended_usage || 'Custom Rig',
-            quantity: '1 Custom PC',
-            budget: q.budget_range || `₹${Number(q.quoted_subtotal || 0).toLocaleString('en-IN')}`,
-            timeline: 'Immediate',
-            date: new Date(q.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }),
-            status: q.status === 'pending' ? 'Pending Review' : q.status
-          }));
+      // 3. Load Leads and Quotes from Supabase
+      fetchAdminLeadsAndQuotes().then((liveInqs) => {
+        if (liveInqs && liveInqs.length > 0) {
+          setInquiries(liveInqs);
+        }
+      });
 
-          setInquiries(prev => {
-            const map = new Map();
-            [...cloudQuotes, ...prev].forEach(item => map.set(item.id, item));
-            return Array.from(map.values());
-          });
+      // 4. Load Registered Customers
+      fetchAdminCustomers().then((liveCusts) => {
+        if (liveCusts && liveCusts.length > 0) {
+          setCustomers(liveCusts);
+        }
+      });
+
+      // 5. Load Repair Tickets
+      getAllRepairTickets().then(res => {
+        if (res?.data) {
+          setRepairs(res.data);
         }
       });
     }
@@ -502,7 +515,7 @@ export default function AdminPortalView({
     setEditingProduct(null);
   };
 
-  const handleUpdateOrderStatus = (orderId, newStatus) => {
+  const handleUpdateOrderStatus = async (orderId, newStatus) => {
     const updated = orders.map(ord => {
       if (ord.id === orderId) {
         return { ...ord, status: newStatus };
@@ -514,9 +527,10 @@ export default function AdminPortalView({
     if (selectedOrder && selectedOrder.id === orderId) {
       setSelectedOrder({ ...selectedOrder, status: newStatus });
     }
+    await updateAdminOrderStatus(orderId, newStatus);
   };
 
-  const handleUpdateTracking = (orderId, courier, tracking) => {
+  const handleUpdateTracking = async (orderId, courier, tracking) => {
     const updated = orders.map(ord => {
       if (ord.id === orderId) {
         return { ...ord, courier, trackingNumber: tracking };
@@ -528,16 +542,21 @@ export default function AdminPortalView({
     if (selectedOrder && selectedOrder.id === orderId) {
       setSelectedOrder({ ...selectedOrder, courier, trackingNumber: tracking });
     }
+    await updateAdminOrderTracking(orderId, courier, tracking);
   };
 
-  const handleUpdateInquiryStatus = (inquiryId, newStatus) => {
+  const handleUpdateInquiryStatus = async (inquiryId, newStatus, staffNotes = '') => {
+    const targetInq = inquiries.find(i => i.id === inquiryId);
     const updated = inquiries.map(inq => {
       if (inq.id === inquiryId) {
-        return { ...inq, status: newStatus };
+        return { ...inq, status: newStatus, notes: staffNotes || inq.notes };
       }
       return inq;
     });
     setInquiries(updated);
+    if (targetInq) {
+      await updateAdminInquiryStatus(targetInq.sourceType || 'quotation', targetInq.dbId || targetInq.id, newStatus, staffNotes);
+    }
   };
 
   // Analytics Calculations
@@ -808,7 +827,40 @@ export default function AdminPortalView({
           <Wrench className="w-4 h-4" />
           <span>Repair Jobs & Service ({repairs.length})</span>
         </button>
+
+        <button
+          onClick={() => setAdminTab('customers')}
+          className={`px-4 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-2 ${
+            adminTab === 'customers'
+              ? 'bg-brand-navy text-white shadow-sm'
+              : 'text-slate-600 hover:bg-slate-100'
+          }`}
+        >
+          <Users className="w-4 h-4" />
+          <span>Registered Customers ({customers.length})</span>
+        </button>
       </div>
+
+      {/* Backend Status Banner */}
+      {backendStatus.checked && (
+        <div className={`p-3.5 rounded-2xl border text-xs font-semibold flex items-center justify-between gap-2 shadow-xs ${
+          backendStatus.isLive
+            ? 'bg-emerald-50 border-emerald-200 text-emerald-900'
+            : 'bg-amber-50 border-amber-200 text-amber-900'
+        }`}>
+          <div className="flex items-center gap-2.5">
+            <span className={`w-2.5 h-2.5 rounded-full ${backendStatus.isLive ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500'}`} />
+            <span>
+              {backendStatus.isLive
+                ? '🟢 Connected to Live Supabase Backend (ap-south-1 Mumbai) — Real-time database sync and audit logging active.'
+                : '🟡 Offline Mode — Operating on Local Storage & Static Data (configure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to sync).'}
+            </span>
+          </div>
+          <span className="text-[10px] font-mono uppercase bg-white/80 px-2.5 py-1 rounded-lg border border-black/5 font-bold shadow-2xs">
+            {backendStatus.isLive ? 'DATABASE: CONNECTED' : 'OFFLINE STORE'}
+          </span>
+        </div>
+      )}
 
       {/* 1. DASHBOARD OVERVIEW TAB */}
       {adminTab === 'dashboard' && (
@@ -1471,6 +1523,62 @@ export default function AdminPortalView({
               </div>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* 5b. CUSTOMERS TAB */}
+      {adminTab === 'customers' && (
+        <div className="bg-white rounded-2xl border border-brand-border p-4 sm:p-5 shadow-xs flex flex-col gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
+            <div>
+              <h3 className="font-display font-bold uppercase text-base text-brand-navy flex items-center gap-2">
+                <Users className="w-4 h-4 text-brand-blue" />
+                <span>Registered Customer Accounts ({customers.length})</span>
+              </h3>
+              <p className="text-xs text-slate-500 font-sans mt-0.5">
+                Profiles synchronized via Supabase Auth and database tables.
+              </p>
+            </div>
+          </div>
+
+          {customers.length === 0 ? (
+            <div className="py-16 text-center text-xs text-slate-500">
+              No registered customer profiles found in database yet.
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead>
+                  <tr className="border-b border-slate-200 text-slate-500 font-mono uppercase text-[11px]">
+                    <th className="py-2.5 px-3">Name</th>
+                    <th className="py-2.5 px-3">Email</th>
+                    <th className="py-2.5 px-3">Phone</th>
+                    <th className="py-2.5 px-3">Role</th>
+                    <th className="py-2.5 px-3">Order Count</th>
+                    <th className="py-2.5 px-3">Total Spent</th>
+                    <th className="py-2.5 px-3">Joined</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {customers.map((c) => (
+                    <tr key={c.id} className="hover:bg-slate-50 transition-colors">
+                      <td className="py-3 px-3 font-bold text-slate-900">{c.name}</td>
+                      <td className="py-3 px-3 text-slate-600">{c.email}</td>
+                      <td className="py-3 px-3 font-mono text-slate-700">{c.phone}</td>
+                      <td className="py-3 px-3">
+                        <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${c.role === 'admin' ? 'bg-purple-100 text-purple-800' : 'bg-slate-100 text-slate-700'}`}>
+                          {c.role}
+                        </span>
+                      </td>
+                      <td className="py-3 px-3 font-mono">{c.orderCount}</td>
+                      <td className="py-3 px-3 font-bold font-mono text-brand-navy">₹{c.totalSpent.toLocaleString('en-IN')}</td>
+                      <td className="py-3 px-3 text-slate-500">{c.joinedDate}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       )}
 
