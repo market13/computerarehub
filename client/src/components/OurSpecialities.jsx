@@ -53,7 +53,7 @@ const SPECIALITIES = [
 
 export default function OurSpecialities({ onNavigate = () => {}, onOpenPresets: _onOpenPresets = () => {} }) {
   const handleCardClick = (_spec) => {
-    // Navigate to 3D PC builder or trigger prebuilt presets
+    // Navigate to Custom PC builder or trigger prebuilt presets
     onNavigate('builder');
   };
 

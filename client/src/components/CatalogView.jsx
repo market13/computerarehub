@@ -534,14 +534,14 @@ export default function CatalogView({
 
                       <div className="flex items-center gap-1.5">
                         <a
-                          href={`https://wa.me/919810550222?text=${encodeURIComponent(`Hello Computer Care, I would like to enquire about: ${p.title} (${p.vendor})`)}`}
+                          href={`https://wa.me/919810550222?text=${encodeURIComponent(`Hello Computer Care, I would like to enquire about: ${p.title} (${p.vendor}) - https://computercaregzb.com/catalog/${p.category || selectedCategory}`)}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex-1 py-1.5 px-2 rounded-lg text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
-                          title={`Enquire on WhatsApp about ${p.title}`}
+                          title={`Ask on WhatsApp about ${p.title}`}
                         >
                           <WhatsAppIcon variant="badge" className="w-3.5 h-3.5" />
-                          <span>Enquire</span>
+                          <span>Ask on WhatsApp</span>
                         </a>
 
                         <button

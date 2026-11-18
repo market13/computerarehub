@@ -52,7 +52,7 @@ export default function BuildSummarySidebar({
     specText += `\nEstimated Consumption: ~${compatibility.estimatedWattage}W\n`;
     specText += `Total Price: ₹${totalPrice.toLocaleString('en-IN')}\n`;
     specText += `Compatibility: ${compatibility.isCompatible ? "100% Compatible" : "Issues Detected"}\n`;
-    specText += `Configured on Computer Care 3D PC Configurator (computercaregzb.com)\n`;
+    specText += `Configured on Computer Care Custom PC Builder (computercaregzb.com)\n`;
 
     navigator.clipboard.writeText(specText);
     setCopied(true);

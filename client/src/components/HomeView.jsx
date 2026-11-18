@@ -18,6 +18,7 @@ import ShopByCategory from './ShopByCategory';
 import OurSpecialities from './OurSpecialities';
 import RecentBuildsGallery from './RecentBuildsGallery';
 import ReviewsSection from './ReviewsSection';
+import StoreLocationMap from './StoreLocationMap';
 import FAQSection from './FAQSection';
 
 export default function HomeView({
@@ -78,7 +79,7 @@ export default function HomeView({
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span>Zero-Bottleneck Hardware Matching</span>
+                <span>Balanced, Compatibility-Checked Builds</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
@@ -456,7 +457,10 @@ export default function HomeView({
       {/* 8. Customer Reviews & Testimonials (Renders only when real reviews exist in reviews.json) */}
       <ReviewsSection />
 
-      {/* 9. Frequently Asked Questions (FAQ) with Schema-aligned QA grounding */}
+      {/* 9. Google Maps Embed & Store Location Section (Requirement 13) */}
+      <StoreLocationMap className="mt-4 mb-2" />
+
+      {/* 10. Frequently Asked Questions (FAQ) with Schema-aligned QA grounding */}
       <FAQSection onNavigate={onNavigate} />
     </div>
   );

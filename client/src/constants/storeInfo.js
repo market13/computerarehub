@@ -10,6 +10,12 @@ export const STORE_COUNTRY = 'India';
 export const STORE_ADDRESS = 'G 23 Shiva Tower, Ghaziabad, Uttar Pradesh 201009';
 export const STORE_HOURS = 'Mon-Sat 10:30 AM - 8:00 PM IST (Closed Sunday)';
 export const STORE_DOMAIN = 'https://computercaregzb.com';
+export const SITE_URL = import.meta.env.VITE_SITE_URL || STORE_DOMAIN;
+
+// TODO: Replace with verified social media and Google Business Profile links
+export const GOOGLE_MAPS_URL = import.meta.env.VITE_GOOGLE_MAPS_URL || 'https://maps.google.com/?q=G+23+Shiva+Tower+Ghaziabad+Uttar+Pradesh+201009'; // TODO: confirm exact Google Maps link
+export const INSTAGRAM_URL = import.meta.env.VITE_INSTAGRAM_URL || ''; // TODO: confirm store Instagram profile URL
+export const STORE_LANDMARK = 'Shiva Tower Commercial Complex, Central Ghaziabad'; // TODO: confirm exact nearby landmark (e.g. Near Old Bus Stand / Railway Station)
 
 // TODO: Set verified store contact email on computercaregzb.com via VITE_CONTACT_EMAIL environment variable
 export const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || '';

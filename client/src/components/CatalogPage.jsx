@@ -90,7 +90,7 @@ export default function CatalogPage({
             PC Components Catalog
           </h1>
           <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl font-mono">
-            Browse genuine PC hardware directly sourced with live pricing and local images. Add any part to your custom 3D build in one click.
+            Browse genuine PC hardware directly sourced with live pricing and local images. Add any part to your custom PC build in one click.
           </p>
         </div>
 

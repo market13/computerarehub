@@ -217,7 +217,7 @@ const homeContent = `
         </article>
         <article style="border:1px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;">
           <h3 style="font-size:1.1rem;color:#1e293b;margin:0 0 6px 0;">Can customers get help choosing PC components?</h3>
-          <p style="color:#475569;margin:0;font-size:0.95rem;line-height:1.5;">Absolutely. Our hardware specialists provide free consultation to help you choose the right components without bottlenecks. You can submit your requirements through our consultation form or chat directly with our PC builders on WhatsApp at +91 9810550222 for honest, budget-optimized hardware recommendations.</p>
+          <p style="color:#475569;margin:0;font-size:0.95rem;line-height:1.5;">Absolutely. Our hardware specialists provide free consultation to help you choose the right balanced, compatibility-checked components. You can submit your requirements through our consultation form or chat directly with our PC builders on WhatsApp at +91 9810550222 for honest, budget-optimized hardware recommendations.</p>
         </article>
         <article style="border:1px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;">
           <h3 style="font-size:1.1rem;color:#1e293b;margin:0 0 6px 0;">How does Computer Care ensure custom PC parts compatibility?</h3>
@@ -499,7 +499,7 @@ const servicesSchema = [
       { "@type": "State", "name": "Uttar Pradesh" },
       { "@type": "Country", "name": "India" }
     ],
-    "description": "Custom gaming and workstation PC building engineered with zero hardware bottlenecks. We assemble, cable-manage, BIOS-update, and stress-test custom rigs tailored to your budget and performance requirements."
+    "description": "Custom gaming and workstation PC building with balanced, compatibility-checked components. We assemble, cable-manage, BIOS-update, and stress-test custom rigs tailored to your budget and performance requirements."
   },
   {
     "@context": "https://schema.org",
@@ -700,6 +700,62 @@ const servicesContent = `
       </article>
     </section>
 
+    <!-- Typical Service Pricing & Turnaround Times (Ghaziabad) -->
+    <section style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:24px;margin-bottom:32px;">
+      <h2 style="color:#1b2269;font-size:1.4rem;margin-top:0;">Typical Service Pricing & Turnaround Times (Ghaziabad)</h2>
+      <p style="color:#64748b;font-size:0.95rem;margin-bottom:16px;">Indicative bench rates for common hardware repair, maintenance, and upgrade services at our Shiva Tower workshop (*final quotation confirmed after diagnostic inspection).</p>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;text-align:left;">
+          <thead>
+            <tr style="border-bottom:2px solid #e2e8f0;color:#475569;">
+              <th style="padding:10px;">Service</th>
+              <th style="padding:10px;">Starting Price</th>
+              <th style="padding:10px;">Turnaround Time</th>
+              <th style="padding:10px;">Booking</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:12px 10px;"><strong>Operating System (OS) Install</strong><br><span style="color:#64748b;font-size:0.8rem;">Windows 11/10 clean setup & drivers</span></td>
+              <td style="padding:12px 10px;font-weight:bold;color:#1b2269;">₹399*</td>
+              <td style="padding:12px 10px;color:#059669;font-weight:bold;">1–2 Hours</td>
+              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20OS%20install%20service" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Book on WhatsApp &rarr;</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:12px 10px;"><strong>Laptop Deep Servicing & Cleaning</strong><br><span style="color:#64748b;font-size:0.8rem;">Internal fan lint removal & heatsink clearing</span></td>
+              <td style="padding:12px 10px;font-weight:bold;color:#1b2269;">₹599*</td>
+              <td style="padding:12px 10px;color:#059669;font-weight:bold;">Same Day (2–3 Hours)</td>
+              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20laptop%20servicing" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Book on WhatsApp &rarr;</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:12px 10px;"><strong>Thermal Repaste (CPU / GPU)</strong><br><span style="color:#64748b;font-size:0.8rem;">Arctic MX-4 / Noctua thermal paste application</span></td>
+              <td style="padding:12px 10px;font-weight:bold;color:#1b2269;">₹499*</td>
+              <td style="padding:12px 10px;color:#059669;font-weight:bold;">1–2 Hours</td>
+              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20thermal%20repasting" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Book on WhatsApp &rarr;</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:12px 10px;"><strong>SSD Upgrade & OS Migration</strong><br><span style="color:#64748b;font-size:0.8rem;">NVMe / SATA SSD installation with seamless OS cloning</span></td>
+              <td style="padding:12px 10px;font-weight:bold;color:#1b2269;">₹349* + SSD</td>
+              <td style="padding:12px 10px;color:#059669;font-weight:bold;">1–2 Hours</td>
+              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20SSD%20upgrade" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Book on WhatsApp &rarr;</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:12px 10px;"><strong>Diagnostics & Troubleshooting</strong><br><span style="color:#64748b;font-size:0.8rem;">Bench test for BSOD, no-display, power failure</span></td>
+              <td style="padding:12px 10px;font-weight:bold;color:#1b2269;">₹299*</td>
+              <td style="padding:12px 10px;color:#059669;font-weight:bold;">2–4 Hours</td>
+              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20diagnostics" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Book on WhatsApp &rarr;</a></td>
+            </tr>
+            <tr>
+              <td style="padding:12px 10px;"><strong>Custom PC Assembly & Cable Routing</strong><br><span style="color:#64748b;font-size:0.8rem;">Component assembly, BIOS update & stress test</span></td>
+              <td style="padding:12px 10px;font-weight:bold;color:#1b2269;">₹999*</td>
+              <td style="padding:12px 10px;color:#059669;font-weight:bold;">Same Day / 24 Hours</td>
+              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20PC%20assembly" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Book on WhatsApp &rarr;</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <section style="background:#f8fafc;padding:24px;border-radius:12px;border:1px solid #e2e8f0;margin-bottom:32px;">
       <h2 style="color:#1b2269;font-size:1.4rem;margin-top:0;">Visit Computer Care in Ghaziabad</h2>
       <p style="color:#475569;line-height:1.6;">
@@ -709,15 +765,19 @@ const servicesContent = `
         <div>
           <strong style="color:#1e293b;display:block;">Address:</strong>
           <span style="color:#64748b;">G 23 Shiva Tower, Ghaziabad, Uttar Pradesh - 201009</span>
+          <div style="font-size:0.8rem;color:#b45309;margin-top:4px;"><strong>Nearby Landmark:</strong> Shiva Tower Commercial Complex, Central Ghaziabad</div>
         </div>
         <div>
           <strong style="color:#1e293b;display:block;">Hours:</strong>
-          <span style="color:#64748b;">Monday &ndash; Saturday: 10:30 AM &ndash; 8:00 PM IST</span>
+          <span style="color:#64748b;">Monday &ndash; Saturday: 10:30 AM &ndash; 8:00 PM IST (Closed Sunday)</span>
         </div>
         <div>
           <strong style="color:#1e293b;display:block;">Phone / WhatsApp:</strong>
           <a href="tel:+919810550222" style="color:#059669;font-weight:bold;">+91 9810550222</a>
         </div>
+      </div>
+      <div style="margin-top:16px;">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=G+23+Shiva+Tower+Ghaziabad+Uttar+Pradesh+201009" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#2b38d1;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-weight:bold;font-size:0.85rem;">Get Directions on Google Maps &rarr;</a>
       </div>
     </section>
 
@@ -846,7 +906,7 @@ categories.forEach((cat) => {
                 <div style="margin-top:6px;font-size:0.8rem;color:#059669;font-weight:bold;">● ${p.available !== false ? 'In Stock' : 'Available on request'}</div>
               </div>
               <div style="margin-top:12px;padding-top:12px;border-top:1px solid #f1f5f9;display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;align-items:center;">
-                <a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20am%20enquiring%20about%20${encodeURIComponent(p.title)}" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:#059669;font-weight:bold;text-decoration:none;border:1px solid #a7f3d0;background:#ecfdf5;padding:6px 12px;border-radius:4px;">Enquire on WhatsApp &rarr;</a>
+                <a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20am%20enquiring%20about%20${encodeURIComponent(p.title)}%20(https%3A%2F%2Fcomputercaregzb.com%2Fcatalog%2F${cat})" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:#059669;font-weight:bold;text-decoration:none;border:1px solid #a7f3d0;background:#ecfdf5;padding:6px 12px;border-radius:4px;">Ask on WhatsApp &rarr;</a>
                 <a href="/builder" style="font-size:0.8rem;color:#2b38d1;font-weight:bold;text-decoration:none;">Add to Rig &rarr;</a>
               </div>
             </article>
@@ -994,6 +1054,183 @@ const trustPages = [
         </header>
         <section style="line-height:1.7;color:#334155;font-size:0.95rem;">
           <p>Hardware pricing and quotation estimates are valid for 24-48 hours. Official GST tax invoices accompany every purchase. Jurisdiction: Ghaziabad, Uttar Pradesh, India.</p>
+        </section>
+      </main>
+    `
+  },
+  {
+    slug: 'pc-repair-indirapuram',
+    title: 'PC Repair in Indirapuram | Computer Care Ghaziabad',
+    description: 'Fast, reliable computer & laptop repair for Indirapuram residents at Computer Care Shiva Tower. Diagnostic troubleshooting, OS setup, and hardware replacement.',
+    h1: 'PC Repair & Laptop Servicing in Indirapuram, Ghaziabad',
+    content: `
+      <main style="max-width:1000px;margin:0 auto;padding:20px;font-family:sans-serif;">
+        <nav style="font-size:0.85rem;color:#64748b;margin-bottom:12px;">
+          <a href="/" style="color:#64748b;text-decoration:none;">Home</a> &gt; <a href="/services" style="color:#64748b;text-decoration:none;">Services</a> &gt; <strong style="color:#1e293b;">Indirapuram PC Repair</strong>
+        </nav>
+        <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
+          <h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">PC Repair & Laptop Servicing in Indirapuram, Ghaziabad</h1>
+          <p style="color:#475569;font-size:1.05rem;line-height:1.6;">
+            Reliable desktop troubleshooting, blue screen (BSOD) fixes, high-speed SSD upgrades, and thermal cleaning just ~9.5 km (18–25 mins) from Indirapuram at Computer Care Shiva Tower.
+          </p>
+        </header>
+        <section style="line-height:1.7;color:#334155;font-size:0.95rem;">
+          <h2 style="color:#1b2269;font-size:1.3rem;">Services for Indirapuram Residents</h2>
+          <ul>
+            <li><strong>Work-From-Home Desktop Diagnostics:</strong> Boot loops, power failures, BSOD crashes & corrupted OS repair.</li>
+            <li><strong>HDD to NVMe SSD Upgrades:</strong> Boot in 10 seconds with seamless OS and data cloning.</li>
+            <li><strong>Laptop Servicing & Repasting:</strong> Fan cleaning and Noctua/Arctic MX-4 thermal repasting.</li>
+          </ul>
+          <div style="background:#f8fafc;padding:16px;border-radius:8px;margin:20px 0;border:1px solid #e2e8f0;">
+            <strong style="color:#1e293b;display:block;">Visit Our Store Desk:</strong>
+            <p style="margin:4px 0 8px 0;color:#64748b;">G 23 Shiva Tower, Ghaziabad, Uttar Pradesh 201009 | Hours: Mon–Sat 10:30 AM – 8:00 PM IST</p>
+            <a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20PC%20repair%20in%20Indirapuram" style="color:#059669;font-weight:bold;">Contact on WhatsApp (+91 9810550222) &rarr;</a>
+          </div>
+        </section>
+      </main>
+    `
+  },
+  {
+    slug: 'gaming-pc-vaishali',
+    title: 'Custom Gaming PC in Vaishali | Computer Care Ghaziabad',
+    description: 'Build your dream custom gaming PC near Vaishali at Computer Care Ghaziabad. NVIDIA RTX graphics, Intel/AMD CPUs, live wattage checks & manufacturer warranty.',
+    h1: 'Custom Gaming PC Builder near Vaishali, Ghaziabad',
+    content: `
+      <main style="max-width:1000px;margin:0 auto;padding:20px;font-family:sans-serif;">
+        <nav style="font-size:0.85rem;color:#64748b;margin-bottom:12px;">
+          <a href="/" style="color:#64748b;text-decoration:none;">Home</a> &gt; <a href="/builder" style="color:#64748b;text-decoration:none;">Builder</a> &gt; <strong style="color:#1e293b;">Vaishali Gaming PCs</strong>
+        </nav>
+        <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
+          <h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">Custom Gaming PC Builder near Vaishali, Ghaziabad</h1>
+          <p style="color:#475569;font-size:1.05rem;line-height:1.6;">
+            Configure high-FPS gaming computers and 4K editing workstations just ~10 km from Vaishali Metro at Computer Care. Real-time compatibility checks, genuine brand warranty, and same-day consultation.
+          </p>
+        </header>
+        <section style="line-height:1.7;color:#334155;font-size:0.95rem;">
+          <h2 style="color:#1b2269;font-size:1.3rem;">Custom Gaming Tiers for Vaishali Gamers</h2>
+          <ul>
+            <li><strong>1080p Esports:</strong> 165Hz+ in Valorant & CS2 with Intel Core i5 / Ryzen 5 & RTX 3050 / RTX 4060.</li>
+            <li><strong>1440p Ultra Ray Tracing:</strong> Intel i7 14700K / Ryzen 7 7800X3D with RTX 4070 Super.</li>
+            <li><strong>4K Creative Workstations:</strong> DaVinci Resolve, Unreal Engine 5 & 3ds Max workstations with 64GB DDR5 & RTX 4080 Super / 4090.</li>
+          </ul>
+          <div style="background:#f8fafc;padding:16px;border-radius:8px;margin:20px 0;border:1px solid #e2e8f0;">
+            <a href="/builder" style="display:inline-block;background:#2b38d1;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:bold;margin-right:12px;">Open Custom PC Builder &rarr;</a>
+            <a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20am%20looking%20for%20a%20gaming%20PC%20near%20Vaishali" style="color:#059669;font-weight:bold;">Chat on WhatsApp &rarr;</a>
+          </div>
+        </section>
+      </main>
+    `
+  },
+  {
+    slug: 'computer-shop-raj-nagar-extension',
+    title: 'Computer Shop near Raj Nagar Ext | Computer Care',
+    description: 'Looking for a trusted computer shop near Raj Nagar Extension? Computer Care at Shiva Tower provides genuine PC parts, custom builds, and expert desktop repairs.',
+    h1: 'Computer Shop near Raj Nagar Extension, Ghaziabad',
+    content: `
+      <main style="max-width:1000px;margin:0 auto;padding:20px;font-family:sans-serif;">
+        <nav style="font-size:0.85rem;color:#64748b;margin-bottom:12px;">
+          <a href="/" style="color:#64748b;text-decoration:none;">Home</a> &gt; <a href="/catalog" style="color:#64748b;text-decoration:none;">Catalog</a> &gt; <strong style="color:#1e293b;">Raj Nagar Extension Shop</strong>
+        </nav>
+        <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
+          <h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">Computer Shop near Raj Nagar Extension, Ghaziabad</h1>
+          <p style="color:#475569;font-size:1.05rem;line-height:1.6;">
+            Genuine computer accessories, custom home-study PC builds, and fast desktop diagnostics located just ~8 km (15 mins) from Raj Nagar Extension at Shiva Tower, Ghaziabad.
+          </p>
+        </header>
+        <section style="line-height:1.7;color:#334155;font-size:0.95rem;">
+          <h2 style="color:#1b2269;font-size:1.3rem;">Hardware & Services for Raj Nagar Families & Students</h2>
+          <ul>
+            <li><strong>Genuine Accessories:</strong> Wired and Bluetooth mice, keyboards, webcams, headsets with brand warranty.</li>
+            <li><strong>Budget Student PCs:</strong> Turnkey desktop systems for school, coding, accounting, and family computing.</li>
+            <li><strong>Fast Repairs:</strong> Bench diagnostics for blue screens, power supply failures, and thermal servicing.</li>
+          </ul>
+          <div style="background:#f8fafc;padding:16px;border-radius:8px;margin:20px 0;border:1px solid #e2e8f0;">
+            <a href="https://www.google.com/maps/dir/Raj+Nagar+Extension,+Ghaziabad,+Uttar+Pradesh/G+23+Shiva+Tower,+Ghaziabad,+Uttar+Pradesh+201009" target="_blank" rel="noopener noreferrer" style="color:#2b38d1;font-weight:bold;margin-right:16px;">Get Directions from Raj Nagar Ext &rarr;</a>
+            <a href="tel:+919810550222" style="color:#059669;font-weight:bold;">Call Helpline: +91 9810550222</a>
+          </div>
+        </section>
+      </main>
+    `
+  },
+  {
+    slug: 'blog',
+    title: 'Hardware Guides & PC Tech Blog | Computer Care',
+    description: 'Guides, pricing insights, and custom PC hardware comparisons from Computer Care Ghaziabad technicians.',
+    h1: 'Computer Care Hardware & PC Blog',
+    content: `
+      <main style="max-width:1000px;margin:0 auto;padding:20px;font-family:sans-serif;">
+        <nav style="font-size:0.85rem;color:#64748b;margin-bottom:12px;">
+          <a href="/" style="color:#64748b;text-decoration:none;">Home</a> &gt; <strong style="color:#1e293b;">Blog</strong>
+        </nav>
+        <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
+          <h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">Computer Care Hardware & PC Blog</h1>
+          <p style="color:#475569;font-size:1.05rem;line-height:1.6;">
+            Honest pricing guides, custom gaming PC component recommendations, and diagnostic insights from our Ghaziabad hardware workshop.
+          </p>
+        </header>
+        <section style="display:grid;grid-template-columns:1fr;gap:20px;">
+          <article style="border:1px solid #e2e8f0;border-radius:10px;padding:20px;background:#fff;">
+            <span style="font-size:0.75rem;font-weight:bold;color:#b45309;background:#fef3c7;padding:3px 8px;border-radius:4px;">DRAFT / REVIEW</span>
+            <h2 style="font-size:1.3rem;color:#1b2269;margin:8px 0 6px 0;"><a href="/blog/best-gaming-pc-build-under-50000-2026" style="color:#1b2269;text-decoration:none;">Best Gaming PC Build Under ₹50,000 in 2026</a></h2>
+            <p style="color:#64748b;font-size:0.9rem;line-height:1.5;">Looking to build a powerful 1080p gaming PC under ₹50,000 in 2026? Here is our bench-tested component guide with balanced socket matching, thermal headroom, and realistic FPS numbers.</p>
+            <a href="/blog/best-gaming-pc-build-under-50000-2026" style="color:#2b38d1;font-weight:bold;font-size:0.9rem;">Read Full Guide &rarr;</a>
+          </article>
+          <article style="border:1px solid #e2e8f0;border-radius:10px;padding:20px;background:#fff;">
+            <span style="font-size:0.75rem;font-weight:bold;color:#b45309;background:#fef3c7;padding:3px 8px;border-radius:4px;">DRAFT / REVIEW</span>
+            <h2 style="font-size:1.3rem;color:#1b2269;margin:8px 0 6px 0;"><a href="/blog/laptop-repair-cost-ghaziabad" style="color:#1b2269;text-decoration:none;">How Much Does Laptop Repair Cost in Ghaziabad? (2026 Price Guide)</a></h2>
+            <p style="color:#64748b;font-size:0.9rem;line-height:1.5;">Wondering what a fair price is for laptop repair in Ghaziabad? Read our honest guide breaking down standard charges for screen replacement, thermal servicing, SSD upgrades, and motherboard chip-level repair.</p>
+            <a href="/blog/laptop-repair-cost-ghaziabad" style="color:#2b38d1;font-weight:bold;font-size:0.9rem;">Read Full Guide &rarr;</a>
+          </article>
+        </section>
+      </main>
+    `
+  },
+  {
+    slug: 'blog/best-gaming-pc-build-under-50000-2026',
+    title: 'Best Gaming PC Build Under ₹50,000 (2026) | Computer Care',
+    description: 'Budget 1080p gaming PC build guide under ₹50,000 in 2026 with tested component benchmarks and socket compatibility.',
+    h1: 'Best Gaming PC Build Under ₹50,000 in 2026',
+    content: `
+      <main style="max-width:900px;margin:0 auto;padding:20px;font-family:sans-serif;line-height:1.7;color:#334155;">
+        <nav style="font-size:0.85rem;color:#64748b;margin-bottom:12px;">
+          <a href="/" style="color:#64748b;text-decoration:none;">Home</a> &gt; <a href="/blog" style="color:#64748b;text-decoration:none;">Blog</a> &gt; <strong style="color:#1e293b;">Gaming PC under 50k</strong>
+        </nav>
+        <div style="background:#fffbeb;border:1px solid #fde68a;padding:12px 16px;border-radius:8px;margin-bottom:20px;font-size:0.85rem;color:#92400e;">
+          <strong>DRAFT NOTICE:</strong> Component pricing shown is an indicative benchmark estimate. Confirm current distributor prices in Ghaziabad before purchasing.
+        </div>
+        <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
+          <h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">Best Gaming PC Build Under ₹50,000 in 2026</h1>
+          <p style="color:#475569;font-size:1.05rem;">Budget 1080p Esports & AAA Gaming Rig Guide from Ghaziabad Hardware Specialists.</p>
+        </header>
+        <section>
+          <h2 style="color:#1b2269;font-size:1.3rem;">Component Selection & Price Breakdown</h2>
+          <p>Intel Core i3-12100F / Ryzen 5 5500 paired with an H610/B450 motherboard, 16GB dual-channel DDR4 3200MHz RAM, 512GB PCIe M.2 NVMe SSD, GTX 1650 / RX 6600 GPU, 550W 80+ Bronze PSU, and high-airflow ARGB cabinet.</p>
+          <div style="margin:20px 0;"><a href="/builder" style="display:inline-block;background:#2b38d1;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:bold;">Launch PC Builder to Customize &rarr;</a></div>
+        </section>
+      </main>
+    `
+  },
+  {
+    slug: 'blog/laptop-repair-cost-ghaziabad',
+    title: 'Laptop Repair Cost in Ghaziabad (2026) | Computer Care',
+    description: 'Transparent price guide for laptop screen replacement, thermal servicing, SSD upgrades, and motherboard repairs in Ghaziabad.',
+    h1: 'How Much Does Laptop Repair Cost in Ghaziabad? (2026 Price Guide)',
+    content: `
+      <main style="max-width:900px;margin:0 auto;padding:20px;font-family:sans-serif;line-height:1.7;color:#334155;">
+        <nav style="font-size:0.85rem;color:#64748b;margin-bottom:12px;">
+          <a href="/" style="color:#64748b;text-decoration:none;">Home</a> &gt; <a href="/blog" style="color:#64748b;text-decoration:none;">Blog</a> &gt; <strong style="color:#1e293b;">Laptop Repair Cost</strong>
+        </nav>
+        <div style="background:#fffbeb;border:1px solid #fde68a;padding:12px 16px;border-radius:8px;margin-bottom:20px;font-size:0.85rem;color:#92400e;">
+          <strong>DRAFT NOTICE:</strong> Repair charges shown are indicative benchmark estimates. Confirm exact repair charges with store owner.
+        </div>
+        <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
+          <h1 style="color:#1b2269;font-size:2rem;margin-bottom:8px;">How Much Does Laptop Repair Cost in Ghaziabad? (2026 Price Guide)</h1>
+          <p style="color:#475569;font-size:1.05rem;">Transparent Breakdown of Screen Replacement, Battery, Thermal Servicing, and Motherboard Repair Costs.</p>
+        </header>
+        <section>
+          <h2 style="color:#1b2269;font-size:1.3rem;">Standard Bench Pricing in Ghaziabad</h2>
+          <p>Thermal servicing (₹499–₹699*), Windows OS install (₹399–₹499*), SSD upgrade (₹349* + SSD), screen replacement (₹2,800–₹5,500*), battery replacement (₹1,400–₹3,200*).</p>
+          <div style="margin:20px 0;"><a href="/services" style="display:inline-block;background:#2b38d1;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:bold;">Check Repair Services & Track Job &rarr;</a></div>
         </section>
       </main>
     `

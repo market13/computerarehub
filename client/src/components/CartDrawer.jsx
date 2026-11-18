@@ -446,7 +446,7 @@ export default function CartDrawer({
                     <Box className="w-12 h-12 text-slate-300 mb-3" />
                     <h4 className="text-sm font-bold text-slate-700 font-display">Your Rig Cart is Empty</h4>
                     <p className="text-xs text-slate-400 mt-1 font-sans">
-                      Select components in the 3D PC Builder or add parts from our catalog.
+                      Select components in the Custom PC Builder or add parts from our catalog.
                     </p>
                   </div>
                 ) : (

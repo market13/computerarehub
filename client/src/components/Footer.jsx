@@ -61,6 +61,9 @@ export default function Footer({ onNavigate }) {
               <a href="/bulk-order" onClick={(e) => { e.preventDefault(); onNavigate('bulk-order'); }} className="text-left hover:text-white transition-colors text-amber-300 font-semibold flex items-center gap-1.5 no-underline">
                 • Corporate & Bulk Orders (B2B)
               </a>
+              <a href="/blog" onClick={(e) => { e.preventDefault(); onNavigate('blog'); }} className="text-left hover:text-white transition-colors text-emerald-300 font-semibold no-underline">
+                • Tech Blog & PC Price Guides
+              </a>
               <a href="/about" onClick={(e) => { e.preventDefault(); onNavigate('about'); }} className="text-left hover:text-white transition-colors no-underline">
                 • About Computer Care
               </a>
@@ -70,9 +73,18 @@ export default function Footer({ onNavigate }) {
           {/* Col 3: Customer Trust & Policy Pages */}
           <div className="flex flex-col gap-3">
             <h2 className="font-display font-bold uppercase tracking-wider text-xs text-white border-b border-white/10 pb-2">
-              Trust & Policies
+              Trust & Local Areas
             </h2>
             <div className="flex flex-col gap-2 text-xs text-slate-300">
+              <a href="/pc-repair-indirapuram" onClick={(e) => { e.preventDefault(); onNavigate('pc-repair-indirapuram'); }} className="text-left hover:text-white transition-colors no-underline text-cyan-200">
+                • PC Repair in Indirapuram
+              </a>
+              <a href="/gaming-pc-vaishali" onClick={(e) => { e.preventDefault(); onNavigate('gaming-pc-vaishali'); }} className="text-left hover:text-white transition-colors no-underline text-cyan-200">
+                • Gaming PC in Vaishali
+              </a>
+              <a href="/computer-shop-raj-nagar-extension" onClick={(e) => { e.preventDefault(); onNavigate('computer-shop-raj-nagar-extension'); }} className="text-left hover:text-white transition-colors no-underline text-cyan-200">
+                • Computer Shop near Raj Nagar Ext
+              </a>
               <a href="/warranty-returns" onClick={(e) => { e.preventDefault(); onNavigate('warranty-returns'); }} className="text-left hover:text-white transition-colors no-underline">
                 • Warranty & Returns Policy
               </a>
@@ -84,9 +96,6 @@ export default function Footer({ onNavigate }) {
               </a>
               <a href="/terms" onClick={(e) => { e.preventDefault(); onNavigate('terms'); }} className="text-left hover:text-white transition-colors no-underline">
                 • Terms & Conditions
-              </a>
-              <a href="/about" onClick={(e) => { e.preventDefault(); onNavigate('about'); }} className="text-left hover:text-white transition-colors no-underline">
-                • Store Location & Contact
               </a>
             </div>
           </div>

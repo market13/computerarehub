@@ -9,6 +9,7 @@ import MobileBottomNav from './components/MobileBottomNav';
 import StickyMobileActionBar from './components/StickyMobileActionBar';
 import { findCompatibleDefaultBuild } from './utils/compatibility';
 import categoryDescriptions from './constants/categoryDescriptions.json';
+import { SITE_URL } from './constants/storeInfo';
 
 const PCBuilderView = React.lazy(() => import('./components/PCBuilderView'));
 const CatalogView = React.lazy(() => import('./components/CatalogView'));
@@ -20,6 +21,10 @@ const WarrantyReturnsView = React.lazy(() => import('./components/WarrantyReturn
 const ShippingDeliveryView = React.lazy(() => import('./components/ShippingDeliveryView'));
 const PrivacyPolicyView = React.lazy(() => import('./components/PrivacyPolicyView'));
 const TermsView = React.lazy(() => import('./components/TermsView'));
+const PCRepairIndirapuramView = React.lazy(() => import('./components/PCRepairIndirapuramView'));
+const GamingPCVaishaliView = React.lazy(() => import('./components/GamingPCVaishaliView'));
+const ComputerShopRajNagarView = React.lazy(() => import('./components/ComputerShopRajNagarView'));
+const BlogView = React.lazy(() => import('./components/BlogView'));
 const ComponentSelectorModal = React.lazy(() => import('./components/ComponentSelectorModal'));
 const ProductDetailModal = React.lazy(() => import('./components/ProductDetailModal'));
 const PrebuiltPresetsModal = React.lazy(() => import('./components/PrebuiltPresetsModal'));
@@ -70,6 +75,10 @@ export default function App() {
     if (p === '/shipping-delivery') return 'shipping-delivery';
     if (p === '/privacy-policy') return 'privacy-policy';
     if (p === '/terms') return 'terms';
+    if (p === '/pc-repair-indirapuram') return 'pc-repair-indirapuram';
+    if (p === '/gaming-pc-vaishali') return 'gaming-pc-vaishali';
+    if (p === '/computer-shop-raj-nagar-extension') return 'computer-shop-raj-nagar-extension';
+    if (p.startsWith('/blog')) return 'blog';
     if (p.startsWith('/catalog')) return 'catalog';
     return 'home';
   })();
@@ -111,13 +120,13 @@ export default function App() {
     const p = location.pathname;
     let title = 'Computer Care | Custom PC Builder & Hardware Ghaziabad';
     let desc = 'Computer Care is a trusted computer shop in Ghaziabad for custom PC building, hardware upgrades, and laptop repair services.';
-    let canonicalUrl = 'https://computercaregzb.com/';
+    let canonicalUrl = `${SITE_URL}/`;
     let isNoIndex = false;
 
     if (p === '/builder') {
       title = 'Custom PC Builder & Compatibility Check | Computer Care';
       desc = 'Build your custom gaming PC with real-time socket, DDR RAM, GPU clearance, and PSU wattage checks at Computer Care Ghaziabad.';
-      canonicalUrl = 'https://computercaregzb.com/builder';
+      canonicalUrl = `${SITE_URL}/builder`;
     } else if (p.startsWith('/catalog')) {
       const parts = p.split('/').filter(Boolean);
       const cat = parts[1] || selectedCatalogCategory;
@@ -125,44 +134,71 @@ export default function App() {
         const catName = cat.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
         title = `${catName} | Computer Care Ghaziabad`.slice(0, 59);
         desc = (categoryDescriptions[cat] || `Browse ${catName} at Computer Care Ghaziabad with official manufacturer warranty and GST invoice.`).slice(0, 155);
-        canonicalUrl = `https://computercaregzb.com/catalog/${cat}`;
+        canonicalUrl = `${SITE_URL}/catalog/${cat}`;
       } else {
         title = 'Hardware Components Catalog | Computer Care';
         desc = (categoryDescriptions.all || 'Browse authentic computer hardware components, CPUs, graphics cards, motherboards, RAM, cabinets, and monitors.').slice(0, 155);
-        canonicalUrl = 'https://computercaregzb.com/catalog';
+        canonicalUrl = `${SITE_URL}/catalog`;
       }
     } else if (p === '/services') {
       title = 'Computer Repair & Custom PCs | Computer Care Ghaziabad';
       desc = 'Computer Care provides custom gaming PC building, computer & laptop repair, hardware upgrades, and authentic computer accessories in Ghaziabad, Uttar Pradesh.';
-      canonicalUrl = 'https://computercaregzb.com/services';
+      canonicalUrl = `${SITE_URL}/services`;
     } else if (p === '/bulk-order') {
       title = 'B2B Bulk Hardware Procurement | Computer Care';
       desc = 'Special wholesale procurement quotations for offices, gaming cafes, CAD studios, and educational labs.';
-      canonicalUrl = 'https://computercaregzb.com/bulk-order';
+      canonicalUrl = `${SITE_URL}/bulk-order`;
     } else if (p === '/about') {
       title = 'About Us | Computer Care Ghaziabad';
       desc = 'Learn about Computer Care, your local custom PC builder, hardware retailer, and computer repair shop at Shiva Tower, Ghaziabad.';
-      canonicalUrl = 'https://computercaregzb.com/about';
+      canonicalUrl = `${SITE_URL}/about`;
     } else if (p === '/warranty-returns') {
       title = 'Warranty & Returns Policy | Computer Care';
       desc = 'Read Computer Care\'s warranty coverage, manufacturer RMA guidelines, and 7-day DOA replacement terms for computer hardware.';
-      canonicalUrl = 'https://computercaregzb.com/warranty-returns';
+      canonicalUrl = `${SITE_URL}/warranty-returns`;
     } else if (p === '/shipping-delivery') {
       title = 'Shipping & Delivery Information | Computer Care';
       desc = 'Pan-India insured courier delivery and free store pickup in Ghaziabad for custom gaming PCs, components, and accessories.';
-      canonicalUrl = 'https://computercaregzb.com/shipping-delivery';
+      canonicalUrl = `${SITE_URL}/shipping-delivery`;
     } else if (p === '/privacy-policy') {
       title = 'Privacy Policy | Computer Care Ghaziabad';
       desc = 'Read the privacy policy of Computer Care. We safeguard customer personal data and never sell information to third parties.';
-      canonicalUrl = 'https://computercaregzb.com/privacy-policy';
+      canonicalUrl = `${SITE_URL}/privacy-policy`;
     } else if (p === '/terms') {
       title = 'Terms & Conditions | Computer Care Ghaziabad';
       desc = 'Terms of service, pricing validity, GST invoicing, and custom PC assembly policies at Computer Care Ghaziabad.';
-      canonicalUrl = 'https://computercaregzb.com/terms';
+      canonicalUrl = `${SITE_URL}/terms`;
+    } else if (p === '/pc-repair-indirapuram') {
+      title = 'PC Repair in Indirapuram | Computer Care Ghaziabad';
+      desc = 'Fast, reliable computer & laptop repair for Indirapuram residents at Computer Care Shiva Tower. Diagnostic troubleshooting, OS setup, and hardware replacement.';
+      canonicalUrl = `${SITE_URL}/pc-repair-indirapuram`;
+    } else if (p === '/gaming-pc-vaishali') {
+      title = 'Custom Gaming PC in Vaishali | Computer Care Ghaziabad';
+      desc = 'Build your dream custom gaming PC near Vaishali at Computer Care Ghaziabad. NVIDIA RTX graphics, Intel/AMD CPUs, live wattage checks & manufacturer warranty.';
+      canonicalUrl = `${SITE_URL}/gaming-pc-vaishali`;
+    } else if (p === '/computer-shop-raj-nagar-extension') {
+      title = 'Computer Shop near Raj Nagar Ext | Computer Care';
+      desc = 'Looking for a trusted computer shop near Raj Nagar Extension? Computer Care at Shiva Tower provides genuine PC parts, custom builds, and expert desktop repairs.';
+      canonicalUrl = `${SITE_URL}/computer-shop-raj-nagar-extension`;
+    } else if (p === '/blog') {
+      title = 'Hardware Guides & PC Tech Blog | Computer Care';
+      desc = 'Guides, pricing insights, and custom PC hardware comparisons from Computer Care Ghaziabad technicians.';
+      canonicalUrl = `${SITE_URL}/blog`;
+    } else if (p.startsWith('/blog/')) {
+      const slug = p.replace('/blog/', '');
+      if (slug === 'best-gaming-pc-build-under-50000-2026') {
+        title = 'Best Gaming PC Build Under ₹50,000 (2026) | Computer Care';
+        desc = 'Budget 1080p gaming PC build guide under ₹50,000 in 2026 with tested component benchmarks and socket compatibility.';
+        canonicalUrl = `${SITE_URL}/blog/best-gaming-pc-build-under-50000-2026`;
+      } else if (slug === 'laptop-repair-cost-ghaziabad') {
+        title = 'Laptop Repair Cost in Ghaziabad (2026) | Computer Care';
+        desc = 'Transparent price guide for laptop screen replacement, thermal servicing, SSD upgrades, and motherboard repairs in Ghaziabad.';
+        canonicalUrl = `${SITE_URL}/blog/laptop-repair-cost-ghaziabad`;
+      }
     } else if (p === '/admin') {
       title = 'Administrator Management Portal | Computer Care';
       desc = 'Store administrator portal for managing orders, quotations, pricing, and hardware inventory.';
-      canonicalUrl = 'https://computercaregzb.com/admin';
+      canonicalUrl = `${SITE_URL}/admin`;
       isNoIndex = true;
     }
 
@@ -404,6 +440,17 @@ export default function App() {
         navigate('/privacy-policy');
       } else if (dest === 'terms') {
         navigate('/terms');
+      } else if (dest === 'pc-repair-indirapuram') {
+        navigate('/pc-repair-indirapuram');
+      } else if (dest === 'gaming-pc-vaishali') {
+        navigate('/gaming-pc-vaishali');
+      } else if (dest === 'computer-shop-raj-nagar-extension') {
+        navigate('/computer-shop-raj-nagar-extension');
+      } else if (dest === 'blog') {
+        navigate('/blog');
+      } else if (dest.startsWith('blog-')) {
+        const slug = dest.replace('blog-', '');
+        navigate(`/blog/${slug}`);
       } else if (dest === 'catalog') {
         setSelectedCatalogCategory('all');
         navigate('/catalog');
@@ -501,6 +548,17 @@ export default function App() {
           <PrivacyPolicyView onNavigate={handleNavigate} />
         ) : activeTab === 'terms' ? (
           <TermsView onNavigate={handleNavigate} />
+        ) : activeTab === 'pc-repair-indirapuram' ? (
+          <PCRepairIndirapuramView onNavigate={handleNavigate} />
+        ) : activeTab === 'gaming-pc-vaishali' ? (
+          <GamingPCVaishaliView onNavigate={handleNavigate} />
+        ) : activeTab === 'computer-shop-raj-nagar-extension' ? (
+          <ComputerShopRajNagarView onNavigate={handleNavigate} />
+        ) : activeTab === 'blog' ? (
+          <BlogView 
+            currentSlug={location.pathname.startsWith('/blog/') ? location.pathname.replace('/blog/', '') : null} 
+            onNavigate={handleNavigate} 
+          />
         ) : activeTab === 'admin' ? (
           <AdminPortalView
             catalog={catalog}

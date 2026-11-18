@@ -1,6 +1,8 @@
 import React from 'react';
 import FAQSection from './FAQSection';
 import RepairStatusLookup from './RepairStatusLookup';
+import StoreLocationMap from './StoreLocationMap';
+import ReviewsSection from './ReviewsSection';
 import WhatsAppIcon from './WhatsAppIcon';
 import { CONTACT_EMAIL } from '../constants/storeInfo';
 import { 
@@ -19,6 +21,52 @@ import {
   ShieldCheck, 
   Clock 
 } from 'lucide-react';
+
+// TODO: Confirm exact baseline service pricing and turnaround times with store owner
+const TYPICAL_SERVICE_PRICES = [
+  {
+    service: 'Operating System (OS) Install',
+    description: 'Clean Windows 11 / 10 installation, chipset & GPU drivers, and essential utility setup.',
+    startingPrice: '₹399*', // TODO: confirm starting price with store owner
+    turnaround: '1 – 2 Hours', // TODO: confirm turnaround time with store owner
+    waMessage: 'Hi Computer Care, I need an OS installation service in Ghaziabad.'
+  },
+  {
+    service: 'Laptop Deep Servicing & Cleaning',
+    description: 'Internal disassembly, heatsink dust clearance, high-pressure fan cleaning & airflow test.',
+    startingPrice: '₹599*', // TODO: confirm starting price with store owner
+    turnaround: 'Same Day (2 – 3 Hours)', // TODO: confirm turnaround time with store owner
+    waMessage: 'Hi Computer Care, I want to book laptop servicing and internal cleaning in Ghaziabad.'
+  },
+  {
+    service: 'Thermal Repaste (CPU / GPU)',
+    description: 'Degraded compound removal and application of high-conductivity Arctic MX-4 / Noctua thermal paste.',
+    startingPrice: '₹499*', // TODO: confirm starting price with store owner
+    turnaround: '1 – 2 Hours', // TODO: confirm turnaround time with store owner
+    waMessage: 'Hi Computer Care, I need thermal repaste for my CPU/GPU to lower temperatures.'
+  },
+  {
+    service: 'SSD Upgrade & OS Migration',
+    description: 'High-speed M.2 NVMe / 2.5" SATA SSD installation with seamless OS cloning from slow mechanical hard drive.',
+    startingPrice: '₹349*', // TODO: confirm starting price with store owner (service only, parts extra)
+    turnaround: '1 – 2 Hours', // TODO: confirm turnaround time with store owner
+    waMessage: 'Hi Computer Care, I want to upgrade my PC/laptop with an SSD in Ghaziabad.'
+  },
+  {
+    service: 'Diagnostics & Troubleshooting',
+    description: 'Comprehensive bench diagnosis for blue screen (BSOD) crashes, boot loops, and SMPS power failures.',
+    startingPrice: '₹299*', // TODO: confirm starting price with store owner (adjusted against repair if approved)
+    turnaround: '2 – 4 Hours', // TODO: confirm turnaround time with store owner
+    waMessage: 'Hi Computer Care, my computer has a hardware issue and needs diagnostic troubleshooting.'
+  },
+  {
+    service: 'Custom PC Assembly & Cable Routing',
+    description: 'Professional assembly of customer or store components, custom cable management, BIOS flash & burn-in check.',
+    startingPrice: '₹999*', // TODO: confirm starting price with store owner
+    turnaround: 'Same Day / 24 Hours', // TODO: confirm turnaround time with store owner
+    waMessage: 'Hi Computer Care, I want to assemble a custom gaming PC in Ghaziabad.'
+  }
+];
 
 export default function ServicesView({ onNavigate }) {
   const services = [
@@ -348,84 +396,75 @@ export default function ServicesView({ onNavigate }) {
         })}
       </section>
 
-      {/* 3. Ghaziabad Store Location & Contact Details */}
-      <section className="bg-slate-900 text-white rounded-2xl p-6 sm:p-10 shadow-lg border border-slate-800">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-          <div className="lg:col-span-2 flex flex-col gap-3">
-            <span className="text-xs font-mono text-brand-gold uppercase tracking-widest font-bold">
-              VISIT OUR GHAZIABAD STORE
+      {/* 4. Typical Prices & Turnaround Table (Requirement 9) */}
+      <section className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs flex flex-col gap-5">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-100 pb-4">
+          <div>
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-blue">
+              TRANSPARENT SERVICE CHARGES
             </span>
-            <h2 className="text-2xl sm:text-3xl font-display font-black tracking-tight uppercase leading-tight">
-              Looking for a Trusted Computer Shop in Ghaziabad?
+            <h2 className="text-xl sm:text-2xl font-black font-display text-brand-navy tracking-tight mt-0.5">
+              Typical Service Pricing & Turnaround Times (Ghaziabad)
             </h2>
-            <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed max-w-2xl">
-              Visit Computer Care for custom PC quotes, on-spot hardware upgrades, troubleshooting diagnostics, laptop servicing, and authentic computer accessories. Speak with experienced technicians who help you choose the right components without paying for unnecessary extras.
+            <p className="text-xs text-slate-500 font-sans mt-0.5">
+              Indicative bench rates for common computer repair, maintenance, and upgrade services at our Shiva Tower workshop.
             </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2 text-xs text-slate-300">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-brand-red flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-white block font-display">Store Address:</strong>
-                  <span>G 23 Shiva Tower, Ghaziabad, Uttar Pradesh - 201009</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-white block font-display">Operating Hours:</strong>
-                  <span>Monday – Saturday: 10:30 AM – 8:00 PM IST</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-2.5">
-                <Phone className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-white block font-display">Helpline & WhatsApp:</strong>
-                  <span>+91 9810550222</span>
-                </div>
-              </div>
-
-              {CONTACT_EMAIL && (
-                /* TODO: Configure store email on computercaregzb.com via VITE_CONTACT_EMAIL */
-                <div className="flex items-start gap-2.5">
-                  <Mail className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-white block font-display">Email Address:</strong>
-                    <span>{CONTACT_EMAIL}</span>
-                  </div>
-                </div>
-              )}
-            </div>
           </div>
+          <span className="text-[11px] font-mono text-slate-400 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-200 self-start sm:self-auto">
+            *Final quote provided after initial diagnostic assessment
+          </span>
+        </div>
 
-          <div className="flex flex-col gap-3 justify-center items-stretch bg-slate-800/80 p-6 rounded-xl border border-slate-700">
-            <h3 className="text-sm font-bold font-display uppercase tracking-wider text-white text-center">
-              Get Immediate Assistance
-            </h3>
-            <p className="text-xs text-slate-400 text-center mb-2">
-              Have a hardware question or need a quick price estimate?
-            </p>
-            <a
-              href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20have%20an%20inquiry%20regarding%20computer%20services%20in%20Ghaziabad"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-display font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-sm transition-colors text-center no-underline"
-            >
-              <WhatsAppIcon variant="badge" className="w-4 h-4" />
-              <span>Chat on WhatsApp</span>
-            </a>
-            <a
-              href="tel:+919810550222"
-              className="w-full py-2.5 px-4 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-display font-semibold text-xs flex items-center justify-center gap-2 transition-colors text-center no-underline"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span>Call +91 9810550222</span>
-            </a>
-          </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr className="border-b border-slate-200 text-slate-500 text-[11px] font-mono uppercase tracking-wider">
+                <th className="py-3 px-3">Service Scope</th>
+                <th className="py-3 px-3">Typical Starting Price</th>
+                <th className="py-3 px-3">Estimated Turnaround</th>
+                <th className="py-3 px-3 text-right">Instant Booking</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100 font-sans">
+              {TYPICAL_SERVICE_PRICES.map((item, idx) => (
+                <tr key={idx} className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-3">
+                    <strong className="text-slate-900 block font-display">{item.service}</strong>
+                    <span className="text-[11px] text-slate-500 leading-relaxed">{item.description}</span>
+                  </td>
+                  <td className="py-3 px-3 whitespace-nowrap">
+                    <span className="font-bold text-brand-navy font-display text-sm">{item.startingPrice}</span>
+                  </td>
+                  <td className="py-3 px-3 whitespace-nowrap text-slate-600 font-medium">
+                    <span className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full text-xs font-mono">
+                      <Clock className="w-3 h-3 text-blue-600" />
+                      {item.turnaround}
+                    </span>
+                  </td>
+                  <td className="py-3 px-3 text-right whitespace-nowrap">
+                    <a
+                      href={`https://wa.me/919810550222?text=${encodeURIComponent(item.waMessage)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-lg text-xs font-bold font-display uppercase tracking-wider transition-colors shadow-2xs"
+                      title={`Book ${item.service} on WhatsApp`}
+                    >
+                      <WhatsAppIcon variant="badge" className="w-3.5 h-3.5" />
+                      <span>Book Service</span>
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </section>
+
+      {/* 5. Google Maps Embed & Store Location Section (Requirement 13) */}
+      <StoreLocationMap />
+
+      {/* 6. Customer Reviews Section (Requirement 12) */}
+      <ReviewsSection />
 
       {/* Frequently Asked Questions Section for Ghaziabad Services */}
       <FAQSection />

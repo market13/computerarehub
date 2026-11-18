@@ -112,6 +112,44 @@ const entries = [
     lastmod,
     changefreq: 'monthly',
     priority: '0.5'
+  },
+  // Local SEO Landing Pages
+  {
+    loc: 'https://computercaregzb.com/pc-repair-indirapuram',
+    lastmod,
+    changefreq: 'weekly',
+    priority: '0.85'
+  },
+  {
+    loc: 'https://computercaregzb.com/gaming-pc-vaishali',
+    lastmod,
+    changefreq: 'weekly',
+    priority: '0.85'
+  },
+  {
+    loc: 'https://computercaregzb.com/computer-shop-raj-nagar-extension',
+    lastmod,
+    changefreq: 'weekly',
+    priority: '0.85'
+  },
+  // Hardware Guides & Blog
+  {
+    loc: 'https://computercaregzb.com/blog',
+    lastmod,
+    changefreq: 'weekly',
+    priority: '0.8'
+  },
+  {
+    loc: 'https://computercaregzb.com/blog/best-gaming-pc-build-under-50000-2026',
+    lastmod,
+    changefreq: 'monthly',
+    priority: '0.75'
+  },
+  {
+    loc: 'https://computercaregzb.com/blog/laptop-repair-cost-ghaziabad',
+    lastmod,
+    changefreq: 'monthly',
+    priority: '0.75'
   }
 ];
 
