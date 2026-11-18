@@ -1,6 +1,7 @@
 # COMPUTER CARE — BACKEND SETUP & INTEGRATION GUIDE
-**Stack:** Supabase (PostgreSQL, Auth, Storage, Edge Functions), React 19 + TypeScript, Razorpay, Netlify  
-**Target Environment:** Local Development & Netlify Production  
+**Stack:** Supabase (PostgreSQL, Auth, Storage), React 19 + Vite, Netlify / Cloudflare Pages  
+**Target Environment:** Local Development, Netlify, and Cloudflare Pages  
+**Canonical Domain:** `https://computercaregzb.com`
 
 ---
 
@@ -16,11 +17,8 @@ These are baked into Vite's public bundle. **Never place secrets here.**
 VITE_SUPABASE_URL=https://your-project-id.supabase.co
 VITE_SUPABASE_ANON_KEY=eyJhbGciOi...public-anon-key
 
-# Razorpay Public Key ID (Safe for frontend checkout popup)
-VITE_RAZORPAY_KEY_ID=rzp_test_your_public_key_id
-
-# Website Production URL
-VITE_SITE_URL=https://magical-duckanoo-626d44.netlify.app
+# Website Production URL (Canonical)
+VITE_SITE_URL=https://computercaregzb.com
 
 # Support WhatsApp Phone Number (India Standard)
 VITE_WHATSAPP_PHONE=919810550222
@@ -34,22 +32,61 @@ These are accessible **only** within serverless functions (`netlify/functions/` 
 SUPABASE_URL=https://your-project-id.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOi...secret-service-role-key
 
-# Razorpay Secret Credentials
-RAZORPAY_KEY_ID=rzp_test_your_key_id
-RAZORPAY_KEY_SECRET=your_razorpay_secret_key
-RAZORPAY_WEBHOOK_SECRET=your_razorpay_webhook_secret
+# Contact Email for Notifications (TODO: set to confirmed mailbox on computercaregzb.com)
+CONTACT_EMAIL=contact@computercaregzb.com
 
 # GST & Business Compliance
 COMPANY_NAME=Computer Care
 COMPANY_GSTIN=09XXXXX0000X1Z5
-STORE_ADDRESS=Shiva Tower, Ghaziabad, UP 201001
+STORE_ADDRESS=G 23 Shiva Tower, Ghaziabad, UP 201009
 STORE_PHONE=+919810550222
-STORE_EMAIL=contact@computercaregzb.com
 ```
 
 ---
 
-## 2. SUPABASE PROJECT SETUP
+## 2. CANONICAL BUILD & DEPLOYMENT
+
+The project enforces identical, single-command builds and directory structures across all deployment targets:
+
+- **Canonical Build Command:** `npm run build`
+- **Canonical Publish Directory:** `dist`
+
+### 2.1 Netlify (`netlify.toml`)
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+```
+
+### 2.2 Cloudflare Pages (`wrangler.jsonc` & `wrangler.toml`)
+```jsonc
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "custom-pc-builder",
+  "compatibility_date": "2024-09-23",
+  "pages_build_output_dir": "./dist"
+}
+```
+
+The build pipeline automatically:
+1. Runs `vite build` to compile the React 19 single-page application.
+2. Prerenders all 36 public routes into static HTML (`client/scripts/prerender_routes.cjs`).
+3. Generates the comprehensive `sitemap.xml` and `robots.txt` referencing `https://computercaregzb.com`.
+4. Runs `client/scripts/verify_build.cjs` to assert zero duplicate H1s, zero legacy domain references, and complete SEO integrity.
+5. Copies all output files to root `./dist`.
+
+---
+
+## 3. FORM SUBMISSIONS & LEADS ARCHITECTURE
+
+Form submissions (`expert-consultation`, `bulk-order`, `cart-checkout`) use `client/src/utils/formSubmit.js`:
+1. **Primary Route:** Directly inserts leads into Supabase tables (`public.leads` and `public.quotations`) using Row Level Security (RLS).
+2. **Netlify Fallback:** If Supabase is unconfigured or unavailable, safely falls back to Netlify Forms POST.
+3. **Fail-Safe Route:** If both channels fail, an informative error is presented to the customer with a pre-filled direct WhatsApp link (+91 9810550222), ensuring inquiries are never silently dropped.
+
+---
+
+## 4. SUPABASE PROJECT SETUP
 
 ### Step 1: Create Supabase Project
 1. Go to [https://supabase.com](https://supabase.com) and log in.
@@ -61,43 +98,42 @@ STORE_EMAIL=contact@computercaregzb.com
 
 ### Step 2: Apply Database Schema & Migrations
 1. In the Supabase dashboard, navigate to the **SQL Editor**.
-2. Click **New Query**.
-3. Copy the full contents of `supabase/migrations/20261109000000_init_ecommerce.sql`.
-4. Click **Run**.
-5. Verify that all 22 tables are created under `Table Editor`.
+2. Run migration 1: `supabase/migrations/20261109000000_init_ecommerce.sql`.
+3. Run migration 2: `supabase/migrations/20261118120000_backend_and_security.sql`.
+4. Verify tables (`profiles`, `products`, `leads`, `quotations`, `pc_configurations`, `orders`, `audit_logs`).
 
-### Step 3: Configure Supabase Authentication
+### Step 3: Populate Catalog Data
+Run the catalog migration seed script:
+```bash
+node supabase/seed_catalog.cjs
+```
+This reads 581 genuine hardware items from `client/public/data/products.json` and idempotently upserts brands, categories, and products.
+
+### Step 4: Configure Supabase Authentication
 1. Navigate to **Authentication** -> **URL Configuration**.
-2. Set **Site URL** to `https://magical-duckanoo-626d44.netlify.app`.
+2. Set **Site URL** to `https://computercaregzb.com`.
 3. Add redirect URLs:
    - `http://localhost:5173/**`
-   - `https://magical-duckanoo-626d44.netlify.app/**`
-4. In **Email Templates**, customize the confirmation and password reset emails with Computer Care branding.
-5. In **Providers**, ensure **Email** is enabled with:
-   - "Confirm email": Optional (can be disabled during development for instant testing).
-   - "Secure password reset": Enabled.
-
-### Step 4: Configure Supabase Storage Buckets
-1. Navigate to **Storage** -> **Create new bucket**.
-2. Create bucket `product-images`:
-   - Set as **Public bucket** (so product photos load on CDN).
-   - Set allowed MIME types: `image/jpeg, image/png, image/webp`.
-   - Max file size: `5MB`.
-3. Create bucket `quotation-docs`:
-   - Set as **Private bucket** (accessible only by authenticated customers & admin).
+   - `https://computercaregzb.com/**`
+4. Set admin user role: In `public.profiles`, set `role = 'admin'` for store manager emails.
 
 ---
 
-## 3. RAZORPAY PAYMENT GATEWAY SETUP
+## 5. LOCAL RUNTIME INSTRUCTIONS
 
-### Step 1: Razorpay Merchant Account
-1. Sign up at [https://razorpay.com](https://razorpay.com).
-2. Switch to **Test Mode** during staging.
-3. Complete KYC submission for live Indian payments (UPI, Credit/Debit Cards, NetBanking, EMI).
+### Prerequisites
+- Node.js v18+ (Node.js v24 is installed locally)
+- npm v9+
 
-### Step 2: Generate API Keys
-1. Go to **Settings** -> **API Keys**.
-2. Click **Generate Test Key**.
+### Start Local Development
+```bash
+# 1. Install dependencies
+npm --prefix client install
+
+# 2. Start Vite development server
+npm --prefix client run dev -- --host 127.0.0.1
+```
+The application will run locally at `http://127.0.0.1:5173/`.
 3. Copy **Key ID** (`rzp_test_...`) and **Key Secret**.
 4. Store **Key ID** in `client/.env` as `VITE_RAZORPAY_KEY_ID`.
 5. Store **Key Secret** in Netlify / server environment variables.
