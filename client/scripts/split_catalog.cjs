@@ -6,6 +6,7 @@ const clientDir = path.resolve(__dirname, '..');
 const productsJsonPath = path.join(clientDir, 'public/data/products.json');
 const targetCategoriesDir = path.join(clientDir, 'public/data/categories');
 const targetManifestPath = path.join(clientDir, 'public/data/manifest.json');
+const targetCategoryCountsPath = path.join(clientDir, 'src/constants/categoryCounts.json');
 
 if (!fs.existsSync(productsJsonPath)) {
   console.error('products.json not found at:', productsJsonPath);
@@ -33,6 +34,8 @@ for (const [catKey, items] of Object.entries(data)) {
   fs.writeFileSync(catFilePath, JSON.stringify(items, null, 2), 'utf8');
   categoryFiles[catKey] = `/data/categories/${catKey}.json`;
 }
+
+fs.writeFileSync(targetCategoryCountsPath, JSON.stringify(categoryCounts, null, 2), 'utf8');
 
 function findInitialBuild() {
   const cpus = (data.cpu || []).filter(c => c.vendor !== 'PC Build' && !(c.title || '').toLowerCase().includes('custom pc build'));

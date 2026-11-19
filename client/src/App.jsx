@@ -590,6 +590,7 @@ export default function App() {
             onViewDetails={setDetailProduct}
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
+            categoryCounts={manifestData?.categoryCounts || {}}
           />
         )}
         </Suspense>

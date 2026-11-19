@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { TOTAL_PRODUCTS_COUNT } from '../constants/storeInfo';
 import categoryDescriptions from '../constants/categoryDescriptions.json';
+import defaultCategoryCounts from '../constants/categoryCounts.json';
 import { 
   Search, 
   ArrowUpDown, 
@@ -85,8 +86,14 @@ export default function CatalogView({
   onSelectComponent, 
   onViewDetails,
   searchQuery = '',
-  setSearchQuery = () => {}
+  setSearchQuery = () => {},
+  categoryCounts = {}
 }) {
+  const effectiveCategoryCounts = useMemo(() => ({
+    ...defaultCategoryCounts,
+    ...categoryCounts
+  }), [categoryCounts]);
+
   const [selectedBrand, setSelectedBrand] = useState('ALL');
   const [selectedCabinetKind, setSelectedCabinetKind] = useState('ALL');
   const [selectedFanKind, setSelectedFanKind] = useState('ALL');
@@ -339,40 +346,38 @@ export default function CatalogView({
               Categories
             </h3>
             <div className="flex flex-col gap-1 text-xs">
-              {CATEGORY_TABS.map(tab => (
-                <button
-                  key={tab.key}
-                  onClick={() => { 
-                    onSelectCategory(tab.key); 
-                    setPageNumber(1); 
-                    setSelectedBrand('ALL'); 
-                    setSelectedCabinetKind('ALL'); 
-                    setSelectedFanKind('ALL'); 
-                  }}
-                  className={`text-left px-3 py-2 rounded-lg transition-colors font-medium flex items-center justify-between ${
-                    selectedCategory === tab.key
-                      ? 'bg-brand-blue text-white font-bold'
-                      : 'text-slate-700 hover:bg-slate-50'
-                  }`}
-                >
-                  <span>{tab.label}</span>
-                  {tab.key === 'all' ? (
-                    <span className={`text-[10px] font-mono ${selectedCategory === tab.key ? 'text-white/80' : 'text-slate-400'}`}>
-                      {TOTAL_PRODUCTS_COUNT}
-                    </span>
-                  ) : (catalog[tab.key]?.length || 0) > 0 ? (
-                    <span className={`text-[10px] font-mono ${selectedCategory === tab.key ? 'text-white/80' : 'text-slate-400'}`}>
-                      {catalog[tab.key].length}
-                    </span>
-                  ) : (
-                    <span className={`text-[9px] font-sans font-semibold px-1.5 py-0.5 rounded ${
-                      selectedCategory === tab.key ? 'bg-white/20 text-white' : 'bg-amber-50 text-amber-700 border border-amber-200'
-                    }`}>
-                      On Request
-                    </span>
-                  )}
-                </button>
-              ))}
+              {CATEGORY_TABS.map(tab => {
+                const count = effectiveCategoryCounts[tab.key] ?? (catalog[tab.key]?.length || 0);
+
+                return (
+                  <button
+                    key={tab.key}
+                    onClick={() => { 
+                      onSelectCategory(tab.key); 
+                      setPageNumber(1); 
+                      setSelectedBrand('ALL'); 
+                      setSelectedCabinetKind('ALL'); 
+                      setSelectedFanKind('ALL'); 
+                    }}
+                    className={`text-left px-3 py-2 rounded-lg transition-colors font-medium flex items-center justify-between ${
+                      selectedCategory === tab.key
+                        ? 'bg-brand-blue text-white font-bold'
+                        : 'text-slate-700 hover:bg-slate-50'
+                    }`}
+                  >
+                    <span>{tab.label}</span>
+                    {tab.key === 'all' ? (
+                      <span className={`text-[10px] font-mono ${selectedCategory === tab.key ? 'text-white/80' : 'text-slate-400'}`}>
+                        {TOTAL_PRODUCTS_COUNT}
+                      </span>
+                    ) : count > 0 ? (
+                      <span className={`text-[10px] font-mono ${selectedCategory === tab.key ? 'text-white/80' : 'text-slate-400'}`}>
+                        {count}
+                      </span>
+                    ) : null}
+                  </button>
+                );
+              })}
             </div>
           </div>
 

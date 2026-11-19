@@ -1,0 +1,21 @@
+{
+  "case": 187,
+  "cpu": 12,
+  "motherboard": 17,
+  "gpu": 15,
+  "ram": 26,
+  "storage": 24,
+  "psu": 26,
+  "cooler": 32,
+  "monitor": 78,
+  "case_fan": 4,
+  "gaming_mouse": 27,
+  "gaming_keyboard": 44,
+  "gaming_headset": 24,
+  "gaming_mousepad": 14,
+  "gaming_chair": 3,
+  "gaming_controller": 24,
+  "webcam": 18,
+  "microphone": 3,
+  "gaming_pc": 3
+}
