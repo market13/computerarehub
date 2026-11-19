@@ -1,7 +1,7 @@
 {
-  "version": "1.2.0-f227b46f5d",
-  "buildHash": "f227b46f5d",
-  "updatedAt": "2026-11-16T14:17:56.857Z",
+  "version": "1.2.0-c923bf4a4d",
+  "buildHash": "c923bf4a4d",
+  "updatedAt": "2026-11-19T12:20:50.579Z",
   "totalProducts": 581,
   "categories": [
     "case",
@@ -225,7 +225,7 @@
       "price": 4405,
       "compare_at_price": 6799,
       "available": true,
-      "sku": "ant-esports-fg550-v2-2.0-fully-modular-smps",
+      "sku": "ant-esports-fg550-v2-fully-modular-smps",
       "image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/fg550-v2-image.jpg?v=1767961926",
       "cdn_image": "https://cdn.shopify.com/s/files/1/0591/4220/9629/files/fg550-v2-image.jpg?v=1767961926",
       "images": [

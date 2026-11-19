@@ -73,6 +73,30 @@ function formatCategoryName(key) {
   return map[key] || key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 }
 
+function formatValidSku(sku, fallbackId) {
+  if (sku && typeof sku === 'string') {
+    const cleaned = sku.trim().replace(/[^A-Za-z0-9-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+    if (cleaned.length > 0) {
+      return cleaned;
+    }
+  }
+  if (fallbackId != null && fallbackId !== '') {
+    const cleanedId = String(fallbackId).trim().replace(/[^A-Za-z0-9-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+    if (cleanedId.length > 0) {
+      return `CC-${cleanedId}`;
+    }
+  }
+  return null;
+}
+
+function formatValidImageUrl(img) {
+  if (!img || typeof img !== 'string') return undefined;
+  const trimmed = img.trim();
+  if (!trimmed) return undefined;
+  if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) return trimmed;
+  return `https://computercaregzb.com${trimmed.startsWith('/') ? '' : '/'}${trimmed}`;
+}
+
 function injectHtml(template, { title, description, canonicalUrl, content, extraSchema = null }) {
   let html = template;
 
@@ -852,33 +876,44 @@ categories.forEach((cat) => {
     "description": catDesc.slice(0, 155),
     "url": `https://computercaregzb.com/catalog/${cat}`,
     "numberOfItems": products.length,
-    "itemListElement": products.slice(0, 12).map((p, idx) => ({
-      "@type": "ListItem",
-      "position": idx + 1,
-      "item": {
-        "@type": "Product",
-        "name": p.title,
-        "image": p.image ? `https://computercaregzb.com${p.image.startsWith('/') ? '' : '/'}${p.image}` : undefined,
-        "sku": p.sku || `CC-${p.id}`,
-        "description": p.description || `${p.title} - Authentic ${catName} from ${p.vendor} with manufacturer warranty and GST invoice.`,
-        "brand": {
-          "@type": "Brand",
-          "name": p.vendor
-        },
-        ...(p.price && Number(p.price) > 0 ? {
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "INR",
-            "price": Number(p.price),
-            "availability": p.available !== false ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-            "seller": {
-              "@type": "Organization",
-              "name": "Computer Care"
+    "itemListElement": products.slice(0, 12).map((p, idx) => {
+      const validSku = formatValidSku(p.sku, p.id);
+      const validImage = formatValidImageUrl(p.image || p.cdn_image || (p.images && p.images[0]));
+      const productUrl = p.handle
+        ? `https://computercaregzb.com/catalog/${cat}?product=${encodeURIComponent(p.handle)}`
+        : `https://computercaregzb.com/catalog/${cat}`;
+
+      return {
+        "@type": "ListItem",
+        "position": idx + 1,
+        "item": {
+          "@type": "Product",
+          "name": p.title,
+          ...(validImage ? { "image": validImage } : {}),
+          ...(validSku ? { "sku": validSku, "mpn": validSku } : {}),
+          "description": (p.description || `${p.title} - Authentic ${catName} from ${p.vendor} with manufacturer warranty and GST invoice.`).slice(0, 5000),
+          "brand": {
+            "@type": "Brand",
+            "name": p.vendor
+          },
+          ...(p.price && Number(p.price) > 0 ? {
+            "offers": {
+              "@type": "Offer",
+              "url": productUrl,
+              "priceCurrency": "INR",
+              "price": Number(p.price),
+              "priceValidUntil": "2027-12-31",
+              "itemCondition": "https://schema.org/NewCondition",
+              "availability": p.available !== false ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+              "seller": {
+                "@type": "Organization",
+                "name": "Computer Care"
+              }
             }
-          }
-        } : {})
-      }
-    }))
+          } : {})
+        }
+      };
+    })
   };
 
   const catContent = `

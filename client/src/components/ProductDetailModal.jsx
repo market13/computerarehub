@@ -79,7 +79,21 @@ export default function ProductDetailModal({
       ? product.images
       : [product.image || product.cdn_image].filter(Boolean);
 
-    const fullImages = productImages.map(img => img.startsWith('http') ? img : `https://computercaregzb.com${img.startsWith('/') ? '' : '/'}${img}`);
+    const fullImages = productImages.map(img => (img.startsWith('http://') || img.startsWith('https://')) ? img : `https://computercaregzb.com${img.startsWith('/') ? '' : '/'}${img}`);
+
+    const cleanSku = (sku, fallbackId) => {
+      if (sku && typeof sku === 'string') {
+        const cleaned = sku.trim().replace(/[^A-Za-z0-9-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+        if (cleaned.length > 0) return cleaned;
+      }
+      if (fallbackId != null && fallbackId !== '') {
+        const cleanedId = String(fallbackId).trim().replace(/[^A-Za-z0-9-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+        if (cleanedId.length > 0) return `CC-${cleanedId}`;
+      }
+      return null;
+    };
+
+    const validSku = cleanSku(product.sku, product.id);
 
     const productSchema = {
       "@context": "https://schema.org",
@@ -87,8 +101,7 @@ export default function ProductDetailModal({
       "name": product.title,
       "image": fullImages,
       "description": product.description || `${product.title} - Authentic computer hardware component from ${product.vendor} with official manufacturer warranty.`,
-      "sku": product.sku || `CC-${product.id}`,
-      "mpn": product.sku || String(product.id),
+      ...(validSku ? { "sku": validSku, "mpn": validSku } : {}),
       brand: {
         "@type": "Brand",
         "name": product.vendor
