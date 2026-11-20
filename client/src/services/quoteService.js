@@ -1,4 +1,5 @@
 import { supabase, isSupabaseConfigured, safeDbQuery } from './supabaseClient.js';
+import { CONTACT_EMAIL } from '../constants/storeInfo.js';
 
 const LOCAL_STORAGE_KEY = 'computercare_saved_quotations';
 
@@ -29,7 +30,7 @@ export async function saveBuildQuote({
     quotation_number: quotationNumber,
     customer_name: customerName,
     customer_phone: customerPhone,
-    customer_email: customerEmail || 'enquiry@computercaregzb.com',
+    customer_email: customerEmail || CONTACT_EMAIL,
     city: city || 'Ghaziabad',
     intended_usage: intendedUsage,
     budget_range: `₹${totalPrice.toLocaleString('en-IN')}`,

@@ -20,8 +20,8 @@ export const GOOGLE_MAPS_URL = metaEnv.VITE_GOOGLE_MAPS_URL || procEnv.VITE_GOOG
 export const INSTAGRAM_URL = metaEnv.VITE_INSTAGRAM_URL || procEnv.VITE_INSTAGRAM_URL || ''; // TODO: confirm store Instagram profile URL
 export const STORE_LANDMARK = 'Shiva Tower Commercial Complex, Central Ghaziabad'; // TODO: confirm exact nearby landmark (e.g. Near Old Bus Stand / Railway Station)
 
-// TODO: Set verified store contact email on computercaregzb.com via VITE_CONTACT_EMAIL environment variable
-export const CONTACT_EMAIL = metaEnv.VITE_CONTACT_EMAIL || procEnv.VITE_CONTACT_EMAIL || '';
+// Verified store contact email for notifications and customer inquiries
+export const CONTACT_EMAIL = metaEnv.VITE_CONTACT_EMAIL || procEnv.VITE_CONTACT_EMAIL || 'support@computercaregzb.com';
 
 // Reconciled single constant for product count claims across UI, SEO, and marketing
 export const TOTAL_PRODUCTS_COUNT = '3,200+';

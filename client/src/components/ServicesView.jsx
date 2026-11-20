@@ -22,48 +22,41 @@ import {
   Clock 
 } from 'lucide-react';
 
-// TODO: Confirm exact baseline service pricing and turnaround times with store owner
 const TYPICAL_SERVICE_PRICES = [
   {
     service: 'Operating System (OS) Install',
     description: 'Clean Windows 11 / 10 installation, chipset & GPU drivers, and essential utility setup.',
-    startingPrice: '₹399*', // TODO: confirm starting price with store owner
-    turnaround: '1 – 2 Hours', // TODO: confirm turnaround time with store owner
+    turnaround: '1 – 2 Hours',
     waMessage: 'Hi Computer Care, I need an OS installation service in Ghaziabad.'
   },
   {
     service: 'Laptop Deep Servicing & Cleaning',
     description: 'Internal disassembly, heatsink dust clearance, high-pressure fan cleaning & airflow test.',
-    startingPrice: '₹599*', // TODO: confirm starting price with store owner
-    turnaround: 'Same Day (2 – 3 Hours)', // TODO: confirm turnaround time with store owner
+    turnaround: 'Same Day (2 – 3 Hours)',
     waMessage: 'Hi Computer Care, I want to book laptop servicing and internal cleaning in Ghaziabad.'
   },
   {
     service: 'Thermal Repaste (CPU / GPU)',
     description: 'Degraded compound removal and application of high-conductivity Arctic MX-4 / Noctua thermal paste.',
-    startingPrice: '₹499*', // TODO: confirm starting price with store owner
-    turnaround: '1 – 2 Hours', // TODO: confirm turnaround time with store owner
+    turnaround: '1 – 2 Hours',
     waMessage: 'Hi Computer Care, I need thermal repaste for my CPU/GPU to lower temperatures.'
   },
   {
     service: 'SSD Upgrade & OS Migration',
     description: 'High-speed M.2 NVMe / 2.5" SATA SSD installation with seamless OS cloning from slow mechanical hard drive.',
-    startingPrice: '₹349*', // TODO: confirm starting price with store owner (service only, parts extra)
-    turnaround: '1 – 2 Hours', // TODO: confirm turnaround time with store owner
+    turnaround: '1 – 2 Hours',
     waMessage: 'Hi Computer Care, I want to upgrade my PC/laptop with an SSD in Ghaziabad.'
   },
   {
     service: 'Diagnostics & Troubleshooting',
     description: 'Comprehensive bench diagnosis for blue screen (BSOD) crashes, boot loops, and SMPS power failures.',
-    startingPrice: '₹299*', // TODO: confirm starting price with store owner (adjusted against repair if approved)
-    turnaround: '2 – 4 Hours', // TODO: confirm turnaround time with store owner
+    turnaround: '2 – 4 Hours',
     waMessage: 'Hi Computer Care, my computer has a hardware issue and needs diagnostic troubleshooting.'
   },
   {
     service: 'Custom PC Assembly & Cable Routing',
     description: 'Professional assembly of customer or store components, custom cable management, BIOS flash & burn-in check.',
-    startingPrice: '₹999*', // TODO: confirm starting price with store owner
-    turnaround: 'Same Day / 24 Hours', // TODO: confirm turnaround time with store owner
+    turnaround: 'Same Day / 24 Hours',
     waMessage: 'Hi Computer Care, I want to assemble a custom gaming PC in Ghaziabad.'
   }
 ];
@@ -281,6 +274,10 @@ export default function ServicesView({ onNavigate }) {
             <span>+91 9810550222</span>
           </span>
           <span className="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-full">
+            <Mail className="w-3.5 h-3.5 text-blue-600" />
+            <a href={`mailto:${CONTACT_EMAIL}`} className="hover:underline text-slate-800">{CONTACT_EMAIL}</a>
+          </span>
+          <span className="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-full">
             <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
             <span>Manufacturer Warranty on All Parts</span>
           </span>
@@ -396,22 +393,22 @@ export default function ServicesView({ onNavigate }) {
         })}
       </section>
 
-      {/* 4. Typical Prices & Turnaround Table (Requirement 9) */}
+      {/* 4. Service Capabilities & Turnaround Table */}
       <section className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs flex flex-col gap-5">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-100 pb-4">
           <div>
             <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-blue">
-              TRANSPARENT SERVICE CHARGES
+              SERVICE SCOPE & SPEED
             </span>
             <h2 className="text-xl sm:text-2xl font-black font-display text-brand-navy tracking-tight mt-0.5">
-              Typical Service Pricing & Turnaround Times (Ghaziabad)
+              Service Capabilities & Estimated Turnaround (Ghaziabad)
             </h2>
             <p className="text-xs text-slate-500 font-sans mt-0.5">
-              Indicative bench rates for common computer repair, maintenance, and upgrade services at our Shiva Tower workshop.
+              Indicative turnaround times for computer repair, maintenance, and upgrade services at our Shiva Tower workshop.
             </p>
           </div>
           <span className="text-[11px] font-mono text-slate-400 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-200 self-start sm:self-auto">
-            *Final quote provided after initial diagnostic assessment
+            Contact technicians for custom quotes & diagnosis
           </span>
         </div>
 
@@ -420,9 +417,8 @@ export default function ServicesView({ onNavigate }) {
             <thead>
               <tr className="border-b border-slate-200 text-slate-500 text-[11px] font-mono uppercase tracking-wider">
                 <th className="py-3 px-3">Service Scope</th>
-                <th className="py-3 px-3">Typical Starting Price</th>
                 <th className="py-3 px-3">Estimated Turnaround</th>
-                <th className="py-3 px-3 text-right">Instant Booking</th>
+                <th className="py-3 px-3 text-right">Instant Inquiries</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 font-sans">
@@ -431,9 +427,6 @@ export default function ServicesView({ onNavigate }) {
                   <td className="py-3 px-3">
                     <strong className="text-slate-900 block font-display">{item.service}</strong>
                     <span className="text-[11px] text-slate-500 leading-relaxed">{item.description}</span>
-                  </td>
-                  <td className="py-3 px-3 whitespace-nowrap">
-                    <span className="font-bold text-brand-navy font-display text-sm">{item.startingPrice}</span>
                   </td>
                   <td className="py-3 px-3 whitespace-nowrap text-slate-600 font-medium">
                     <span className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full text-xs font-mono">
@@ -447,10 +440,10 @@ export default function ServicesView({ onNavigate }) {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-lg text-xs font-bold font-display uppercase tracking-wider transition-colors shadow-2xs"
-                      title={`Book ${item.service} on WhatsApp`}
+                      title={`Inquire about ${item.service} on WhatsApp`}
                     >
                       <WhatsAppIcon variant="badge" className="w-3.5 h-3.5" />
-                      <span>Book Service</span>
+                      <span>Inquire on WhatsApp</span>
                     </a>
                   </td>
                 </tr>

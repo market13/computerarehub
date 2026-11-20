@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Wrench, Clock, CheckCircle2, AlertCircle, Laptop } from 'lucide-react';
+import { Search, Wrench, Clock, CheckCircle2, AlertCircle, Laptop, MapPin, ArrowRight } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 import { getRepairTicket, createRepairTicket, REPAIR_STATUS_MAP } from '../services/repairService';
 import { validateIndianPhone, checkSubmissionRateLimit } from '../utils/validation';
@@ -100,7 +100,7 @@ export default function RepairStatusLookup() {
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-semibold mb-2">
               <Wrench className="w-3.5 h-3.5" />
-              <span>Computer Care Service Center â€¢ Shiva Tower, Ghaziabad</span>
+              <span>Computer Care Service Center | Shiva Tower, Ghaziabad</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black font-display tracking-tight">
               Repair & Service Hub
@@ -192,7 +192,7 @@ export default function RepairStatusLookup() {
                     )}
                   </div>
                   <p className="text-xs text-slate-500 mt-1">
-                    Customer: <span className="font-semibold text-slate-800">{ticket.customer_name}</span> â€¢ Checked in: {new Date(ticket.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                    Customer: <span className="font-semibold text-slate-800">{ticket.customer_name}</span> | Checked in: {new Date(ticket.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
                   </p>
                 </div>
 
@@ -327,7 +327,7 @@ export default function RepairStatusLookup() {
                 onClick={() => { setBookingSuccess(null); setActiveTab('track'); setQuery(bookingSuccess.jobId); }}
                 className="self-start text-xs font-bold text-emerald-800 underline hover:text-emerald-950 cursor-pointer"
               >
-                Track this Job ID now â†’
+                <span className="inline-flex items-center gap-1">Track this Job ID now <ArrowRight className="w-3.5 h-3.5" /></span>
               </button>
             </div>
           ) : (
@@ -417,7 +417,7 @@ export default function RepairStatusLookup() {
 
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-3 border-t border-slate-100">
                 <span className="text-xs text-slate-500">
-                  ðŸ“ Shiva Tower, Ghaziabad â€¢ Mon-Sat 10:30 AM - 8:00 PM
+                  <span className="inline-flex items-center gap-1"><MapPin className="w-3.5 h-3.5 text-slate-400" /> Shiva Tower, Ghaziabad | Mon-Sat 10:30 AM - 8:00 PM</span>
                 </span>
                 <button
                   type="submit"

@@ -284,7 +284,7 @@ export default function BulkOrderView({ onNavigate }) {
                   Bulk Order Inquiry Received Successfully!
                 </h3>
                 <p className="text-xs sm:text-sm text-emerald-700">
-                  Thank you, <span className="font-semibold text-emerald-900">{submittedInquiry.fullName}</span>. Our corporate sales team has received your request and will contact you within 2-4 business hours.
+                  Thank you, <span className="font-semibold text-emerald-900">{submittedInquiry.fullName}</span>. Your request has been emailed to our B2B desk at <span className="font-semibold text-emerald-900">{CONTACT_EMAIL}</span>. Our corporate sales team will contact you within 2-4 business hours.
                 </p>
               </div>
             </div>

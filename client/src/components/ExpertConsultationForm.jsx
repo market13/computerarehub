@@ -20,6 +20,7 @@ import { AlertCircle } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 import { submitToNetlify } from '../utils/formSubmit';
 import { saveBuildQuote } from '../services/quoteService';
+import { CONTACT_EMAIL } from '../constants/storeInfo';
 
 const USE_CASES = [
   { id: 'gaming', label: 'High-FPS Gaming', desc: 'Esports, GTA, Cyberpunk, AAA titles' },
@@ -241,10 +242,10 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
               </div>
               <div>
                 <h3 className="text-lg sm:text-xl font-bold font-display text-emerald-950">
-                  Consultation Request Received!
+                  Consultation Request Received & Emailed!
                 </h3>
                 <p className="text-xs sm:text-sm text-emerald-700">
-                  Thank you, <span className="font-semibold text-emerald-900">{submittedRequest.fullName}</span>. An expert PC architect from Computer Care will call you at <span className="font-semibold text-emerald-900">{submittedRequest.phone}</span> shortly.
+                  Thank you, <span className="font-semibold text-emerald-900">{submittedRequest.fullName}</span>. Your requirements have been received and emailed directly to our hardware team at <span className="font-semibold text-emerald-900">{CONTACT_EMAIL}</span>. An expert PC architect from Computer Care will call you at <span className="font-semibold text-emerald-900">{submittedRequest.phone}</span> shortly.
                 </p>
               </div>
             </div>
@@ -287,7 +288,15 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
               Want immediate recommendations? Call our hardware team directly at <strong>+91 9810550222</strong>
             </span>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <a
+                href={`mailto:${CONTACT_EMAIL}?subject=PC%20Recommendation%20Inquiry%20(${encodeURIComponent(submittedRequest.refNumber)})&body=Hi%20Computer%20Care%20Team%2C%0A%0AMy%20consultation%20reference%20is%20${encodeURIComponent(submittedRequest.refNumber)}.%0APhone%3A%20${encodeURIComponent(submittedRequest.phone)}%0APurpose%3A%20${encodeURIComponent(submittedRequest.useCase)}%0ABudget%3A%20${encodeURIComponent(submittedRequest.budget)}%0A%0AThank%20you!`}
+                className="px-3.5 py-2 bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 rounded-lg font-bold text-xs flex items-center gap-1.5 transition-colors shadow-2xs"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                <span>Email Support Direct</span>
+              </a>
+
               <a
                 href={`https://wa.me/919810550222?text=Hello%20Computer%20Care%20Team%2C%20I%20have%20submitted%20a%20PC%20recommendation%20call%20request%20(Ref%3A%20${encodeURIComponent(submittedRequest.refNumber)})%20for%20my%20${encodeURIComponent(submittedRequest.useCase)}%20PC%20build.`}
                 target="_blank"
@@ -532,9 +541,15 @@ export default function ExpertConsultationForm({ onBackToBuilder }) {
 
           {/* Submit Strip */}
           <div className="pt-2 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2 text-xs text-slate-500">
-              <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-              <span>We never spam. You will receive a single consultative call from our hardware architect.</span>
+            <div className="flex flex-col gap-0.5 text-xs text-slate-500">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                <span>We never spam. You will receive a single consultative call from our hardware architect.</span>
+              </div>
+              <div className="flex items-center gap-2 text-[11px] text-slate-400 pl-6">
+                <Mail className="w-3.5 h-3.5 text-blue-500 flex-shrink-0" />
+                <span>Inquiries sent directly to engineering team at <strong className="text-slate-600">{CONTACT_EMAIL}</strong></span>
+              </div>
             </div>
 
             <div className="flex items-center gap-3">

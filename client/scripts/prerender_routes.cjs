@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const contactEmail = process.env.CONTACT_EMAIL || process.env.VITE_CONTACT_EMAIL || '';
+const contactEmail = process.env.CONTACT_EMAIL || process.env.VITE_CONTACT_EMAIL || 'support@computercaregzb.com';
 
 const clientDist = path.resolve(__dirname, '../dist');
 const dataCategoriesDir = path.resolve(__dirname, '../public/data/categories');
@@ -724,56 +724,49 @@ const servicesContent = `
       </article>
     </section>
 
-    <!-- Typical Service Pricing & Turnaround Times (Ghaziabad) -->
+    <!-- Service Capabilities & Estimated Turnaround (Ghaziabad) -->
     <section style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:24px;margin-bottom:32px;">
-      <h2 style="color:#1b2269;font-size:1.4rem;margin-top:0;">Typical Service Pricing & Turnaround Times (Ghaziabad)</h2>
-      <p style="color:#64748b;font-size:0.95rem;margin-bottom:16px;">Indicative bench rates for common hardware repair, maintenance, and upgrade services at our Shiva Tower workshop (*final quotation confirmed after diagnostic inspection).</p>
+      <h2 style="color:#1b2269;font-size:1.4rem;margin-top:0;">Service Capabilities & Estimated Turnaround (Ghaziabad)</h2>
+      <p style="color:#64748b;font-size:0.95rem;margin-bottom:16px;">Indicative turnaround times for common hardware repair, maintenance, and upgrade services at our Shiva Tower workshop (contact technicians for custom component quotes & diagnostic evaluation).</p>
       <div style="overflow-x:auto;">
         <table style="width:100%;border-collapse:collapse;font-size:0.9rem;text-align:left;">
           <thead>
             <tr style="border-bottom:2px solid #e2e8f0;color:#475569;">
-              <th style="padding:10px;">Service</th>
-              <th style="padding:10px;">Starting Price</th>
-              <th style="padding:10px;">Turnaround Time</th>
-              <th style="padding:10px;">Booking</th>
+              <th style="padding:10px;">Service Scope</th>
+              <th style="padding:10px;">Estimated Turnaround</th>
+              <th style="padding:10px;">Inquiries</th>
             </tr>
           </thead>
           <tbody>
             <tr style="border-bottom:1px solid #f1f5f9;">
               <td style="padding:12px 10px;"><strong>Operating System (OS) Install</strong><br><span style="color:#64748b;font-size:0.8rem;">Windows 11/10 clean setup & drivers</span></td>
-              <td style="padding:12px 10px;font-weight:bold;color:#1b2269;">₹399*</td>
               <td style="padding:12px 10px;color:#059669;font-weight:bold;">1–2 Hours</td>
-              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20OS%20install%20service" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Book on WhatsApp &rarr;</a></td>
+              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20OS%20install%20service" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Inquire on WhatsApp &rarr;</a></td>
             </tr>
             <tr style="border-bottom:1px solid #f1f5f9;">
               <td style="padding:12px 10px;"><strong>Laptop Deep Servicing & Cleaning</strong><br><span style="color:#64748b;font-size:0.8rem;">Internal fan lint removal & heatsink clearing</span></td>
-              <td style="padding:12px 10px;font-weight:bold;color:#1b2269;">₹599*</td>
               <td style="padding:12px 10px;color:#059669;font-weight:bold;">Same Day (2–3 Hours)</td>
-              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20laptop%20servicing" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Book on WhatsApp &rarr;</a></td>
+              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20laptop%20servicing" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Inquire on WhatsApp &rarr;</a></td>
             </tr>
             <tr style="border-bottom:1px solid #f1f5f9;">
               <td style="padding:12px 10px;"><strong>Thermal Repaste (CPU / GPU)</strong><br><span style="color:#64748b;font-size:0.8rem;">Arctic MX-4 / Noctua thermal paste application</span></td>
-              <td style="padding:12px 10px;font-weight:bold;color:#1b2269;">₹499*</td>
               <td style="padding:12px 10px;color:#059669;font-weight:bold;">1–2 Hours</td>
-              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20thermal%20repasting" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Book on WhatsApp &rarr;</a></td>
+              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20thermal%20repasting" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Inquire on WhatsApp &rarr;</a></td>
             </tr>
             <tr style="border-bottom:1px solid #f1f5f9;">
               <td style="padding:12px 10px;"><strong>SSD Upgrade & OS Migration</strong><br><span style="color:#64748b;font-size:0.8rem;">NVMe / SATA SSD installation with seamless OS cloning</span></td>
-              <td style="padding:12px 10px;font-weight:bold;color:#1b2269;">₹349* + SSD</td>
               <td style="padding:12px 10px;color:#059669;font-weight:bold;">1–2 Hours</td>
-              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20SSD%20upgrade" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Book on WhatsApp &rarr;</a></td>
+              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20SSD%20upgrade" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Inquire on WhatsApp &rarr;</a></td>
             </tr>
             <tr style="border-bottom:1px solid #f1f5f9;">
               <td style="padding:12px 10px;"><strong>Diagnostics & Troubleshooting</strong><br><span style="color:#64748b;font-size:0.8rem;">Bench test for BSOD, no-display, power failure</span></td>
-              <td style="padding:12px 10px;font-weight:bold;color:#1b2269;">₹299*</td>
               <td style="padding:12px 10px;color:#059669;font-weight:bold;">2–4 Hours</td>
-              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20diagnostics" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Book on WhatsApp &rarr;</a></td>
+              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20diagnostics" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Inquire on WhatsApp &rarr;</a></td>
             </tr>
             <tr>
               <td style="padding:12px 10px;"><strong>Custom PC Assembly & Cable Routing</strong><br><span style="color:#64748b;font-size:0.8rem;">Component assembly, BIOS update & stress test</span></td>
-              <td style="padding:12px 10px;font-weight:bold;color:#1b2269;">₹999*</td>
               <td style="padding:12px 10px;color:#059669;font-weight:bold;">Same Day / 24 Hours</td>
-              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20PC%20assembly" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Book on WhatsApp &rarr;</a></td>
+              <td style="padding:12px 10px;"><a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20need%20PC%20assembly" target="_blank" rel="noopener noreferrer" style="color:#059669;font-weight:bold;">Inquire on WhatsApp &rarr;</a></td>
             </tr>
           </tbody>
         </table>
@@ -1265,8 +1258,8 @@ const trustPages = [
           <p style="color:#475569;font-size:1.05rem;">Transparent Breakdown of Screen Replacement, Battery, Thermal Servicing, and Motherboard Repair Costs.</p>
         </header>
         <section>
-          <h2 style="color:#1b2269;font-size:1.3rem;">Standard Bench Pricing in Ghaziabad</h2>
-          <p>Thermal servicing (₹499–₹699*), Windows OS install (₹399–₹499*), SSD upgrade (₹349* + SSD), screen replacement (₹2,800–₹5,500*), battery replacement (₹1,400–₹3,200*).</p>
+          <h2 style="color:#1b2269;font-size:1.3rem;">Standard Bench Services in Ghaziabad</h2>
+          <p>Thermal servicing, Windows OS installation, SSD upgrades, screen replacement, and battery replacement with honest component diagnostics.</p>
           <div style="margin:20px 0;"><a href="/services" style="display:inline-block;background:#2b38d1;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:bold;">Check Repair Services & Track Job &rarr;</a></div>
         </section>
       </main>

@@ -130,8 +130,8 @@ export default function AboutView({ onNavigate }) {
             <a href="tel:+919810550222" className="text-emerald-400 hover:underline block font-bold">+91 9810550222</a>
           </div>
           <div>
-            <strong className="text-slate-300 block mb-1">Consultation</strong>
-            <a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20have%20an%20inquiry" className="text-amber-400 hover:underline block font-bold">Chat on WhatsApp</a>
+            <strong className="text-slate-300 block mb-1">Support Email</strong>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-blue-300 hover:underline block font-bold">{CONTACT_EMAIL}</a>
           </div>
         </div>
       </section>
