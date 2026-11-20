@@ -43,27 +43,28 @@ export async function saveBuildQuote({
 
   return await safeDbQuery(
     async (client) => {
-      // 1. Insert into quotations table
-      const { data, error } = await client
-        .from('quotations')
-        .insert({
-          quotation_number: record.quotation_number,
-          inquiry_type: inquiryType,
-          customer_name: record.customer_name,
-          customer_phone: record.customer_phone,
-          customer_email: record.customer_email,
-          city: record.city,
-          intended_usage: record.intended_usage,
-          budget_range: record.budget_range,
-          quoted_subtotal: record.quoted_subtotal,
-          notes: record.notes,
-          status: 'pending',
-        })
-        .select()
-        .single();
+      // 1. Insert into build_requests table for Admin Portal visibility
+      const buildPartsSummary = Object.entries(build || {})
+        .filter(([_, comp]) => comp && comp.name)
+        .map(([slot, comp]) => `${slot}: ${comp.name}`)
+        .join(', ');
 
-      if (error) throw error;
-      return { quotationNumber, record: data };
+      const buildPayload = {
+        name: customerName || 'Custom PC Builder Guest',
+        phone: customerPhone || 'Not provided',
+        email: customerEmail || null,
+        budget: Number(totalPrice) > 0 ? Math.round(Number(totalPrice)) : null,
+        use_case: intendedUsage || 'Custom PC Build',
+        preferences: `Total: ₹${Number(totalPrice).toLocaleString('en-IN')} | Power: ~${estimatedWattage}W | City: ${city}${buildPartsSummary ? ' | Parts: ' + buildPartsSummary : ''}${notes ? ' | Notes: ' + notes : ''} | Quote#: ${quotationNumber}`,
+        status: 'new'
+      };
+
+      // Anon RLS: INSERT ONLY, no .select()
+      const { error } = await client.from('build_requests').insert([buildPayload]);
+      if (error) {
+        console.warn('[quoteService] build_requests insert error:', error);
+      }
+      return { quotationNumber, record };
     },
     async () => {
       // Offline / LocalStorage fallback
@@ -127,7 +128,7 @@ export async function getStoredQuotes() {
   return await safeDbQuery(
     async (client) => {
       const { data, error } = await client
-        .from('quotations')
+        .from('build_requests')
         .select('*')
         .order('created_at', { ascending: false })
         .limit(100);

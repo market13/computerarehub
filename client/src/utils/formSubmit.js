@@ -111,101 +111,131 @@ export async function submitForm(formName, data) {
     console.warn('[FormSubmit] Email dispatch failed:', e);
   }
 
-  // 2. Attempt Supabase direct submission if configured
+  // 2. Attempt Supabase direct submission into build_requests table
   if (isSupabaseConfigured() && supabase) {
     try {
+      // Helper to parse numeric budget safely for PostgreSQL numeric column
+      let numBudget = null;
+      const rawBudget = data.budget || data.budgetRange || data.totalPrice || data.totalAmount;
+      if (typeof rawBudget === 'number' && !isNaN(rawBudget)) {
+        numBudget = Math.round(rawBudget);
+      } else if (typeof rawBudget === 'string') {
+        const numbers = rawBudget.replace(/,/g, '').match(/\d+/g);
+        if (numbers && numbers.length > 0) {
+          if (numbers.length >= 2) {
+            numBudget = Math.round((parseFloat(numbers[0]) + parseFloat(numbers[1])) / 2);
+          } else {
+            numBudget = Math.round(parseFloat(numbers[0]));
+          }
+        }
+      }
+
       if (formName === 'expert-consultation') {
-        const leadPayload = {
-          lead_type: 'consultation',
+        const useCaseMap = {
+          gaming: 'Gaming',
+          rendering: '3D VFX / Rendering',
+          editing: 'Video Editing',
+          office: 'Office / Productivity',
+          coding: 'Programming / DevOps',
+          deeplearning: 'AI & Deep Learning',
+          student: 'Student / Home Study',
+        };
+        const mappedUseCase = useCaseMap[data.useCase] || (data.useCase ? String(data.useCase) : 'Gaming');
+
+        const prefParts = [
+          data.budget ? `Budget: ${data.budget}` : '',
+          data.city ? `City: ${data.city}` : '',
+          data.callTime ? `Call Time: ${data.callTime}` : '',
+          data.preferredBrand ? `Platform: ${data.preferredBrand}` : '',
+          data.notes ? `Notes: ${data.notes}` : '',
+          data.refNumber ? `Ref: ${data.refNumber}` : ''
+        ].filter(Boolean);
+
+        const buildPayload = {
           name: data.fullName || data.name || 'Consultation Request',
           phone: data.phone || '',
           email: data.email || null,
-          city: data.city || 'Ghaziabad',
-          usage: data.useCase || data.usage || null,
-          budget: data.budget ? String(data.budget) : null,
-          notes: `Call Time: ${data.callTime || 'Anytime'}${data.notes ? ' | Notes: ' + data.notes : ''}`,
-          raw_data: data,
-          status: 'new',
+          budget: numBudget,
+          use_case: mappedUseCase,
+          preferences: prefParts.join(' | ') || 'Consultation Callback Request',
+          status: 'new'
         };
 
-        const { error } = await supabase.from('leads').insert(leadPayload);
+        // Note: NO .select() because RLS allows INSERT ONLY for anon
+        const { error } = await supabase.from('build_requests').insert([buildPayload]);
         if (!error) {
           supabaseSuccess = true;
         } else {
-          // If leads table does not exist or fails, try quotations
-          const quotePayload = {
-            quotation_number: data.refNumber || `CC-CALL-${Math.floor(100000 + Math.random() * 900000)}`,
-            inquiry_type: 'consultation',
-            customer_name: data.fullName || data.name || 'Consultation Request',
-            customer_phone: data.phone || '',
-            customer_email: data.email || CONTACT_EMAIL,
-            city: data.city || 'Ghaziabad',
-            intended_usage: data.useCase || data.usage || 'General Consultation',
-            budget_range: data.budget ? String(data.budget) : 'Flexible',
-            notes: `Call Time: ${data.callTime || 'Anytime'}${data.notes ? ' | Notes: ' + data.notes : ''}`,
-            status: 'pending',
-          };
-          const { error: quoteErr } = await supabase.from('quotations').insert(quotePayload);
-          if (!quoteErr) {
-            supabaseSuccess = true;
-          } else {
-            supabaseError = quoteErr;
-          }
+          console.warn('[FormSubmit] build_requests insert error:', error);
+          supabaseError = error;
         }
       } else if (formName === 'bulk-order') {
-        const leadPayload = {
-          lead_type: 'bulk_order',
-          name: data.fullName || data.name || 'B2B Inquiry',
+        const prefParts = [
+          data.companyName ? `Company: ${data.companyName}` : '',
+          data.gstin ? `GSTIN: ${data.gstin}` : '',
+          data.category ? `Category: ${data.category}` : '',
+          data.quantity ? `Qty: ${data.quantity}` : '',
+          data.city ? `City: ${data.city}` : '',
+          data.state ? `State: ${data.state}` : '',
+          data.timeline ? `Timeline: ${data.timeline}` : '',
+          data.requirements ? `Requirements: ${data.requirements}` : '',
+          data.refNumber ? `Ref: ${data.refNumber}` : ''
+        ].filter(Boolean);
+
+        const buildPayload = {
+          name: data.fullName || data.name || (data.companyName ? `${data.companyName} (Contact)` : 'B2B Inquiry'),
           phone: data.phone || '',
           email: data.email || null,
-          company: data.companyName || data.company || null,
-          city: data.city || 'Ghaziabad',
-          state: data.state || null,
-          gstin: data.gstin || null,
-          budget: data.budgetRange || data.budget ? String(data.budgetRange || data.budget) : null,
-          timeline: data.timeline || null,
-          notes: `Category: ${data.category || 'Hardware'} | Qty: ${data.quantity || 'N/A'}${data.requirements ? ' | ' + data.requirements : ''}`,
-          raw_data: data,
-          status: 'new',
+          budget: numBudget,
+          use_case: 'B2B / Bulk Order',
+          preferences: prefParts.join(' | ') || 'Bulk Hardware Inquiry',
+          status: 'new'
         };
 
-        const { error } = await supabase.from('leads').insert(leadPayload);
+        const { error } = await supabase.from('build_requests').insert([buildPayload]);
         if (!error) {
           supabaseSuccess = true;
         } else {
-          const quotePayload = {
-            quotation_number: data.refNumber || `CC-B2B-${Math.floor(100000 + Math.random() * 900000)}`,
-            inquiry_type: 'b2b_bulk',
-            customer_name: data.fullName || data.name || 'B2B Inquiry',
-            company_name: data.companyName || data.company || null,
-            customer_phone: data.phone || '',
-            customer_email: data.email || CONTACT_EMAIL,
-            city: data.city || 'Ghaziabad',
-            state: data.state || null,
-            gstin: data.gstin || null,
-            budget_range: data.budgetRange || data.budget ? String(data.budgetRange || data.budget) : null,
-            timeline: data.timeline || null,
-            notes: `Category: ${data.category || 'Hardware'} | Qty: ${data.quantity || 'N/A'}${data.requirements ? ' | ' + data.requirements : ''}`,
-            status: 'pending',
-          };
-          const { error: quoteErr } = await supabase.from('quotations').insert(quotePayload);
-          if (!quoteErr) {
-            supabaseSuccess = true;
-          } else {
-            supabaseError = quoteErr;
-          }
+          console.warn('[FormSubmit] build_requests insert error:', error);
+          supabaseError = error;
         }
-      } else {
-        const { error } = await supabase.from('leads').insert({
-          lead_type: 'other',
-          name: data.fullName || data.name || 'Web Inquiry',
+      } else if (formName === 'cart-checkout') {
+        const prefParts = [
+          data.itemsCount ? `Items: ${data.itemsCount}` : '',
+          data.city ? `City: ${data.city}` : '',
+          data.address ? `Address: ${data.address}` : '',
+          data.pincode ? `Pincode: ${data.pincode}` : '',
+          data.refNumber ? `Ref: ${data.refNumber}` : ''
+        ].filter(Boolean);
+
+        const buildPayload = {
+          name: data.fullName || data.name || 'Store Customer',
           phone: data.phone || '',
           email: data.email || null,
-          city: data.city || 'Ghaziabad',
-          notes: data.notes || JSON.stringify(data),
-          raw_data: data,
-          status: 'new',
-        });
+          budget: numBudget,
+          use_case: 'Hardware Order',
+          preferences: prefParts.join(' | ') || 'Online Order Checkout',
+          status: 'new'
+        };
+
+        const { error } = await supabase.from('build_requests').insert([buildPayload]);
+        if (!error) {
+          supabaseSuccess = true;
+        } else {
+          console.warn('[FormSubmit] build_requests insert error:', error);
+          supabaseError = error;
+        }
+      } else {
+        const buildPayload = {
+          name: data.fullName || data.name || 'Website Inquiry',
+          phone: data.phone || '',
+          email: data.email || null,
+          budget: numBudget,
+          use_case: 'General Inquiry',
+          preferences: `Form: ${formName} | ${data.notes || data.message || JSON.stringify(data)}`,
+          status: 'new'
+        };
+        const { error } = await supabase.from('build_requests').insert([buildPayload]);
         if (!error) {
           supabaseSuccess = true;
         } else {
@@ -213,6 +243,7 @@ export async function submitForm(formName, data) {
         }
       }
     } catch (err) {
+      console.warn('[FormSubmit] Exception inserting into build_requests:', err);
       supabaseError = err;
     }
   }

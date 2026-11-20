@@ -188,6 +188,39 @@ export async function fetchAdminLeadsAndQuotes() {
     async (client) => {
       const results = [];
 
+      // Fetch build_requests
+      try {
+        const { data: builds } = await client
+          .from('build_requests')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (builds) {
+          builds.forEach((b) => {
+            results.push({
+              id: `REQ-${b.id.slice(0, 8).toUpperCase()}`,
+              dbId: b.id,
+              sourceType: 'build_request',
+              type: b.use_case || 'Custom PC Request',
+              name: b.name,
+              company: 'Direct Customer',
+              phone: b.phone,
+              email: b.email || '',
+              city: 'Ghaziabad',
+              category: b.use_case || 'PC Build',
+              quantity: '1',
+              budget: b.budget ? `₹${Number(b.budget).toLocaleString('en-IN')}` : 'Flexible',
+              timeline: 'Immediate',
+              notes: b.preferences || '',
+              date: new Date(b.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }),
+              status: b.status,
+            });
+          });
+        }
+      } catch (brErr) {
+        console.warn('build_requests fetch:', brErr);
+      }
+
       // Fetch quotations
       const { data: quotes } = await client
         .from('quotations')

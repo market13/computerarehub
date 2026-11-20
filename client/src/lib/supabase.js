@@ -3,8 +3,12 @@ import { createClient } from '@supabase/supabase-js';
 const metaEnv = (typeof import.meta !== 'undefined' && import.meta?.env) ? import.meta.env : {};
 const procEnv = (typeof process !== 'undefined' && process?.env) ? process.env : {};
 
-const supabaseUrl = metaEnv.VITE_SUPABASE_URL || procEnv.VITE_SUPABASE_URL || procEnv.SUPABASE_URL;
-const supabaseAnonKey = metaEnv.VITE_SUPABASE_ANON_KEY || procEnv.VITE_SUPABASE_ANON_KEY || procEnv.SUPABASE_ANON_KEY;
+// Supabase credentials for Computer Care (computercaregzb.com)
+const DEFAULT_SUPABASE_URL = 'https://aydhfzqiambrqjhgxcwu.supabase.co';
+const DEFAULT_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF5ZGhmenFpYW1icnFqaGd4Y3d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUxOTYxMzUsImV4cCI6MjExMDc3MjEzNX0.7ED9m5WOFM6I9pMSsy0_DGCQ7XT_4LN9ysSN_wUt1FM';
+
+const supabaseUrl = metaEnv.VITE_SUPABASE_URL || procEnv.VITE_SUPABASE_URL || procEnv.SUPABASE_URL || DEFAULT_SUPABASE_URL;
+const supabaseAnonKey = metaEnv.VITE_SUPABASE_ANON_KEY || procEnv.VITE_SUPABASE_ANON_KEY || procEnv.SUPABASE_ANON_KEY || DEFAULT_SUPABASE_ANON_KEY;
 
 export const isSupabaseConfigured = () => {
   return Boolean(
