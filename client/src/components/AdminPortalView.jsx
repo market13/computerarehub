@@ -355,21 +355,24 @@ export default function AdminPortalView({
       });
 
       // 2. Load live orders from Supabase (or fallback)
-      fetchAdminOrders().then((liveOrds) => {
+      fetchAdminOrders().then((res) => {
+        const liveOrds = res?.data || (Array.isArray(res) ? res : []);
         if (liveOrds && liveOrds.length > 0) {
           setOrders(liveOrds);
         }
       });
 
       // 3. Load Leads and Quotes from Supabase
-      fetchAdminLeadsAndQuotes().then((liveInqs) => {
+      fetchAdminLeadsAndQuotes().then((res) => {
+        const liveInqs = res?.data || (Array.isArray(res) ? res : []);
         if (liveInqs && liveInqs.length > 0) {
           setInquiries(liveInqs);
         }
       });
 
       // 4. Load Registered Customers
-      fetchAdminCustomers().then((liveCusts) => {
+      fetchAdminCustomers().then((res) => {
+        const liveCusts = res?.data || (Array.isArray(res) ? res : []);
         if (liveCusts && liveCusts.length > 0) {
           setCustomers(liveCusts);
         }

@@ -188,69 +188,80 @@ export async function fetchAdminLeadsAndQuotes() {
     async (client) => {
       const results = [];
 
-      // Fetch build_requests
+      // 1. Fetch build_requests (Primary schema table)
       try {
-        const { data: builds } = await client
+        const { data: builds, error: brErr } = await client
           .from('build_requests')
           .select('*')
           .order('created_at', { ascending: false });
 
-        if (builds) {
+        if (brErr) {
+          console.warn('[adminService] build_requests fetch error:', brErr);
+        } else if (builds) {
           builds.forEach((b) => {
+            const isBulk = (b.use_case || '').toLowerCase().includes('bulk') || 
+                           (b.use_case || '').toLowerCase().includes('b2b') || 
+                           (b.preferences || '').toLowerCase().includes('company:') ||
+                           (b.preferences || '').toLowerCase().includes('gstin');
+
             results.push({
               id: `REQ-${b.id.slice(0, 8).toUpperCase()}`,
               dbId: b.id,
               sourceType: 'build_request',
-              type: b.use_case || 'Custom PC Request',
+              type: isBulk ? 'B2B Bulk Order' : (b.use_case || 'Custom PC Request'),
               name: b.name,
-              company: 'Direct Customer',
+              company: isBulk ? 'Corporate / B2B' : 'Direct Customer',
               phone: b.phone,
               email: b.email || '',
               city: 'Ghaziabad',
               category: b.use_case || 'PC Build',
-              quantity: '1',
+              quantity: isBulk ? 'Bulk' : '1',
               budget: b.budget ? `₹${Number(b.budget).toLocaleString('en-IN')}` : 'Flexible',
               timeline: 'Immediate',
               notes: b.preferences || '',
               date: new Date(b.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }),
-              status: b.status,
+              status: b.status === 'new' ? 'Pending Review' : (b.status === 'contacted' ? 'Contacted' : (b.status === 'quoted' ? 'Approved' : b.status)),
             });
           });
         }
       } catch (brErr) {
-        console.warn('build_requests fetch:', brErr);
+        console.warn('build_requests fetch exception:', brErr);
       }
 
-      // Fetch quotations
-      const { data: quotes } = await client
-        .from('quotations')
-        .select('*')
-        .order('created_at', { ascending: false });
+      // 2. Fetch quotations (Optional legacy / secondary table)
+      try {
+        const { data: quotes } = await client
+          .from('quotations')
+          .select('*')
+          .order('created_at', { ascending: false });
 
-      if (quotes) {
-        quotes.forEach((q) => {
-          results.push({
-            id: q.quotation_number,
-            dbId: q.id,
-            sourceType: 'quotation',
-            type: q.inquiry_type === 'consultation' ? 'PC Consultation' : q.inquiry_type === 'b2b_bulk' ? 'B2B Bulk Inquiry' : 'Custom PC Build Quote',
-            name: q.customer_name,
-            company: q.company_name || 'Individual Customer',
-            phone: q.customer_phone,
-            email: q.customer_email,
-            city: q.city || 'Ghaziabad',
-            category: q.intended_usage || 'Custom Rig',
-            quantity: '1',
-            budget: q.budget_range || `₹${Number(q.quoted_subtotal || 0).toLocaleString('en-IN')}`,
-            timeline: q.timeline || 'Immediate',
-            notes: q.notes || '',
-            date: new Date(q.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }),
-            status: q.status === 'pending' ? 'Pending Review' : q.status,
+        if (quotes) {
+          quotes.forEach((q) => {
+            results.push({
+              id: q.quotation_number,
+              dbId: q.id,
+              sourceType: 'quotation',
+              type: q.inquiry_type === 'consultation' ? 'PC Consultation' : q.inquiry_type === 'b2b_bulk' ? 'B2B Bulk Inquiry' : 'Custom PC Build Quote',
+              name: q.customer_name,
+              company: q.company_name || 'Individual Customer',
+              phone: q.customer_phone,
+              email: q.customer_email,
+              city: q.city || 'Ghaziabad',
+              category: q.intended_usage || 'Custom Rig',
+              quantity: '1',
+              budget: q.budget_range || `₹${Number(q.quoted_subtotal || 0).toLocaleString('en-IN')}`,
+              timeline: q.timeline || 'Immediate',
+              notes: q.notes || '',
+              date: new Date(q.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }),
+              status: q.status === 'pending' ? 'Pending Review' : q.status,
+            });
           });
-        });
+        }
+      } catch (_qErr) {
+        // Table quotations may not exist in standard schema; ignore gracefully
       }
 
-      // Fetch leads
+      // 3. Fetch leads (Optional legacy table)
       try {
         const { data: leads } = await client
           .from('leads')
@@ -279,16 +290,56 @@ export async function fetchAdminLeadsAndQuotes() {
             });
           });
         }
-      } catch (leadErr) {
-        console.warn('Leads fetch:', leadErr);
+      } catch (_leadErr) {
+        // Table leads may not exist in standard schema; ignore gracefully
       }
 
       return results;
     },
     async () => {
       try {
-        const raw = localStorage.getItem('computercare_bulk_inquiries');
-        return raw ? JSON.parse(raw) : [];
+        const loaded = [];
+        const rawBulk = localStorage.getItem('computercare_bulk_inquiries');
+        if (rawBulk) {
+          JSON.parse(rawBulk).forEach(item => {
+            loaded.push({
+              id: item.refNumber || `B2B-${Math.floor(Math.random() * 90000)}`,
+              type: 'B2B Bulk Order',
+              name: item.fullName || 'Enterprise Client',
+              company: item.companyName || 'N/A',
+              phone: item.maskedPhone || item.phone || 'N/A',
+              email: item.maskedEmail || item.email || 'N/A',
+              city: item.city || 'N/A',
+              category: item.category || 'Office PCs',
+              quantity: item.quantity || '10+ Units',
+              budget: item.budgetRange || 'Flexible',
+              timeline: item.timeline || 'Immediate',
+              date: item.formattedDate || item.timestamp || 'Recently',
+              status: item.adminStatus || 'Pending Review'
+            });
+          });
+        }
+        const rawConsult = localStorage.getItem('computercare_pc_consultations');
+        if (rawConsult) {
+          JSON.parse(rawConsult).forEach(item => {
+            loaded.push({
+              id: item.refNumber || `TECH-${Math.floor(Math.random() * 90000)}`,
+              type: 'PC Consultation / Quote',
+              name: item.fullName || 'Client',
+              company: 'Individual Customer',
+              phone: item.maskedPhone || item.phone || 'N/A',
+              email: item.maskedEmail || item.email || 'N/A',
+              city: item.city || 'N/A',
+              category: item.useCase || 'PC Build',
+              quantity: '1',
+              budget: item.budget || 'Flexible',
+              timeline: item.callTime || 'Immediate',
+              date: item.timestamp ? new Date(item.timestamp).toLocaleDateString('en-IN') : 'Recently',
+              status: 'Pending Review'
+            });
+          });
+        }
+        return loaded;
       } catch {
         return [];
       }
@@ -302,7 +353,27 @@ export async function fetchAdminLeadsAndQuotes() {
 export async function updateAdminInquiryStatus(sourceType, dbIdOrNum, newStatus, staffNotes = '') {
   return await safeDbQuery(
     async (client) => {
-      if (sourceType === 'lead') {
+      if (sourceType === 'build_request') {
+        const statusMap = {
+          'Pending Review': 'new',
+          'Contacted': 'contacted',
+          'Approved': 'confirmed',
+          'Confirmed': 'confirmed',
+          'Quoted': 'quoted',
+          'Built': 'built',
+          'Delivered': 'delivered',
+          'Rejected': 'cancelled',
+          'Cancelled': 'cancelled'
+        };
+        const mapped = statusMap[newStatus] || newStatus.toLowerCase();
+        await client
+          .from('build_requests')
+          .update({
+            status: mapped,
+            notes: staffNotes ? `[Staff Note: ${staffNotes}]` : undefined,
+          })
+          .eq('id', dbIdOrNum);
+      } else if (sourceType === 'lead') {
         const statusMap = { 'Pending Review': 'new', 'Contacted': 'contacted', 'Approved': 'converted', 'Rejected': 'closed' };
         const mapped = statusMap[newStatus] || newStatus.toLowerCase();
         await client
@@ -326,12 +397,16 @@ export async function updateAdminInquiryStatus(sourceType, dbIdOrNum, newStatus,
           .or(`quotation_number.eq.${dbIdOrNum},id.eq.${dbIdOrNum}`);
       }
 
-      await client.from('audit_logs').insert({
-        entity_type: sourceType === 'lead' ? 'lead' : 'quotation',
-        entity_id: String(dbIdOrNum),
-        action: `status_changed_to_${newStatus}`,
-        new_values: { status: newStatus, staffNotes },
-      });
+      try {
+        await client.from('audit_logs').insert({
+          entity_type: sourceType || 'build_request',
+          entity_id: String(dbIdOrNum),
+          action: `status_changed_to_${newStatus}`,
+          new_values: { status: newStatus, staffNotes },
+        });
+      } catch {
+        // Table audit_logs may not exist; ignore
+      }
 
       return { success: true };
     },

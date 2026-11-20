@@ -120,12 +120,27 @@ export async function checkIsAdmin() {
     const user = await getCurrentUser();
     if (!user) return false;
 
-    // Check JWT app_metadata first for fast check
+    // 1. Check JWT app_metadata or user_metadata
     if (user.app_metadata?.role === 'admin' || user.user_metadata?.role === 'admin') {
       return true;
     }
 
-    // Verify against database profiles table
+    // 2. Verify against database public.admins table (Schema standard)
+    try {
+      const { data: adminRow } = await supabase
+        .from('admins')
+        .select('user_id')
+        .eq('user_id', user.id)
+        .maybeSingle();
+
+      if (adminRow && adminRow.user_id) {
+        return true;
+      }
+    } catch (adminErr) {
+      console.warn('[Supabase] admins table check warning:', adminErr);
+    }
+
+    // 3. Fallback: profiles table
     const profile = await getUserProfile(user.id);
     return profile?.role === 'admin';
   } catch {
