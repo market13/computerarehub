@@ -374,7 +374,7 @@ export default function Header({
           {/* Official Computer Care Brand Logo Mark */}
           <div className="flex items-center">
             <img 
-              src="/favicon-32x32.png" 
+              src="/favicon-48x48.png" 
               alt="Computer Care CC Logo" 
               width="32"
               height="32"
