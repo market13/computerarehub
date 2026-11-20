@@ -1250,14 +1250,6 @@ export default function Header({
           <AdminLoginModal
             isOpen={isAuthModalOpen}
             onClose={() => setIsAuthModalOpen(false)}
-            onSuccessAdminLogin={() => {
-              setActiveTab('admin');
-            }}
-            onLogout={() => {
-              if (activeTab === 'admin') {
-                setActiveTab('home');
-              }
-            }}
           />
         </Suspense>
       )}

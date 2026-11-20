@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Wrench, Clock, CheckCircle2, AlertCircle, Phone, Laptop, Cpu, ShieldCheck } from 'lucide-react';
+import { Search, Wrench, Clock, CheckCircle2, AlertCircle, Laptop } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 import { getRepairTicket, createRepairTicket, REPAIR_STATUS_MAP } from '../services/repairService';
 import { validateIndianPhone, checkSubmissionRateLimit } from '../utils/validation';
@@ -160,7 +160,7 @@ export default function RepairStatusLookup() {
               </button>
             </div>
             <p className="text-[11px] text-slate-400 mt-2">
-              Demo ticket available for instant test: <button type="button" onClick={() => { setQuery('CC-REP-1042'); }} className="text-blue-600 font-semibold underline cursor-pointer">CC-REP-1042</button> or <button type="button" onClick={() => { setQuery('CC-REP-1041'); }} className="text-blue-600 font-semibold underline cursor-pointer">CC-REP-1041</button>
+              Enter your repair job ID (e.g. <span className="font-mono text-slate-600 font-semibold">CC-REP-1042</span>) or your 10-digit registered mobile number.
             </p>
           </form>
 

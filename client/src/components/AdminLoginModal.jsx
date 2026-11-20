@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
   X,
-  ShieldCheck,
   User,
   ArrowRight,
   AlertTriangle,
@@ -10,7 +9,8 @@ import {
   EyeOff,
   LogOut,
   Mail,
-  Lock
+  Package,
+  Cpu
 } from 'lucide-react';
 import {
   isSupabaseConfigured,
@@ -18,7 +18,6 @@ import {
   signUp,
   signOut,
   getCurrentUser,
-  checkIsAdmin,
   onAuthStateChange
 } from '../lib/supabase';
 import {
@@ -31,17 +30,10 @@ import {
 export default function AdminLoginModal({
   isOpen,
   onClose,
-  onSuccessAdminLogin,
   onLogout
 }) {
-  const [activeTab, setActiveTab] = useState('admin'); // 'admin' | 'customer'
-  const [adminEmail, setAdminEmail] = useState('');
-  const [adminPassword, setAdminPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState('');
-  const [logoutNotice, setLogoutNotice] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [currentAdminUser, setCurrentAdminUser] = useState(null);
 
   // Customer auth state
   const [customerMode, setCustomerMode] = useState('login'); // 'login' | 'signup'
@@ -106,37 +98,16 @@ export default function AdminLoginModal({
 
     async function checkAuth() {
       if (!isSupabaseConfigured()) {
-        setCurrentAdminUser(null);
         setCustomerUser(null);
         return;
       }
       const user = await getCurrentUser();
-      if (user) {
-        const isAdmin = await checkIsAdmin();
-        if (isAdmin) {
-          setCurrentAdminUser(user);
-        } else {
-          setCustomerUser(user);
-        }
-      } else {
-        setCurrentAdminUser(null);
-        setCustomerUser(null);
-      }
+      setCustomerUser(user || null);
     }
     checkAuth();
 
-    const { data: { subscription } } = onAuthStateChange(async (_event, session) => {
-      if (session?.user) {
-        const isAdmin = await checkIsAdmin();
-        if (isAdmin) {
-          setCurrentAdminUser(session.user);
-        } else {
-          setCustomerUser(session.user);
-        }
-      } else {
-        setCurrentAdminUser(null);
-        setCustomerUser(null);
-      }
+    const { data: { subscription } } = onAuthStateChange((_event, session) => {
+      setCustomerUser(session?.user || null);
     });
 
     return () => {
@@ -156,52 +127,6 @@ export default function AdminLoginModal({
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
-
-  const handleAdminSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
-
-    if (!isSupabaseConfigured()) {
-      setError('Admin unavailable: backend not configured. Please set Supabase environment variables.');
-      return;
-    }
-
-    setIsLoading(true);
-    try {
-      const { data, error: authError } = await signIn(adminEmail, adminPassword);
-      if (authError || !data?.user) {
-        setIsLoading(false);
-        setError(authError?.message || 'Invalid administrator email or password.');
-        return;
-      }
-
-      // Verify server-side role from public.profiles
-      const isAdmin = await checkIsAdmin();
-      if (!isAdmin) {
-        await signOut();
-        setIsLoading(false);
-        setError('Access denied: Account does not possess administrator privileges in profiles.');
-        return;
-      }
-
-      setCurrentAdminUser(data.user);
-      setIsLoading(false);
-      onClose();
-      if (onSuccessAdminLogin) onSuccessAdminLogin();
-    } catch (err) {
-      setIsLoading(false);
-      setError(err.message || 'An unexpected authentication error occurred.');
-    }
-  };
-
-  const handleLogoutAdmin = async () => {
-    await signOut();
-    setCurrentAdminUser(null);
-    setAdminPassword('');
-    setError('');
-    setLogoutNotice('Administrator session has been securely terminated.');
-    if (onLogout) onLogout();
-  };
 
   const handleCustomerSubmit = async (e) => {
     e.preventDefault();
@@ -257,6 +182,7 @@ export default function AdminLoginModal({
     await signOut();
     setCustomerUser(null);
     setCustomerMsg({ type: 'success', text: 'You have been signed out.' });
+    if (onLogout) onLogout();
   };
 
   return (
@@ -272,14 +198,14 @@ export default function AdminLoginModal({
         <div className="bg-brand-navy text-white p-5 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-brand-gold border border-white/10">
-              <ShieldCheck className="w-5 h-5" />
+              <User className="w-5 h-5 text-brand-gold" />
             </div>
             <div>
               <h3 className="font-display font-bold text-base tracking-tight text-white">
-                Computer Care Portal
+                Customer Account
               </h3>
               <p className="text-[11px] text-slate-300 font-sans">
-                Sign in to your customer account or administrator console
+                Sign in to track orders, manage saved builds, and checkout faster
               </p>
             </div>
           </div>
@@ -294,416 +220,271 @@ export default function AdminLoginModal({
           </button>
         </div>
 
-        {/* Tab Switcher */}
-        <div className="flex border-b border-slate-200 bg-slate-50 text-xs font-display font-bold uppercase tracking-wider">
-          <button
-            type="button"
-            onClick={() => { setActiveTab('customer'); setError(''); }}
-            className={`flex-1 py-3 flex items-center justify-center gap-1.5 border-b-2 transition-all cursor-pointer ${
-              activeTab === 'customer'
-                ? 'border-brand-navy text-brand-navy bg-white shadow-xs'
-                : 'border-transparent text-slate-500 hover:text-slate-800'
-            }`}
-          >
-            <User className="w-4 h-4 text-brand-blue" />
-            <span>Customer Account</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => { setActiveTab('admin'); setError(''); }}
-            className={`flex-1 py-3 flex items-center justify-center gap-1.5 border-b-2 transition-all cursor-pointer ${
-              activeTab === 'admin'
-                ? 'border-brand-navy text-brand-navy bg-white shadow-xs'
-                : 'border-transparent text-slate-500 hover:text-slate-800'
-            }`}
-          >
-            <ShieldCheck className="w-4 h-4 text-brand-red" />
-            <span>Store Admin</span>
-          </button>
-        </div>
-
         {/* Modal Body */}
         <div className="p-6">
-          {/* TAB 1: CUSTOMER AUTH */}
-          {activeTab === 'customer' && (
-            <div>
-              {customerUser ? (
-                <div className="space-y-4">
-                  <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                      <div>
-                        <strong className="block font-bold text-emerald-950">
-                          {customerProfile?.full_name || customerUser.email}
-                        </strong>
-                        <span className="text-[11px] text-emerald-700">{customerUser.email}</span>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={handleCustomerLogout}
-                      className="px-2.5 py-1 rounded-lg border border-rose-200 text-rose-600 hover:bg-rose-50 text-[11px] font-semibold flex items-center gap-1 transition-colors cursor-pointer"
-                    >
-                      <LogOut className="w-3 h-3" />
-                      <span>Sign Out</span>
-                    </button>
-                  </div>
-
-                  {/* Customer Subtabs */}
-                  <div className="flex border-b border-slate-200 text-xs font-semibold">
-                    <button
-                      type="button"
-                      onClick={() => setCustomerSubTab('orders')}
-                      className={`pb-2 px-2 border-b-2 transition-colors cursor-pointer ${
-                        customerSubTab === 'orders' ? 'border-brand-navy text-brand-navy' : 'border-transparent text-slate-500 hover:text-slate-800'
-                      }`}
-                    >
-                      My Orders ({customerOrders.length})
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setCustomerSubTab('builds')}
-                      className={`pb-2 px-2 border-b-2 transition-colors cursor-pointer ${
-                        customerSubTab === 'builds' ? 'border-brand-navy text-brand-navy' : 'border-transparent text-slate-500 hover:text-slate-800'
-                      }`}
-                    >
-                      Saved Builds ({customerBuilds.length})
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setCustomerSubTab('profile')}
-                      className={`pb-2 px-2 border-b-2 transition-colors cursor-pointer ${
-                        customerSubTab === 'profile' ? 'border-brand-navy text-brand-navy' : 'border-transparent text-slate-500 hover:text-slate-800'
-                      }`}
-                    >
-                      Profile Settings
-                    </button>
-                  </div>
-
-                  {/* Subtab 1: Orders */}
-                  {customerSubTab === 'orders' && (
-                    <div className="max-h-60 overflow-y-auto space-y-2 pr-1">
-                      {customerOrders.length === 0 ? (
-                        <div className="py-8 text-center text-xs text-slate-500">
-                          No order requests found. Configure your dream rig in the PC Builder!
-                        </div>
-                      ) : (
-                        customerOrders.map((ord) => (
-                          <div key={ord.id || ord.order_number} className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
-                            <div className="flex items-center justify-between font-mono font-bold text-slate-900">
-                              <span>{ord.order_number || ord.orderNumber}</span>
-                              <span className="text-[10px] uppercase px-1.5 py-0.5 rounded font-sans font-bold bg-amber-100 text-amber-800">
-                                {ord.status}
-                              </span>
-                            </div>
-                            <div className="flex items-center justify-between text-slate-500 text-[11px]">
-                              <span>{ord.created_at || ord.createdAt ? new Date(ord.created_at || ord.createdAt).toLocaleDateString('en-IN') : 'Recent'}</span>
-                              <span className="font-semibold text-brand-navy">
-                                ₹{Number(ord.total_amount || ord.totalAmount || 0).toLocaleString('en-IN')}
-                              </span>
-                            </div>
-                          </div>
-                        ))
-                      )}
-                    </div>
-                  )}
-
-                  {/* Subtab 2: Saved Builds */}
-                  {customerSubTab === 'builds' && (
-                    <div className="max-h-60 overflow-y-auto space-y-2 pr-1">
-                      {customerBuilds.length === 0 ? (
-                        <div className="py-8 text-center text-xs text-slate-500">
-                          No saved builds yet. Use "Share Build" in the configurator to save your specs!
-                        </div>
-                      ) : (
-                        customerBuilds.map((b) => (
-                          <div key={b.id || b.share_code} className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs flex items-center justify-between">
-                            <div>
-                              <strong className="block text-slate-800 font-bold">{b.title || 'Custom Rig'}</strong>
-                              <span className="text-[11px] font-mono text-slate-500">Ref: {b.share_code}</span>
-                            </div>
-                            <a
-                              href={`/builder?config=${b.share_code}`}
-                              onClick={onClose}
-                              className="px-2.5 py-1 bg-brand-navy text-white text-[11px] font-semibold rounded-lg hover:bg-brand-blue transition-colors cursor-pointer"
-                            >
-                              Load
-                            </a>
-                          </div>
-                        ))
-                      )}
-                    </div>
-                  )}
-
-                  {/* Subtab 3: Profile Settings */}
-                  {customerSubTab === 'profile' && (
-                    <form onSubmit={handleSaveProfile} className="space-y-3">
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-700 mb-1">Full Name</label>
-                        <input
-                          type="text"
-                          value={editFullName}
-                          onChange={(e) => setEditFullName(e.target.value)}
-                          placeholder="Your full name"
-                          className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
-                        <input
-                          type="tel"
-                          value={editPhone}
-                          onChange={(e) => setEditPhone(e.target.value)}
-                          placeholder="+91 9876543210"
-                          className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue"
-                        />
-                      </div>
-                      {profileSaveSuccess && (
-                        <div className="text-[11px] text-emerald-700 font-semibold">
-                          Profile details updated successfully!
-                        </div>
-                      )}
-                      <button
-                        type="submit"
-                        disabled={isSavingProfile}
-                        className="w-full py-2 rounded-xl bg-brand-navy hover:bg-brand-blue text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-50"
-                      >
-                        {isSavingProfile ? 'Saving...' : 'Save Profile'}
-                      </button>
-                    </form>
-                  )}
-
-                  <div className="pt-2">
-                    <button
-                      type="button"
-                      onClick={onClose}
-                      className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors cursor-pointer"
-                    >
-                      Close Account Panel
-                    </button>
+          {customerUser ? (
+            <div className="space-y-4">
+              <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <div>
+                    <strong className="block font-bold text-emerald-950">
+                      {customerProfile?.full_name || customerUser.email}
+                    </strong>
+                    <span className="text-[11px] text-emerald-700">{customerUser.email}</span>
                   </div>
                 </div>
-              ) : (
-                <form onSubmit={handleCustomerSubmit} className="space-y-4">
-                  {!isSupabaseConfigured() && (
-                    <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs flex items-center gap-2">
-                      <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                      <span>Account sync unavailable: Supabase backend is not configured.</span>
-                    </div>
-                  )}
+                <button
+                  type="button"
+                  onClick={handleCustomerLogout}
+                  className="px-2.5 py-1 rounded-lg border border-rose-200 text-rose-600 hover:bg-rose-50 text-[11px] font-semibold flex items-center gap-1 transition-colors cursor-pointer"
+                >
+                  <LogOut className="w-3 h-3" />
+                  <span>Sign Out</span>
+                </button>
+              </div>
 
-                  {customerMode === 'signup' && (
-                    <div className="space-y-1">
-                      <label className="block text-xs font-semibold text-slate-700">Full Name</label>
-                      <div className="relative">
-                        <input
-                          type="text"
-                          value={customerName}
-                          onChange={(e) => setCustomerName(e.target.value)}
-                          placeholder="Your Name"
-                          required
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue font-medium"
-                        />
-                        <User className="w-4 h-4 text-slate-400 absolute right-3.5 top-3" />
+              {/* Customer Subtabs */}
+              <div className="flex border-b border-slate-200 text-xs font-semibold">
+                <button
+                  type="button"
+                  onClick={() => setCustomerSubTab('orders')}
+                  className={`pb-2 px-2 border-b-2 transition-colors cursor-pointer ${
+                    customerSubTab === 'orders' ? 'border-brand-navy text-brand-navy' : 'border-transparent text-slate-500 hover:text-slate-800'
+                  }`}
+                >
+                  My Orders ({customerOrders.length})
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCustomerSubTab('builds')}
+                  className={`pb-2 px-2 border-b-2 transition-colors cursor-pointer ${
+                    customerSubTab === 'builds' ? 'border-brand-navy text-brand-navy' : 'border-transparent text-slate-500 hover:text-slate-800'
+                  }`}
+                >
+                  Saved Builds ({customerBuilds.length})
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCustomerSubTab('profile')}
+                  className={`pb-2 px-2 border-b-2 transition-colors cursor-pointer ${
+                    customerSubTab === 'profile' ? 'border-brand-navy text-brand-navy' : 'border-transparent text-slate-500 hover:text-slate-800'
+                  }`}
+                >
+                  Profile Settings
+                </button>
+              </div>
+
+              {/* Subtab: Orders */}
+              {customerSubTab === 'orders' && (
+                <div className="space-y-2 max-h-64 overflow-y-auto pr-1">
+                  {customerOrders.length === 0 ? (
+                    <div className="text-center py-8 text-xs text-slate-400">
+                      <Package className="w-8 h-8 mx-auto mb-2 text-slate-300" />
+                      <p>No orders placed yet.</p>
+                      <p className="text-[11px] text-slate-400 mt-1">Orders placed under this account will appear here with live tracking.</p>
+                    </div>
+                  ) : (
+                    customerOrders.map((ord) => (
+                      <div key={ord.id} className="p-3 rounded-xl border border-slate-200 bg-slate-50 text-xs space-y-1">
+                        <div className="flex items-center justify-between font-bold text-slate-800">
+                          <span>{ord.order_ref || ord.id.slice(0, 8)}</span>
+                          <span className="text-emerald-700">₹{(ord.total || 0).toLocaleString('en-IN')}</span>
+                        </div>
+                        <div className="flex items-center justify-between text-[11px] text-slate-500">
+                          <span className="capitalize">{ord.status || 'Pending'}</span>
+                          <span>{new Date(ord.created_at).toLocaleDateString('en-IN')}</span>
+                        </div>
+                        {ord.tracking_number && (
+                          <div className="text-[10px] text-brand-blue font-mono pt-1">
+                            Tracking: {ord.courier || 'Courier'} #{ord.tracking_number}
+                          </div>
+                        )}
                       </div>
-                    </div>
+                    ))
                   )}
+                </div>
+              )}
 
-                  <div className="space-y-1">
-                    <label className="block text-xs font-semibold text-slate-700">Email Address</label>
-                    <div className="relative">
-                      <input
-                        type="email"
-                        value={customerEmail}
-                        onChange={(e) => setCustomerEmail(e.target.value)}
-                        placeholder="you@example.com"
-                        required
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue font-medium"
-                      />
-                      <Mail className="w-4 h-4 text-slate-400 absolute right-3.5 top-3" />
+              {/* Subtab: Builds */}
+              {customerSubTab === 'builds' && (
+                <div className="space-y-2 max-h-64 overflow-y-auto pr-1">
+                  {customerBuilds.length === 0 ? (
+                    <div className="text-center py-8 text-xs text-slate-400">
+                      <Cpu className="w-8 h-8 mx-auto mb-2 text-slate-300" />
+                      <p>No saved PC builds found.</p>
+                      <p className="text-[11px] text-slate-400 mt-1">Save your custom PC rigs from the Configurator to easily revisit them later.</p>
                     </div>
+                  ) : (
+                    customerBuilds.map((b) => (
+                      <div key={b.id} className="p-3 rounded-xl border border-slate-200 bg-slate-50 text-xs flex items-center justify-between">
+                        <div>
+                          <strong className="block font-bold text-slate-800">{b.title || 'Custom PC'}</strong>
+                          <span className="text-[11px] text-slate-500 font-mono">Code: {b.share_code}</span>
+                        </div>
+                        <a
+                          href={`/builder?config=${b.share_code}`}
+                          onClick={() => onClose()}
+                          className="px-2.5 py-1 rounded-lg bg-brand-navy hover:bg-brand-blue text-white text-[11px] font-semibold transition-colors"
+                        >
+                          Load Build
+                        </a>
+                      </div>
+                    ))
+                  )}
+                </div>
+              )}
+
+              {/* Subtab: Profile Settings */}
+              {customerSubTab === 'profile' && (
+                <form onSubmit={handleSaveProfile} className="space-y-3">
+                  <div className="space-y-1">
+                    <label className="block text-xs font-semibold text-slate-700">Full Name</label>
+                    <input
+                      type="text"
+                      value={editFullName}
+                      onChange={(e) => setEditFullName(e.target.value)}
+                      placeholder="Your full name"
+                      className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue font-medium"
+                    />
                   </div>
 
                   <div className="space-y-1">
-                    <label className="block text-xs font-semibold text-slate-700">Password</label>
-                    <div className="relative">
-                      <input
-                        type={showPassword ? 'text' : 'password'}
-                        value={customerPassword}
-                        onChange={(e) => setCustomerPassword(e.target.value)}
-                        placeholder="Enter password"
-                        required
-                        minLength={6}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue font-medium"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="p-1 text-slate-400 hover:text-slate-600 absolute right-2.5 top-2.5"
-                      >
-                        {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                      </button>
-                    </div>
+                    <label className="block text-xs font-semibold text-slate-700">Phone Number (WhatsApp)</label>
+                    <input
+                      type="tel"
+                      value={editPhone}
+                      onChange={(e) => setEditPhone(e.target.value)}
+                      placeholder="+91 98105 50222"
+                      className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue font-medium"
+                    />
                   </div>
 
-                  {customerMsg.text && (
-                    <div className={`p-2.5 rounded-lg text-xs flex items-center gap-2 ${
-                      customerMsg.type === 'error'
-                        ? 'bg-rose-50 border border-rose-200 text-rose-700'
-                        : 'bg-emerald-50 border border-emerald-200 text-emerald-700'
-                    }`}>
-                      {customerMsg.type === 'error' ? <AlertTriangle className="w-4 h-4 flex-shrink-0" /> : <CheckCircle className="w-4 h-4 flex-shrink-0" />}
-                      <span>{customerMsg.text}</span>
+                  {profileSaveSuccess && (
+                    <div className="p-2 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs flex items-center gap-1.5">
+                      <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" />
+                      <span>Profile updated successfully!</span>
                     </div>
                   )}
 
                   <button
                     type="submit"
-                    disabled={isLoading || !isSupabaseConfigured()}
-                    className="w-full py-3 rounded-xl bg-brand-navy hover:bg-brand-blue text-white font-display font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                    disabled={isSavingProfile}
+                    className="w-full py-2 rounded-xl bg-brand-navy hover:bg-brand-blue text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-50"
                   >
-                    <span>{isLoading ? 'Processing...' : (customerMode === 'signup' ? 'Create Account' : 'Sign In')}</span>
-                    <ArrowRight className="w-4 h-4 text-brand-gold" />
+                    {isSavingProfile ? 'Saving...' : 'Save Profile'}
                   </button>
-
-                  <div className="text-center pt-2">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setCustomerMode(customerMode === 'login' ? 'signup' : 'login');
-                        setCustomerMsg({ type: '', text: '' });
-                      }}
-                      className="text-xs text-brand-blue hover:underline font-semibold"
-                    >
-                      {customerMode === 'login'
-                        ? "Don't have an account? Sign up"
-                        : "Already have an account? Sign in"}
-                    </button>
-                  </div>
                 </form>
               )}
+
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors cursor-pointer"
+                >
+                  Close Account Panel
+                </button>
+              </div>
             </div>
-          )}
-
-          {/* TAB 2: ADMIN AUTH */}
-          {activeTab === 'admin' && (
-            <div>
-              {!isSupabaseConfigured() ? (
-                <div className="p-5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs space-y-2">
-                  <div className="flex items-center gap-2 font-bold text-sm text-amber-950 font-display">
-                    <Lock className="w-5 h-5 text-amber-700" />
-                    <span>Admin unavailable: backend not configured</span>
-                  </div>
-                  <p className="leading-relaxed text-amber-800">
-                    Administrator access requires a connected Supabase backend. Please configure <code className="bg-amber-100 px-1 py-0.5 rounded text-[11px]">VITE_SUPABASE_URL</code> and <code className="bg-amber-100 px-1 py-0.5 rounded text-[11px]">VITE_SUPABASE_ANON_KEY</code>.
-                  </p>
+          ) : (
+            <form onSubmit={handleCustomerSubmit} className="space-y-4">
+              {!isSupabaseConfigured() && (
+                <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs flex items-center gap-2">
+                  <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                  <span>Account sync unavailable: Supabase backend is not configured.</span>
                 </div>
-              ) : currentAdminUser ? (
-                <div className="space-y-4">
-                  <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block font-display font-bold text-sm text-emerald-900">
-                        Admin Session Verified
-                      </strong>
-                      <span className="text-emerald-700 leading-relaxed block mt-0.5">
-                        Authenticated as <strong>{currentAdminUser.email}</strong> with server-verified administrator role.
-                      </span>
-                    </div>
-                  </div>
+              )}
 
-                  <div className="flex items-center gap-2 pt-2">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        onClose();
-                        if (onSuccessAdminLogin) onSuccessAdminLogin();
-                      }}
-                      className="flex-1 py-3 rounded-xl bg-brand-navy hover:bg-brand-blue text-white font-display font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
-                    >
-                      <span>Open Admin Portal</span>
-                      <ArrowRight className="w-4 h-4 text-brand-gold" />
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={handleLogoutAdmin}
-                      className="py-3 px-4 rounded-xl border border-rose-200 text-rose-600 hover:bg-rose-50 text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer"
-                      title="Log Out Admin"
-                    >
-                      <LogOut className="w-3.5 h-3.5" />
-                      <span>Log Out</span>
-                    </button>
+              {customerMode === 'signup' && (
+                <div className="space-y-1">
+                  <label className="block text-xs font-semibold text-slate-700">Full Name</label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      value={customerName}
+                      onChange={(e) => setCustomerName(e.target.value)}
+                      placeholder="Your Name"
+                      required
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue font-medium"
+                    />
+                    <User className="w-4 h-4 text-slate-400 absolute right-3.5 top-3" />
                   </div>
                 </div>
-              ) : (
-                <form onSubmit={handleAdminSubmit} className="space-y-4">
-                  {logoutNotice && (
-                    <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                      <span>{logoutNotice}</span>
-                    </div>
-                  )}
+              )}
 
-                  <div className="space-y-1">
-                    <label className="block text-xs font-semibold text-slate-700">
-                      Administrator Email
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="email"
-                        value={adminEmail}
-                        onChange={(e) => setAdminEmail(e.target.value)}
-                        placeholder="admin@computercaregzb.com"
-                        required
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue font-medium"
-                      />
-                      <Mail className="w-4 h-4 text-slate-400 absolute right-3.5 top-3" />
-                    </div>
-                  </div>
+              <div className="space-y-1">
+                <label className="block text-xs font-semibold text-slate-700">Email Address</label>
+                <div className="relative">
+                  <input
+                    type="email"
+                    value={customerEmail}
+                    onChange={(e) => setCustomerEmail(e.target.value)}
+                    placeholder="you@example.com"
+                    required
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue font-medium"
+                  />
+                  <Mail className="w-4 h-4 text-slate-400 absolute right-3.5 top-3" />
+                </div>
+              </div>
 
-                  <div className="space-y-1">
-                    <label className="block text-xs font-semibold text-slate-700">
-                      Password
-                    </label>
-                    <div className="relative">
-                      <input
-                        type={showPassword ? 'text' : 'password'}
-                        value={adminPassword}
-                        onChange={(e) => setAdminPassword(e.target.value)}
-                        placeholder="Enter administrator password"
-                        required
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue font-medium"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="p-1 text-slate-400 hover:text-slate-600 absolute right-2.5 top-2.5"
-                      >
-                        {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                      </button>
-                    </div>
-                  </div>
-
-                  {error && (
-                    <div className="p-2.5 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
-                      <AlertTriangle className="w-4 h-4 flex-shrink-0" />
-                      <span>{error}</span>
-                    </div>
-                  )}
-
+              <div className="space-y-1">
+                <label className="block text-xs font-semibold text-slate-700">Password</label>
+                <div className="relative">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    value={customerPassword}
+                    onChange={(e) => setCustomerPassword(e.target.value)}
+                    placeholder="Enter password"
+                    required
+                    minLength={6}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-blue font-medium"
+                  />
                   <button
-                    type="submit"
-                    disabled={isLoading}
-                    className="w-full py-3 rounded-xl bg-brand-navy hover:bg-brand-blue text-white font-display font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="p-1 text-slate-400 hover:text-slate-600 absolute right-2.5 top-2.5"
                   >
-                    <span>{isLoading ? 'Verifying with Supabase...' : 'Log In to Admin Console'}</span>
-                    <ArrowRight className="w-4 h-4 text-brand-gold" />
+                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
-                </form>
+                </div>
+              </div>
+
+              {customerMsg.text && (
+                <div className={`p-2.5 rounded-lg text-xs flex items-center gap-2 ${
+                  customerMsg.type === 'error'
+                    ? 'bg-rose-50 border border-rose-200 text-rose-700'
+                    : 'bg-emerald-50 border border-emerald-200 text-emerald-700'
+                }`}>
+                  {customerMsg.type === 'error' ? <AlertTriangle className="w-4 h-4 flex-shrink-0" /> : <CheckCircle className="w-4 h-4 flex-shrink-0" />}
+                  <span>{customerMsg.text}</span>
+                </div>
               )}
-            </div>
+
+              <button
+                type="submit"
+                disabled={isLoading || !isSupabaseConfigured()}
+                className="w-full py-3 rounded-xl bg-brand-navy hover:bg-brand-blue text-white font-display font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+              >
+                <span>{isLoading ? 'Processing...' : (customerMode === 'signup' ? 'Create Account' : 'Sign In')}</span>
+                <ArrowRight className="w-4 h-4 text-brand-gold" />
+              </button>
+
+              <div className="text-center pt-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCustomerMode(customerMode === 'login' ? 'signup' : 'login');
+                    setCustomerMsg({ type: '', text: '' });
+                  }}
+                  className="text-xs text-brand-blue hover:underline font-semibold"
+                >
+                  {customerMode === 'login'
+                    ? "Don't have an account? Sign up"
+                    : "Already have an account? Sign in"}
+                </button>
+              </div>
+            </form>
           )}
         </div>
       </div>

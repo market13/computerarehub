@@ -7,7 +7,6 @@ import BulkOrderFloatingBadge from './components/BulkOrderFloatingBadge';
 import WhatsAppFloatingButton from './components/WhatsAppFloatingButton';
 import MobileBottomNav from './components/MobileBottomNav';
 import StickyMobileActionBar from './components/StickyMobileActionBar';
-import { findCompatibleDefaultBuild } from './utils/compatibility';
 import { getPCConfigurationByCode } from './services/builderService';
 import categoryDescriptions from './constants/categoryDescriptions.json';
 import { SITE_URL } from './constants/storeInfo';
@@ -279,11 +278,6 @@ export default function App() {
           setBuildHash(hash);
           setManifestData(manifest);
 
-          // Fast render: seed default compatible rig directly from manifest
-          if (manifest.initialBuild) {
-            setBuild(manifest.initialBuild);
-          }
-
           // Seed catalog with homeFeatured so featured components display instantly
           if (manifest.homeFeatured) {
             setCatalog(manifest.homeFeatured);
@@ -542,7 +536,7 @@ export default function App() {
         ) : activeTab === 'builder' ? (
           <PCBuilderView
             build={build}
-            initialMode={location.search.includes('mode=consultation') ? 'consultation' : 'diy'}
+            initialMode={location.search.includes('mode=diy') ? 'diy' : 'consultation'}
             onOpenSelector={(cat) => setActiveSelectorKey(cat)}
             onRemoveComponent={handleRemoveComponent}
             onViewDetails={setDetailProduct}

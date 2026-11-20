@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Box, 
   Cpu, 
@@ -50,14 +50,17 @@ export default function PCBuilderView({
   onOpenPresets,
   onResetBuild,
   onAddToCart,
-  initialMode = 'diy'
+  initialMode = 'consultation'
 }) {
   const [copied, setCopied] = React.useState(false);
   const [builderMode, setBuilderMode] = useState(() => {
+    if (typeof window !== 'undefined' && window.location.search.includes('mode=diy')) {
+      return 'diy';
+    }
     if (typeof window !== 'undefined' && window.location.search.includes('mode=consultation')) {
       return 'consultation';
     }
-    return initialMode || 'diy';
+    return initialMode || 'consultation';
   });
 
   const [prevInitialMode, setPrevInitialMode] = useState(initialMode);
