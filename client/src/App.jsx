@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import HomeView from './components/HomeView';
@@ -45,6 +45,10 @@ const COMPONENT_SLOTS = [
 
 export default function App() {
   const [catalog, setCatalog] = useState({});
+  const catalogRef = useRef(catalog);
+  useEffect(() => {
+    catalogRef.current = catalog;
+  }, [catalog]);
   const [presets, setPresets] = useState([]);
   const [loading, setLoading] = useState(true);
   // Router integration for real URLs and Back/Forward history
@@ -115,6 +119,14 @@ export default function App() {
     }
   }, [navigate]);
 
+  // Helper to ensure meta descriptions never truncate mid-word
+  const truncateMetaDesc = (text, maxLen = 155) => {
+    if (!text || text.length <= maxLen) return text || '';
+    const sub = text.slice(0, maxLen);
+    const lastSpace = sub.lastIndexOf(' ');
+    return (lastSpace > 0 ? sub.slice(0, lastSpace) : sub).trim();
+  };
+
   // Update per-route <title>, meta description, canonical URL, and OpenGraph/Twitter tags
   useEffect(() => {
     const p = location.pathname;
@@ -133,11 +145,11 @@ export default function App() {
       if (cat && cat !== 'all') {
         const catName = cat.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
         title = `${catName} | Computer Care Ghaziabad`.slice(0, 59);
-        desc = (categoryDescriptions[cat] || `Browse ${catName} at Computer Care Ghaziabad with official manufacturer warranty and GST invoice.`).slice(0, 155);
+        desc = truncateMetaDesc(categoryDescriptions[cat] || `Browse ${catName} at Computer Care Ghaziabad with official manufacturer warranty and GST invoice.`);
         canonicalUrl = `${SITE_URL}/catalog/${cat}`;
       } else {
         title = 'Hardware Components Catalog | Computer Care';
-        desc = (categoryDescriptions.all || 'Browse authentic computer hardware components, CPUs, graphics cards, motherboards, RAM, cabinets, and monitors.').slice(0, 155);
+        desc = truncateMetaDesc(categoryDescriptions.all || 'Browse authentic computer hardware components, CPUs, graphics cards, motherboards, RAM, cabinets, and monitors.');
         canonicalUrl = `${SITE_URL}/catalog`;
       }
     } else if (p === '/services') {
@@ -292,7 +304,7 @@ export default function App() {
     loadData();
   }, []);
 
-  // Restore shared PC build if ?config=<code> is present in URL
+  // Restore shared PC build if ?config=<code> or pre-select component (e.g. ?gpu=<id>)
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const configCode = params.get('config');
@@ -305,7 +317,32 @@ export default function App() {
         console.warn('Could not restore shared build config:', err);
       });
     }
-  }, [location.search]);
+
+    // Support pre-selecting component(s) from URL (e.g. /builder?gpu=860101)
+    COMPONENT_SLOTS.forEach(slot => {
+      const compId = params.get(slot.key);
+      if (compId) {
+        const existingCat = catalogRef.current[slot.key];
+        const match = existingCat && existingCat.find(item => String(item.id) === String(compId));
+        if (match) {
+          setBuild(prev => ({ ...prev, [slot.key]: match }));
+        } else {
+          fetch(`/data/categories/${slot.key}.json?v=${buildHash}`)
+            .then(res => res.ok ? res.json() : [])
+            .then(items => {
+              if (items && items.length > 0) {
+                setCatalog(prev => ({ ...prev, [slot.key]: items }));
+                const found = items.find(item => String(item.id) === String(compId));
+                if (found) {
+                  setBuild(prev => ({ ...prev, [slot.key]: found }));
+                }
+              }
+            })
+            .catch(() => {});
+        }
+      }
+    });
+  }, [location.search, buildHash]);
 
   // Ensure active selector category is loaded on demand with full dataset
   useEffect(() => {
@@ -434,6 +471,8 @@ export default function App() {
         } else {
           navigate('/builder');
         }
+      } else if (dest.startsWith('builder?') || dest.startsWith('/builder?')) {
+        navigate(dest.startsWith('/') ? dest : `/${dest}`);
       } else if (dest === 'consultation' || dest === 'contact') {
         navigate('/builder?mode=consultation');
       } else if (dest === 'bulk-order') {
@@ -536,7 +575,13 @@ export default function App() {
         ) : activeTab === 'builder' ? (
           <PCBuilderView
             build={build}
-            initialMode={location.search.includes('mode=diy') ? 'diy' : 'consultation'}
+            initialMode={
+              location.search.includes('mode=consultation')
+                ? 'consultation'
+                : (location.search.includes('mode=diy') || location.search.includes('gpu=') || location.search.includes('config=') || COMPONENT_SLOTS.some(s => location.search.includes(`${s.key}=`)))
+                  ? 'diy'
+                  : 'consultation'
+            }
             onOpenSelector={(cat) => setActiveSelectorKey(cat)}
             onRemoveComponent={handleRemoveComponent}
             onViewDetails={setDetailProduct}
@@ -582,6 +627,7 @@ export default function App() {
             onSelectCategory={handleCategorySelect}
             onSelectComponent={handleSelectComponent}
             onViewDetails={setDetailProduct}
+            onNavigate={handleNavigate}
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
             categoryCounts={manifestData?.categoryCounts || {}}

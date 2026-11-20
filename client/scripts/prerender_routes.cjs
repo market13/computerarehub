@@ -97,6 +97,13 @@ function formatValidImageUrl(img) {
   return `https://computercaregzb.com${trimmed.startsWith('/') ? '' : '/'}${trimmed}`;
 }
 
+function truncateMetaDesc(text, maxLen = 155) {
+  if (!text || text.length <= maxLen) return text || '';
+  const sub = text.slice(0, maxLen);
+  const lastSpace = sub.lastIndexOf(' ');
+  return (lastSpace > 0 ? sub.slice(0, lastSpace) : sub).trim();
+}
+
 function injectHtml(template, { title, description, canonicalUrl, content, extraSchema = null }) {
   let html = template;
 
@@ -432,7 +439,7 @@ fs.writeFileSync(
   path.join(catalogDir, 'index.html'),
   injectHtml(baseHtmlTemplate, {
     title: 'Hardware Components Catalog | Computer Care',
-    description: (categoryDescriptions.all || 'Browse authentic computer hardware components, CPUs, graphics cards, motherboards, RAM, cabinets, and monitors in Ghaziabad.').slice(0, 155),
+    description: truncateMetaDesc(categoryDescriptions.all || 'Browse authentic computer hardware components, CPUs, graphics cards, motherboards, RAM, cabinets, and monitors in Ghaziabad.', 155),
     canonicalUrl: 'https://computercaregzb.com/catalog',
     content: catalogContent,
     extraSchema: catalogItemListSchema
@@ -866,7 +873,7 @@ categories.forEach((cat) => {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": `${catName} - Computer Hardware Catalog`,
-    "description": catDesc.slice(0, 155),
+    "description": truncateMetaDesc(catDesc, 155),
     "url": `https://computercaregzb.com/catalog/${cat}`,
     "numberOfItems": products.length,
     "itemListElement": products.slice(0, 12).map((p, idx) => {
@@ -937,7 +944,7 @@ categories.forEach((cat) => {
               </div>
               <div style="margin-top:12px;padding-top:12px;border-top:1px solid #f1f5f9;display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;align-items:center;">
                 <a href="https://wa.me/919810550222?text=Hello%20Computer%20Care%2C%20I%20am%20enquiring%20about%20${encodeURIComponent(p.title)}%20(https%3A%2F%2Fcomputercaregzb.com%2Fcatalog%2F${cat})" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:#059669;font-weight:bold;text-decoration:none;border:1px solid #a7f3d0;background:#ecfdf5;padding:6px 12px;border-radius:4px;">Ask on WhatsApp &rarr;</a>
-                <a href="/builder" style="font-size:0.8rem;color:#2b38d1;font-weight:bold;text-decoration:none;">Add to Rig &rarr;</a>
+                <a href="/builder?${cat}=${p.id}" style="font-size:0.8rem;color:#2b38d1;font-weight:bold;text-decoration:none;">Add to Rig &rarr;</a>
               </div>
             </article>
           `).join('')}
@@ -956,7 +963,7 @@ categories.forEach((cat) => {
     path.join(catDir, 'index.html'),
     injectHtml(baseHtmlTemplate, {
       title: `${catName} | Computer Care Ghaziabad`.slice(0, 59),
-      description: catDesc.slice(0, 155),
+      description: truncateMetaDesc(catDesc, 155),
       canonicalUrl: `https://computercaregzb.com/catalog/${cat}`,
       content: catContent,
       extraSchema: itemListSchema

@@ -1,8 +1,8 @@
 {
-  "version": "1.2.0-c923bf4a4d",
-  "buildHash": "c923bf4a4d",
-  "updatedAt": "2026-11-19T12:20:50.579Z",
-  "totalProducts": 581,
+  "version": "1.2.0-8fe9679d33",
+  "buildHash": "8fe9679d33",
+  "updatedAt": "2026-11-20T20:15:10.379Z",
+  "totalProducts": 589,
   "categories": [
     "case",
     "cpu",
@@ -28,7 +28,7 @@
     "case": 187,
     "cpu": 12,
     "motherboard": 17,
-    "gpu": 15,
+    "gpu": 23,
     "ram": 26,
     "storage": 24,
     "psu": 26,
@@ -210,7 +210,9 @@
           "HDMI",
           "DVI",
           "VGA"
-        ]
+        ],
+        "chipset_family": "NVIDIA",
+        "power_connectors": "none"
       },
       "description": "Compact, silent multi-display graphics card supporting HDMI, DVI, and VGA output for home theatre, trading, and office productivity.",
       "url": "/catalog/gpu/lapcare-gt-710"
@@ -507,10 +509,80 @@
             "HDMI",
             "DVI",
             "VGA"
-          ]
+          ],
+          "chipset_family": "NVIDIA",
+          "power_connectors": "none"
         },
         "description": "Compact, silent multi-display graphics card supporting HDMI, DVI, and VGA output for home theatre, trading, and office productivity.",
         "url": "/catalog/gpu/lapcare-gt-710"
+      },
+      {
+        "id": 970301,
+        "title": "Consistent NVIDIA GeForce GT 710 2GB DDR3 Graphics Card",
+        "handle": "consistent-nvidia-geforce-gt-710-2gb",
+        "vendor": "Consistent",
+        "category": "gpu",
+        "product_type": "Graphic Card",
+        "price": 2499,
+        "compare_at_price": 3499,
+        "available": true,
+        "sku": "CST-GPU-GT710",
+        "image": "/images/products/gpu/970301.jpg",
+        "cdn_image": "/images/products/gpu/970301.jpg",
+        "images": [
+          "/images/products/gpu/970301.jpg"
+        ],
+        "specs": {
+          "chipset": "GeForce GT 710",
+          "vram": "2GB",
+          "memory_type": "DDR3",
+          "tdp": 19,
+          "recommended_psu": 300,
+          "length_mm": 145,
+          "ports": [
+            "HDMI",
+            "DVI",
+            "VGA"
+          ],
+          "chipset_family": "NVIDIA",
+          "power_connectors": "none"
+        },
+        "description": "Multi-monitor display adapter supporting HDMI and VGA for dual-screen trading and office setups.",
+        "url": "/catalog/gpu/consistent-gt-710"
+      },
+      {
+        "id": 950103,
+        "title": "Geonix NVIDIA GeForce GT 710 2GB DDR3 Graphics Card",
+        "handle": "geonix-nvidia-geforce-gt-710-2gb",
+        "vendor": "Geonix",
+        "category": "gpu",
+        "product_type": "Graphic Card",
+        "price": 2499,
+        "compare_at_price": 3499,
+        "available": true,
+        "sku": "GNX-GPU-GT710",
+        "image": "/images/products/gpu/950103.jpg",
+        "cdn_image": "/images/products/gpu/950103.jpg",
+        "images": [
+          "/images/products/gpu/950103.jpg"
+        ],
+        "specs": {
+          "chipset": "GeForce GT 710",
+          "vram": "2GB",
+          "memory_type": "DDR3",
+          "tdp": 19,
+          "recommended_psu": 300,
+          "length_mm": 145,
+          "ports": [
+            "HDMI",
+            "DVI",
+            "VGA"
+          ],
+          "chipset_family": "NVIDIA",
+          "power_connectors": "none"
+        },
+        "description": "Compact discrete graphics card with HDMI and VGA ports for multi-screen setups.",
+        "url": "/catalog/gpu/geonix-gt-710"
       },
       {
         "id": 980302,
@@ -539,73 +611,12 @@
             "HDMI",
             "DVI",
             "VGA"
-          ]
+          ],
+          "chipset_family": "NVIDIA",
+          "power_connectors": "none"
         },
         "description": "Dedicated 4GB VRAM graphics card by Lapcare offering smooth HD video playback, Photoshop acceleration, and dual-monitor multitasking.",
         "url": "/catalog/gpu/lapcare-gt-730"
-      },
-      {
-        "id": 980303,
-        "title": "Lapcare NVIDIA GeForce GT 1030 4GB DDR4 Graphics Card",
-        "handle": "lapcare-nvidia-geforce-gt-1030-4gb",
-        "vendor": "Lapcare",
-        "category": "gpu",
-        "product_type": "Graphic Card",
-        "price": 5499,
-        "compare_at_price": 6999,
-        "available": true,
-        "sku": "LPC-GPU-GT1030-4G",
-        "image": "/images/products/gpu/980303.jpg",
-        "cdn_image": "/images/products/gpu/980303.jpg",
-        "images": [
-          "/images/products/gpu/980303.jpg"
-        ],
-        "specs": {
-          "chipset": "GeForce GT 1030",
-          "vram": "4GB",
-          "memory_type": "DDR4",
-          "tdp": 30,
-          "recommended_psu": 300,
-          "length_mm": 155,
-          "ports": [
-            "HDMI",
-            "DVI"
-          ]
-        },
-        "description": "Power-efficient Pascal architecture graphics card providing smooth 1080p esports gaming (CS2, Valorant, GTA V) with zero external power pins required.",
-        "url": "/catalog/gpu/lapcare-gt-1030"
-      },
-      {
-        "id": 980304,
-        "title": "Lapcare AMD Radeon RX 580 8GB GDDR5 Gaming Graphics Card",
-        "handle": "lapcare-amd-radeon-rx-580-8gb",
-        "vendor": "Lapcare",
-        "category": "gpu",
-        "product_type": "Graphic Card",
-        "price": 8999,
-        "compare_at_price": 11999,
-        "available": true,
-        "sku": "LPC-GPU-RX580-8G",
-        "image": "/images/products/gpu/980304.jpg",
-        "cdn_image": "/images/products/gpu/980304.jpg",
-        "images": [
-          "/images/products/gpu/980304.jpg"
-        ],
-        "specs": {
-          "chipset": "Radeon RX 580",
-          "vram": "8GB",
-          "memory_type": "GDDR5",
-          "tdp": 185,
-          "recommended_psu": 500,
-          "length_mm": 235,
-          "ports": [
-            "HDMI",
-            "DisplayPort",
-            "DVI"
-          ]
-        },
-        "description": "High-power 8GB GDDR5 dual-fan gaming graphics card delivering 60+ FPS high settings in modern AAA titles and video editing acceleration.",
-        "url": "/catalog/gpu/lapcare-rx-580"
       }
     ],
     "motherboard": [

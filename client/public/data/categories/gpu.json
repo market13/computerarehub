@@ -26,105 +26,12 @@
         "HDMI",
         "DVI",
         "VGA"
-      ]
+      ],
+      "chipset_family": "NVIDIA",
+      "power_connectors": "none"
     },
     "description": "Compact, silent multi-display graphics card supporting HDMI, DVI, and VGA output for home theatre, trading, and office productivity.",
     "url": "/catalog/gpu/lapcare-gt-710"
-  },
-  {
-    "id": 980302,
-    "title": "Lapcare NVIDIA GeForce GT 730 4GB DDR3 Graphics Card",
-    "handle": "lapcare-nvidia-geforce-gt-730-4gb",
-    "vendor": "Lapcare",
-    "category": "gpu",
-    "product_type": "Graphic Card",
-    "price": 3399,
-    "compare_at_price": 4599,
-    "available": true,
-    "sku": "LPC-GPU-GT730-4G",
-    "image": "/images/products/gpu/980302.jpg",
-    "cdn_image": "/images/products/gpu/980302.jpg",
-    "images": [
-      "/images/products/gpu/980302.jpg"
-    ],
-    "specs": {
-      "chipset": "GeForce GT 730",
-      "vram": "4GB",
-      "memory_type": "DDR3",
-      "tdp": 38,
-      "recommended_psu": 300,
-      "length_mm": 150,
-      "ports": [
-        "HDMI",
-        "DVI",
-        "VGA"
-      ]
-    },
-    "description": "Dedicated 4GB VRAM graphics card by Lapcare offering smooth HD video playback, Photoshop acceleration, and dual-monitor multitasking.",
-    "url": "/catalog/gpu/lapcare-gt-730"
-  },
-  {
-    "id": 980303,
-    "title": "Lapcare NVIDIA GeForce GT 1030 4GB DDR4 Graphics Card",
-    "handle": "lapcare-nvidia-geforce-gt-1030-4gb",
-    "vendor": "Lapcare",
-    "category": "gpu",
-    "product_type": "Graphic Card",
-    "price": 5499,
-    "compare_at_price": 6999,
-    "available": true,
-    "sku": "LPC-GPU-GT1030-4G",
-    "image": "/images/products/gpu/980303.jpg",
-    "cdn_image": "/images/products/gpu/980303.jpg",
-    "images": [
-      "/images/products/gpu/980303.jpg"
-    ],
-    "specs": {
-      "chipset": "GeForce GT 1030",
-      "vram": "4GB",
-      "memory_type": "DDR4",
-      "tdp": 30,
-      "recommended_psu": 300,
-      "length_mm": 155,
-      "ports": [
-        "HDMI",
-        "DVI"
-      ]
-    },
-    "description": "Power-efficient Pascal architecture graphics card providing smooth 1080p esports gaming (CS2, Valorant, GTA V) with zero external power pins required.",
-    "url": "/catalog/gpu/lapcare-gt-1030"
-  },
-  {
-    "id": 980304,
-    "title": "Lapcare AMD Radeon RX 580 8GB GDDR5 Gaming Graphics Card",
-    "handle": "lapcare-amd-radeon-rx-580-8gb",
-    "vendor": "Lapcare",
-    "category": "gpu",
-    "product_type": "Graphic Card",
-    "price": 8999,
-    "compare_at_price": 11999,
-    "available": true,
-    "sku": "LPC-GPU-RX580-8G",
-    "image": "/images/products/gpu/980304.jpg",
-    "cdn_image": "/images/products/gpu/980304.jpg",
-    "images": [
-      "/images/products/gpu/980304.jpg"
-    ],
-    "specs": {
-      "chipset": "Radeon RX 580",
-      "vram": "8GB",
-      "memory_type": "GDDR5",
-      "tdp": 185,
-      "recommended_psu": 500,
-      "length_mm": 235,
-      "ports": [
-        "HDMI",
-        "DisplayPort",
-        "DVI"
-      ]
-    },
-    "description": "High-power 8GB GDDR5 dual-fan gaming graphics card delivering 60+ FPS high settings in modern AAA titles and video editing acceleration.",
-    "url": "/catalog/gpu/lapcare-rx-580"
   },
   {
     "id": 970301,
@@ -153,74 +60,12 @@
         "HDMI",
         "DVI",
         "VGA"
-      ]
+      ],
+      "chipset_family": "NVIDIA",
+      "power_connectors": "none"
     },
     "description": "Multi-monitor display adapter supporting HDMI and VGA for dual-screen trading and office setups.",
     "url": "/catalog/gpu/consistent-gt-710"
-  },
-  {
-    "id": 970302,
-    "title": "Consistent NVIDIA GeForce GT 730 4GB DDR3 Graphics Card",
-    "handle": "consistent-nvidia-geforce-gt-730-4gb",
-    "vendor": "Consistent",
-    "category": "gpu",
-    "product_type": "Graphic Card",
-    "price": 3399,
-    "compare_at_price": 4499,
-    "available": true,
-    "sku": "CST-GPU-GT730",
-    "image": "/images/products/gpu/970302.jpg",
-    "cdn_image": "/images/products/gpu/970302.jpg",
-    "images": [
-      "/images/products/gpu/970302.jpg"
-    ],
-    "specs": {
-      "chipset": "GeForce GT 730",
-      "vram": "4GB",
-      "memory_type": "DDR3",
-      "tdp": 38,
-      "recommended_psu": 300,
-      "length_mm": 150,
-      "ports": [
-        "HDMI",
-        "DVI",
-        "VGA"
-      ]
-    },
-    "description": "Affordable 4GB dedicated graphics card with active cooling fan and full DirectX 12 support.",
-    "url": "/catalog/gpu/consistent-gt-730"
-  },
-  {
-    "id": 970303,
-    "title": "Consistent NVIDIA GeForce GTX 1650 4GB GDDR6 Graphics Card",
-    "handle": "consistent-nvidia-geforce-gtx-1650-4gb",
-    "vendor": "Consistent",
-    "category": "gpu",
-    "product_type": "Graphic Card",
-    "price": 10499,
-    "compare_at_price": 13999,
-    "available": true,
-    "sku": "CST-GPU-GTX1650",
-    "image": "/images/products/gpu/970303.jpg",
-    "cdn_image": "/images/products/gpu/970303.jpg",
-    "images": [
-      "/images/products/gpu/970303.jpg"
-    ],
-    "specs": {
-      "chipset": "GeForce GTX 1650",
-      "vram": "4GB",
-      "memory_type": "GDDR6",
-      "tdp": 75,
-      "recommended_psu": 350,
-      "length_mm": 200,
-      "ports": [
-        "HDMI",
-        "DisplayPort",
-        "DVI"
-      ]
-    },
-    "description": "Turing architecture 1080p gaming graphics card featuring fast GDDR6 VRAM and low power draw.",
-    "url": "/catalog/gpu/consistent-gtx-1650"
   },
   {
     "id": 950103,
@@ -249,10 +94,80 @@
         "HDMI",
         "DVI",
         "VGA"
-      ]
+      ],
+      "chipset_family": "NVIDIA",
+      "power_connectors": "none"
     },
     "description": "Compact discrete graphics card with HDMI and VGA ports for multi-screen setups.",
     "url": "/catalog/gpu/geonix-gt-710"
+  },
+  {
+    "id": 980302,
+    "title": "Lapcare NVIDIA GeForce GT 730 4GB DDR3 Graphics Card",
+    "handle": "lapcare-nvidia-geforce-gt-730-4gb",
+    "vendor": "Lapcare",
+    "category": "gpu",
+    "product_type": "Graphic Card",
+    "price": 3399,
+    "compare_at_price": 4599,
+    "available": true,
+    "sku": "LPC-GPU-GT730-4G",
+    "image": "/images/products/gpu/980302.jpg",
+    "cdn_image": "/images/products/gpu/980302.jpg",
+    "images": [
+      "/images/products/gpu/980302.jpg"
+    ],
+    "specs": {
+      "chipset": "GeForce GT 730",
+      "vram": "4GB",
+      "memory_type": "DDR3",
+      "tdp": 38,
+      "recommended_psu": 300,
+      "length_mm": 150,
+      "ports": [
+        "HDMI",
+        "DVI",
+        "VGA"
+      ],
+      "chipset_family": "NVIDIA",
+      "power_connectors": "none"
+    },
+    "description": "Dedicated 4GB VRAM graphics card by Lapcare offering smooth HD video playback, Photoshop acceleration, and dual-monitor multitasking.",
+    "url": "/catalog/gpu/lapcare-gt-730"
+  },
+  {
+    "id": 970302,
+    "title": "Consistent NVIDIA GeForce GT 730 4GB DDR3 Graphics Card",
+    "handle": "consistent-nvidia-geforce-gt-730-4gb",
+    "vendor": "Consistent",
+    "category": "gpu",
+    "product_type": "Graphic Card",
+    "price": 3399,
+    "compare_at_price": 4499,
+    "available": true,
+    "sku": "CST-GPU-GT730",
+    "image": "/images/products/gpu/970302.jpg",
+    "cdn_image": "/images/products/gpu/970302.jpg",
+    "images": [
+      "/images/products/gpu/970302.jpg"
+    ],
+    "specs": {
+      "chipset": "GeForce GT 730",
+      "vram": "4GB",
+      "memory_type": "DDR3",
+      "tdp": 38,
+      "recommended_psu": 300,
+      "length_mm": 150,
+      "ports": [
+        "HDMI",
+        "DVI",
+        "VGA"
+      ],
+      "chipset_family": "NVIDIA",
+      "power_connectors": "none"
+    },
+    "description": "Affordable 4GB dedicated graphics card with active cooling fan and full DirectX 12 support.",
+    "url": "/catalog/gpu/consistent-gt-730"
   },
   {
     "id": 950104,
@@ -281,7 +196,9 @@
         "HDMI",
         "DVI",
         "VGA"
-      ]
+      ],
+      "chipset_family": "NVIDIA",
+      "power_connectors": "none"
     },
     "description": "4GB dedicated graphic card for HD multimedia, photo editing, and casual gaming.",
     "url": "/catalog/gpu/geonix-gt-730"
@@ -313,41 +230,212 @@
         "HDMI",
         "DVI",
         "VGA"
-      ]
+      ],
+      "power_connectors": "none",
+      "chipset_family": "NVIDIA"
     },
     "description": "Zebronics dedicated 4GB graphics card with HDMI, DVI, and VGA triple monitor outputs.",
     "url": "/catalog/gpu/zebronics-gt-730"
   },
   {
-    "id": 920101,
-    "title": "Acer Predator BiFrost Intel Arc A770 OC 16GB GDDR6 Graphics Card",
-    "handle": "acer-predator-bifrost-intel-arc-a770-oc-16gb",
-    "vendor": "Acer",
+    "id": 980303,
+    "title": "Lapcare NVIDIA GeForce GT 1030 4GB DDR4 Graphics Card",
+    "handle": "lapcare-nvidia-geforce-gt-1030-4gb",
+    "vendor": "Lapcare",
     "category": "gpu",
     "product_type": "Graphic Card",
-    "price": 28999,
-    "compare_at_price": 36999,
+    "price": 5499,
+    "compare_at_price": 6999,
     "available": true,
-    "sku": "ACR-GPU-A770-16G",
-    "image": "/images/products/gpu/920101.jpg",
-    "cdn_image": "/images/products/gpu/920101.jpg",
+    "sku": "LPC-GPU-GT1030-4G",
+    "image": "/images/products/gpu/980303.jpg",
+    "cdn_image": "/images/products/gpu/980303.jpg",
     "images": [
-      "/images/products/gpu/920101.jpg"
+      "/images/products/gpu/980303.jpg"
     ],
     "specs": {
-      "chipset": "Intel Arc A770",
-      "vram": "16GB",
-      "memory_type": "GDDR6",
-      "tdp": 225,
-      "recommended_psu": 650,
-      "length_mm": 267,
+      "chipset": "GeForce GT 1030",
+      "vram": "4GB",
+      "memory_type": "DDR4",
+      "tdp": 30,
+      "recommended_psu": 300,
+      "length_mm": 155,
       "ports": [
-        "HDMI 2.1",
+        "HDMI",
+        "DVI"
+      ],
+      "chipset_family": "NVIDIA",
+      "power_connectors": "none"
+    },
+    "description": "Power-efficient Pascal architecture graphics card providing smooth 1080p esports gaming (CS2, Valorant, GTA V) with zero external power pins required.",
+    "url": "/catalog/gpu/lapcare-gt-1030"
+  },
+  {
+    "id": 980304,
+    "title": "Lapcare AMD Radeon RX 580 8GB GDDR5 Gaming Graphics Card",
+    "handle": "lapcare-amd-radeon-rx-580-8gb",
+    "vendor": "Lapcare",
+    "category": "gpu",
+    "product_type": "Graphic Card",
+    "price": 8999,
+    "compare_at_price": 11999,
+    "available": true,
+    "sku": "LPC-GPU-RX580-8G",
+    "image": "/images/products/gpu/980304.jpg",
+    "cdn_image": "/images/products/gpu/980304.jpg",
+    "images": [
+      "/images/products/gpu/980304.jpg"
+    ],
+    "specs": {
+      "chipset": "Radeon RX 580",
+      "vram": "8GB",
+      "memory_type": "GDDR5",
+      "tdp": 185,
+      "recommended_psu": 500,
+      "length_mm": 235,
+      "ports": [
+        "HDMI",
+        "DisplayPort",
+        "DVI"
+      ],
+      "chipset_family": "AMD",
+      "power_connectors": "1x 8-pin"
+    },
+    "description": "High-power 8GB GDDR5 dual-fan gaming graphics card delivering 60+ FPS high settings in modern AAA titles and video editing acceleration.",
+    "url": "/catalog/gpu/lapcare-rx-580"
+  },
+  {
+    "id": 970303,
+    "title": "Consistent NVIDIA GeForce GTX 1650 4GB GDDR6 Graphics Card",
+    "handle": "consistent-nvidia-geforce-gtx-1650-4gb",
+    "vendor": "Consistent",
+    "category": "gpu",
+    "product_type": "Graphic Card",
+    "price": 10499,
+    "compare_at_price": 13999,
+    "available": true,
+    "sku": "CST-GPU-GTX1650",
+    "image": "/images/products/gpu/970303.jpg",
+    "cdn_image": "/images/products/gpu/970303.jpg",
+    "images": [
+      "/images/products/gpu/970303.jpg"
+    ],
+    "specs": {
+      "chipset": "GeForce GTX 1650",
+      "vram": "4GB",
+      "memory_type": "GDDR6",
+      "tdp": 75,
+      "recommended_psu": 350,
+      "length_mm": 200,
+      "ports": [
+        "HDMI",
+        "DisplayPort",
+        "DVI"
+      ],
+      "chipset_family": "NVIDIA",
+      "power_connectors": "none / PCIe slot only"
+    },
+    "description": "Turing architecture 1080p gaming graphics card featuring fast GDDR6 VRAM and low power draw.",
+    "url": "/catalog/gpu/consistent-gtx-1650"
+  },
+  {
+    "id": 850101,
+    "title": "Asrock Intel Arc A580 8GB GDDR6 Graphics Card",
+    "handle": "asrock-intel-arc-a580-8gb-gddr6",
+    "vendor": "Asrock",
+    "category": "gpu",
+    "product_type": "Graphic Card",
+    "price": 16499,
+    "compare_at_price": 20999,
+    "available": true,
+    "sku": "ASR-GPU-A580-8G",
+    "image": "/images/products/gpu/850101.jpg",
+    "cdn_image": "/images/products/gpu/850101.jpg",
+    "images": [
+      "/images/products/gpu/850101.jpg"
+    ],
+    "specs": {
+      "chipset": "Intel Arc A580",
+      "chipset_family": "Intel",
+      "vram": "8GB",
+      "memory_type": "GDDR6",
+      "tdp": 185,
+      "recommended_psu": 550,
+      "length_mm": 271,
+      "power_connectors": "2x 8-pin",
+      "ports": [
+        "HDMI 2.0b",
         "DisplayPort 2.0 (x3)"
       ]
     },
-    "description": "Flagship 16GB VRAM creator and gaming graphics card with hybrid AeroBlade 3D & FrostBlade 2.0 dual cooling.",
-    "url": "/catalog/gpu/acer-predator-a770"
+    "description": "Asrock Challenger series Intel Arc A580 with dual cooling fans, 8GB GDDR6 VRAM, and full hardware AV1 encoding.",
+    "url": "/catalog/gpu/asrock-intel-arc-a580-8gb"
+  },
+  {
+    "id": 880101,
+    "title": "Sapphire AMD Radeon RX 6600 8GB GDDR6 Graphics Card",
+    "handle": "sapphire-amd-radeon-rx-6600-8gb-gddr6",
+    "vendor": "Sapphire",
+    "category": "gpu",
+    "product_type": "Graphic Card",
+    "price": 19999,
+    "compare_at_price": 24999,
+    "available": true,
+    "sku": "SPH-GPU-RX6600-8G",
+    "image": "/images/products/gpu/880101.jpg",
+    "cdn_image": "/images/products/gpu/880101.jpg",
+    "images": [
+      "/images/products/gpu/880101.jpg"
+    ],
+    "specs": {
+      "chipset": "Radeon RX 6600",
+      "chipset_family": "AMD",
+      "vram": "8GB",
+      "memory_type": "GDDR6",
+      "tdp": 132,
+      "recommended_psu": 450,
+      "length_mm": 193,
+      "power_connectors": "1x 8-pin",
+      "ports": [
+        "HDMI 2.1",
+        "DisplayPort 1.4a (x3)"
+      ]
+    },
+    "description": "Compact dual-fan Sapphire Pulse graphics card delivering smooth 1080p high-framerate esports gaming with 132W low power draw.",
+    "url": "/catalog/gpu/sapphire-rx-6600-8gb"
+  },
+  {
+    "id": 870101,
+    "title": "Zotac GeForce RTX 3060 12GB GDDR6 Graphics Card",
+    "handle": "zotac-geforce-rtx-3060-12gb-gddr6",
+    "vendor": "Zotac",
+    "category": "gpu",
+    "product_type": "Graphic Card",
+    "price": 24499,
+    "compare_at_price": 29999,
+    "available": true,
+    "sku": "ZTC-GPU-RTX3060-12G",
+    "image": "/images/products/gpu/870101.jpg",
+    "cdn_image": "/images/products/gpu/870101.jpg",
+    "images": [
+      "/images/products/gpu/870101.jpg"
+    ],
+    "specs": {
+      "chipset": "GeForce RTX 3060",
+      "chipset_family": "NVIDIA",
+      "vram": "12GB",
+      "memory_type": "GDDR6",
+      "tdp": 170,
+      "recommended_psu": 550,
+      "length_mm": 224,
+      "power_connectors": "1x 8-pin",
+      "ports": [
+        "HDMI 2.1",
+        "DisplayPort 1.4a (x3)"
+      ]
+    },
+    "description": "Zotac Gaming Twin Edge GeForce RTX 3060 with huge 12GB VRAM for 1080p/1440p gaming, 3D modeling, and AI workflows.",
+    "url": "/catalog/gpu/zotac-rtx-3060-12gb"
   },
   {
     "id": 920102,
@@ -375,7 +463,9 @@
       "ports": [
         "HDMI 2.1",
         "DisplayPort 1.4 (x3)"
-      ]
+      ],
+      "chipset_family": "AMD",
+      "power_connectors": "1x 8-pin"
     },
     "description": "High-FPS 1080p and 1440p AMD RDNA 3 gaming graphics card with Acer Predator custom vapor chamber cooling.",
     "url": "/catalog/gpu/acer-predator-rx7600"
@@ -406,10 +496,111 @@
       "ports": [
         "HDMI 2.1",
         "DisplayPort 1.4a (x3)"
-      ]
+      ],
+      "chipset_family": "NVIDIA",
+      "power_connectors": "1x 8-pin"
     },
     "description": "Next-gen Ada Lovelace GPU with DLSS 3 Frame Generation and ultra-efficient 115W TDP.",
     "url": "/catalog/gpu/hp-rtx-4060"
+  },
+  {
+    "id": 920101,
+    "title": "Acer Predator BiFrost Intel Arc A770 OC 16GB GDDR6 Graphics Card",
+    "handle": "acer-predator-bifrost-intel-arc-a770-oc-16gb",
+    "vendor": "Acer",
+    "category": "gpu",
+    "product_type": "Graphic Card",
+    "price": 28999,
+    "compare_at_price": 36999,
+    "available": true,
+    "sku": "ACR-GPU-A770-16G",
+    "image": "/images/products/gpu/920101.jpg",
+    "cdn_image": "/images/products/gpu/920101.jpg",
+    "images": [
+      "/images/products/gpu/920101.jpg"
+    ],
+    "specs": {
+      "chipset": "Intel Arc A770",
+      "vram": "16GB",
+      "memory_type": "GDDR6",
+      "tdp": 225,
+      "recommended_psu": 650,
+      "length_mm": 267,
+      "ports": [
+        "HDMI 2.1",
+        "DisplayPort 2.0 (x3)"
+      ],
+      "chipset_family": "Intel",
+      "power_connectors": "2x 8-pin"
+    },
+    "description": "Flagship 16GB VRAM creator and gaming graphics card with hybrid AeroBlade 3D & FrostBlade 2.0 dual cooling.",
+    "url": "/catalog/gpu/acer-predator-a770"
+  },
+  {
+    "id": 870102,
+    "title": "Zotac GeForce RTX 4060 Ti 8GB GDDR6 Graphics Card",
+    "handle": "zotac-geforce-rtx-4060-ti-8gb-gddr6",
+    "vendor": "Zotac",
+    "category": "gpu",
+    "product_type": "Graphic Card",
+    "price": 35999,
+    "compare_at_price": 42999,
+    "available": true,
+    "sku": "ZTC-GPU-RTX4060TI-8G",
+    "image": "/images/products/gpu/870102.jpg",
+    "cdn_image": "/images/products/gpu/870102.jpg",
+    "images": [
+      "/images/products/gpu/870102.jpg"
+    ],
+    "specs": {
+      "chipset": "GeForce RTX 4060 Ti",
+      "chipset_family": "NVIDIA",
+      "vram": "8GB",
+      "memory_type": "GDDR6",
+      "tdp": 160,
+      "recommended_psu": 500,
+      "length_mm": 225,
+      "power_connectors": "1x 8-pin",
+      "ports": [
+        "HDMI 2.1a",
+        "DisplayPort 1.4a (x3)"
+      ]
+    },
+    "description": "Ada Lovelace architecture graphics card with DLSS 3 Frame Generation, low 160W power consumption, and IceStorm 2.0 dual cooling.",
+    "url": "/catalog/gpu/zotac-rtx-4060-ti-8gb"
+  },
+  {
+    "id": 880102,
+    "title": "Sapphire AMD Radeon RX 7800 XT 16GB GDDR6 Graphics Card",
+    "handle": "sapphire-amd-radeon-rx-7800-xt-16gb-gddr6",
+    "vendor": "Sapphire",
+    "category": "gpu",
+    "product_type": "Graphic Card",
+    "price": 49999,
+    "compare_at_price": 58999,
+    "available": true,
+    "sku": "SPH-GPU-RX7800XT-16G",
+    "image": "/images/products/gpu/880102.jpg",
+    "cdn_image": "/images/products/gpu/880102.jpg",
+    "images": [
+      "/images/products/gpu/880102.jpg"
+    ],
+    "specs": {
+      "chipset": "Radeon RX 7800 XT",
+      "chipset_family": "AMD",
+      "vram": "16GB",
+      "memory_type": "GDDR6",
+      "tdp": 263,
+      "recommended_psu": 700,
+      "length_mm": 280,
+      "power_connectors": "2x 8-pin",
+      "ports": [
+        "HDMI 2.1",
+        "DisplayPort 2.1 (x3)"
+      ]
+    },
+    "description": "Sapphire Pulse RX 7800 XT with 16GB VRAM and 256-bit memory bus delivering blazing 1440p and native 4K gaming framerates.",
+    "url": "/catalog/gpu/sapphire-rx-7800-xt-16gb"
   },
   {
     "id": 900102,
@@ -437,10 +628,78 @@
       "ports": [
         "HDMI 2.1",
         "DisplayPort 1.4a (x3)"
-      ]
+      ],
+      "chipset_family": "NVIDIA",
+      "power_connectors": "1x 8-pin"
     },
     "description": "High-end 1440p and 4K ray-tracing GPU featuring 12GB high-speed GDDR6X VRAM.",
     "url": "/catalog/gpu/dell-rtx-4070"
+  },
+  {
+    "id": 860101,
+    "title": "Gigabyte GeForce RTX 4070 SUPER 12GB GDDR6X Graphics Card",
+    "handle": "gigabyte-geforce-rtx-4070-super-12gb-gddr6x",
+    "vendor": "Gigabyte",
+    "category": "gpu",
+    "product_type": "Graphic Card",
+    "price": 58999,
+    "compare_at_price": 67999,
+    "available": true,
+    "sku": "GB-GPU-RTX4070S-12G",
+    "image": "/images/products/gpu/860101.jpg",
+    "cdn_image": "/images/products/gpu/860101.jpg",
+    "images": [
+      "/images/products/gpu/860101.jpg"
+    ],
+    "specs": {
+      "chipset": "GeForce RTX 4070 SUPER",
+      "chipset_family": "NVIDIA",
+      "vram": "12GB",
+      "memory_type": "GDDR6X",
+      "tdp": 220,
+      "recommended_psu": 650,
+      "length_mm": 261,
+      "power_connectors": "1x 12V-2x6",
+      "ports": [
+        "HDMI 2.1a",
+        "DisplayPort 1.4a (x3)"
+      ]
+    },
+    "description": "Triple Windforce fan cooling, 7,168 CUDA cores, and ultra-fast 12GB GDDR6X memory for premium 1440p/4K ray tracing and DLSS 3.5.",
+    "url": "/catalog/gpu/gigabyte-rtx-4070-super-12gb"
+  },
+  {
+    "id": 870103,
+    "title": "Zotac GeForce RTX 4070 Ti SUPER 16GB GDDR6X Graphics Card",
+    "handle": "zotac-geforce-rtx-4070-ti-super-16gb-gddr6x",
+    "vendor": "Zotac",
+    "category": "gpu",
+    "product_type": "Graphic Card",
+    "price": 77999,
+    "compare_at_price": 89999,
+    "available": true,
+    "sku": "ZTC-GPU-RTX4070TIS-16G",
+    "image": "/images/products/gpu/870103.jpg",
+    "cdn_image": "/images/products/gpu/870103.jpg",
+    "images": [
+      "/images/products/gpu/870103.jpg"
+    ],
+    "specs": {
+      "chipset": "GeForce RTX 4070 Ti SUPER",
+      "chipset_family": "NVIDIA",
+      "vram": "16GB",
+      "memory_type": "GDDR6X",
+      "tdp": 285,
+      "recommended_psu": 700,
+      "length_mm": 307,
+      "power_connectors": "1x 12V-2x6",
+      "ports": [
+        "HDMI 2.1a",
+        "DisplayPort 1.4a (x3)"
+      ]
+    },
+    "description": "Trinity Black Edition with 16GB 256-bit GDDR6X memory, triple IceStorm 2.0 fans, and metal backplate for top-tier 4K gaming and generative AI.",
+    "url": "/catalog/gpu/zotac-rtx-4070-ti-super-16gb"
   },
   {
     "id": 890102,
@@ -468,9 +727,44 @@
       "ports": [
         "HDMI 2.1",
         "DisplayPort 1.4a (x3)"
-      ]
+      ],
+      "chipset_family": "NVIDIA",
+      "power_connectors": "1x 12V-2x6"
     },
     "description": "Extreme 4K gaming and AI compute card with massive 16GB GDDR6X and ColdFront vapor chamber.",
     "url": "/catalog/gpu/lenovo-rtx-4080"
+  },
+  {
+    "id": 860102,
+    "title": "Gigabyte GeForce RTX 4090 24GB GDDR6X Graphics Card",
+    "handle": "gigabyte-geforce-rtx-4090-24gb-gddr6x",
+    "vendor": "Gigabyte",
+    "category": "gpu",
+    "product_type": "Graphic Card",
+    "price": 184999,
+    "compare_at_price": 210000,
+    "available": true,
+    "sku": "GB-GPU-RTX4090-24G",
+    "image": "/images/products/gpu/860102.jpg",
+    "cdn_image": "/images/products/gpu/860102.jpg",
+    "images": [
+      "/images/products/gpu/860102.jpg"
+    ],
+    "specs": {
+      "chipset": "GeForce RTX 4090",
+      "chipset_family": "NVIDIA",
+      "vram": "24GB",
+      "memory_type": "GDDR6X",
+      "tdp": 450,
+      "recommended_psu": 1000,
+      "length_mm": 340,
+      "power_connectors": "1x 12V-2x6",
+      "ports": [
+        "HDMI 2.1a",
+        "DisplayPort 1.4a (x3)"
+      ]
+    },
+    "description": "Massive 3.5-slot monster with vapor chamber cooling, 16,384 CUDA cores, and 24GB VRAM for uncompromised 4K gaming, Unreal Engine 5, and AI training.",
+    "url": "/catalog/gpu/gigabyte-rtx-4090-24gb"
   }
 ]

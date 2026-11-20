@@ -78,6 +78,13 @@ const FAN_KINDS = [
   { id: 'black', label: '⚫ Black Edition' },
 ];
 
+const GPU_CHIPSET_FAMILIES = [
+  { id: 'ALL', label: 'All Chipsets' },
+  { id: 'nvidia', label: '🟢 NVIDIA GeForce' },
+  { id: 'amd', label: '🔴 AMD Radeon' },
+  { id: 'intel', label: '🔵 Intel Arc' },
+];
+
 export default function CatalogView({ 
   catalog = {}, 
   build = {}, 
@@ -85,6 +92,7 @@ export default function CatalogView({
   onSelectCategory,
   onSelectComponent, 
   onViewDetails,
+  onNavigate,
   searchQuery = '',
   setSearchQuery = () => {},
   categoryCounts = {}
@@ -97,6 +105,7 @@ export default function CatalogView({
   const [selectedBrand, setSelectedBrand] = useState('ALL');
   const [selectedCabinetKind, setSelectedCabinetKind] = useState('ALL');
   const [selectedFanKind, setSelectedFanKind] = useState('ALL');
+  const [selectedGpuFamily, setSelectedGpuFamily] = useState('ALL');
   const [sortBy, setSortBy] = useState('price_asc');
   const [pageNumber, setPageNumber] = useState(1);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
@@ -192,6 +201,19 @@ export default function CatalogView({
         if (selectedFanKind === 'black' && !title.includes('black')) return false;
       }
 
+      // Specialized GPU Chipset Family filter
+      if (selectedCategory === 'gpu' && selectedGpuFamily !== 'ALL') {
+        const family = (p.specs?.chipset_family || '').toLowerCase();
+        const title = (p.title || '').toLowerCase();
+        if (selectedGpuFamily === 'nvidia') {
+          if (family !== 'nvidia' && !title.includes('geforce') && !title.includes('rtx') && !title.includes('gtx') && !title.includes('gt 710')) return false;
+        } else if (selectedGpuFamily === 'amd') {
+          if (family !== 'amd' && !title.includes('radeon') && !title.includes('rx ') && !title.includes('amd')) return false;
+        } else if (selectedGpuFamily === 'intel') {
+          if (family !== 'intel' && !title.includes('arc') && !title.includes('intel')) return false;
+        }
+      }
+
       return true;
     }).sort((a, b) => {
       if (sortBy === 'price_asc') return a.price - b.price;
@@ -199,7 +221,7 @@ export default function CatalogView({
       if (sortBy === 'name') return a.title.localeCompare(b.title);
       return 0;
     });
-  }, [allProducts, searchQuery, selectedBrand, selectedCabinetKind, selectedFanKind, selectedCategory, sortBy]);
+  }, [allProducts, searchQuery, selectedBrand, selectedCabinetKind, selectedFanKind, selectedGpuFamily, selectedCategory, sortBy]);
 
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
   const paginatedProducts = filteredProducts.slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage);
@@ -313,6 +335,28 @@ export default function CatalogView({
         </div>
       )}
 
+      {/* Specialized GPU Chipset Family Filter Strip if category is gpu */}
+      {selectedCategory === 'gpu' && (
+        <div className="bg-white rounded-xl border border-brand-border p-3 flex items-center gap-2 overflow-x-auto scrollbar-none shadow-sm">
+          <span className="text-xs font-bold text-brand-navy uppercase font-display mr-1 whitespace-nowrap">
+            Chipset Family:
+          </span>
+          {GPU_CHIPSET_FAMILIES.map(chip => (
+            <button
+              key={chip.id}
+              onClick={() => { setSelectedGpuFamily(chip.id); setPageNumber(1); }}
+              className={`px-3 py-1.5 rounded-lg text-xs font-sans whitespace-nowrap transition-all border ${
+                selectedGpuFamily === chip.id
+                  ? 'bg-brand-blue text-white font-bold border-brand-blue shadow-sm'
+                  : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border-slate-200 font-medium'
+              }`}
+            >
+              {chip.label}
+            </button>
+          ))}
+        </div>
+      )}
+
       {/* Mobile Horizontal Category Pills Strip */}
       <div className="lg:hidden w-full flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
         {CATEGORY_TABS.map(tab => (
@@ -324,6 +368,7 @@ export default function CatalogView({
               setSelectedBrand('ALL'); 
               setSelectedCabinetKind('ALL'); 
               setSelectedFanKind('ALL'); 
+              setSelectedGpuFamily('ALL');
             }}
             className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors flex-shrink-0 cursor-pointer ${
               selectedCategory === tab.key
@@ -358,6 +403,7 @@ export default function CatalogView({
                       setSelectedBrand('ALL'); 
                       setSelectedCabinetKind('ALL'); 
                       setSelectedFanKind('ALL'); 
+                      setSelectedGpuFamily('ALL');
                     }}
                     className={`text-left px-3 py-2 rounded-lg transition-colors font-medium flex items-center justify-between ${
                       selectedCategory === tab.key
@@ -558,14 +604,20 @@ export default function CatalogView({
                         </button>
 
                         <button
-                          onClick={() => onSelectComponent(p.category, p)}
+                          onClick={() => {
+                            onSelectComponent(p.category || selectedCategory, p);
+                            if (onNavigate) {
+                              onNavigate(`builder?${p.category || selectedCategory}=${p.id}`);
+                            }
+                          }}
                           className={`px-2.5 py-1.5 rounded-lg text-xs font-display font-bold uppercase tracking-wider transition-colors ${
                             isSelected
                               ? 'bg-emerald-600 text-white'
                               : 'bg-brand-navy hover:bg-brand-blue text-white'
                           }`}
+                          title="Add component to PC Builder Rig"
                         >
-                          {isSelected ? "In Rig" : "Add"}
+                          {isSelected ? "In Rig" : "Add to Rig"}
                         </button>
                       </div>
                     </div>

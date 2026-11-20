@@ -182,20 +182,33 @@ export function checkCompatibility(build) {
     // 5a. 12VHPWR / ATX 3.0 Power Cable Check for Modern High-Power GPUs
     if (gpu) {
       const gpuTitle = (gpu.title || '').toUpperCase();
-      const isHighPowerRtx40 = /RTX\s*40(?:70\s*TI|80|90)/i.test(gpuTitle);
+      const connectorStr = (gpu.specs?.power_connectors || '').toUpperCase();
+      const isHighPower12V = /RTX\s*40(?:70\s*TI|70\s*SUPER|80|90)/i.test(gpuTitle) || connectorStr.includes('12V');
 
-      if (isHighPowerRtx40) {
+      if (isHighPower12V) {
         const psuTitle = (psu.title || '').toUpperCase();
         const isAtx30 = psu.specs?.pcie_12vhpwr || /ATX\s*3\.0|PCIE\s*5\.0|12VHPWR|12V-2X6/i.test(psuTitle);
 
         if (!isAtx30) {
           warnings.push({
             type: 'warning',
-            title: '12VHPWR PCIe Cable Adapter Required',
-            message: `This GPU uses the high-power 12VHPWR (16-pin) connector. Selected PSU is not native ATX 3.0; verify your GPU bundle includes the 3x or 4x 8-pin PCIe adapter.`,
+            title: '12VHPWR / 12V-2x6 Cable Adapter Required',
+            message: `This GPU uses the high-power 12VHPWR / 12V-2x6 connector. Selected PSU is not native ATX 3.0; verify your GPU bundle includes the PCIe 8-pin adapter.`,
           });
         } else {
           info.push('Native 12VHPWR / PCIe 5.0 high-power GPU cable verified.');
+        }
+      }
+
+      // 5b. Manufacturer Minimum Recommended PSU Check
+      if (gpu.specs?.recommended_psu) {
+        const minPsu = Number(gpu.specs.recommended_psu);
+        if (psuWatts < minPsu && psuWatts >= estimatedWattage) {
+          warnings.push({
+            type: 'warning',
+            title: 'Below GPU Manufacturer Recommended PSU',
+            message: `The manufacturer of ${gpu.specs.chipset || 'this graphics card'} recommends at least a ${minPsu}W power supply for safe power spikes. Selected: ${psuWatts}W.`,
+          });
         }
       }
     }
